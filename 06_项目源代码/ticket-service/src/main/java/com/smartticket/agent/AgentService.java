@@ -1,6 +1,7 @@
 package com.smartticket.agent;
 
-import com.smartticket.analysis.persistence.AnalysisTaskRepository;
+import com.smartticket.agent.persistence.AgentRunRepository;
+import com.smartticket.common.JsonCodec;
 import com.smartticket.config.RuntimeProperties;
 import com.smartticket.exception.ApiFailure;
 import com.smartticket.governance.ApplicationMetrics;
@@ -23,7 +24,8 @@ public class AgentService {
     private final AgentModel model;
     private final AgentTools tools;
     private final RuntimeProperties config;
-    private final AnalysisTaskRepository repo;
+    private final AgentRunRepository repo;
+    private final JsonCodec json;
     private final BudgetLedger budget;
     private final ApplicationMetrics metrics;
     private final ThreadPoolExecutor executor =
@@ -58,13 +60,14 @@ public class AgentService {
             AgentModel m,
             AgentTools t,
             RuntimeProperties c,
-            AnalysisTaskRepository r,
+            AgentRunRepository r,
             BudgetLedger b,
-            ApplicationMetrics metrics) {
+            ApplicationMetrics metrics, JsonCodec json) {
         model = m;
         tools = t;
         config = c;
         repo = r;
+        this.json = json;
         budget = b;
         this.metrics = metrics;
     }
@@ -102,11 +105,7 @@ public class AgentService {
         String id = UUID.randomUUID().toString();
         long start = System.nanoTime(),
                 deadline = start + TimeUnit.SECONDS.toNanos(config.getDeadlineSeconds());
-        repo.db()
-                .update(
-                        "INSERT INTO agent_run(run_id,actor_id,status) VALUES(?,?,'RUNNING')",
-                        id,
-                        actor.id());
+        repo.start(id, actor.id());
         List<Message> history = new ArrayList<>();
         history.add(
                 new SystemMessage(
@@ -221,20 +220,11 @@ public class AgentService {
                     }
                     long elapsed = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - toolStart);
                     steps.add(new Step(call.name(), outcome, elapsed));
-                    repo.db()
-                            .update(
-                                    "INSERT INTO"
-                                        + " agent_step(run_id,tool_call_id,tool_name,outcome,cost_ms)"
-                                        + " VALUES(?,?,?,?,?)",
-                                    id,
-                                    call.id(),
-                                    call.name(),
-                                    outcome,
-                                    elapsed);
-                    String encoded = repo.encode(AgentToolContext.compact(call.name(), result, contextSources));
+                    repo.step(id, call.id(), call.name(), outcome, elapsed);
+                    String encoded = json.encode(AgentToolContext.compact(call.name(), result, contextSources));
                     if (encoded.length() > 10000)
                         encoded =
-                                repo.encode(
+                                json.encode(
                                         Map.of(
                                                 "error",
                                                 "OUTPUT_TOO_LARGE",
@@ -252,17 +242,7 @@ public class AgentService {
             metrics.count("agent", "stopped");
         }
         long cost = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - start);
-        repo.db()
-                .update(
-                        "UPDATE agent_run SET"
-                            + " status=?,model_calls=?,tool_calls=?,tokens_used=?,cost_ms=? WHERE"
-                            + " run_id=?",
-                        status,
-                        calls,
-                        count,
-                        tokens,
-                        cost,
-                        id);
+        repo.finish(id, status, calls, count, tokens, cost);
         metrics.time("agent.latency", cost);
         metrics.count("agent", status);
         return new Run(

@@ -1,6 +1,7 @@
 package com.smartticket.service.impl;
 
 import com.smartticket.analysis.persistence.AnalysisTaskRepository;
+import com.smartticket.cache.CacheInvalidationRepository;
 import com.smartticket.config.RuntimeProperties;
 import com.smartticket.exception.ApiFailure;
 import com.smartticket.governance.ApplicationMetrics;
@@ -85,10 +86,12 @@ public class TicketServiceImpl implements TicketService {
      */
     private static final Duration CACHE_TTL = Duration.ofMinutes(10);
 
-    @Autowired(required=false) private AnalysisTaskRepository phase3;
-    @Autowired(required=false) private RuntimeProperties phase3Config;
+    @Autowired(required=false) private AnalysisTaskRepository analysisTasks;
+    @Autowired(required=false) private RuntimeProperties runtimeConfig;
     @Autowired(required=false) private AccessPolicy access;
     @Autowired(required=false) private ApplicationMetrics metrics;
+
+    @Autowired(required=false) private CacheInvalidationRepository cacheInvalidations;
 
     private final TicketMapper ticketMapper;
 
@@ -128,7 +131,7 @@ public class TicketServiceImpl implements TicketService {
         writeLog(ticket.getId(), ticket.getCreatorId(), ACTION_CREATE,
                 null, ticket.getStatus(), "创建工单");
 
-        if(phase3!=null && phase3Config.isRecordTasks())phase3.createTask(ticket,0,null);
+        if(analysisTasks!=null && runtimeConfig.isRecordTasks())analysisTasks.createTask(ticket,0,null);
 
         // 回读一次再返回：MyBatis-Plus 的 insert 只回填主键，
         // 不会回填由数据库默认值生成的 created_at / updated_at，
@@ -190,7 +193,7 @@ public class TicketServiceImpl implements TicketService {
         if(actor!=null && !actor.admin()) {
             if("HANDLER".equals(actor.role()))wrapper.eq(Ticket::getAssigneeId,actor.id());
             else wrapper.eq(Ticket::getCreatorId,actor.id());
-        } else if(access!=null && phase3Config.isSecurityEnabled())ActorContext.require();
+        } else if(access!=null && runtimeConfig.isSecurityEnabled())ActorContext.require();
         Page<Ticket> pageResult = ticketMapper.selectPage(new Page<>(current, size), wrapper);
         List<TicketVO> records = pageResult.getRecords().stream().map(TicketVO::from).toList();
 
@@ -251,7 +254,7 @@ public class TicketServiceImpl implements TicketService {
 
         // 指派语义（2026-09-18 用户决策）：待分配 → 经状态机流转到处理中；
         // 其它未关闭状态视为转派，只换处理人、状态不变。
-        if(access!=null){access.admin();if(phase3Config.isSecurityEnabled()&&!access.validHandler(dto.getAssigneeId()))throw new ApiFailure(400,40000,"处理人不存在或角色无效");}
+        if(access!=null){access.admin();if(runtimeConfig.isSecurityEnabled()&&!access.validHandler(dto.getAssigneeId()))throw new ApiFailure(400,40000,"处理人不存在或角色无效");}
         boolean transfer = currentStatus != TicketStatus.PENDING_ASSIGN;
         TicketStatus targetStatus = transfer ? currentStatus : TicketStatus.PROCESSING;
         if (!transfer) {
@@ -393,7 +396,7 @@ public class TicketServiceImpl implements TicketService {
     private long operator(Long fallback){return ActorContext.current()==null?fallback:ActorContext.require().id();}
     private void evictDetailCache(Long id) {
         if(TransactionSynchronizationManager.isActualTransactionActive()) {
-            if(phase3!=null)phase3.invalidate(id);
+            if(cacheInvalidations!=null)cacheInvalidations.invalidate(id);
             TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization(){
                 @Override public void afterCommit(){deleteCacheNow(id);}
             });

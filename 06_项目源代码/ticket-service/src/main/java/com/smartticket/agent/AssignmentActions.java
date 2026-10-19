@@ -1,6 +1,8 @@
 package com.smartticket.agent;
 
-import com.smartticket.analysis.persistence.AnalysisTaskRepository;
+import com.smartticket.agent.persistence.AssignmentActionRepository;
+import com.smartticket.common.JsonCodec;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.smartticket.exception.ApiFailure;
 import com.smartticket.security.AccessPolicy;
 import com.smartticket.security.ActorContext;
@@ -17,19 +19,23 @@ import java.util.*;
 
 @Service
 public class AssignmentActions {
-    private final AnalysisTaskRepository repo;
+    private final AssignmentActionRepository repo;
     private final TicketMapper tickets;
     private final TicketService service;
     private final AccessPolicy access;
     private final TransactionTemplate tx;
+    private final JsonCodec json;
+    private final ObjectMapper mapper;
 
     public AssignmentActions(
-            AnalysisTaskRepository r,
+            AssignmentActionRepository r,
             TicketMapper t,
             TicketService s,
             AccessPolicy a,
-            org.springframework.transaction.PlatformTransactionManager tm) {
+            org.springframework.transaction.PlatformTransactionManager tm, JsonCodec json, ObjectMapper mapper) {
         repo = r;
+        this.json = json;
+        this.mapper = mapper;
         tickets = t;
         service = s;
         access = a;
@@ -45,17 +51,7 @@ public class AssignmentActions {
         access.read(ticket);
         if ("CLOSED".equals(ticket.getStatus())) throw new ApiFailure(409, 10005, "已关闭工单不能指派");
         String action = UUID.randomUUID().toString();
-        repo.db()
-                .update(
-                        "INSERT INTO"
-                            + " agent_action(action_id,actor_id,ticket_id,expected_version,assignee_id,run_id,expires_at)"
-                            + " VALUES(?,?,?,?,?,?,TIMESTAMPADD(MINUTE,5,NOW(3)))",
-                        action,
-                        actor.id(),
-                        ticketId,
-                        ticket.getVersion(),
-                        handler,
-                        runId);
+        repo.prepare(action, actor.id(), ticketId, ticket.getVersion(), handler, runId);
         return Map.of(
                 "actionId",
                 action,
@@ -78,36 +74,26 @@ public class AssignmentActions {
         access.admin();
         return tx.execute(
                 s -> {
-                    var rows =
-                            repo.db()
-                                    .queryForList(
-                                            "SELECT * FROM agent_action WHERE action_id=? FOR"
-                                                    + " UPDATE",
-                                            actionId);
+                    var rows = repo.lock(actionId);
                     if (rows.isEmpty()) throw new ApiFailure(404, 40400, "操作不存在");
                     var row = rows.get(0);
                     if (((Number) row.get("actor_id")).longValue() != actor.id())
                         throw ApiFailure.forbidden();
                     if ("EXECUTED".equals(row.get("status"))) {
                         try {
-                            return new com.fasterxml.jackson.databind.ObjectMapper()
+                            return mapper
                                     .readValue((String) row.get("result"), Object.class);
                         } catch (Exception e) {
                             throw new IllegalStateException(e);
                         }
                     }
-                    if (AnalysisTaskRepository.localTime(row.get("expires_at"))
+                    if ((row.get("expires_at") instanceof java.time.LocalDateTime time ? time : ((java.sql.Timestamp) row.get("expires_at")).toLocalDateTime())
                             .isBefore(java.time.LocalDateTime.now()))
                         throw new ApiFailure(409, 10012, "操作已过期，请重新提出");
                     long id = ((Number) row.get("ticket_id")).longValue();
-                    var lock =
-                            repo.db()
-                                    .queryForList(
-                                            "SELECT version FROM ticket WHERE id=? AND deleted=0"
-                                                    + " FOR UPDATE",
-                                            id);
+                    var lock = repo.lockTicketVersion(id);
                     if (lock.isEmpty()
-                            || ((Number) lock.get(0).get("version")).longValue()
+                            || lock.get(0).longValue()
                                     != ((Number) row.get("expected_version")).longValue())
                         throw ApiFailure.conflict();
                     long handler = ((Number) row.get("assignee_id")).longValue();
@@ -117,12 +103,7 @@ public class AssignmentActions {
                     dto.setOperatorId(actor.id());
                     dto.setRemark("Agent确认指派 runId=" + row.get("run_id"));
                     var result = service.assign(id, dto);
-                    repo.db()
-                            .update(
-                                    "UPDATE agent_action SET status='EXECUTED',result=? WHERE"
-                                            + " action_id=?",
-                                    repo.encode(result),
-                                    actionId);
+                    repo.executed(actionId, json.encode(result));
                     return result;
                 });
     }

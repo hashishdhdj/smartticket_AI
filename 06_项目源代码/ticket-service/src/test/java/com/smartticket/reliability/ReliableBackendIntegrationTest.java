@@ -1,6 +1,8 @@
 package com.smartticket.reliability;
 
 import com.smartticket.analysis.persistence.AnalysisTaskRepository;
+import com.smartticket.mq.outbox.OutboxRepository;
+import com.smartticket.cache.CacheInvalidationRepository;
 import com.smartticket.analysis.worker.AsyncAnalysisWorker;
 import com.smartticket.cache.CacheRecovery;
 import com.smartticket.config.RuntimeProperties;
@@ -63,6 +65,8 @@ class ReliableBackendIntegrationTest {
     @Autowired TicketMapper tickets;
     @Autowired JdbcTemplate db;
     @SpyBean AnalysisTaskRepository repo;
+    @Autowired OutboxRepository outbox;
+    @Autowired CacheInvalidationRepository cacheInvalidations;
     @Autowired AsyncAnalysisWorker worker;
     @Autowired ObjectMapper json;
     @Autowired AssignmentActions actions;
@@ -210,14 +214,14 @@ class ReliableBackendIntegrationTest {
     }
 
     // Publisher/consumer tests start after claim; never claim retained demonstration events.
-    AnalysisTaskRepository.Event claimedEvent(long ticketId) throws Exception {
+    OutboxRepository.Event claimedEvent(long ticketId) throws Exception {
         var message = message(ticketId);
         String token = UUID.randomUUID().toString();
         assertEquals(1, db.update("UPDATE outbox_event SET status='SENDING',attempts=attempts+1,"
                 + "lease_token=?,lease_until=TIMESTAMPADD(SECOND,90,NOW(3)) WHERE event_id=? AND status='PENDING'",
                 token, message.eventId()));
         String payload = db.queryForObject("SELECT payload FROM outbox_event WHERE event_id=?", String.class, message.eventId());
-        return new AnalysisTaskRepository.Event(message.eventId(), payload, 1, token);
+        return new OutboxRepository.Event(message.eventId(), payload, 1, token);
     }
 
     TicketAnalysisVO success() {
@@ -906,7 +910,7 @@ class ReliableBackendIntegrationTest {
     void cacheCompensationDeletesPendingInvalidation() {
         var t = create();
         service.getById(t.getId());
-        repo.invalidate(t.getId());
+        cacheInvalidations.invalidate(t.getId());
         recovery.recover();
         assertFalse(Boolean.TRUE.equals(redis.hasKey("ticket:detail:" + t.getId())));
         assertEquals(

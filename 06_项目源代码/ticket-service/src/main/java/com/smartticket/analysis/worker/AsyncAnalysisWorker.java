@@ -1,5 +1,7 @@
 package com.smartticket.analysis.worker;
 
+import com.smartticket.mq.outbox.OutboxRepository;
+
 import com.smartticket.analysis.RuleClassifier;
 import com.smartticket.analysis.persistence.AnalysisTaskRepository;
 import com.smartticket.config.RuntimeProperties;
@@ -29,6 +31,7 @@ import java.util.concurrent.TimeUnit;
 public class AsyncAnalysisWorker {
     private static final Logger log = LoggerFactory.getLogger(AsyncAnalysisWorker.class);
     private final AnalysisTaskRepository repo;
+    private final OutboxRepository outbox;
     private final RuntimeProperties config;
     private final RabbitTemplate rabbit;
     private final TicketMapper tickets;
@@ -45,6 +48,7 @@ public class AsyncAnalysisWorker {
 
     public AsyncAnalysisWorker(
             AnalysisTaskRepository repo,
+            OutboxRepository outbox,
             RuntimeProperties config,
             RabbitTemplate rabbit,
             TicketMapper tickets,
@@ -52,6 +56,7 @@ public class AsyncAnalysisWorker {
             ObjectMapper json,
             ApplicationMetrics metrics) {
         this.repo = repo;
+        this.outbox = outbox;
         this.config = config;
         this.rabbit = rabbit;
         this.tickets = tickets;
@@ -65,14 +70,14 @@ public class AsyncAnalysisWorker {
         if (!config.isAsyncEnabled()) return;
         try {
             if (pausedUntil.get() > 0 && System.currentTimeMillis() >= pausedUntil.get()) {
-                repo.db().queryForObject("SELECT 1", Integer.class);
+                repo.verifyConnection();
                 var container = listeners.getListenerContainer("stage3-analysis");
                 if (container != null && !container.isRunning()) container.start();
                 pausedUntil.set(0);
             }
             repo.recoverAndSchedule();
             for (int i = 0; i < 10; i++) {
-                var next = repo.claimEvent();
+                var next = outbox.claimEvent();
                 if (next.isEmpty()) break;
                 publish(next.get());
             }
@@ -82,7 +87,7 @@ public class AsyncAnalysisWorker {
         }
     }
 
-    public boolean publish(AnalysisTaskRepository.Event e) {
+    public boolean publish(OutboxRepository.Event e) {
         try {
             CorrelationData correlation = new CorrelationData(e.id());
             MessageProperties props = new MessageProperties();
@@ -99,11 +104,11 @@ public class AsyncAnalysisWorker {
             var confirm = correlation.getFuture().get(5, TimeUnit.SECONDS);
             if (!confirm.isAck() || correlation.getReturned() != null)
                 throw new IllegalStateException("Publication not confirmed or unroutable");
-            repo.published(e);
+            outbox.published(e);
             metrics.count("outbox", "sent");
             return true;
         } catch (Exception failure) {
-            repo.publishFailed(e);
+            outbox.publishFailed(e);
             metrics.count("outbox", "retry");
             return false;
         }

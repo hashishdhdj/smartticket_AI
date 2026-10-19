@@ -1,6 +1,7 @@
 package com.smartticket.analysis.api;
 
 import com.smartticket.analysis.persistence.AnalysisTaskRepository;
+import com.smartticket.mq.outbox.OutboxRepository;
 import com.smartticket.governance.ApplicationMetrics;
 import com.smartticket.security.AccessPolicy;
 
@@ -17,12 +18,14 @@ import java.util.Map;
 @RequestMapping("/api")
 public class AnalysisController {
     private final AnalysisTaskRepository repo;
+    private final OutboxRepository outbox;
     private final TicketMapper tickets;
     private final AccessPolicy access;
     private final ApplicationMetrics metrics;
 
-    public AnalysisController(AnalysisTaskRepository r, TicketMapper t, AccessPolicy a, ApplicationMetrics m) {
+    public AnalysisController(AnalysisTaskRepository r, TicketMapper t, AccessPolicy a, ApplicationMetrics m, OutboxRepository outbox) {
         repo = r;
+        this.outbox = outbox;
         tickets = t;
         access = a;
         metrics = m;
@@ -53,14 +56,8 @@ public class AnalysisController {
                         "meters",
                         metrics.snapshot(),
                         "tasks",
-                        repo.db()
-                                .queryForList(
-                                        "SELECT status,COUNT(*) AS total FROM ai_analysis_task"
-                                                + " GROUP BY status"),
+                        repo.statusCounts(),
                         "outbox",
-                        repo.db()
-                                .queryForList(
-                                        "SELECT status,COUNT(*) AS total FROM outbox_event GROUP BY"
-                                                + " status")));
+                        outbox.statusCounts()));
     }
 }

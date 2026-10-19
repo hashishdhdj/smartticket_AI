@@ -1,5 +1,7 @@
 package com.smartticket.analysis.persistence;
 
+import com.smartticket.mq.outbox.OutboxRepository;
+
 import com.smartticket.config.RuntimeProperties;
 import com.smartticket.exception.ApiFailure;
 import com.smartticket.security.ActorContext;
@@ -22,23 +24,24 @@ public class AnalysisTaskRepository {
     private final TransactionTemplate tx;
     private final ObjectMapper json;
     private final RuntimeProperties config;
+    private final OutboxRepository outbox;
 
     public record Task(String id, long ticketId, long version, int attempts, String token) {}
 
-    public record Event(String id, String payload, int attempts, String token) {}
 
     public AnalysisTaskRepository(
             JdbcTemplate db,
             org.springframework.transaction.PlatformTransactionManager tm,
             ObjectMapper json,
-            RuntimeProperties config) {
+            RuntimeProperties config, OutboxRepository outbox) {
         this.db = db;
         this.tx = new TransactionTemplate(tm);
         this.json = json;
         this.config = config;
+        this.outbox = outbox;
     }
 
-    public String encode(Object value) {
+    private String encode(Object value) {
         try {
             return json.writeValueAsString(value);
         } catch (Exception e) {
@@ -59,69 +62,8 @@ public class AnalysisTaskRepository {
                 generation,
                 replay,
                 trace);
-        enqueue(id, ticket.getId(), version, trace, 0);
+        outbox.enqueue(id, ticket.getId(), version, trace, 0);
         return id;
-    }
-
-    private void enqueue(String task, long ticket, long version, String trace, int seq) {
-        String event = UUID.randomUUID().toString();
-        var msg =
-                new TicketAnalysisMessage(
-                        1, event, task, ticket, version, trace, OffsetDateTime.now().toString());
-        db.update(
-                "INSERT INTO outbox_event(event_id,task_id,dispatch_sequence,event_type,payload)"
-                        + " VALUES(?,?,?,'ticket.analysis.requested',?)",
-                event,
-                task,
-                seq,
-                encode(msg));
-    }
-
-    public Optional<Event> claimEvent() {
-        return tx.execute(
-                s -> {
-                    var rows =
-                            db.queryForList(
-                                    "SELECT * FROM outbox_event WHERE (status='PENDING' AND"
-                                        + " (next_attempt_at IS NULL OR next_attempt_at<=NOW(3)))"
-                                        + " OR (status='SENDING' AND lease_until<NOW(3)) ORDER BY"
-                                        + " id LIMIT 1 FOR UPDATE SKIP LOCKED");
-                    if (rows.isEmpty()) return Optional.empty();
-                    var r = rows.get(0);
-                    String token = UUID.randomUUID().toString();
-                    db.update(
-                            "UPDATE outbox_event SET status='SENDING',"
-                                + " attempts=attempts+1,lease_token=?,lease_until=TIMESTAMPADD(SECOND,?,NOW(3))"
-                                + " WHERE id=?",
-                            token,
-                            config.getLeaseSeconds(),
-                            r.get("id"));
-                    return Optional.of(
-                            new Event(
-                                    (String) r.get("event_id"),
-                                    (String) r.get("payload"),
-                                    ((Number) r.get("attempts")).intValue() + 1,
-                                    token));
-                });
-    }
-
-    public void published(Event e) {
-        db.update(
-                "UPDATE outbox_event SET"
-                    + " status='SENT',lease_token=NULL,lease_until=NULL,error_summary=NULL WHERE"
-                    + " event_id=? AND status='SENDING' AND lease_token=?",
-                e.id(),
-                e.token());
-    }
-
-    public void publishFailed(Event e) {
-        db.update(
-                "UPDATE outbox_event SET"
-                    + " status='PENDING',next_attempt_at=TIMESTAMPADD(SECOND,?,NOW(3)),lease_token=NULL,lease_until=NULL,error_summary='Broker"
-                    + " publication failed' WHERE event_id=? AND lease_token=?",
-                Math.min(60, e.attempts() * 5),
-                e.id(),
-                e.token());
     }
 
     public Optional<Task> claimTask(TicketAnalysisMessage m) {
@@ -285,7 +227,7 @@ public class AnalysisTaskRepository {
                                                 + " outbox_event WHERE task_id=?",
                                         Integer.class,
                                         id);
-                        enqueue(
+                        outbox.enqueue(
                                 id,
                                 ((Number) r.get("ticket_id")).longValue(),
                                 ((Number) r.get("input_version")).longValue(),
@@ -389,20 +331,16 @@ public class AnalysisTaskRepository {
                 });
     }
 
-    public void invalidate(long id) {
-        db.update(
-                "INSERT INTO cache_invalidation(ticket_id) VALUES(?) ON DUPLICATE KEY UPDATE"
-                        + " generation=generation+1,updated_at=NOW(3)",
-                id);
-    }
-
-    public JdbcTemplate db() {
-        return db;
-    }
-
-    public static LocalDateTime localTime(Object value) {
+    private static LocalDateTime localTime(Object value) {
         return value instanceof LocalDateTime t
                 ? t
                 : ((java.sql.Timestamp) value).toLocalDateTime();
+    }
+    public void verifyConnection() {
+        db.queryForObject("SELECT 1", Integer.class);
+    }
+
+    public List<Map<String, Object>> statusCounts() {
+        return db.queryForList("SELECT status,COUNT(*) AS total FROM ai_analysis_task GROUP BY status");
     }
 }
