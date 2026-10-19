@@ -6,6 +6,7 @@ import com.smartticket.governance.ApplicationMetrics;
 import com.smartticket.governance.BudgetLedger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.smartticket.common.Result;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -89,7 +90,7 @@ public class ApiSecurityFilter extends OncePerRequestFilter {
             response.setContentType("application/json;charset=UTF-8");
             json.writeValue(
                     response.getWriter(),
-                    Map.of("code", failure.code(), "message", failure.getMessage()));
+                    Result.fail(failure.code(), failure.getMessage()));
             metrics.count("security", String.valueOf(failure.status()));
         } finally {
             ActorContext.clear();

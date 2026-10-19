@@ -62,4 +62,14 @@ public class TestApiController {
         throw new IllegalStateException("模拟系统异常：jdbc:mysql://127.0.0.1:3306/smartticket 连接失败");
     }
 
+    @GetMapping("/api-error/{status}")
+    public Result<Void> apiError(@org.springframework.web.bind.annotation.PathVariable int status) {
+        throw new com.smartticket.exception.ApiFailure(status, status * 100, "受控错误");
+    }
+
+    @GetMapping("/typed-business/{code}")
+    public Result<Void> typedBusiness(@org.springframework.web.bind.annotation.PathVariable ErrorCode code) {
+        throw new BusinessException(code);
+    }
+
 }

@@ -31,6 +31,59 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(controllers = TestApiController.class)
 class ApiContractTest {
 
+    @org.junit.jupiter.params.ParameterizedTest
+    @org.junit.jupiter.params.provider.ValueSource(ints = {401, 403, 409, 429})
+    void explicitApiFailuresHaveTheSameEnvelope(int http) throws Exception {
+        mockMvc.perform(get("/test/api-error/{status}", http))
+                .andExpect(status().is(http))
+                .andExpect(jsonPath("$.code").value(http * 100))
+                .andExpect(jsonPath("$.message").value("受控错误"))
+                .andExpect(jsonPath("$.data").doesNotExist());
+    }
+
+    @org.junit.jupiter.params.ParameterizedTest
+    @org.junit.jupiter.params.provider.CsvSource({
+        "TICKET_NOT_FOUND,404,10003", "INVALID_STATUS_TRANSITION,409,10001",
+        "UNKNOWN_STATUS_CODE,400,10002", "AI_CALL_FAILED,503,10007"
+    })
+    void typedBusinessErrorsUseExplicitHttpStatus(String code, int http, int business) throws Exception {
+        mockMvc.perform(get("/test/typed-business/{code}", code))
+                .andExpect(status().is(http))
+                .andExpect(jsonPath("$.code").value(business))
+                .andExpect(jsonPath("$.data").doesNotExist());
+    }
+
+    @Test
+    void unsupportedMethodPreserves405AndAllowHeader() throws Exception {
+        mockMvc.perform(post("/test/success"))
+                .andExpect(status().isMethodNotAllowed())
+                .andExpect(org.springframework.test.web.servlet.result.MockMvcResultMatchers.header().exists("Allow"))
+                .andExpect(jsonPath("$.code").value(40000));
+    }
+
+    @Test
+    void unsupportedMediaTypePreserves415() throws Exception {
+        mockMvc.perform(post("/test/validate").contentType(MediaType.TEXT_PLAIN).content("hello"))
+                .andExpect(status().isUnsupportedMediaType())
+                .andExpect(jsonPath("$.code").value(40000))
+                .andExpect(jsonPath("$.message").value("请求内容类型不支持"));
+    }
+
+    @Test
+    void invalidPathParameterReturns400WithoutReflectionDetails() throws Exception {
+        mockMvc.perform(get("/test/api-error/not-a-number"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.code").value(40000))
+                .andExpect(jsonPath("$.message").value("参数校验失败"));
+    }
+
+    @Test
+    void missingRoutePreserves404() throws Exception {
+        mockMvc.perform(get("/test/no-such-route"))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.code").value(40000));
+    }
+
     @Autowired
     private MockMvc mockMvc;
 
@@ -55,11 +108,11 @@ class ApiContractTest {
     }
 
     @Test
-    @DisplayName("业务异常：HTTP 仍为 200，业务码 10000，文案来自异常")
-    void businessExceptionReturnsHttp200WithBusinessCode() throws Exception {
+    @DisplayName("业务异常：HTTP 400，业务码 10000，文案来自异常")
+    void businessExceptionReturnsHttp400WithBusinessCode() throws Exception {
         mockMvc.perform(get("/test/business-error"))
                 .andDo(print())
-                .andExpect(status().isOk())
+                .andExpect(status().is(400))
                 .andExpect(jsonPath("$.code").value(10000))
                 .andExpect(jsonPath("$.message").value("工单不存在"))
                 .andExpect(jsonPath("$.data").doesNotExist());
@@ -72,7 +125,7 @@ class ApiContractTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"title\":\"\"}"))
                 .andDo(print())
-                .andExpect(status().isOk())
+                .andExpect(status().is(400))
                 .andExpect(jsonPath("$.code").value(40000))
                 .andExpect(jsonPath("$.message", containsString("title")))
                 .andExpect(jsonPath("$.message", containsString("标题不能为空")));
@@ -85,7 +138,7 @@ class ApiContractTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{this-is-not-json"))
                 .andDo(print())
-                .andExpect(status().isOk())
+                .andExpect(status().is(400))
                 .andExpect(jsonPath("$.code").value(40001));
     }
 
@@ -94,7 +147,7 @@ class ApiContractTest {
     void systemExceptionHidesInternalDetail() throws Exception {
         mockMvc.perform(get("/test/system-error"))
                 .andDo(print())
-                .andExpect(status().isOk())
+                .andExpect(status().is(500))
                 .andExpect(jsonPath("$.code").value(50000))
                 .andExpect(jsonPath("$.message").value("系统繁忙，请稍后重试"))
                 .andExpect(jsonPath("$.message", not(containsString("模拟系统异常"))))

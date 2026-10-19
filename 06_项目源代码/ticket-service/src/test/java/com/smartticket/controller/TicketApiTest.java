@@ -133,7 +133,7 @@ class TicketApiTest {
         body.put("title", "   ");
 
         mockMvc.perform(post("/api/tickets").contentType(MediaType.APPLICATION_JSON).content(toJson(body)))
-                .andExpect(status().isOk())
+                .andExpect(status().is(400))
                 .andExpect(jsonPath("$.code").value(40000))
                 .andExpect(jsonPath("$.message").value(containsString("title")));
     }
@@ -145,7 +145,7 @@ class TicketApiTest {
         body.remove("creatorId");
 
         mockMvc.perform(post("/api/tickets").contentType(MediaType.APPLICATION_JSON).content(toJson(body)))
-                .andExpect(status().isOk())
+                .andExpect(status().is(400))
                 .andExpect(jsonPath("$.code").value(40000))
                 .andExpect(jsonPath("$.message").value(containsString("creatorId")));
     }
@@ -167,7 +167,7 @@ class TicketApiTest {
         body.put("title", "标".repeat(201));
 
         mockMvc.perform(post("/api/tickets").contentType(MediaType.APPLICATION_JSON).content(toJson(body)))
-                .andExpect(status().isOk())
+                .andExpect(status().is(400))
                 .andExpect(jsonPath("$.code").value(40000))
                 .andExpect(jsonPath("$.message").value(containsString("title")));
     }
@@ -202,7 +202,7 @@ class TicketApiTest {
     @DisplayName("查询详情：不存在的工单返回业务错误码 10003")
     void getByIdWithUnknownIdReturnsTicketNotFound() throws Exception {
         mockMvc.perform(get("/api/tickets/{id}", UNKNOWN_TICKET_ID))
-                .andExpect(status().isOk())
+                .andExpect(status().is(404))
                 .andExpect(jsonPath("$.code").value(10003))
                 .andExpect(jsonPath("$.message").value(containsString("999999999")));
     }
@@ -245,7 +245,7 @@ class TicketApiTest {
     @DisplayName("分页查询：size 超过上限 100 返回参数错误码 40000")
     void pageWithTooLargeSizeReturnsParamInvalid() throws Exception {
         mockMvc.perform(get("/api/tickets").param("size", "101"))
-                .andExpect(status().isOk())
+                .andExpect(status().is(400))
                 .andExpect(jsonPath("$.code").value(40000));
     }
 
@@ -253,7 +253,7 @@ class TicketApiTest {
     @DisplayName("分页查询：非法状态值返回业务错误码 10002（复用状态机取值校验）")
     void pageWithUnknownStatusReturnsUnknownStatusCode() throws Exception {
         mockMvc.perform(get("/api/tickets").param("status", "NOT_A_STATUS"))
-                .andExpect(status().isOk())
+                .andExpect(status().is(400))
                 .andExpect(jsonPath("$.code").value(10002));
     }
 
@@ -297,7 +297,7 @@ class TicketApiTest {
 
         mockMvc.perform(put("/api/tickets/{id}", created.get("id").asLong())
                         .contentType(MediaType.APPLICATION_JSON).content(toJson(body)))
-                .andExpect(status().isOk())
+                .andExpect(status().is(400))
                 .andExpect(jsonPath("$.code").value(40000))
                 .andExpect(jsonPath("$.message").value(containsString("priority")));
     }
@@ -312,7 +312,7 @@ class TicketApiTest {
 
         mockMvc.perform(put("/api/tickets/{id}", UNKNOWN_TICKET_ID)
                         .contentType(MediaType.APPLICATION_JSON).content(toJson(body)))
-                .andExpect(status().isOk())
+                .andExpect(status().is(404))
                 .andExpect(jsonPath("$.code").value(10003));
     }
 
@@ -339,7 +339,7 @@ class TicketApiTest {
     @DisplayName("查询日志：工单不存在返回业务错误码 10003")
     void listLogsForUnknownTicketReturnsTicketNotFound() throws Exception {
         mockMvc.perform(get("/api/tickets/{id}/logs", UNKNOWN_TICKET_ID))
-                .andExpect(status().isOk())
+                .andExpect(status().is(404))
                 .andExpect(jsonPath("$.code").value(10003));
     }
 
@@ -403,7 +403,7 @@ class TicketApiTest {
 
         mockMvc.perform(post("/api/tickets/{id}/assign", id)
                         .contentType(MediaType.APPLICATION_JSON).content(toJson(body)))
-                .andExpect(status().isOk())
+                .andExpect(status().is(400))
                 .andExpect(jsonPath("$.code").value(40000))
                 .andExpect(jsonPath("$.message").value(containsString("assigneeId")));
     }
@@ -482,7 +482,7 @@ class TicketApiTest {
 
         mockMvc.perform(post("/api/tickets/{id}/close", id)
                         .contentType(MediaType.APPLICATION_JSON).content(toJson(body)))
-                .andExpect(status().isOk())
+                .andExpect(status().is(400))
                 .andExpect(jsonPath("$.code").value(40000))
                 .andExpect(jsonPath("$.message").value(containsString("operatorId")));
     }
@@ -574,7 +574,7 @@ class TicketApiTest {
 
         mockMvc.perform(post("/api/tickets/{id}/resolve", id)
                         .contentType(MediaType.APPLICATION_JSON).content(toJson(body)))
-                .andExpect(status().isOk())
+                .andExpect(status().is(400))
                 .andExpect(jsonPath("$.code").value(40000))
                 .andExpect(jsonPath("$.message").value(containsString("operatorId")));
     }
@@ -661,7 +661,6 @@ class TicketApiTest {
 
         MvcResult result = mockMvc.perform(post("/api/tickets/{id}/assign", id)
                         .contentType(MediaType.APPLICATION_JSON).content(toJson(body)))
-                .andExpect(status().isOk())
                 .andReturn();
         return readJson(result);
     }
@@ -674,7 +673,6 @@ class TicketApiTest {
 
         MvcResult result = mockMvc.perform(post("/api/tickets/{id}/resolve", id)
                         .contentType(MediaType.APPLICATION_JSON).content(toJson(body)))
-                .andExpect(status().isOk())
                 .andReturn();
         return readJson(result);
     }
@@ -687,7 +685,6 @@ class TicketApiTest {
 
         MvcResult result = mockMvc.perform(post("/api/tickets/{id}/close", id)
                         .contentType(MediaType.APPLICATION_JSON).content(toJson(body)))
-                .andExpect(status().isOk())
                 .andReturn();
         return readJson(result);
     }
@@ -722,7 +719,15 @@ class TicketApiTest {
     }
 
     private JsonNode readJson(MvcResult result) throws Exception {
-        return objectMapper.readTree(result.getResponse().getContentAsString(StandardCharsets.UTF_8));
+        JsonNode body = objectMapper.readTree(result.getResponse().getContentAsString(StandardCharsets.UTF_8));
+        int expectedHttp = switch (body.get("code").asInt()) {
+            case 0 -> 200;
+            case 10001, 10004, 10005, 10011 -> 409;
+            case 10003 -> 404;
+            default -> 400;
+        };
+        org.junit.jupiter.api.Assertions.assertEquals(expectedHttp, result.getResponse().getStatus());
+        return body;
     }
 
     private int countTicketRow(long id) {

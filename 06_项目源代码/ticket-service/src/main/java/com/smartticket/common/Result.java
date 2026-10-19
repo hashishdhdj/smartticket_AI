@@ -12,7 +12,7 @@ import java.io.Serializable;
  * <p>约定（2026-09-16 决策）：</p>
  * <ul>
  *   <li>{@code code = 0} 表示成功，非 0 见 {@link ErrorCode}；</li>
- *   <li>业务失败时 HTTP 状态码仍为 200，真实结果以 {@code code} 为准；</li>
+ *   <li>成功及明确的业务降级使用 HTTP 200；异常同时使用对应 HTTP 状态和业务码；</li>
  *   <li>{@code data} 仅在成功且有数据时出现——项目启用
  *       {@code spring.jackson.default-property-inclusion=non_null}，null 字段不会输出。</li>
  * </ul>
@@ -23,6 +23,7 @@ import java.io.Serializable;
  */
 @Getter
 @ToString
+@com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
 public class Result<T> implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -60,6 +61,12 @@ public class Result<T> implements Serializable {
     /** 失败，使用自定义文案（例如业务异常中更具体的说明） */
     public static <T> Result<T> fail(ErrorCode errorCode, String message) {
         return new Result<>(errorCode.getCode(), message, null);
+    }
+
+    /** Shared by MVC exception handling and the security filter. */
+    public static <T> Result<T> fail(int code, String message) {
+        if (code == 0) throw new IllegalArgumentException("Failure code must be nonzero");
+        return new Result<>(code, message, null);
     }
 
 }

@@ -2,7 +2,7 @@
   "info": {
     "name": "SmartTicket 工单接口（阶段1 收官 · 8 个接口）",
     "_postman_id": "b7c1e2f4-3a55-4c8e-9d21-6f0a1c9d4e77",
-    "description": "AI驱动的智能工单服务系统 —— 阶段1 交付的 8 个工单接口验收用例（创建 / 详情 / 分页 / 更新 / 日志 / 指派 / 关闭 / 解决）。\n\n前置条件：\n1. MySQL 容器处于运行状态（docker ps 可见 smartticket-mysql healthy）；\n2. ticket-service 已启动（mvn spring-boot:run），监听 8080；\n3. 先执行「1. 创建工单（正常）」，该请求会把返回的 data.id 写入集合变量 {{id}}，后续用例复用。\n\n全部接口均返回 HTTP 200，真实结果看响应体 code 字段。",
+    "description": "2026-10-19错误契约更新：异常采用明确HTTP状态，业务code保留。旧鉴权关闭示例仅作接口练习；当前鉴权流程以阶段四集合为准。",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -117,7 +117,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "const json = pm.response.json();",
-                  "pm.test('HTTP 仍为 200（业务码与传输层解耦）', () => pm.response.to.have.status(200));",
+                  "pm.test('HTTP 仍为 200（业务码与传输层解耦）', () => pm.response.to.have.status(400));",
                   "pm.test('code=40000 参数校验失败', () => pm.expect(json.code).to.eql(40000));",
                   "pm.test('message 指明字段 title', () => pm.expect(json.message).to.include('title'));"
                 ]
@@ -1033,8 +1033,15 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/tickets/{{id}}/resolve",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "tickets", "{{id}}", "resolve"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets",
+                "{{id}}",
+                "resolve"
+              ]
             },
             "description": "需先执行 6.1 指派（把工单从待分配推到处理中），否则会被状态机拒绝。解决是纯流转：目标固定为已解决，入参不含状态。"
           }
@@ -1046,7 +1053,7 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "pm.test('HTTP 409', () => pm.response.to.have.status(409));",
                   "const json = pm.response.json();",
                   "pm.test('code = 10001（非法流转）', () => pm.expect(json.code).to.eql(10001));",
                   "pm.test('提示含起止状态', () => {",
@@ -1072,8 +1079,15 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/tickets/{{closedId}}/resolve",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "tickets", "{{closedId}}", "resolve"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets",
+                "{{closedId}}",
+                "resolve"
+              ]
             },
             "description": "closedId 由 1.2 创建、6.4 关闭。CLOSED -> RESOLVED 不在状态机白名单内（重开应走独立接口），必须被拒绝。"
           }
@@ -1085,7 +1099,7 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "pm.test('HTTP 404', () => pm.response.to.have.status(404));",
                   "const json = pm.response.json();",
                   "pm.test('code = 10003', () => pm.expect(json.code).to.eql(10003));"
                 ],
@@ -1107,8 +1121,15 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/tickets/999999999/resolve",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "tickets", "999999999", "resolve"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets",
+                "999999999",
+                "resolve"
+              ]
             },
             "description": "工单不存在时明确报错，而不是静默返回成功。"
           }
