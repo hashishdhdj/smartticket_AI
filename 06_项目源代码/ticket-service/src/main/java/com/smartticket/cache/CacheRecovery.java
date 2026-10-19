@@ -1,4 +1,7 @@
-package com.smartticket.phase3;
+package com.smartticket.cache;
+
+import com.smartticket.analysis.persistence.AnalysisTaskRepository;
+import com.smartticket.governance.ApplicationMetrics;
 
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -6,11 +9,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CacheRecovery {
-    private final Phase3Repository repo;
+    private final AnalysisTaskRepository repo;
     private final StringRedisTemplate redis;
-    private final Phase3Metrics metrics;
+    private final ApplicationMetrics metrics;
 
-    public CacheRecovery(Phase3Repository repo, StringRedisTemplate redis, Phase3Metrics metrics) {
+    public CacheRecovery(AnalysisTaskRepository repo, StringRedisTemplate redis, ApplicationMetrics metrics) {
         this.repo = repo;
         this.redis = redis;
         this.metrics = metrics;

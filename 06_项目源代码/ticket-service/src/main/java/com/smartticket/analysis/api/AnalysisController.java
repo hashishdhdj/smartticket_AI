@@ -1,4 +1,8 @@
-package com.smartticket.phase3;
+package com.smartticket.analysis.api;
+
+import com.smartticket.analysis.persistence.AnalysisTaskRepository;
+import com.smartticket.governance.ApplicationMetrics;
+import com.smartticket.security.AccessPolicy;
 
 import com.smartticket.common.Result;
 import com.smartticket.enums.ErrorCode;
@@ -12,12 +16,12 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api")
 public class AnalysisController {
-    private final Phase3Repository repo;
+    private final AnalysisTaskRepository repo;
     private final TicketMapper tickets;
     private final AccessPolicy access;
-    private final Phase3Metrics metrics;
+    private final ApplicationMetrics metrics;
 
-    public AnalysisController(Phase3Repository r, TicketMapper t, AccessPolicy a, Phase3Metrics m) {
+    public AnalysisController(AnalysisTaskRepository r, TicketMapper t, AccessPolicy a, ApplicationMetrics m) {
         repo = r;
         tickets = t;
         access = a;

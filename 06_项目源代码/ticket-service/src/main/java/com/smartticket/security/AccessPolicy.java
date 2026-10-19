@@ -1,4 +1,7 @@
-package com.smartticket.phase3;
+package com.smartticket.security;
+
+import com.smartticket.config.RuntimeProperties;
+import com.smartticket.exception.ApiFailure;
 
 import com.smartticket.entity.Ticket;
 
@@ -8,9 +11,9 @@ import java.util.Objects;
 
 @Component
 public class AccessPolicy {
-    private final Phase3Properties config;
+    private final RuntimeProperties config;
 
-    public AccessPolicy(Phase3Properties config) {
+    public AccessPolicy(RuntimeProperties config) {
         this.config = config;
     }
 

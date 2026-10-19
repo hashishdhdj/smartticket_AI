@@ -1,4 +1,11 @@
-package com.smartticket.phase3;
+package com.smartticket.analysis.worker;
+
+import com.smartticket.analysis.RuleClassifier;
+import com.smartticket.analysis.persistence.AnalysisTaskRepository;
+import com.smartticket.config.RuntimeProperties;
+import com.smartticket.exception.ApiFailure;
+import com.smartticket.governance.ApplicationMetrics;
+import com.smartticket.governance.BudgetLedger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rabbitmq.client.Channel;
@@ -21,13 +28,13 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class AsyncAnalysisWorker {
     private static final Logger log = LoggerFactory.getLogger(AsyncAnalysisWorker.class);
-    private final Phase3Repository repo;
-    private final Phase3Properties config;
+    private final AnalysisTaskRepository repo;
+    private final RuntimeProperties config;
     private final RabbitTemplate rabbit;
     private final TicketMapper tickets;
     private final TicketAnalysisService analysis;
     private final ObjectMapper json;
-    private final Phase3Metrics metrics;
+    private final ApplicationMetrics metrics;
     @org.springframework.beans.factory.annotation.Autowired private BudgetLedger budget;
 
     @org.springframework.beans.factory.annotation.Autowired
@@ -37,13 +44,13 @@ public class AsyncAnalysisWorker {
             new java.util.concurrent.atomic.AtomicLong();
 
     public AsyncAnalysisWorker(
-            Phase3Repository repo,
-            Phase3Properties config,
+            AnalysisTaskRepository repo,
+            RuntimeProperties config,
             RabbitTemplate rabbit,
             TicketMapper tickets,
             TicketAnalysisService analysis,
             ObjectMapper json,
-            Phase3Metrics metrics) {
+            ApplicationMetrics metrics) {
         this.repo = repo;
         this.config = config;
         this.rabbit = rabbit;
@@ -75,7 +82,7 @@ public class AsyncAnalysisWorker {
         }
     }
 
-    public boolean publish(Phase3Repository.Event e) {
+    public boolean publish(AnalysisTaskRepository.Event e) {
         try {
             CorrelationData correlation = new CorrelationData(e.id());
             MessageProperties props = new MessageProperties();

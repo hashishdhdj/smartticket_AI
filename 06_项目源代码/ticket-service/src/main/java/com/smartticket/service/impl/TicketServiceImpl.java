@@ -1,5 +1,12 @@
 package com.smartticket.service.impl;
 
+import com.smartticket.analysis.persistence.AnalysisTaskRepository;
+import com.smartticket.config.RuntimeProperties;
+import com.smartticket.exception.ApiFailure;
+import com.smartticket.governance.ApplicationMetrics;
+import com.smartticket.security.AccessPolicy;
+import com.smartticket.security.ActorContext;
+
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -21,7 +28,7 @@ import com.smartticket.mapper.TicketLogMapper;
 import com.smartticket.mapper.TicketMapper;
 import com.smartticket.service.TicketService;
 import com.smartticket.vo.PageVO;
-import com.smartticket.phase3.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.support.TransactionSynchronization;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
@@ -78,10 +85,10 @@ public class TicketServiceImpl implements TicketService {
      */
     private static final Duration CACHE_TTL = Duration.ofMinutes(10);
 
-    @Autowired(required=false) private Phase3Repository phase3;
-    @Autowired(required=false) private Phase3Properties phase3Config;
+    @Autowired(required=false) private AnalysisTaskRepository phase3;
+    @Autowired(required=false) private RuntimeProperties phase3Config;
     @Autowired(required=false) private AccessPolicy access;
-    @Autowired(required=false) private Phase3Metrics metrics;
+    @Autowired(required=false) private ApplicationMetrics metrics;
 
     private final TicketMapper ticketMapper;
 
@@ -196,7 +203,7 @@ public class TicketServiceImpl implements TicketService {
         Ticket ticket=requireTicket(id);
         if(access!=null)access.write(ticket);
         if (dto.getExpectedVersion() != null && !dto.getExpectedVersion().equals(ticket.getVersion()))
-            throw com.smartticket.phase3.ApiFailure.conflict();
+            throw com.smartticket.exception.ApiFailure.conflict();
 
         // 必须用 UpdateWrapper 显式 set：updateById 会跳过 null 字段，
         // 而本接口的语义是"全量替换"，需要支持把 description/category/tags 置空。

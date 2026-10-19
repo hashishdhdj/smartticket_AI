@@ -1,4 +1,13 @@
-package com.smartticket.phase3;
+package com.smartticket.reliability;
+
+import com.smartticket.analysis.persistence.AnalysisTaskRepository;
+import com.smartticket.analysis.worker.AsyncAnalysisWorker;
+import com.smartticket.cache.CacheRecovery;
+import com.smartticket.config.RuntimeProperties;
+import com.smartticket.exception.ApiFailure;
+import com.smartticket.governance.BudgetLedger;
+import com.smartticket.security.AccessPolicy;
+import com.smartticket.security.ActorContext;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
@@ -49,17 +58,17 @@ import java.util.concurrent.*;
             "smartticket.ai.enabled=false"
         })
 @AutoConfigureMockMvc
-class Phase3IntegrationTest {
+class ReliableBackendIntegrationTest {
     @Autowired TicketService service;
     @Autowired TicketMapper tickets;
     @Autowired JdbcTemplate db;
-    @SpyBean Phase3Repository repo;
+    @SpyBean AnalysisTaskRepository repo;
     @Autowired AsyncAnalysisWorker worker;
     @Autowired ObjectMapper json;
     @Autowired AssignmentActions actions;
     @Autowired AgentService agent;
     @Autowired AgentTools agentTools;
-    @Autowired Phase3Properties config;
+    @Autowired RuntimeProperties config;
     @Autowired AccessPolicy policy;
     @Autowired BudgetLedger budget;
     @Autowired CacheRecovery recovery;
@@ -201,14 +210,14 @@ class Phase3IntegrationTest {
     }
 
     // Publisher/consumer tests start after claim; never claim retained demonstration events.
-    Phase3Repository.Event claimedEvent(long ticketId) throws Exception {
+    AnalysisTaskRepository.Event claimedEvent(long ticketId) throws Exception {
         var message = message(ticketId);
         String token = UUID.randomUUID().toString();
         assertEquals(1, db.update("UPDATE outbox_event SET status='SENDING',attempts=attempts+1,"
                 + "lease_token=?,lease_until=TIMESTAMPADD(SECOND,90,NOW(3)) WHERE event_id=? AND status='PENDING'",
                 token, message.eventId()));
         String payload = db.queryForObject("SELECT payload FROM outbox_event WHERE event_id=?", String.class, message.eventId());
-        return new Phase3Repository.Event(message.eventId(), payload, 1, token);
+        return new AnalysisTaskRepository.Event(message.eventId(), payload, 1, token);
     }
 
     TicketAnalysisVO success() {

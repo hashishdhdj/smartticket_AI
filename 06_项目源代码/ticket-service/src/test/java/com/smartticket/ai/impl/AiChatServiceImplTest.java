@@ -1,5 +1,9 @@
 package com.smartticket.ai.impl;
 
+import com.smartticket.exception.ApiFailure;
+import com.smartticket.governance.BudgetLedger;
+import com.smartticket.security.ActorContext;
+
 import com.smartticket.ai.AiCallResult;
 import com.smartticket.enums.ErrorCode;
 import org.junit.jupiter.api.DisplayName;
@@ -42,17 +46,17 @@ class AiChatServiceImplTest {
     void budgetExhaustionKeepsReasonAndDoesNotDispatchModel() {
         StubChatModel model = stubModelOf(prompt -> chatResponseOf("must not call"));
         AiChatServiceImpl service = new AiChatServiceImpl(providerOf(ChatClient.builder(model)), true, "test-key", "stub-model");
-        var budget = mock(com.smartticket.phase3.BudgetLedger.class);
+        var budget = mock(com.smartticket.governance.BudgetLedger.class);
         org.springframework.test.util.ReflectionTestUtils.setField(service, "budget", budget);
-        org.mockito.Mockito.doThrow(new com.smartticket.phase3.ApiFailure(429, 10014, "budget exhausted"))
+        org.mockito.Mockito.doThrow(new com.smartticket.exception.ApiFailure(429, 10014, "budget exhausted"))
                 .when(budget).reserve(org.mockito.ArgumentMatchers.eq(109014L), org.mockito.ArgumentMatchers.anyInt());
-        com.smartticket.phase3.ActorContext.set(new com.smartticket.phase3.ActorContext.Actor(109014, "SUBMITTER"));
+        com.smartticket.security.ActorContext.set(new com.smartticket.security.ActorContext.Actor(109014, "SUBMITTER"));
         try {
             AiCallResult result = service.chat("system", "user");
             assertFalse(result.success());
             assertEquals(ErrorCode.AI_BUDGET_EXHAUSTED, result.errorCode());
             assertEquals(0, model.callCount());
-        } finally { com.smartticket.phase3.ActorContext.clear(); }
+        } finally { com.smartticket.security.ActorContext.clear(); }
     }
 
     private static final String SYSTEM_PROMPT = "你是工单分类助手";

@@ -221,7 +221,7 @@
                         <include>**/TicketApiTest.java</include>
                         <include>**/TicketMapperTest.java</include>
                         <include>**/AgentOpenAiProtocolTest.java</include>
-                        <include>**/Phase3IntegrationTest.java</include>
+                        <include>**/ReliableBackendIntegrationTest.java</include>
                         <include>**/KnowledgeVectorIntegrationTest.java</include>
                         <include>**/TicketCacheTest.java</include>
                         <include>**/RabbitConnectivityTest.java</include>

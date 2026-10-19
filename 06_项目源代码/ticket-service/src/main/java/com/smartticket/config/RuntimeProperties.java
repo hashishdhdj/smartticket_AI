@@ -1,4 +1,4 @@
-package com.smartticket.phase3;
+package com.smartticket.config;
 
 import lombok.Data;
 
@@ -10,7 +10,7 @@ import java.util.*;
 @Data
 @Component
 @ConfigurationProperties(prefix = "smartticket.phase3")
-public class Phase3Properties {
+public class RuntimeProperties {
     private boolean securityEnabled = true, recordTasks = true, asyncEnabled = true;
     private int requestsPerMinute = 20, dailyRequests = 100, dailyTokens = 50000;
     private int maxModelCalls = 4, maxToolCalls = 6, maxOutputTokens = 512, maxRunTokens = 12000;

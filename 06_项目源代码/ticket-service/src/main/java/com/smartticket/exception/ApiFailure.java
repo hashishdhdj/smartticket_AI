@@ -1,4 +1,4 @@
-package com.smartticket.phase3;
+package com.smartticket.exception;
 
 public class ApiFailure extends RuntimeException {
     private final int status, code;

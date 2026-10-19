@@ -1,5 +1,9 @@
 package com.smartticket.ai.impl;
 
+import com.smartticket.exception.ApiFailure;
+import com.smartticket.governance.BudgetLedger;
+import com.smartticket.security.ActorContext;
+
 import com.smartticket.ai.AiCallResult;
 import com.smartticket.ai.AiChatService;
 import com.smartticket.enums.ErrorCode;
@@ -28,7 +32,7 @@ import org.springframework.util.StringUtils;
 @Slf4j
 @Service
 public class AiChatServiceImpl implements AiChatService {
-    @org.springframework.beans.factory.annotation.Autowired(required=false) private com.smartticket.phase3.BudgetLedger budget;
+    @org.springframework.beans.factory.annotation.Autowired(required=false) private com.smartticket.governance.BudgetLedger budget;
 
     /** api-key 的占位值，与 application.yml 保持一致；出现它即视为「未配置密钥」 */
     static final String PLACEHOLDER_API_KEY = "not-configured";
@@ -105,7 +109,7 @@ public class AiChatServiceImpl implements AiChatService {
         }
 
         try {
-            var actor=com.smartticket.phase3.ActorContext.current();
+            var actor=com.smartticket.security.ActorContext.current();
             if(actor!=null&&budget!=null)budget.reserve(actor.id(),systemPrompt.getBytes(java.nio.charset.StandardCharsets.UTF_8).length+userPrompt.getBytes(java.nio.charset.StandardCharsets.UTF_8).length+2048);
             String content = chatClient.prompt()
                     .system(systemPrompt)
@@ -124,7 +128,7 @@ public class AiChatServiceImpl implements AiChatService {
             log.info("AI 调用成功 | model={} | cost={}ms | answerChars={}", model, costMs, content.length());
             return AiCallResult.ok(content, costMs, model);
 
-        } catch (com.smartticket.phase3.ApiFailure e) {
+        } catch (com.smartticket.exception.ApiFailure e) {
             if (e.code() == ErrorCode.AI_BUDGET_EXHAUSTED.getCode()) {
                 return AiCallResult.failed(ErrorCode.AI_BUDGET_EXHAUSTED, e.getMessage(), elapsedMs(start));
             }

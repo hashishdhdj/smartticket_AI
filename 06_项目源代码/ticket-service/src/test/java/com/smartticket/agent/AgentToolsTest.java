@@ -1,8 +1,8 @@
 package com.smartticket.agent;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.smartticket.phase3.ActorContext;
-import com.smartticket.phase3.ApiFailure;
+import com.smartticket.security.ActorContext;
+import com.smartticket.exception.ApiFailure;
 import com.smartticket.rag.KnowledgeSearchResult;
 import com.smartticket.rag.KnowledgeSearchService;
 import com.smartticket.service.TicketService;

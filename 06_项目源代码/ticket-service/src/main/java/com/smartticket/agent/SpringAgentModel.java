@@ -1,7 +1,7 @@
 package com.smartticket.agent;
 
 import com.smartticket.ai.AiChatService;
-import com.smartticket.phase3.ApiFailure;
+import com.smartticket.exception.ApiFailure;
 
 import org.springframework.ai.chat.messages.Message;
 import org.springframework.ai.chat.model.ChatModel;

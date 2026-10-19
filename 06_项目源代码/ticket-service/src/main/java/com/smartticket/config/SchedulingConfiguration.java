@@ -1,8 +1,8 @@
-package com.smartticket.phase3;
+package com.smartticket.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @Configuration
 @EnableScheduling
-public class Phase3Configuration {}
+public class SchedulingConfiguration {}

@@ -1,4 +1,4 @@
-package com.smartticket.phase3;
+package com.smartticket.exception;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,5 +1,8 @@
 package com.smartticket.rag.impl;
 
+import com.smartticket.governance.BudgetLedger;
+import com.smartticket.security.ActorContext;
+
 import com.smartticket.enums.ErrorCode;
 import com.smartticket.rag.EmbeddingResult;
 import com.smartticket.rag.EmbeddingService;
@@ -29,7 +32,7 @@ import java.util.List;
 @Service
 public class EmbeddingServiceImpl implements EmbeddingService {
     @org.springframework.beans.factory.annotation.Autowired(required=false)
-    private com.smartticket.phase3.BudgetLedger budget;
+    private com.smartticket.governance.BudgetLedger budget;
 
     /** api-key 的占位值，与 application.yml 及 chat 侧保持一致；出现它即视为「未配置密钥」 */
     static final String PLACEHOLDER_API_KEY = "not-configured";
@@ -95,7 +98,7 @@ public class EmbeddingServiceImpl implements EmbeddingService {
         List<float[]> collected = new ArrayList<>(texts.size());
 
         try {
-            var actor=com.smartticket.phase3.ActorContext.current();
+            var actor=com.smartticket.security.ActorContext.current();
             if(actor!=null&&budget!=null)budget.reserve(actor.id(),texts.stream().mapToInt(text->text.getBytes(java.nio.charset.StandardCharsets.UTF_8).length).sum()+1024);
             for (int from = 0; from < texts.size(); from += batchSize) {
                 int to = Math.min(from + batchSize, texts.size());

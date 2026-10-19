@@ -1,4 +1,4 @@
-package com.smartticket.phase3;
+package com.smartticket.governance;
 
 import io.micrometer.core.instrument.*;
 import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
@@ -9,7 +9,7 @@ import java.time.Duration;
 import java.util.*;
 
 @Component
-public class Phase3Metrics {
+public class ApplicationMetrics {
     private final MeterRegistry registry = new SimpleMeterRegistry();
 
     public void count(String name, String outcome) {

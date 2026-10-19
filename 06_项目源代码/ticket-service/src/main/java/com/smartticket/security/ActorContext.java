@@ -1,4 +1,6 @@
-package com.smartticket.phase3;
+package com.smartticket.security;
+
+import com.smartticket.exception.ApiFailure;
 
 public final class ActorContext {
     public record Actor(long id, String role) {

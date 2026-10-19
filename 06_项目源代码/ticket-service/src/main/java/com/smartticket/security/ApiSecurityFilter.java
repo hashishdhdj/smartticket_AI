@@ -1,4 +1,9 @@
-package com.smartticket.phase3;
+package com.smartticket.security;
+
+import com.smartticket.config.RuntimeProperties;
+import com.smartticket.exception.ApiFailure;
+import com.smartticket.governance.ApplicationMetrics;
+import com.smartticket.governance.BudgetLedger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -21,13 +26,13 @@ import java.util.concurrent.ConcurrentHashMap;
         havingValue = "true",
         matchIfMissing = true)
 public class ApiSecurityFilter extends OncePerRequestFilter {
-    private final Phase3Properties config;
+    private final RuntimeProperties config;
     private final ObjectMapper json;
     private final BudgetLedger budget;
-    private final Phase3Metrics metrics;
+    private final ApplicationMetrics metrics;
     private final Map<Long, long[]> windows = new ConcurrentHashMap<>();
 
-    public ApiSecurityFilter(Phase3Properties c, ObjectMapper j, BudgetLedger b, Phase3Metrics m) {
+    public ApiSecurityFilter(RuntimeProperties c, ObjectMapper j, BudgetLedger b, ApplicationMetrics m) {
         config = c;
         json = j;
         budget = b;

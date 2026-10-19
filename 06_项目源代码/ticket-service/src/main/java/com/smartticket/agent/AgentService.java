@@ -1,6 +1,13 @@
 package com.smartticket.agent;
 
-import com.smartticket.phase3.*;
+import com.smartticket.analysis.persistence.AnalysisTaskRepository;
+import com.smartticket.config.RuntimeProperties;
+import com.smartticket.exception.ApiFailure;
+import com.smartticket.governance.ApplicationMetrics;
+import com.smartticket.governance.BudgetLedger;
+import com.smartticket.security.ActorContext;
+
+
 
 import jakarta.annotation.PreDestroy;
 
@@ -15,10 +22,10 @@ public class AgentService {
     public static final String PROMPT_VERSION = "agent-v3.1";
     private final AgentModel model;
     private final AgentTools tools;
-    private final Phase3Properties config;
-    private final Phase3Repository repo;
+    private final RuntimeProperties config;
+    private final AnalysisTaskRepository repo;
     private final BudgetLedger budget;
-    private final Phase3Metrics metrics;
+    private final ApplicationMetrics metrics;
     private final ThreadPoolExecutor executor =
             new ThreadPoolExecutor(
                     4,
@@ -50,10 +57,10 @@ public class AgentService {
     public AgentService(
             AgentModel m,
             AgentTools t,
-            Phase3Properties c,
-            Phase3Repository r,
+            RuntimeProperties c,
+            AnalysisTaskRepository r,
             BudgetLedger b,
-            Phase3Metrics metrics) {
+            ApplicationMetrics metrics) {
         model = m;
         tools = t;
         config = c;

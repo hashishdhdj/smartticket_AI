@@ -1,8 +1,13 @@
 package com.smartticket.agent;
 
+import com.smartticket.analysis.persistence.AnalysisTaskRepository;
+import com.smartticket.exception.ApiFailure;
+import com.smartticket.security.AccessPolicy;
+import com.smartticket.security.ActorContext;
+
 import com.smartticket.dto.TicketAssignDTO;
 import com.smartticket.mapper.TicketMapper;
-import com.smartticket.phase3.*;
+
 import com.smartticket.service.TicketService;
 
 import org.springframework.stereotype.Service;
@@ -12,14 +17,14 @@ import java.util.*;
 
 @Service
 public class AssignmentActions {
-    private final Phase3Repository repo;
+    private final AnalysisTaskRepository repo;
     private final TicketMapper tickets;
     private final TicketService service;
     private final AccessPolicy access;
     private final TransactionTemplate tx;
 
     public AssignmentActions(
-            Phase3Repository r,
+            AnalysisTaskRepository r,
             TicketMapper t,
             TicketService s,
             AccessPolicy a,
@@ -91,7 +96,7 @@ public class AssignmentActions {
                             throw new IllegalStateException(e);
                         }
                     }
-                    if (Phase3Repository.localTime(row.get("expires_at"))
+                    if (AnalysisTaskRepository.localTime(row.get("expires_at"))
                             .isBefore(java.time.LocalDateTime.now()))
                         throw new ApiFailure(409, 10012, "操作已过期，请重新提出");
                     long id = ((Number) row.get("ticket_id")).longValue();

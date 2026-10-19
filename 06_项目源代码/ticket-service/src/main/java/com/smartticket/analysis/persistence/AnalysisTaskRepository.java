@@ -1,4 +1,8 @@
-package com.smartticket.phase3;
+package com.smartticket.analysis.persistence;
+
+import com.smartticket.config.RuntimeProperties;
+import com.smartticket.exception.ApiFailure;
+import com.smartticket.security.ActorContext;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.smartticket.entity.Ticket;
@@ -13,21 +17,21 @@ import java.time.*;
 import java.util.*;
 
 @Repository
-public class Phase3Repository {
+public class AnalysisTaskRepository {
     private final JdbcTemplate db;
     private final TransactionTemplate tx;
     private final ObjectMapper json;
-    private final Phase3Properties config;
+    private final RuntimeProperties config;
 
     public record Task(String id, long ticketId, long version, int attempts, String token) {}
 
     public record Event(String id, String payload, int attempts, String token) {}
 
-    public Phase3Repository(
+    public AnalysisTaskRepository(
             JdbcTemplate db,
             org.springframework.transaction.PlatformTransactionManager tm,
             ObjectMapper json,
-            Phase3Properties config) {
+            RuntimeProperties config) {
         this.db = db;
         this.tx = new TransactionTemplate(tm);
         this.json = json;

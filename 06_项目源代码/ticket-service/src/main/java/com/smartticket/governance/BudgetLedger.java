@@ -1,4 +1,7 @@
-package com.smartticket.phase3;
+package com.smartticket.governance;
+
+import com.smartticket.config.RuntimeProperties;
+import com.smartticket.exception.ApiFailure;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -10,12 +13,12 @@ import java.time.LocalDate;
 public class BudgetLedger {
     private final JdbcTemplate db;
     private final TransactionTemplate tx;
-    private final Phase3Properties config;
+    private final RuntimeProperties config;
 
     public BudgetLedger(
             JdbcTemplate db,
             org.springframework.transaction.PlatformTransactionManager tm,
-            Phase3Properties config) {
+            RuntimeProperties config) {
         this.db = db;
         this.tx = new TransactionTemplate(tm);
         this.config = config;
