@@ -1,0 +1,18 @@
+{
+  "version": "phase4-v3-newwording",
+  "created_at": "2026-10-15T20:01:47",
+  "purpose": "NEW_WORDING_AFTER_KNOWN_FAILURES_NOT_INDEPENDENT_HUMAN_BLIND_TEST",
+  "author_review_status": "PENDING",
+  "labels_locked_before_first_run": true,
+  "note": "New questions after known failures; AI-assisted source-backed references require author review. Not independent blind acceptance.",
+  "files": {
+    "rag-newwording-v3.jsonl": {
+      "count": 30,
+      "sha256": "3210154b9c1effd3423d31278d288e98b8a9a545575f1bcacb8ad31190d6100d"
+    },
+    "agent-newwording-v3.jsonl": {
+      "count": 8,
+      "sha256": "f1fc19d6d44be94863bfb95fc7c66e64fad4e3ed28b9d3079151605e5a841481"
+    }
+  }
+}

@@ -1,0 +1,265 @@
+{
+  "date": "2026-10-16",
+  "kind": "REAL_FROZEN_DRAFT_EVALUATION",
+  "threshold": 0.66,
+  "external_call_ceiling": 399,
+  "case_filter": "RH09,RH16,RH18",
+  "embedding_model": "bge-m3:latest",
+  "embedding_provider": "ollama",
+  "dataset_manifest": {
+    "version": "phase4-v1",
+    "author_review_status": "PENDING",
+    "labels_locked_before_first_run": true,
+    "independent_wording_note": "新编演示问法，不复制旧32题；小语料、AI协助标注，泛化和答案语义需人工复核。",
+    "files": {
+      "rag-heldout-v1.jsonl": {
+        "count": 30,
+        "sha256": "3cd289664ab4247cae11521cb966d422a856412a5c0374e13b768a3507992cc2"
+      },
+      "classification-heldout-v1.jsonl": {
+        "count": 30,
+        "sha256": "f6d8efe9f05c8bd45e470939ba96a667f27f9af8456d8522aac6bcdfe4f907bb"
+      },
+      "agent-real-v1.jsonl": {
+        "count": 20,
+        "sha256": "1bad407d0d1feda7d5d1af6dc3a749cedf61cd91c16d5df402ad7846eae45c1f"
+      }
+    }
+  },
+  "dataset_directory": "phase4-v1",
+  "jar_sha256": "816de27fb6fff53be0f1538745e053af2521b3f9929984496f1ff741f460413a",
+  "prompt_sha256": {
+    "ai-classification-result.schema.json": "b309fe4315ec477a2e347047324cc9709f9546049f8ef9b110751258d4f6e1ee",
+    "rag-answer-result.schema.json": "847c103e1193218a2a6a74aa6033479cd5aa00724e9f345993785c6a052939cf",
+    "rag-answer-system.md": "d4abab7e1c65cd615802a6f12829ed08833e69ad62d08c6e275872b6f95441d8",
+    "rag-answer-user.md": "f41b92ec94a0b561efabbde3f0490b96398089a2fa87054ef268da22b186f837",
+    "ticket-classify-system.md": "fb1225abffda6b39735f0f6422c758160af1bd742a4142e8392fce142452cf06",
+    "ticket-classify-user.md": "1aa831f32b0bb781bf8dd97466d2964e34407800dc03f86e7ce6cda143ca3f83"
+  },
+  "corpus_sha256": "ce4df0177f9516f71b576b9e8ec152967558507d2f781e0ef656215ed10d45b0",
+  "author_review_status": "PENDING",
+  "semantic_answer_quality": "PENDING_HUMAN_REVIEW",
+  "rows": [
+    {
+      "id": "RH09",
+      "kind": "rag",
+      "case": {
+        "id": "RH09",
+        "kind": "rag",
+        "query": "优惠券抵扣了一部分订单价格，演示平台开票金额应该看标价还是实际支付？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/02-支付问题.md#如何申请开具发票"
+        ],
+        "reference_answer": "模拟规则按实付金额、不包括优惠券；真实规则需业务核实。",
+        "required_facts": [
+          "实付",
+          "优惠"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_CODEX_DRAFT"
+      },
+      "started_at_epoch": 1792123696.6374104,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 1.0,
+        "retrieval_healthy": true,
+        "threshold_abstention": true,
+        "abstention_flag_correct": false,
+        "has_generated_answer": false,
+        "degraded_sources": [],
+        "required_fact_text_matches": [],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.6540607386358276,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "faq/02-支付问题.md",
+            "title": "如何申请开具发票",
+            "score": 0.6540607386358276,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **开票金额**：演示规则按实付金额开票，不包括优惠券抵扣部分；不是按订单原标价开票。 **申请步骤**：已完成订单在「我的订单」点击「申请发票」，选择个人或…"
+          },
+          {
+            "sourceFile": "tickets/02-支付问题.md",
+            "title": "同一笔订单被扣款两次",
+            "score": 0.5599645757802216,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：下单后发现银行卡被扣了两笔相同金额，订单只有一笔。 **分类与优先级**：支付问题 / URGENT **排查过程**： 1. 收集两笔扣款…"
+          },
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "页面数据与实际不一致怎么办",
+            "score": 0.5436608999543331,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：列表显示的条数、状态或金额与预期不符。 **处理步骤**： 1. 硬刷新页面（`Ctrl + F5`）。列表与详情页存在缓存，通常会在 10…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 217
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 266,
+      "vendor_calls": []
+    },
+    {
+      "id": "RH16",
+      "kind": "rag",
+      "case": {
+        "id": "RH16",
+        "kind": "rag",
+        "query": "PUT更新时只带标题、不带原来的描述，描述会保留吗？更新后有没有审计？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/04-工单流程与通用问题.md#工单可以修改哪些内容"
+        ],
+        "reference_answer": "全量替换，可空字段未提供可能清空；成功更新写UPDATE日志并增加版本。",
+        "required_facts": [
+          "清空",
+          "UPDATE"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_CODEX_DRAFT"
+      },
+      "started_at_epoch": 1792123696.9056726,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 1.0,
+        "retrieval_healthy": true,
+        "threshold_abstention": true,
+        "abstention_flag_correct": false,
+        "has_generated_answer": false,
+        "degraded_sources": [],
+        "required_fact_text_matches": [],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.6426883339881897,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "faq/04-工单流程与通用问题.md",
+            "title": "工单可以修改哪些内容",
+            "score": 0.6426883339881897,
+            "summary": "**适用场景**：提交后发现标题或描述有误，想补充信息。 **处理步骤**： 1. 可修改：标题、描述、分类、优先级、标签。 2. **不可修改：工单状态、工单编号、创建人**。状态只能通过指派、解决、关闭等操作流转。 3. 更新接口是全量替换，需要提交希望保留的可修改字段；可空字段未提供可能被清空…"
+          },
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "Agent提出指派后是否已经修改工单",
+            "score": 0.5044838195423901,
+            "summary": "**适用场景**：管理员要求Agent指派工单，返回待确认提案。 **处理步骤**：prepareAssignTicket只创建提案，不执行指派。管理员核对工单、处理人和摘要后，用同一账号调用action确认接口。提案绑定账号、工单版本、处理人和有效期；有效期为300秒。确认后才修改工单并记审计，重…"
+          },
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "页面数据与实际不一致怎么办",
+            "score": 0.5029978766431792,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：列表显示的条数、状态或金额与预期不符。 **处理步骤**： 1. 硬刷新页面（`Ctrl + F5`）。列表与详情页存在缓存，通常会在 10…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 50
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 78,
+      "vendor_calls": []
+    },
+    {
+      "id": "RH18",
+      "kind": "rag",
+      "case": {
+        "id": "RH18",
+        "kind": "rag",
+        "query": "创建请求成功后分析状态变成DEGRADED，这能作为大模型分析成功的证明吗？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+        ],
+        "reference_answer": "DEGRADED为规则兜底，不是模型成功；查看错误原因，必要时管理员重放。",
+        "required_facts": [
+          "规则",
+          "模型"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_CODEX_DRAFT"
+      },
+      "started_at_epoch": 1792123696.9867086,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 1.0,
+        "retrieval_healthy": true,
+        "threshold_abstention": true,
+        "abstention_flag_correct": false,
+        "has_generated_answer": false,
+        "degraded_sources": [],
+        "required_fact_text_matches": [],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.5975333692113548,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "如何判断工单的AI分析是否完成",
+            "score": 0.5975333692113548,
+            "summary": "**适用场景**：工单创建成功后暂时没有AI建议。 **处理步骤**：查询工单analysis接口。PENDING表示等待处理，RUNNING表示执行中；SUCCEEDED表示模型分析完成，DEGRADED表示规则兜底而非真实模型成功。FAILED表示失败，STALE表示分析输入已过时，NOT_RE…"
+          },
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "AI建议会覆盖人工填写的分类和优先级吗",
+            "score": 0.5863638417287104,
+            "summary": "**适用场景**：AI结果与人工判断不同，或分析期间已修改工单。 **处理步骤**：AI分析结果单独保存，人工工单字段保持有效。可比较建议、来源和理由，再由人作业务决定。模型执行前后校验输入工单版本，旧内容对应的结果会标记STALE，不能当作当前有效建议。 **注意事项**：模型判断可能错误，RUL…"
+          },
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "Agent提出指派后是否已经修改工单",
+            "score": 0.4996179937860994,
+            "summary": "**适用场景**：管理员要求Agent指派工单，返回待确认提案。 **处理步骤**：prepareAssignTicket只创建提案，不执行指派。管理员核对工单、处理人和摘要后，用同一账号调用action确认接口。提案绑定账号、工单版本、处理人和有效期；有效期为300秒。确认后才修改工单并记审计，重…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 40
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 78,
+      "vendor_calls": []
+    }
+  ],
+  "summary": {
+    "total": 3,
+    "dispatch_failures": 0,
+    "rag_positive_count": 3,
+    "rag_negative_count": 0,
+    "hit_at_3": 1.0,
+    "mrr_at_3": 1.0,
+    "negative_abstention_flag_rate": null,
+    "positive_generated_answer_rate": 0.0,
+    "classification_count": 0,
+    "category_label_agreement": null,
+    "priority_acceptable_set_agreement": null,
+    "agent_count": 0,
+    "normal_agent_required_tool_rate": null,
+    "normal_agent_completed_machine_checks_rate": null,
+    "normal_agent_validated_output_or_handoff_rate": null,
+    "agent_invalid_final_output_count": 0,
+    "agent_unconfirmed_write_violations": 0,
+    "agent_canary_leak_violations": 0,
+    "semantic_quality_and_final_task_completion": null,
+    "rag_degraded_or_failed_count": 0,
+    "negative_refusal_correct_rate": null
+  },
+  "metrics_validity": {
+    "rag": "RETRIEVAL_VALID_SEMANTIC_REVIEW_PENDING",
+    "classification": "DRAFT_LABEL_AGREEMENT_ONLY",
+    "agent": "MACHINE_CHECKS_ONLY_SEMANTIC_REVIEW_PENDING"
+  },
+  "status": "EXECUTED_PENDING_LABEL_AND_SEMANTIC_REVIEW"
+}

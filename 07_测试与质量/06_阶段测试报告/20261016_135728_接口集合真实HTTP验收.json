@@ -1,0 +1,275 @@
+{
+  "date": "2026-10-16T13:57:28",
+  "status": "PASS",
+  "vendor_calls": 0,
+  "scope": "isolated stage4, async and model disabled",
+  "postman_desktop_executed": false,
+  "collection_sha256": "b340fb1bd39053b3d7d00e3243b0b449672b27ab4abfccdaf3e5a7f407d15596",
+  "delivery_artifact_path": "08_部署与环境/04_交付产物/SmartTicket-AI-20261016-975badc437d2.jar",
+  "jar_sha256": "975badc437d2746a9bc8918b900f08bd732e96d7a1ce1c9b94686c0b4b79007a",
+  "runner": "Node HTTP + limited pm compatibility; not Postman/Newman",
+  "requests": 15,
+  "assertions": 35,
+  "rows": [
+    {
+      "name": "01 创建合成工单（可信身份覆盖creatorId）",
+      "method": "POST",
+      "path": "/api/tickets",
+      "http_status": 200,
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "status": "PASS"
+        },
+        {
+          "name": "business code 0",
+          "status": "PASS"
+        },
+        {
+          "name": "可信创建人",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "02 查询自己的工单",
+      "method": "GET",
+      "path": "/api/tickets/1241",
+      "http_status": 200,
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "status": "PASS"
+        },
+        {
+          "name": "business code 0",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "03 查询日志",
+      "method": "GET",
+      "path": "/api/tickets/1241/logs",
+      "http_status": 200,
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "status": "PASS"
+        },
+        {
+          "name": "business code 0",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "04 查询分析任务（降级不等于AI成功）",
+      "method": "GET",
+      "path": "/api/tickets/1241/analysis",
+      "http_status": 200,
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "status": "PASS"
+        },
+        {
+          "name": "business code 0",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "05 无凭据拒绝401",
+      "method": "GET",
+      "path": "/api/tickets/1241",
+      "http_status": 401,
+      "checks": [
+        {
+          "name": "HTTP 401",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "06 未指派处理人拒绝403",
+      "method": "GET",
+      "path": "/api/tickets/1241",
+      "http_status": 403,
+      "checks": [
+        {
+          "name": "HTTP 403",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "07 普通账号不能查管理员指标",
+      "method": "GET",
+      "path": "/api/admin/metrics",
+      "http_status": 403,
+      "checks": [
+        {
+          "name": "HTTP 403",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "08 管理员查询指标",
+      "method": "GET",
+      "path": "/api/admin/metrics",
+      "http_status": 200,
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "status": "PASS"
+        },
+        {
+          "name": "business code 0",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "09 管理员首次重放",
+      "method": "POST",
+      "path": "/api/tickets/1241/analysis/replay",
+      "http_status": 200,
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "status": "PASS"
+        },
+        {
+          "name": "business code 0",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "10 相同键重放返回同任务",
+      "method": "POST",
+      "path": "/api/tickets/1241/analysis/replay",
+      "http_status": 200,
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "status": "PASS"
+        },
+        {
+          "name": "business code 0",
+          "status": "PASS"
+        },
+        {
+          "name": "相同任务ID",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "11 Agent工程入口（离线模式应STOPPED，不冒充真模型）",
+      "method": "POST",
+      "path": "/api/agent/runs",
+      "http_status": 200,
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "status": "PASS"
+        },
+        {
+          "name": "business code 0",
+          "status": "PASS"
+        },
+        {
+          "name": "离线模型明确停止",
+          "status": "PASS"
+        },
+        {
+          "name": "离线停止原因明确",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "12 读取客户端版本快照",
+      "method": "GET",
+      "path": "/api/tickets/1241",
+      "http_status": 200,
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "status": "PASS"
+        },
+        {
+          "name": "business code 0",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "13 匹配客户端版本更新成功",
+      "method": "PUT",
+      "path": "/api/tickets/1241",
+      "http_status": 200,
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "status": "PASS"
+        },
+        {
+          "name": "business code 0",
+          "status": "PASS"
+        },
+        {
+          "name": "标题已更新",
+          "status": "PASS"
+        },
+        {
+          "name": "版本递增",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "14 旧页面版本拒绝409",
+      "method": "PUT",
+      "path": "/api/tickets/1241",
+      "http_status": 409,
+      "checks": [
+        {
+          "name": "HTTP 409",
+          "status": "PASS"
+        },
+        {
+          "name": "版本冲突业务码",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "15 确认冲突未覆盖最新数据",
+      "method": "GET",
+      "path": "/api/tickets/1241",
+      "http_status": 200,
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "status": "PASS"
+        },
+        {
+          "name": "business code 0",
+          "status": "PASS"
+        },
+        {
+          "name": "旧页面没有覆盖",
+          "status": "PASS"
+        },
+        {
+          "name": "冲突不增加版本",
+          "status": "PASS"
+        }
+      ]
+    }
+  ]
+}

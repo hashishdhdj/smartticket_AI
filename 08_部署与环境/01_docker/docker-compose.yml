@@ -1,0 +1,125 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: smartticket-mysql
+    restart: unless-stopped
+    environment:
+      # 真实密码不写在仓库里，从 01_docker/.env 读取（.env 已被 .gitignore 忽略）
+      # 示例见 08_部署与环境/02_env/.env.example
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: smartticket
+      TZ: Asia/Shanghai
+    command:
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      # 初始化 SQL 的权威位置在源码目录，compose 直接引用，避免两份副本漂移
+      - ../../06_项目源代码/sql:/docker-entrypoint-initdb.d
+    healthcheck:
+      # $$ 转义后由容器内 shell 展开，避免再次硬编码密码
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p$$MYSQL_ROOT_PASSWORD"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  redis:
+    image: redis:7-alpine
+    container_name: smartticket-redis
+    restart: unless-stopped
+    # 密码从 .env 读取（第10天 C3 决策），与 MySQL 的凭据策略保持一致：
+    # 仓库内只留 ${REDIS_PASSWORD} 占位，真实值在 01_docker/.env（已被 .gitignore 忽略）
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD}
+    environment:
+      # 供 healthcheck 里的 redis-cli 自动取用（redis-cli 会读这个环境变量）。
+      # 用它而不是 redis-cli -a：后者每次探活都会往容器日志写一条"密码明文"警告
+      REDISCLI_AUTH: ${REDIS_PASSWORD}
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli ping | grep -q PONG"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # 向量库（阶段2 第5天，章程第4周任务 5）。
+  #
+  # 为什么单独起一个 PostgreSQL 而不是把向量塞进 MySQL：
+  #   MySQL 8.0 没有向量类型与向量索引，硬存 JSON/BLOB 只能全表扫 + 应用层算余弦，
+  #   数据量一上来就不可用。pgvector 是 PostgreSQL 的扩展，而 PostgreSQL 与 MySQL 是
+  #   两个独立数据库，不能"给 MySQL 加扩展"，只能并存——所以工单数据留在 MySQL（不动），
+  #   向量数据另起一个 PostgreSQL。这也符合"一个存储做一件事"的取舍。
+  #
+  # 镜像选 pgvector/pgvector:pg16（pgvector 官方镜像）：PostgreSQL 16 + 预装 vector 扩展，
+  # 不需要进容器编译。注意基础镜像来自 Docker Hub，国内直连 registry-1.docker.io 可能超时，
+  # 需配置镜像加速器（见 08_部署与环境/01_docker/README.md）。
+  pgvector:
+    image: pgvector/pgvector:pg16
+    container_name: smartticket-pgvector
+    restart: unless-stopped
+    environment:
+      # 与 MySQL/Redis 同一套凭据策略：真实密码在 01_docker/.env（已被 .gitignore 忽略）
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      # 初始化脚本会在**这个库**里执行；应用侧连接串必须指向同一个库名
+      POSTGRES_DB: smartticket_vector
+      TZ: Asia/Shanghai
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgvector-data:/var/lib/postgresql/data
+      # 与 MySQL 同一约定：初始化 SQL 的权威位置在源码目录，compose 直接引用，避免两份副本漂移。
+      # 注意 PostgreSQL 的入口脚本只处理**本目录下**的 *.sql（不递归），
+      # 所以向量库单独用一个源码目录 sql-vector/，不与 MySQL 的 sql/ 混放。
+      - ../../06_项目源代码/sql-vector:/docker-entrypoint-initdb.d
+    healthcheck:
+      # -U postgres：镜像默认超级用户；-d 指定库，避免连到默认的 postgres 库造成假健康
+      test: ["CMD-SHELL", "pg_isready -U postgres -d smartticket_vector"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  # 消息队列（阶段3 第6周，章程第6周任务 1）。
+  #
+  # 为什么引入它：第6周要把 AI 分析从"用户手动调的独立接口"改成"工单创建后自动跑"。
+  # 若在创建工单的同一个请求里同步调 AI，模型排队几十秒会把创建接口一起拖慢（与 DEF-002 同类故障，
+  # 只是触发源从数据库换成模型服务）。所以改为"创建成功后发一条消息，AI 在另一个线程里跑"。
+  #
+  # 镜像选 -management 变体：多一个 15672 的 Web 管理台，排查"消息卡在哪、死信队列有几条"时
+  # 不必进容器敲命令（管理台仅用于本地开发，生产不会暴露）。
+  # tag 用 3-management 而不是 3.13-management：软件版本清单记录本机**已预拉取** rabbitmq:3-management，
+  # 钉到 3.13 会触发一次新的镜像下载，而国内直连 Docker Hub 常超时（见 08_部署与环境/01_docker/README.md）。
+  # 换成已就绪的 tag 最省事；要固定到小版本，先确认该 tag 能拉到再改。
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: smartticket-rabbitmq
+    restart: unless-stopped
+    environment:
+      # 与 MySQL/Redis/PostgreSQL 同一套凭据策略：真实密码在 01_docker/.env（已被 .gitignore 忽略）。
+      # 默认用户 / 密码：镜像会在首次启动时创建它，并授予对默认 vhost "/" 的全部权限。
+      # 不用镜像自带的 guest/guest —— 它只允许从 localhost 登录，容器场景下会连不上且报错含糊。
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-smartticket}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+      TZ: Asia/Shanghai
+    ports:
+      - "5672:5672"     # AMQP 协议端口，应用连的就是这个
+      - "15672:15672"   # 管理台 Web UI：http://localhost:15672
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    healthcheck:
+      # rabbitmq-diagnostics -q ping 是官方推荐的就绪探针：
+      # 它要等 Erlang 节点与 AMQP 监听都起来才返回 0，比单纯判断"端口开着"可靠
+      # （端口先于 vhost/权限就绪，用端口探活会出现"容器 healthy 但应用连上就 403"）。
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+volumes:
+  mysql-data:
+  redis-data:
+  pgvector-data:
+  rabbitmq-data:

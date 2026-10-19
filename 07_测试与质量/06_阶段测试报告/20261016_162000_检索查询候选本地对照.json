@@ -1,0 +1,158 @@
+{
+  "status": "DIAGNOSTIC_ONLY",
+  "vendor_calls": 0,
+  "baseline_sha256": "0b290a62c216ad18acdb8f1cd55c7c5adfdcf7f9453a0bf5308e4084733bbc15",
+  "scope": "All 122 known queries checked for rewrite applicability; changed queries measured by local vector cosine only, not fused retrieval or generation. No index writes.",
+  "rows": [
+    {
+      "recipe": "synonym_only",
+      "group": "phase4-v2-regression",
+      "id": "RV02",
+      "positive": true,
+      "query": "按演示账号规则，忘记口令但注册手机号仍由本人持有，如何重设？这个项目实现了该短信流程吗？",
+      "effective_query": "按演示账号规则，忘记密码但注册手机号仍由本人持有，如何重设？这个项目实现了该短信流程吗？",
+      "old_score": 0.6309619169854525,
+      "new_score": 0.6615421879069953,
+      "new_rank": 1,
+      "top_sources": [
+        [
+          "faq/01-账户问题.md#如何重置登录密码",
+          0.6615421879069953
+        ],
+        [
+          "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+          0.6402303191098169
+        ],
+        [
+          "faq/01-账户问题.md#如何更换绑定手机号",
+          0.6275939780057492
+        ]
+      ]
+    },
+    {
+      "recipe": "synonym_only",
+      "group": "phase4-v3-newwording",
+      "id": "NW02",
+      "positive": true,
+      "query": "演示账号忘了口令，但原手机卡还能收短信，资料给出哪条重置路径？",
+      "effective_query": "演示账号忘了密码，但原手机卡还能收短信，资料给出哪条重置路径？",
+      "old_score": 0.5989091154011912,
+      "new_score": 0.6317271789119786,
+      "new_rank": 1,
+      "top_sources": [
+        [
+          "faq/01-账户问题.md#如何重置登录密码",
+          0.6317271789119786
+        ],
+        [
+          "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+          0.6069599065365429
+        ],
+        [
+          "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+          0.6067541059196024
+        ]
+      ]
+    },
+    {
+      "recipe": "append_codes",
+      "group": "phase4-v2-regression",
+      "id": "RV02",
+      "positive": true,
+      "query": "按演示账号规则，忘记口令但注册手机号仍由本人持有，如何重设？这个项目实现了该短信流程吗？",
+      "effective_query": "按演示账号规则，忘记密码但注册手机号仍由本人持有，如何重设？这个项目实现了该短信流程吗？",
+      "old_score": 0.6309619169854525,
+      "new_score": 0.6615421879069953,
+      "new_rank": 1,
+      "top_sources": [
+        [
+          "faq/01-账户问题.md#如何重置登录密码",
+          0.6615421879069953
+        ],
+        [
+          "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+          0.6402303191098169
+        ],
+        [
+          "faq/01-账户问题.md#如何更换绑定手机号",
+          0.6275939780057492
+        ]
+      ]
+    },
+    {
+      "recipe": "append_codes",
+      "group": "phase4-v3-newwording",
+      "id": "NW02",
+      "positive": true,
+      "query": "演示账号忘了口令，但原手机卡还能收短信，资料给出哪条重置路径？",
+      "effective_query": "演示账号忘了密码，但原手机卡还能收短信，资料给出哪条重置路径？",
+      "old_score": 0.5989091154011912,
+      "new_score": 0.6317271789119786,
+      "new_rank": 1,
+      "top_sources": [
+        [
+          "faq/01-账户问题.md#如何重置登录密码",
+          0.6317271789119786
+        ],
+        [
+          "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+          0.6069599065365429
+        ],
+        [
+          "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+          0.6067541059196024
+        ]
+      ]
+    },
+    {
+      "recipe": "replace_codes",
+      "group": "phase4-v2-regression",
+      "id": "RV02",
+      "positive": true,
+      "query": "按演示账号规则，忘记口令但注册手机号仍由本人持有，如何重设？这个项目实现了该短信流程吗？",
+      "effective_query": "按演示账号规则，忘记密码但注册手机号仍由本人持有，如何重设？这个项目实现了该短信流程吗？",
+      "old_score": 0.6309619169854525,
+      "new_score": 0.6615421879069953,
+      "new_rank": 1,
+      "top_sources": [
+        [
+          "faq/01-账户问题.md#如何重置登录密码",
+          0.6615421879069953
+        ],
+        [
+          "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+          0.6402303191098169
+        ],
+        [
+          "faq/01-账户问题.md#如何更换绑定手机号",
+          0.6275939780057492
+        ]
+      ]
+    },
+    {
+      "recipe": "replace_codes",
+      "group": "phase4-v3-newwording",
+      "id": "NW02",
+      "positive": true,
+      "query": "演示账号忘了口令，但原手机卡还能收短信，资料给出哪条重置路径？",
+      "effective_query": "演示账号忘了密码，但原手机卡还能收短信，资料给出哪条重置路径？",
+      "old_score": 0.5989091154011912,
+      "new_score": 0.6317271789119786,
+      "new_rank": 1,
+      "top_sources": [
+        [
+          "faq/01-账户问题.md#如何重置登录密码",
+          0.6317271789119786
+        ],
+        [
+          "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+          0.6069599065365429
+        ],
+        [
+          "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+          0.6067541059196024
+        ]
+      ]
+    }
+  ]
+}

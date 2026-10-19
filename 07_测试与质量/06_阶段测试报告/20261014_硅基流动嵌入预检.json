@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-14",
+  "provider": "siliconflow",
+  "model": "BAAI/bge-m3",
+  "status": "FAILED_AUTHENTICATION",
+  "http_status": 401,
+  "vendor_error_code": 30014,
+  "vendor_error_detail": "Token is invalid.",
+  "charged_upper_rmb": 0,
+  "dimensions_verified": false,
+  "index_rebuilt": false,
+  "scope": "single authorized synthetic request; no DeepSeek generation in this attempt"
+}

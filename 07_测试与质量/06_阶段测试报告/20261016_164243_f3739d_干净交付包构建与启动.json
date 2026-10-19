@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-16",
+  "status": "PASS",
+  "scope": "Same-machine clean source/build, shared JDK/Maven cache",
+  "vendor_calls": 0,
+  "source_manifest_sha256": "11aeeda4d1935eb6707680a6c98f055a74f0757b68a65238b4e9dbc686198ce1",
+  "source_manifest_path": "07_测试与质量/06_阶段测试报告/20261016_164243_f3739d_交付源码文件清单.json",
+  "jar_path": ".tmp\\delivery-20261016-164243-df6aba\\ticket-service\\target\\ticket-service-0.0.1-SNAPSHOT.jar",
+  "private_configuration_entries": 0,
+  "jar_sha256": "d11c2b1376493fd70121fa5b6338828b02e413d548f6ef61512691a2516dd874",
+  "public_classpath_equal_to_development_build": false,
+  "runtime_classes_and_resources_equivalent": true,
+  "non_runtime_packaging_differences": [
+    "BOOT-INF/classes/mapper/.gitkeep"
+  ],
+  "synthetic_ticket_id": 1324,
+  "trusted_identity_verified": true,
+  "unauthenticated_http_status": 401,
+  "admin_metrics_verified": true,
+  "delivery_artifact_path": "08_部署与环境/04_交付产物/SmartTicket-AI-20261016-d11c2b137649.jar"
+}

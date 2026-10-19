@@ -1,0 +1,732 @@
+{
+  "date": "2026-10-15",
+  "kind": "DEVELOPMENT_CALIBRATION",
+  "independent_evaluation": false,
+  "starting_threshold": 0.66,
+  "embedding_model": "bge-m3:latest",
+  "embedding_provider": "ollama",
+  "dimensions": 1024,
+  "rows": [
+    {
+      "id": "Q01",
+      "expect": "hit",
+      "query": "登录时提示验证码异常怎么办",
+      "confidence": 0.7582137218123282,
+      "rank": 1,
+      "sources": [
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#账号被锁定如何解锁"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q02",
+      "expect": "hit",
+      "query": "我的账号登不进去了怎么办",
+      "confidence": 0.6678683362927412,
+      "rank": 3,
+      "sources": [
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q03",
+      "expect": "hit",
+      "query": "如何重置登录密码",
+      "confidence": 0.6980172563884044,
+      "rank": 1,
+      "sources": [
+        "faq/01-账户问题.md#如何重置登录密码",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "faq/01-账户问题.md#如何更换绑定手机号"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q04",
+      "expect": "hit",
+      "query": "换了手机号原来的号收不到验证码怎么改绑定",
+      "confidence": 0.7583241010712224,
+      "rank": 1,
+      "sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/01-账户问题.md#如何更换绑定手机号",
+        "faq/01-账户问题.md#收不到验证码短信怎么办"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q05",
+      "expect": "hit",
+      "query": "一直收不到验证码短信",
+      "confidence": 0.800432026386261,
+      "rank": 1,
+      "sources": [
+        "faq/01-账户问题.md#收不到验证码短信怎么办",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q06",
+      "expect": "hit",
+      "query": "支付成功但订单未生成怎么办",
+      "confidence": 0.7132587182924227,
+      "rank": 1,
+      "sources": [
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办",
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q07",
+      "expect": "hit",
+      "query": "重复扣款如何申请退款",
+      "confidence": 0.755298643672628,
+      "rank": 1,
+      "sources": [
+        "faq/02-支付问题.md#重复扣款如何申请退款",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "tickets/02-支付问题.md#同一笔订单被扣款两次"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q08",
+      "expect": "hit",
+      "query": "付款的时候提示订单已失效",
+      "confidence": 0.759875711154509,
+      "rank": 1,
+      "sources": [
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信",
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q09",
+      "expect": "hit",
+      "query": "如何申请开具发票",
+      "confidence": 0.6970830406372387,
+      "rank": 1,
+      "sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "faq/01-账户问题.md#如何重置登录密码"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q10",
+      "expect": "hit",
+      "query": "页面一直转圈或白屏怎么办",
+      "confidence": 0.6411013648925694,
+      "rank": 1,
+      "sources": [
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "tickets/03-功能异常.md#打开工单详情页白屏"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q11",
+      "expect": "hit",
+      "query": "表单点了提交一直提示系统繁忙",
+      "confidence": 0.7528267040586284,
+      "rank": 1,
+      "sources": [
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "tickets/03-功能异常.md#打开工单详情页白屏"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q12",
+      "expect": "hit",
+      "query": "列表显示的条数和详情页对不上",
+      "confidence": 0.7277721004351292,
+      "rank": 1,
+      "sources": [
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q13",
+      "expect": "hit",
+      "query": "上传附件失败怎么办",
+      "confidence": 0.703611667471033,
+      "rank": 1,
+      "sources": [
+        "faq/03-功能异常.md#上传附件失败怎么办",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q14",
+      "expect": "hit",
+      "query": "工单的处理流程与时限",
+      "confidence": 0.6952129602432449,
+      "rank": 1,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q15",
+      "expect": "hit",
+      "query": "怎么查看我的工单处理到哪一步了",
+      "confidence": 0.7729161381721551,
+      "rank": 1,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q16",
+      "expect": "hit",
+      "query": "工单被关闭后如何重新打开",
+      "confidence": 0.7400904142911133,
+      "rank": 1,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开",
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q17",
+      "expect": "hit",
+      "query": "工单提交之后还能改标题和描述吗",
+      "confidence": 0.7896526926548908,
+      "rank": 1,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q18",
+      "expect": "hit",
+      "query": "验证码明明是对的但换了好几个手机都提示错误登录不上",
+      "confidence": 0.7629852577465682,
+      "rank": 1,
+      "sources": [
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q19",
+      "expect": "hit",
+      "query": "账号被提示永久锁定等待后仍不可用",
+      "confidence": 0.7280724315254874,
+      "rank": 1,
+      "sources": [
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "faq/01-账户问题.md#账号被锁定如何解锁",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q20",
+      "expect": "hit",
+      "query": "原手机号已停用无法自助更换绑定手机号",
+      "confidence": 0.7579094893011622,
+      "rank": 1,
+      "sources": [
+        "faq/01-账户问题.md#如何更换绑定手机号",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/01-账户问题.md#如何重置登录密码"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q21",
+      "expect": "hit",
+      "query": "银行卡已经扣款了但订单列表里没有这笔订单",
+      "confidence": 0.7135359770603121,
+      "rank": 1,
+      "sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q22",
+      "expect": "hit",
+      "query": "一笔订单被扣了两次款",
+      "confidence": 0.7567329036217914,
+      "rank": 1,
+      "sources": [
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "faq/02-支付问题.md#重复扣款如何申请退款",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q23",
+      "expect": "hit",
+      "query": "提示订单已失效但用户称已收到扣款短信",
+      "confidence": 0.8132272978465735,
+      "rank": 1,
+      "sources": [
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信",
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q24",
+      "expect": "hit",
+      "query": "订单列表12条但点进详情只有11条",
+      "confidence": 0.6844775912565956,
+      "rank": 1,
+      "sources": [
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q25",
+      "expect": "hit",
+      "query": "打开工单详情页白屏",
+      "confidence": 0.6958511887872163,
+      "rank": 1,
+      "sources": [
+        "tickets/03-功能异常.md#打开工单详情页白屏",
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "Q26",
+      "expect": "hit",
+      "query": "上传附件提示格式不支持但我选的是允许的格式",
+      "confidence": 0.7087247371673785,
+      "rank": 1,
+      "sources": [
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/03-功能异常.md#上传附件失败怎么办",
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "N01",
+      "expect": "miss",
+      "query": "如何修改发票抬头",
+      "confidence": 0.5571092426917621,
+      "rank": 0,
+      "sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "faq/01-账户问题.md#如何重置登录密码",
+        "faq/01-账户问题.md#如何更换绑定手机号"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "N02",
+      "expect": "miss",
+      "query": "支持货到付款吗",
+      "confidence": 0.6210785489457991,
+      "rank": 0,
+      "sources": [
+        "faq/03-功能异常.md#上传附件失败怎么办",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "N03",
+      "expect": "miss",
+      "query": "能开增值税专用发票吗",
+      "confidence": 0.5888856722236017,
+      "rank": 0,
+      "sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "N04",
+      "expect": "miss",
+      "query": "公司年会在哪里举办",
+      "confidence": 0.3378740146312257,
+      "rank": 0,
+      "sources": [
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "faq/01-账户问题.md#如何重置登录密码",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "N05",
+      "expect": "miss",
+      "query": "怎么申请内部转岗",
+      "confidence": 0.5269147939441552,
+      "rank": 0,
+      "sources": [
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办",
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办"
+      ],
+      "degraded_sources": []
+    },
+    {
+      "id": "N06",
+      "expect": "miss",
+      "query": "打印机怎么连接",
+      "confidence": 0.4752807035875585,
+      "rank": 0,
+      "sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/02-支付问题.md#如何申请开具发票"
+      ],
+      "degraded_sources": []
+    }
+  ],
+  "indexed_rows": [
+    {
+      "source_file": "faq/01-账户问题.md",
+      "chunk_index": 0,
+      "section_title": "登录时提示「验证码异常」怎么办",
+      "content_hash": "e5ff3786bbe35cc00c49780baaccd8713389bfa878c92e589c44740292c8f0fe",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "faq/01-账户问题.md",
+      "chunk_index": 1,
+      "section_title": "如何重置登录密码",
+      "content_hash": "7a3cf03c72f11b4dfdae004d3bf55c4914f82056ae2b2555cac738d249846c98",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "faq/01-账户问题.md",
+      "chunk_index": 2,
+      "section_title": "账号被锁定如何解锁",
+      "content_hash": "5bdbe007726f1137b9287abf957f44a4f91d92da90d15ad37ca38f729844136e",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "faq/01-账户问题.md",
+      "chunk_index": 3,
+      "section_title": "如何更换绑定手机号",
+      "content_hash": "64f48915f717a28f271c2df9f99d81ea8f1f17589a42eacb4bf7361cf3b88b0a",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "faq/01-账户问题.md",
+      "chunk_index": 4,
+      "section_title": "收不到验证码短信怎么办",
+      "content_hash": "a91349037c2cf4de228637af88d84c9c9e1bca84bdc613d8c62844c4c1dd93bc",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "faq/02-支付问题.md",
+      "chunk_index": 0,
+      "section_title": "支付成功但订单未生成怎么办",
+      "content_hash": "7539c337966587a5131764d1059a89817ec7d6cea8d2732ad025f7369c7deb3f",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "faq/02-支付问题.md",
+      "chunk_index": 1,
+      "section_title": "重复扣款如何申请退款",
+      "content_hash": "01a36c17f8f111150e941908fa7db6db88137ace0e147839c20edf90937fa8e7",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "faq/02-支付问题.md",
+      "chunk_index": 2,
+      "section_title": "支付时提示「订单已失效」怎么办",
+      "content_hash": "8d1f864114520e281cad49afe3de019a447feda1a8e148b41bcb4db4619d0f82",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "faq/02-支付问题.md",
+      "chunk_index": 3,
+      "section_title": "如何申请开具发票",
+      "content_hash": "87e721668649d64e7e93f9ac40ac7af2cdf910e2d3a7ce669bed0e1ed971c983",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "faq/03-功能异常.md",
+      "chunk_index": 0,
+      "section_title": "页面一直转圈或白屏怎么办",
+      "content_hash": "e037b42b919d88e719651fa5c3cf64d526a043374f5a009f53b4b1242bce38df",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "faq/03-功能异常.md",
+      "chunk_index": 1,
+      "section_title": "提交表单提示「系统繁忙」怎么办",
+      "content_hash": "0990e328310bdd397e390784f48fa7d5ea608822a92c573b846afa1b78223252",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "faq/03-功能异常.md",
+      "chunk_index": 2,
+      "section_title": "页面数据与实际不一致怎么办",
+      "content_hash": "31d985063e7ccb32e0ff78e69310d03222c04314c242ae81f08da1ca91dce568",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "faq/03-功能异常.md",
+      "chunk_index": 3,
+      "section_title": "上传附件失败怎么办",
+      "content_hash": "33971e3d12dfc7685489049ab512d4753fa8f4f2091fd171903a0dc8f8d0fc96",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "faq/04-工单流程与通用问题.md",
+      "chunk_index": 0,
+      "section_title": "工单的处理流程与时限",
+      "content_hash": "5d6dddf6b9eb2e0546083dbb3d450c3bef7d35f1260d06aae54941de879ae3ee",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "faq/04-工单流程与通用问题.md",
+      "chunk_index": 1,
+      "section_title": "如何查询工单处理进度",
+      "content_hash": "3ad47ccb77f6c8d19fb952528da0708560e4a65779194cfd8dc1cd343a7ecfcd",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "faq/04-工单流程与通用问题.md",
+      "chunk_index": 2,
+      "section_title": "工单被关闭后如何重新打开",
+      "content_hash": "5316d95abcfeea3b70ab2a6a3a7885c0e3366a29f2d0ed32752fcf8f84839f9b",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "faq/04-工单流程与通用问题.md",
+      "chunk_index": 3,
+      "section_title": "工单可以修改哪些内容",
+      "content_hash": "ccec3f91723656d520594282b522830e8b2703a254f2a7929ed2100b326f42c4",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "faq/05-项目权限与AI处理.md",
+      "chunk_index": 0,
+      "section_title": "哪些账号可以查看和修改工单",
+      "content_hash": "870450f8036d9aa878a26f4caa763c331a073283763648b11527e567790900c8",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "faq/05-项目权限与AI处理.md",
+      "chunk_index": 1,
+      "section_title": "如何判断工单的AI分析是否完成",
+      "content_hash": "164215078ac0748fd03b886a28e925ed0e25deb592f57d52d35f38b3b742dad0",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "faq/05-项目权限与AI处理.md",
+      "chunk_index": 2,
+      "section_title": "AI建议会覆盖人工填写的分类和优先级吗",
+      "content_hash": "e27c5821502d3ee715d615fecadb6d74771515842b2db54bcceeabb936424933",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "faq/05-项目权限与AI处理.md",
+      "chunk_index": 3,
+      "section_title": "Agent提出指派后是否已经修改工单",
+      "content_hash": "d07ffd4a990ed146f1a1049ceffbb2e8986bd9b8407c4ab330d55f79b63a047b",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "tickets/01-账户问题.md",
+      "chunk_index": 0,
+      "section_title": "登录页反复提示验证码错误，多设备均无法登录",
+      "content_hash": "20c341bbf70338a449d989c9841a14c1c06c2aea885967ff90dbe6ae7fe8e8c9",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "tickets/01-账户问题.md",
+      "chunk_index": 1,
+      "section_title": "账号被提示永久锁定，等待后仍不可用",
+      "content_hash": "fdf3ad1fe3b8672b6aeb1d857511ea143350e88797110d248cc6d65585fc23e1",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "tickets/01-账户问题.md",
+      "chunk_index": 2,
+      "section_title": "原手机号已停用，无法自助更换绑定手机号",
+      "content_hash": "fd822584f523433a9a281da45506b865e4020c5415a4892d20bdc532be27b202",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "tickets/02-支付问题.md",
+      "chunk_index": 0,
+      "section_title": "银行卡已扣款但订单列表中没有该订单",
+      "content_hash": "6fd3ad53e65f30988baa0096dae5e409eeb130116289180c9c9d2d55c72a5a93",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "tickets/02-支付问题.md",
+      "chunk_index": 1,
+      "section_title": "银行卡已扣款但订单列表中没有该订单",
+      "content_hash": "56fc8c751fd15a1322b26f473c7fbbb84c90cf4046d72e7c0a4c4009f0d2195b",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "tickets/02-支付问题.md",
+      "chunk_index": 2,
+      "section_title": "同一笔订单被扣款两次",
+      "content_hash": "a2f00b12c1ba32d9a981aadea9b501c10c66b45362cce25c0c219f510ce89526",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "tickets/02-支付问题.md",
+      "chunk_index": 3,
+      "section_title": "提示订单已失效，但用户称已收到扣款短信",
+      "content_hash": "c1bb7c097c3e4637bd44214f7e99d5ef1c4e23a8230d404cf453002185c27ae5",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "tickets/03-功能异常.md",
+      "chunk_index": 0,
+      "section_title": "订单列表条数与详情页不一致",
+      "content_hash": "7206a9c3570a890058c380ef84f02271e85e4c73d7bd4b33b0a892793e795efb",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "tickets/03-功能异常.md",
+      "chunk_index": 1,
+      "section_title": "订单列表条数与详情页不一致",
+      "content_hash": "7df0e4981ccf7a24c5a62139c70092d03ffdde6df2fb73cc43034783677d47ee",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "tickets/03-功能异常.md",
+      "chunk_index": 2,
+      "section_title": "打开工单详情页白屏",
+      "content_hash": "9428a56fcff8e5e416259639bb94849257412f9e6f6f778d5d6b7913fc251448",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    },
+    {
+      "source_file": "tickets/03-功能异常.md",
+      "chunk_index": 3,
+      "section_title": "上传附件提示格式不支持，但文件是允许的格式",
+      "content_hash": "2c90de41e29b4c5d139ae708745ecdf367596cf774ee24dc09e8e1dd71fad633",
+      "model": "bge-m3:latest",
+      "dimensions": 1024
+    }
+  ],
+  "corpus_sha256": "1651ef1d0917d08c3f0c42e9fa2df9a5d6e70678324c4d4f10a2e3f9b3626d58",
+  "threshold_trials": [
+    {
+      "threshold": 0.55,
+      "positive_allowed": 26,
+      "negative_allowed": 3,
+      "negative_margin": -0.07107854894579901
+    },
+    {
+      "threshold": 0.6,
+      "positive_allowed": 26,
+      "negative_allowed": 1,
+      "negative_margin": -0.02107854894579908
+    },
+    {
+      "threshold": 0.65,
+      "positive_allowed": 25,
+      "negative_allowed": 0,
+      "negative_margin": 0.028921451054200964
+    },
+    {
+      "threshold": 0.66,
+      "positive_allowed": 25,
+      "negative_allowed": 0,
+      "negative_margin": 0.03892145105420097
+    },
+    {
+      "threshold": 0.7,
+      "positive_allowed": 19,
+      "negative_allowed": 0,
+      "negative_margin": 0.0789214510542009
+    },
+    {
+      "threshold": 0.75,
+      "positive_allowed": 12,
+      "negative_allowed": 0,
+      "negative_margin": 0.12892145105420094
+    }
+  ],
+  "observed_positive_negative_gap": 0.020022815946770356,
+  "selected_threshold": 0.66,
+  "development_hit_at_3": 1.0,
+  "development_mrr_at_3": 0.9743589743589743,
+  "positive_above_threshold": 25,
+  "negative_above_threshold": 0,
+  "status": "PASS_CALIBRATION_ONLY",
+  "selection_note": "Coarse .55/.60/.65/.66/.70/.75 grid, zero development false answers and >=.02 negative margin; maximize positive allowance, retain .66 on ties. No held-out result used. Tiny observed score gap is not fitted exactly; semantic answerability still needs review."
+}

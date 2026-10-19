@@ -1,0 +1,258 @@
+{
+  "status": "DIAGNOSTIC_ONLY",
+  "vendor_calls": 0,
+  "baseline_sha256": "0b290a62c216ad18acdb8f1cd55c7c5adfdcf7f9453a0bf5308e4084733bbc15",
+  "scope": "All 122 known queries checked for rewrite applicability; changed queries measured by local vector cosine only, not fused retrieval or generation. No index writes.",
+  "rows": [
+    {
+      "recipe": "synonym_only",
+      "group": "phase4-v2-regression",
+      "id": "RV02",
+      "positive": true,
+      "query": "按演示账号规则，忘记口令但注册手机号仍由本人持有，如何重设？这个项目实现了该短信流程吗？",
+      "effective_query": "按演示账号规则，忘记密码但注册手机号仍由本人持有，如何重设？这个项目实现了该短信流程吗？",
+      "old_score": 0.6309619169854525,
+      "new_score": 0.6615421879069953,
+      "new_rank": 1,
+      "top_sources": [
+        [
+          "faq/01-账户问题.md#如何重置登录密码",
+          0.6615421879069953
+        ],
+        [
+          "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+          0.6402303191098169
+        ],
+        [
+          "faq/01-账户问题.md#如何更换绑定手机号",
+          0.6275939780057492
+        ]
+      ]
+    },
+    {
+      "recipe": "synonym_only",
+      "group": "phase4-v3-newwording",
+      "id": "NW02",
+      "positive": true,
+      "query": "演示账号忘了口令，但原手机卡还能收短信，资料给出哪条重置路径？",
+      "effective_query": "演示账号忘了密码，但原手机卡还能收短信，资料给出哪条重置路径？",
+      "old_score": 0.5989091154011912,
+      "new_score": 0.6317271789119786,
+      "new_rank": 1,
+      "top_sources": [
+        [
+          "faq/01-账户问题.md#如何重置登录密码",
+          0.6317271789119786
+        ],
+        [
+          "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+          0.6069599065365429
+        ],
+        [
+          "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+          0.6067541059196024
+        ]
+      ]
+    },
+    {
+      "recipe": "append_codes",
+      "group": "phase4-v2-regression",
+      "id": "RV02",
+      "positive": true,
+      "query": "按演示账号规则，忘记口令但注册手机号仍由本人持有，如何重设？这个项目实现了该短信流程吗？",
+      "effective_query": "按演示账号规则，忘记密码但注册手机号仍由本人持有，如何重设？这个项目实现了该短信流程吗？",
+      "old_score": 0.6309619169854525,
+      "new_score": 0.6615421879069953,
+      "new_rank": 1,
+      "top_sources": [
+        [
+          "faq/01-账户问题.md#如何重置登录密码",
+          0.6615421879069953
+        ],
+        [
+          "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+          0.6402303191098169
+        ],
+        [
+          "faq/01-账户问题.md#如何更换绑定手机号",
+          0.6275939780057492
+        ]
+      ]
+    },
+    {
+      "recipe": "append_codes",
+      "group": "phase4-v2-regression",
+      "id": "RV18",
+      "positive": true,
+      "query": "分析任务显示DEGRADED且结果来自RULE，能不能在演示中说大模型分析成功了？",
+      "effective_query": "分析任务显示DEGRADED（规则兜底）且结果来自RULE（规则分析），能不能在演示中说大模型分析成功了？",
+      "old_score": 0.6306456896564235,
+      "new_score": 0.5878733741602291,
+      "new_rank": 2,
+      "top_sources": [
+        [
+          "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+          0.5878733741602291
+        ],
+        [
+          "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+          0.5523277934268495
+        ],
+        [
+          "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+          0.47220209314439215
+        ]
+      ]
+    },
+    {
+      "recipe": "append_codes",
+      "group": "phase4-v3-newwording",
+      "id": "NW02",
+      "positive": true,
+      "query": "演示账号忘了口令，但原手机卡还能收短信，资料给出哪条重置路径？",
+      "effective_query": "演示账号忘了密码，但原手机卡还能收短信，资料给出哪条重置路径？",
+      "old_score": 0.5989091154011912,
+      "new_score": 0.6317271789119786,
+      "new_rank": 1,
+      "top_sources": [
+        [
+          "faq/01-账户问题.md#如何重置登录密码",
+          0.6317271789119786
+        ],
+        [
+          "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+          0.6069599065365429
+        ],
+        [
+          "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+          0.6067541059196024
+        ]
+      ]
+    },
+    {
+      "recipe": "append_codes",
+      "group": "phase4-v3-newwording",
+      "id": "NW19",
+      "positive": true,
+      "query": "任务显示DEGRADED、结果来源RULE，能把它算作DeepSeek成功分析吗？",
+      "effective_query": "任务显示DEGRADED（规则兜底）、结果来源RULE（规则分析），能把它算作DeepSeek成功分析吗？",
+      "old_score": 0.5654463611969087,
+      "new_score": 0.5354235501532818,
+      "new_rank": 2,
+      "top_sources": [
+        [
+          "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+          0.5354235501532818
+        ],
+        [
+          "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+          0.5317520244033581
+        ],
+        [
+          "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信",
+          0.46002058766437304
+        ]
+      ]
+    },
+    {
+      "recipe": "replace_codes",
+      "group": "phase4-v2-regression",
+      "id": "RV02",
+      "positive": true,
+      "query": "按演示账号规则，忘记口令但注册手机号仍由本人持有，如何重设？这个项目实现了该短信流程吗？",
+      "effective_query": "按演示账号规则，忘记密码但注册手机号仍由本人持有，如何重设？这个项目实现了该短信流程吗？",
+      "old_score": 0.6309619169854525,
+      "new_score": 0.6615421879069953,
+      "new_rank": 1,
+      "top_sources": [
+        [
+          "faq/01-账户问题.md#如何重置登录密码",
+          0.6615421879069953
+        ],
+        [
+          "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+          0.6402303191098169
+        ],
+        [
+          "faq/01-账户问题.md#如何更换绑定手机号",
+          0.6275939780057492
+        ]
+      ]
+    },
+    {
+      "recipe": "replace_codes",
+      "group": "phase4-v2-regression",
+      "id": "RV18",
+      "positive": true,
+      "query": "分析任务显示DEGRADED且结果来自RULE，能不能在演示中说大模型分析成功了？",
+      "effective_query": "分析任务显示规则兜底且结果来自规则分析，能不能在演示中说大模型分析成功了？",
+      "old_score": 0.6306456896564235,
+      "new_score": 0.5526579349141267,
+      "new_rank": 2,
+      "top_sources": [
+        [
+          "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+          0.5526579349141267
+        ],
+        [
+          "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+          0.5366628534775209
+        ],
+        [
+          "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+          0.4899292681277637
+        ]
+      ]
+    },
+    {
+      "recipe": "replace_codes",
+      "group": "phase4-v3-newwording",
+      "id": "NW02",
+      "positive": true,
+      "query": "演示账号忘了口令，但原手机卡还能收短信，资料给出哪条重置路径？",
+      "effective_query": "演示账号忘了密码，但原手机卡还能收短信，资料给出哪条重置路径？",
+      "old_score": 0.5989091154011912,
+      "new_score": 0.6317271789119786,
+      "new_rank": 1,
+      "top_sources": [
+        [
+          "faq/01-账户问题.md#如何重置登录密码",
+          0.6317271789119786
+        ],
+        [
+          "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+          0.6069599065365429
+        ],
+        [
+          "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+          0.6067541059196024
+        ]
+      ]
+    },
+    {
+      "recipe": "replace_codes",
+      "group": "phase4-v3-newwording",
+      "id": "NW19",
+      "positive": true,
+      "query": "任务显示DEGRADED、结果来源RULE，能把它算作DeepSeek成功分析吗？",
+      "effective_query": "任务显示规则兜底、结果来源规则分析，能把它算作DeepSeek成功分析吗？",
+      "old_score": 0.5654463611969087,
+      "new_score": 0.5096170241171072,
+      "new_rank": 1,
+      "top_sources": [
+        [
+          "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+          0.5096170241171072
+        ],
+        [
+          "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+          0.49162605293274375
+        ],
+        [
+          "tickets/02-支付问题.md#同一笔订单被扣款两次",
+          0.45109391648983205
+        ]
+      ]
+    }
+  ]
+}

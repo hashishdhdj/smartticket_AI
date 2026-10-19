@@ -1,0 +1,174 @@
+{
+  "date": "2026-10-15T19:40:33",
+  "kind": "TARGETED_EXISTING_FAILURE_REGRESSION",
+  "author_review_status": "PENDING",
+  "semantic_answer_quality": "PENDING_HUMAN_REVIEW",
+  "threshold": 0.66,
+  "jar_sha256": "ac8aa65c177cd43c87407eebb9a3806eeab5d38712474fdeffa056c3f2a4bf89",
+  "prompt_sha256": {
+    "ai-classification-result.schema.json": "b309fe4315ec477a2e347047324cc9709f9546049f8ef9b110751258d4f6e1ee",
+    "rag-answer-result.schema.json": "847c103e1193218a2a6a74aa6033479cd5aa00724e9f345993785c6a052939cf",
+    "rag-answer-system.md": "2f374c037a2f13525577b233fabfb77b9586594b9ac3548e339b9100777aac7e",
+    "rag-answer-user.md": "75edc57c58f900782dd87830e09f7511c5acd9ca61793d212aca5adbcb077421",
+    "ticket-classify-system.md": "fb1225abffda6b39735f0f6422c758160af1bd742a4142e8392fce142452cf06",
+    "ticket-classify-user.md": "1aa831f32b0bb781bf8dd97466d2964e34407800dc03f86e7ce6cda143ca3f83"
+  },
+  "rows": [
+    {
+      "case": {
+        "id": "RH12",
+        "kind": "rag",
+        "query": "模拟平台上传一个20MB的PDF被拒绝，是文件类型还是大小先超过约束？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/03-功能异常.md#上传附件失败怎么办"
+        ],
+        "reference_answer": "模拟单附件上限10MB，20MB先超过大小；实际项目未提供附件上传能力。",
+        "required_facts": [
+          "10",
+          "大小"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_CODEX_DRAFT"
+      },
+      "reference_report": "20261015_真实评估_rag_30题_ollama_ragv3.json",
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.6626895077187714,
+        "suggestion": "演示规则：模拟平台单附件上限10MB，20MB PDF会因大小被拒；该附件能力非当前项目已实现功能。",
+        "similarQuestions": [
+          "上传附件提示格式不支持，但文件是允许的格式",
+          "上传附件失败怎么办",
+          "页面一直转圈或白屏怎么办"
+        ],
+        "sources": [
+          {
+            "sourceFile": "tickets/03-功能异常.md",
+            "title": "上传附件提示格式不支持，但文件是允许的格式",
+            "score": 0.6626895077187714,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：上传一个 pdf 文件，提示格式不支持，换其他 pdf 也不行。 **分类与优先级**：功能异常 / LOW **排查过程**： 1. 确认…"
+          },
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "上传附件失败怎么办",
+            "score": 0.6175079485783691,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：上传图片或文档时提示失败，或进度条卡住。 **处理步骤**： 1. 检查文件大小：单个附件不得超过 **10 MB**。 2. 检查文件格式…"
+          },
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "页面一直转圈或白屏怎么办",
+            "score": 0.49600964737054887,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：页面打开后长时间停留在加载状态，或显示空白页。 **处理步骤**： 1. 强制刷新页面：Windows 按 `Ctrl + F5`，macO…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 2280
+      },
+      "has_generated_answer": true,
+      "expected_source_hit": true,
+      "retrieval_healthy": true,
+      "vendor_calls": [
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.03234,
+          "charged_upper_rmb": 0.0054600000000000004,
+          "dispatched_at": "2026-10-15T19:40:47.440926+08:00",
+          "state": "RESPONDED",
+          "execution_scope": "EXTERNAL",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1532,
+            "completion_tokens": 72,
+            "total_tokens": 1604,
+            "prompt_tokens_details": {
+              "cached_tokens": 640
+            },
+            "prompt_cache_hit_tokens": 640,
+            "prompt_cache_miss_tokens": 892
+          },
+          "http_status": 200
+        }
+      ],
+      "author_semantic_grade": null
+    },
+    {
+      "case": {
+        "id": "RV08",
+        "kind": "rag",
+        "query": "演示平台交易页面报超时，但银行显示扣款，这时应如何核实支付状态？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/02-支付问题.md#支付时提示「订单已失效」怎么办"
+        ],
+        "reference_answer": "不能按未付款直接结案，要核实流水和渠道扣款，走已扣款无订单的人工对账。",
+        "required_facts": [
+          "扣款",
+          "对账"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "reference_report": "20261015_真实评估_rag_30题_ollama_v3followup.json",
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.7089579218811186,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "tickets/02-支付问题.md",
+            "title": "银行卡已扣款但订单列表中没有该订单",
+            "score": 0.7089579218811186,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：10 点 23 分下单，页面一直转圈，5 分钟后刷新发现银行卡已扣款成功，但订单列表里没有这笔订单。再下一单又提示失败。 **分类与优先级*…"
+          },
+          {
+            "sourceFile": "tickets/02-支付问题.md",
+            "title": "同一笔订单被扣款两次",
+            "score": 0.7043807229202381,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：下单后发现银行卡被扣了两笔相同金额，订单只有一笔。 **分类与优先级**：支付问题 / URGENT **排查过程**： 1. 收集两笔扣款…"
+          },
+          {
+            "sourceFile": "tickets/02-支付问题.md",
+            "title": "提示订单已失效，但用户称已收到扣款短信",
+            "score": 0.702669626951752,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：点击支付后提示「订单已失效」，随后收到银行扣款短信。 **分类与优先级**：支付问题 / HIGH **排查过程**： 1. 未支付订单保留…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 2447
+      },
+      "has_generated_answer": false,
+      "expected_source_hit": false,
+      "retrieval_healthy": true,
+      "vendor_calls": [
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.034206,
+          "charged_upper_rmb": 0.006137999999999999,
+          "dispatched_at": "2026-10-15T19:40:49.458456+08:00",
+          "state": "RESPONDED",
+          "execution_scope": "EXTERNAL",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1674,
+            "completion_tokens": 93,
+            "total_tokens": 1767,
+            "prompt_tokens_details": {
+              "cached_tokens": 640
+            },
+            "prompt_cache_hit_tokens": 640,
+            "prompt_cache_miss_tokens": 1034
+          },
+          "http_status": 200
+        }
+      ],
+      "author_semantic_grade": null
+    }
+  ],
+  "status": "COMPLETED_NOT_SEMANTIC_ACCEPTANCE"
+}

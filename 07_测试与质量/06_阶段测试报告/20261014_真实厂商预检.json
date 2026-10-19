@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-14",
+  "kind": "VENDOR_PROTOCOL_PREFLIGHT",
+  "project_end_to_end": false,
+  "authorized_batch_budget_rmb": 10,
+  "probe_cost_envelope_rmb": 1,
+  "model": "deepseek-flash",
+  "prices_source": "https://api-docs.deepseek.com/quick_start/pricing/",
+  "fx_budget_factor": 10,
+  "fx_note": "Conservative budgeting factor, not an exchange-rate quote.",
+  "calls": [
+    {
+      "id": 1,
+      "elapsed_ms": 1547,
+      "usage": {
+        "prompt_tokens": 34,
+        "completion_tokens": 7,
+        "total_tokens": 41,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 34
+      },
+      "message": {
+        "role": "assistant",
+        "content": "{\"category\": \"账户问题\"}"
+      },
+      "estimated_rmb_upper": 0.00018600000000000002,
+      "passed": true
+    },
+    {
+      "id": 2,
+      "elapsed_ms": 2234,
+      "usage": {
+        "prompt_tokens": 287,
+        "completion_tokens": 35,
+        "total_tokens": 322,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 287
+      },
+      "message": {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_NqFiLsHVKTSWYNAhM08I6899",
+            "type": "function",
+            "function": {
+              "name": "getTicketDetail",
+              "arguments": "{\"ticketId\": 1}"
+            }
+          }
+        ]
+      },
+      "estimated_rmb_upper": 0.001281,
+      "passed": true
+    }
+  ],
+  "status": "PASS"
+}

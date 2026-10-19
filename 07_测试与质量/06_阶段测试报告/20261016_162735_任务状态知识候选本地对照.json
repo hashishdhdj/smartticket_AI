@@ -1,0 +1,1971 @@
+{
+  "status": "DIAGNOSTIC_ONLY",
+  "vendor_calls": 0,
+  "rows": [
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q01",
+      "positive": true,
+      "score": 0.7582137918258961,
+      "rank": 2
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q02",
+      "positive": true,
+      "score": 0.6678683309383128,
+      "rank": 3
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q03",
+      "positive": true,
+      "score": 0.6980172462674158,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q04",
+      "positive": true,
+      "score": 0.7583240808695759,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q05",
+      "positive": true,
+      "score": 0.8004319964100469,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q06",
+      "positive": true,
+      "score": 0.7132586374250551,
+      "rank": 2
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q07",
+      "positive": true,
+      "score": 0.7552986346113832,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q08",
+      "positive": true,
+      "score": 0.7598757300957305,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q09",
+      "positive": true,
+      "score": 0.6856118832604469,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q10",
+      "positive": true,
+      "score": 0.641101368203876,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q11",
+      "positive": true,
+      "score": 0.7528268149207902,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q12",
+      "positive": true,
+      "score": 0.7277720891883509,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q13",
+      "positive": true,
+      "score": 0.7036115090125029,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q14",
+      "positive": true,
+      "score": 0.6952129079986439,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q15",
+      "positive": true,
+      "score": 0.7729160368820187,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q16",
+      "positive": true,
+      "score": 0.7400903699405733,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q17",
+      "positive": true,
+      "score": 0.7896527857704604,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q18",
+      "positive": true,
+      "score": 0.7629853630458442,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q19",
+      "positive": true,
+      "score": 0.7280724459424096,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q20",
+      "positive": true,
+      "score": 0.757909513673601,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q21",
+      "positive": true,
+      "score": 0.7135359875462036,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q22",
+      "positive": true,
+      "score": 0.756732987870358,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q23",
+      "positive": true,
+      "score": 0.813227307592485,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q24",
+      "positive": true,
+      "score": 0.6844776049244996,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q25",
+      "positive": true,
+      "score": 0.6958511552159959,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "Q26",
+      "positive": true,
+      "score": 0.7087246828522753,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "N01",
+      "positive": false,
+      "score": 0.5481631881365564,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "N02",
+      "positive": false,
+      "score": 0.6210785146562079,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "N03",
+      "positive": false,
+      "score": 0.588271187199166,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "N04",
+      "positive": false,
+      "score": 0.3378740408952312,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "N05",
+      "positive": false,
+      "score": 0.5269147699418036,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "historical_development",
+      "id": "N06",
+      "positive": false,
+      "score": 0.4752806838373529,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RH01",
+      "positive": true,
+      "score": 0.7486478687025101,
+      "rank": 3
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RH02",
+      "positive": true,
+      "score": 0.7016135594419768,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RH03",
+      "positive": true,
+      "score": 0.7469097413308889,
+      "rank": 2
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RH04",
+      "positive": true,
+      "score": 0.7520414162927065,
+      "rank": 2
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RH05",
+      "positive": true,
+      "score": 0.7446274182818031,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RH06",
+      "positive": true,
+      "score": 0.7417845417608985,
+      "rank": 3
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RH07",
+      "positive": true,
+      "score": 0.763049196163545,
+      "rank": 2
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RH08",
+      "positive": true,
+      "score": 0.7796825175145956,
+      "rank": 2
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RH09",
+      "positive": true,
+      "score": 0.6540608117421147,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RH10",
+      "positive": true,
+      "score": 0.6876797713958369,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RH11",
+      "positive": true,
+      "score": 0.7698329875076533,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RH12",
+      "positive": true,
+      "score": 0.6626894369839793,
+      "rank": 2
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RH13",
+      "positive": true,
+      "score": 0.6732555740484409,
+      "rank": 2
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RH14",
+      "positive": true,
+      "score": 0.6792210119350575,
+      "rank": 2
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RH15",
+      "positive": true,
+      "score": 0.6820230033791006,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RH16",
+      "positive": true,
+      "score": 0.6426883188094703,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RH17",
+      "positive": true,
+      "score": 0.7235395073899364,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RH18",
+      "positive": true,
+      "score": 0.5975333469085639,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RH19",
+      "positive": true,
+      "score": 0.6944037722173947,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RH20",
+      "positive": true,
+      "score": 0.67223860992684,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RN01",
+      "positive": false,
+      "score": 0.5749116709376023,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RN02",
+      "positive": false,
+      "score": 0.585470902785804,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RN03",
+      "positive": false,
+      "score": 0.5823223020658724,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RN04",
+      "positive": false,
+      "score": 0.5507469195532146,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RN05",
+      "positive": false,
+      "score": 0.5669417542064689,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RN06",
+      "positive": false,
+      "score": 0.5352951239404072,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RN07",
+      "positive": false,
+      "score": 0.6128272286988047,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RN08",
+      "positive": false,
+      "score": 0.7019032356781528,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RN09",
+      "positive": false,
+      "score": 0.5729396382452001,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v1",
+      "id": "RN10",
+      "positive": false,
+      "score": 0.3708492162075595,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV01",
+      "positive": true,
+      "score": 0.7219501559504182,
+      "rank": 2
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV02",
+      "positive": true,
+      "score": 0.6615421879069953,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV03",
+      "positive": true,
+      "score": 0.6848285938355927,
+      "rank": 2
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV04",
+      "positive": true,
+      "score": 0.7081986654311986,
+      "rank": 2
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV05",
+      "positive": true,
+      "score": 0.6784768196663362,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV06",
+      "positive": true,
+      "score": 0.707074821637742,
+      "rank": 2
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV07",
+      "positive": true,
+      "score": 0.6820997545123235,
+      "rank": 2
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV08",
+      "positive": true,
+      "score": 0.7089578773584441,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV09",
+      "positive": true,
+      "score": 0.7028032416320843,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV10",
+      "positive": true,
+      "score": 0.6717573409765397,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV11",
+      "positive": true,
+      "score": 0.6709837997118785,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV12",
+      "positive": true,
+      "score": 0.7364419806400214,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV13",
+      "positive": true,
+      "score": 0.657860171817899,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV14",
+      "positive": true,
+      "score": 0.6923408990187382,
+      "rank": 3
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV15",
+      "positive": true,
+      "score": 0.6601543522002212,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV16",
+      "positive": true,
+      "score": 0.6864016259085163,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV17",
+      "positive": true,
+      "score": 0.6856358551959407,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV18",
+      "positive": true,
+      "score": 0.6306457364395208,
+      "rank": 2
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV19",
+      "positive": true,
+      "score": 0.6628843764802216,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV20",
+      "positive": true,
+      "score": 0.7244208694197781,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV21",
+      "positive": false,
+      "score": 0.5406134720473124,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV22",
+      "positive": false,
+      "score": 0.6161383008541903,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV23",
+      "positive": false,
+      "score": 0.624564778336166,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV24",
+      "positive": false,
+      "score": 0.5083524175222888,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV25",
+      "positive": false,
+      "score": 0.535468486020546,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV26",
+      "positive": false,
+      "score": 0.5823052930935056,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV27",
+      "positive": false,
+      "score": 0.5937248902232015,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV28",
+      "positive": false,
+      "score": 0.5850975738850497,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV29",
+      "positive": false,
+      "score": 0.5514839738472165,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v2-regression",
+      "id": "RV30",
+      "positive": false,
+      "score": 0.4405645012240639,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW01",
+      "positive": true,
+      "score": 0.7294075720887933,
+      "rank": 2
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW02",
+      "positive": true,
+      "score": 0.6317271789119786,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW03",
+      "positive": true,
+      "score": 0.6792132497254302,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW04",
+      "positive": true,
+      "score": 0.7865962931012294,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW05",
+      "positive": true,
+      "score": 0.7695920652392774,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW06",
+      "positive": true,
+      "score": 0.7141553856551814,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW07",
+      "positive": true,
+      "score": 0.7524746484399991,
+      "rank": 2
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW08",
+      "positive": true,
+      "score": 0.7413958560689953,
+      "rank": 2
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW09",
+      "positive": true,
+      "score": 0.6756508533035025,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW10",
+      "positive": true,
+      "score": 0.7130149213222274,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW11",
+      "positive": true,
+      "score": 0.7371345784927713,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW12",
+      "positive": true,
+      "score": 0.7067810305500266,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW13",
+      "positive": true,
+      "score": 0.6695432505527451,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW14",
+      "positive": true,
+      "score": 0.6730997209811289,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW15",
+      "positive": true,
+      "score": 0.7612984119566427,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW16",
+      "positive": true,
+      "score": 0.7652558866571723,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW17",
+      "positive": true,
+      "score": 0.6412421465874507,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW18",
+      "positive": true,
+      "score": 0.6517207277293047,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW19",
+      "positive": true,
+      "score": 0.565446410051699,
+      "rank": 2
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW20",
+      "positive": true,
+      "score": 0.6809509183342642,
+      "rank": 1
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW21",
+      "positive": false,
+      "score": 0.7485279252209966,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW22",
+      "positive": false,
+      "score": 0.5347624760031421,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW23",
+      "positive": false,
+      "score": 0.5680358692043331,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW24",
+      "positive": false,
+      "score": 0.5202485877291426,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW25",
+      "positive": false,
+      "score": 0.6424766426830447,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW26",
+      "positive": false,
+      "score": 0.6259869030847107,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW27",
+      "positive": false,
+      "score": 0.5453475935414812,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW28",
+      "positive": false,
+      "score": 0.609980535498682,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW29",
+      "positive": false,
+      "score": 0.5301272557027513,
+      "rank": 0
+    },
+    {
+      "recipe": "before",
+      "group": "phase4-v3-newwording",
+      "id": "NW30",
+      "positive": false,
+      "score": 0.7077208227653491,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q01",
+      "positive": true,
+      "score": 0.7582137918258961,
+      "rank": 2
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q02",
+      "positive": true,
+      "score": 0.6678683309383128,
+      "rank": 3
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q03",
+      "positive": true,
+      "score": 0.6980172462674158,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q04",
+      "positive": true,
+      "score": 0.7583240808695759,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q05",
+      "positive": true,
+      "score": 0.8004319964100469,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q06",
+      "positive": true,
+      "score": 0.7132586374250551,
+      "rank": 2
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q07",
+      "positive": true,
+      "score": 0.7552986346113832,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q08",
+      "positive": true,
+      "score": 0.7598757300957305,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q09",
+      "positive": true,
+      "score": 0.6856118832604469,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q10",
+      "positive": true,
+      "score": 0.641101368203876,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q11",
+      "positive": true,
+      "score": 0.7528268149207902,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q12",
+      "positive": true,
+      "score": 0.7277720891883509,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q13",
+      "positive": true,
+      "score": 0.7036115090125029,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q14",
+      "positive": true,
+      "score": 0.6952129079986439,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q15",
+      "positive": true,
+      "score": 0.7729160368820187,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q16",
+      "positive": true,
+      "score": 0.7400903699405733,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q17",
+      "positive": true,
+      "score": 0.7896527857704604,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q18",
+      "positive": true,
+      "score": 0.7629853630458442,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q19",
+      "positive": true,
+      "score": 0.7280724459424096,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q20",
+      "positive": true,
+      "score": 0.757909513673601,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q21",
+      "positive": true,
+      "score": 0.7135359875462036,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q22",
+      "positive": true,
+      "score": 0.756732987870358,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q23",
+      "positive": true,
+      "score": 0.813227307592485,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q24",
+      "positive": true,
+      "score": 0.6844776049244996,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q25",
+      "positive": true,
+      "score": 0.6958511552159959,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "Q26",
+      "positive": true,
+      "score": 0.7087246828522753,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "N01",
+      "positive": false,
+      "score": 0.5481631881365564,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "N02",
+      "positive": false,
+      "score": 0.6210785146562079,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "N03",
+      "positive": false,
+      "score": 0.588271187199166,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "N04",
+      "positive": false,
+      "score": 0.3378740408952312,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "N05",
+      "positive": false,
+      "score": 0.5269147699418036,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "historical_development",
+      "id": "N06",
+      "positive": false,
+      "score": 0.4752806838373529,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RH01",
+      "positive": true,
+      "score": 0.7486478687025101,
+      "rank": 3
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RH02",
+      "positive": true,
+      "score": 0.7016135594419768,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RH03",
+      "positive": true,
+      "score": 0.7469097413308889,
+      "rank": 2
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RH04",
+      "positive": true,
+      "score": 0.7520414162927065,
+      "rank": 2
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RH05",
+      "positive": true,
+      "score": 0.7446274182818031,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RH06",
+      "positive": true,
+      "score": 0.7417845417608985,
+      "rank": 3
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RH07",
+      "positive": true,
+      "score": 0.763049196163545,
+      "rank": 2
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RH08",
+      "positive": true,
+      "score": 0.7796825175145956,
+      "rank": 2
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RH09",
+      "positive": true,
+      "score": 0.6540608117421147,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RH10",
+      "positive": true,
+      "score": 0.6876797713958369,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RH11",
+      "positive": true,
+      "score": 0.7698329875076533,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RH12",
+      "positive": true,
+      "score": 0.6626894369839793,
+      "rank": 2
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RH13",
+      "positive": true,
+      "score": 0.6732555740484409,
+      "rank": 2
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RH14",
+      "positive": true,
+      "score": 0.6962864286943381,
+      "rank": 2
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RH15",
+      "positive": true,
+      "score": 0.6820230033791006,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RH16",
+      "positive": true,
+      "score": 0.6426883188094703,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RH17",
+      "positive": true,
+      "score": 0.7235395073899364,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RH18",
+      "positive": true,
+      "score": 0.6861939343870627,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RH19",
+      "positive": true,
+      "score": 0.6944037722173947,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RH20",
+      "positive": true,
+      "score": 0.67223860992684,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RN01",
+      "positive": false,
+      "score": 0.5749116709376023,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RN02",
+      "positive": false,
+      "score": 0.585470902785804,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RN03",
+      "positive": false,
+      "score": 0.5823223020658724,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RN04",
+      "positive": false,
+      "score": 0.5507469195532146,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RN05",
+      "positive": false,
+      "score": 0.5669417542064689,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RN06",
+      "positive": false,
+      "score": 0.5352951239404072,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RN07",
+      "positive": false,
+      "score": 0.6128272286988047,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RN08",
+      "positive": false,
+      "score": 0.7019032356781528,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RN09",
+      "positive": false,
+      "score": 0.5729396382452001,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v1",
+      "id": "RN10",
+      "positive": false,
+      "score": 0.3708492162075595,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV01",
+      "positive": true,
+      "score": 0.7219501559504182,
+      "rank": 2
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV02",
+      "positive": true,
+      "score": 0.6615421879069953,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV03",
+      "positive": true,
+      "score": 0.6848285938355927,
+      "rank": 2
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV04",
+      "positive": true,
+      "score": 0.7081986654311986,
+      "rank": 2
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV05",
+      "positive": true,
+      "score": 0.6784768196663362,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV06",
+      "positive": true,
+      "score": 0.707074821637742,
+      "rank": 2
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV07",
+      "positive": true,
+      "score": 0.6820997545123235,
+      "rank": 2
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV08",
+      "positive": true,
+      "score": 0.7089578773584441,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV09",
+      "positive": true,
+      "score": 0.7028032416320843,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV10",
+      "positive": true,
+      "score": 0.6717573409765397,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV11",
+      "positive": true,
+      "score": 0.6709837997118785,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV12",
+      "positive": true,
+      "score": 0.7364419806400214,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV13",
+      "positive": true,
+      "score": 0.657860171817899,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV14",
+      "positive": true,
+      "score": 0.7289442435659234,
+      "rank": 3
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV15",
+      "positive": true,
+      "score": 0.6601543522002212,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV16",
+      "positive": true,
+      "score": 0.6864016259085163,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV17",
+      "positive": true,
+      "score": 0.6856358551959407,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV18",
+      "positive": true,
+      "score": 0.6897286808043576,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV19",
+      "positive": true,
+      "score": 0.6628843764802216,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV20",
+      "positive": true,
+      "score": 0.7244208694197781,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV21",
+      "positive": false,
+      "score": 0.5406134720473124,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV22",
+      "positive": false,
+      "score": 0.6161383008541903,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV23",
+      "positive": false,
+      "score": 0.624564778336166,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV24",
+      "positive": false,
+      "score": 0.5083524175222888,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV25",
+      "positive": false,
+      "score": 0.535468486020546,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV26",
+      "positive": false,
+      "score": 0.5823052930935056,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV27",
+      "positive": false,
+      "score": 0.5937248902232015,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV28",
+      "positive": false,
+      "score": 0.5850975738850497,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV29",
+      "positive": false,
+      "score": 0.5514839738472165,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v2-regression",
+      "id": "RV30",
+      "positive": false,
+      "score": 0.4405645012240639,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW01",
+      "positive": true,
+      "score": 0.7294075720887933,
+      "rank": 2
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW02",
+      "positive": true,
+      "score": 0.6317271789119786,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW03",
+      "positive": true,
+      "score": 0.6792132497254302,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW04",
+      "positive": true,
+      "score": 0.7865962931012294,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW05",
+      "positive": true,
+      "score": 0.7695920652392774,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW06",
+      "positive": true,
+      "score": 0.7141553856551814,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW07",
+      "positive": true,
+      "score": 0.7524746484399991,
+      "rank": 2
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW08",
+      "positive": true,
+      "score": 0.7413958560689953,
+      "rank": 2
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW09",
+      "positive": true,
+      "score": 0.6756508533035025,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW10",
+      "positive": true,
+      "score": 0.7130149213222274,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW11",
+      "positive": true,
+      "score": 0.7371345784927713,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW12",
+      "positive": true,
+      "score": 0.7067810305500266,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW13",
+      "positive": true,
+      "score": 0.6695432505527451,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW14",
+      "positive": true,
+      "score": 0.6730997209811289,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW15",
+      "positive": true,
+      "score": 0.7612984119566427,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW16",
+      "positive": true,
+      "score": 0.7652558866571723,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW17",
+      "positive": true,
+      "score": 0.6412421465874507,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW18",
+      "positive": true,
+      "score": 0.6517207277293047,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW19",
+      "positive": true,
+      "score": 0.6886435044433721,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW20",
+      "positive": true,
+      "score": 0.6809509183342642,
+      "rank": 1
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW21",
+      "positive": false,
+      "score": 0.7485279252209966,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW22",
+      "positive": false,
+      "score": 0.5347624760031421,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW23",
+      "positive": false,
+      "score": 0.5680358692043331,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW24",
+      "positive": false,
+      "score": 0.5202485877291426,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW25",
+      "positive": false,
+      "score": 0.6424766426830447,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW26",
+      "positive": false,
+      "score": 0.6259869030847107,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW27",
+      "positive": false,
+      "score": 0.5453475935414812,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW28",
+      "positive": false,
+      "score": 0.609980535498682,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW29",
+      "positive": false,
+      "score": 0.5301272557027513,
+      "rank": 0
+    },
+    {
+      "recipe": "candidate",
+      "group": "phase4-v3-newwording",
+      "id": "NW30",
+      "positive": false,
+      "score": 0.7077208227653491,
+      "rank": 0
+    }
+  ],
+  "summary": {
+    "before": {
+      "positive_allowed": 84,
+      "negative_allowed": 4,
+      "positive_hit_at3_count": 84
+    },
+    "candidate": {
+      "positive_allowed": 86,
+      "negative_allowed": 4,
+      "positive_hit_at3_count": 84
+    }
+  },
+  "candidate_content": "**适用场景**：查询AI分析任务状态，判断规则兜底是否表示DeepSeek等大模型分析成功。\n**处理步骤**：查询工单analysis接口。PENDING表示等待处理，RUNNING表示执行中；SUCCEEDED表示模型分析完成，DEGRADED表示规则兜底而非真实模型成功。FAILED表示失败，STALE表示分析输入已过时，NOT_REQUESTED表示没有分析任务。工单创建事务保存分析任务和Outbox，消息服务恢复后可补发。\n**注意事项**：这些是分析任务状态，不是工单的待分配、处理中等状态。查看错误原因，必要时让管理员重放；不能把创建成功或HTTP200当作AI已成功。\n\n**结果判读**：DEGRADED表示规则兜底；结果来源RULE表示规则分类结果，不是DeepSeek或其他大模型成功分析，不能在演示中宣称模型已成功。应区分模型成功、规则兜底、失败和等待处理。"
+}

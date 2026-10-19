@@ -1,0 +1,60 @@
+name: Backend verification (no vendor calls)
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      AI_SMOKE: 'false'
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+          cache-dependency-path: '06_项目源代码/ticket-service/pom.xml'
+      - run: python3 '08_部署与环境/03_scripts/audit-knowledge.py'
+      - run: python3 '08_部署与环境/03_scripts/verify-test-profiles.py'
+      - run: python3 '08_部署与环境/03_scripts/verify-eval-datasets.py'
+      - run: python3 '08_部署与环境/03_scripts/test_budget_proxy.py'
+      - run: python3 '08_部署与环境/03_scripts/test_ollama_dns.py'
+      - run: python3 '08_部署与环境/03_scripts/test_eval_preflight.py'
+      - run: mvn -B -Punit test
+        working-directory: '06_项目源代码/ticket-service'
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: unit-reports
+          path: '06_项目源代码/ticket-service/target/surefire-reports/'
+          retention-days: 7
+  integration:
+    needs: unit
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      AI_SMOKE: 'false'
+      TZ: Asia/Shanghai
+      MAVEN_OPTS: '-Duser.timezone=Asia/Shanghai'
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+          cache-dependency-path: '06_项目源代码/ticket-service/pom.xml'
+      - run: python3 '08_部署与环境/03_scripts/prepare-phase4.py'
+      - run: mvn -B -Pintegration '-Dspring.config.additional-location=file:../../.tmp/phase4-integration.properties' package
+        working-directory: '06_项目源代码/ticket-service'
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: integration-reports
+          path: '06_项目源代码/ticket-service/target/surefire-reports/'
+          retention-days: 7

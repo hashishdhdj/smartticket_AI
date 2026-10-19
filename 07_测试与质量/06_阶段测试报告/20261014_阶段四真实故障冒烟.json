@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-14",
+  "mode": "RULE_ONLY",
+  "vendor_calls": 0,
+  "scenarios": [
+    {
+      "name": "broker_actual_outage",
+      "fault_at": "2026-10-14T10:45:32.251278+08:00",
+      "ticketId": 77,
+      "during_fault": "PENDING",
+      "restored_at": "2026-10-14T10:45:39.436335+08:00",
+      "terminal": {
+        "taskId": "d60da2df-44bc-4c64-94d4-162768ec86de",
+        "status": "DEGRADED",
+        "attempts": 1,
+        "errorCode": "10006",
+        "suggestion": {
+          "input_version": 0,
+          "category": "支付问题",
+          "priority": "MEDIUM",
+          "keywords": "[]",
+          "reason": "关键词规则兜底建议，需人工复核；未使用模型分析",
+          "source_type": "RULE",
+          "model": "rule-engine",
+          "prompt_version": "rule-classify-v1",
+          "cost_ms": 0
+        }
+      },
+      "completed_at": "2026-10-14T10:45:52.292798+08:00"
+    },
+    {
+      "name": "database_actual_outage",
+      "fault_at": "2026-10-14T10:45:52.292798+08:00",
+      "rejected_exception": "RuntimeError",
+      "restored_at": "2026-10-14T10:46:05.648468+08:00",
+      "ticketId": 78,
+      "terminal": {
+        "taskId": "5795ebe9-63dc-4f8f-a22a-3e8957f27106",
+        "status": "DEGRADED",
+        "attempts": 1,
+        "errorCode": "10006",
+        "suggestion": {
+          "input_version": 0,
+          "category": "支付问题",
+          "priority": "MEDIUM",
+          "keywords": "[]",
+          "reason": "关键词规则兜底建议，需人工复核；未使用模型分析",
+          "source_type": "RULE",
+          "model": "rule-engine",
+          "prompt_version": "rule-classify-v1",
+          "cost_ms": 0
+        }
+      },
+      "completed_at": "2026-10-14T10:46:09.792990+08:00",
+      "consumer_db_pause_verified": false
+    },
+    {
+      "name": "application_restart_pending",
+      "ticketId": 79,
+      "before_restart": "2026-10-14T10:46:11.838203+08:00",
+      "terminal": {
+        "taskId": "8d4c7e4c-9f9f-4813-9954-752c9996cd43",
+        "status": "DEGRADED",
+        "attempts": 1,
+        "errorCode": "10006",
+        "suggestion": {
+          "input_version": 0,
+          "category": "支付问题",
+          "priority": "MEDIUM",
+          "keywords": "[]",
+          "reason": "关键词规则兜底建议，需人工复核；未使用模型分析",
+          "source_type": "RULE",
+          "model": "rule-engine",
+          "prompt_version": "rule-classify-v1",
+          "cost_ms": 0
+        }
+      },
+      "completed_at": "2026-10-14T10:46:33.196628+08:00",
+      "running_lease_crash_verified": false
+    }
+  ],
+  "status": "PASS_WITH_LIMITATIONS"
+}

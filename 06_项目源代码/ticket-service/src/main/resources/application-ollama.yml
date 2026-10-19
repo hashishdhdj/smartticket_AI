@@ -1,0 +1,11 @@
+# Local OpenAI-compatible embeddings. This value is a client placeholder, not a secret.
+smartticket:
+  vector:
+    embedding:
+      base-url: http://127.0.0.1:11434
+      api-key: ollama-local
+      model: bge-m3:latest
+      dimensions: 1024
+      send-dimensions: false
+      batch-size: 2
+    index-on-startup: false

@@ -1,0 +1,4 @@
+# Copy to .tmp/phase4-embedding-provider.properties; never commit real keys.
+# SiliconFlow free embedding model only; Pro/BAAI/bge-m3 is not allowed.
+provider=siliconflow
+siliconflow.api-key=not-configured

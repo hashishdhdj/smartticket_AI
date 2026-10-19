@@ -1,0 +1,9 @@
+{
+  "authorized_at": "2026-10-15T20:06:44",
+  "source": "User explicit reply: 授权追加验证，累计仍不超过¥10",
+  "cumulative_rmb_limit": 10,
+  "cumulative_external_call_ceiling": 400,
+  "additional_external_calls_max": 80,
+  "scope": "Frozen new wording30 RAG +8 Agent; up to8 existing failure cases. Synthetic/demo data only, local BGE-M3.",
+  "ledger_reset": false
+}

@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-16T13:58:07+08:00",
+  "status": "PASS_ENGINEERING_ONLY",
+  "threshold": 0.63,
+  "calibration_report": "07_测试与质量\\06_阶段测试报告\\20261016_124711_RAG召回优先门槛重新校准.json",
+  "vendor_calls_this_completion": 0,
+  "cumulative_external_calls": 397,
+  "estimated_total_upper_rmb": 2.4947570800000003,
+  "jar_sha256": "975badc437d2746a9bc8918b900f08bd732e96d7a1ce1c9b94686c0b4b79007a",
+  "delivery_artifact_path": "08_部署与环境/04_交付产物/SmartTicket-AI-20261016-975badc437d2.jar",
+  "source_manifest_sha256": "4033e3772e1663ab1f9fad76470baca3e07acdc80084ac068c17f81a1f14741f",
+  "unit": {
+    "tests": 227,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "integration": {
+    "tests": 135,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "python_budget_proxy_tests": 12,
+  "api_requests": 15,
+  "api_assertions": 35,
+  "private_configuration_entries": 0,
+  "yaml_threshold_in_delivered_jar": 0.63,
+  "evidence": {
+    "windows_delivery": {
+      "path": "07_测试与质量\\06_阶段测试报告\\20261016_135133_7332fd_干净交付包构建与启动.json",
+      "sha256": "dd2d1baa579c62dce009c2a54ff6976808186beedae31ea392b0cf4b39ea9472"
+    },
+    "linux_reproduction": {
+      "path": "07_测试与质量\\06_阶段测试报告\\20261016_135231_92fa85_Linux空缓存复现.json",
+      "sha256": "591d555f6d3d2776a76264f64e6b146e29e50db20c8dd149bd0cd524d95c3e4d"
+    },
+    "linux_runtime": {
+      "path": "07_测试与质量\\06_阶段测试报告\\20261016_135644_8f8657_Linux交付包启动验收.json",
+      "sha256": "68637ced4c05efe532b72bbfe6473ad71638a323f57d6dd630bdbe3be531ce6f"
+    },
+    "http_collection": {
+      "path": "07_测试与质量\\06_阶段测试报告\\20261016_135728_接口集合真实HTTP验收.json",
+      "sha256": "b3cf609ac38bc48b319bfafb30eb5d3b9ec71624bc39436a7d832eded24138e4"
+    }
+  },
+  "limits": [
+    "Same Docker host Linux container, not another physical machine or remote CI",
+    "No new real DeepSeek generation; no updated answer accuracy claim",
+    "NW02 and NW19 remain below .63; human review pending",
+    "Development target JAR predates current threshold; runtime equivalence to it is not claimed. Ship only the verified clean artifact."
+  ]
+}

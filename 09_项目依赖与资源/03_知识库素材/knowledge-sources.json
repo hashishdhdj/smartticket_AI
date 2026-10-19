@@ -1,0 +1,327 @@
+{
+  "version": "stage4-corpus-draft-20261014",
+  "sections": [
+    {
+      "source_ref": "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+      "nature": "SIMULATED_SCENARIO",
+      "review_date": "2026-10-14",
+      "scope": "模拟客服平台；政策时限不是已验证真实业务规则",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md"
+      ],
+      "review_status": "SIMULATION_BOUNDARY_REVIEWED"
+    },
+    {
+      "source_ref": "faq/01-账户问题.md#如何重置登录密码",
+      "nature": "SIMULATED_SCENARIO",
+      "review_date": "2026-10-14",
+      "scope": "模拟客服平台；政策时限不是已验证真实业务规则",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md"
+      ],
+      "review_status": "SIMULATION_BOUNDARY_REVIEWED"
+    },
+    {
+      "source_ref": "faq/01-账户问题.md#账号被锁定如何解锁",
+      "nature": "SIMULATED_SCENARIO",
+      "review_date": "2026-10-14",
+      "scope": "模拟客服平台；政策时限不是已验证真实业务规则",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md"
+      ],
+      "review_status": "SIMULATION_BOUNDARY_REVIEWED"
+    },
+    {
+      "source_ref": "faq/01-账户问题.md#如何更换绑定手机号",
+      "nature": "SIMULATED_SCENARIO",
+      "review_date": "2026-10-14",
+      "scope": "模拟客服平台；政策时限不是已验证真实业务规则",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md"
+      ],
+      "review_status": "SIMULATION_BOUNDARY_REVIEWED"
+    },
+    {
+      "source_ref": "faq/01-账户问题.md#收不到验证码短信怎么办",
+      "nature": "SIMULATED_SCENARIO",
+      "review_date": "2026-10-14",
+      "scope": "模拟客服平台；政策时限不是已验证真实业务规则",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md"
+      ],
+      "review_status": "SIMULATION_BOUNDARY_REVIEWED"
+    },
+    {
+      "source_ref": "faq/02-支付问题.md#支付成功但订单未生成怎么办",
+      "nature": "SIMULATED_SCENARIO",
+      "review_date": "2026-10-14",
+      "scope": "模拟客服平台；政策时限不是已验证真实业务规则",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/02-支付问题.md"
+      ],
+      "review_status": "SIMULATION_BOUNDARY_REVIEWED"
+    },
+    {
+      "source_ref": "faq/02-支付问题.md#重复扣款如何申请退款",
+      "nature": "SIMULATED_SCENARIO",
+      "review_date": "2026-10-14",
+      "scope": "模拟客服平台；政策时限不是已验证真实业务规则",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/02-支付问题.md"
+      ],
+      "review_status": "SIMULATION_BOUNDARY_REVIEWED"
+    },
+    {
+      "source_ref": "faq/02-支付问题.md#支付时提示「订单已失效」怎么办",
+      "nature": "SIMULATED_SCENARIO",
+      "review_date": "2026-10-14",
+      "scope": "模拟客服平台；政策时限不是已验证真实业务规则",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/02-支付问题.md"
+      ],
+      "review_status": "SIMULATION_BOUNDARY_REVIEWED"
+    },
+    {
+      "source_ref": "faq/02-支付问题.md#如何申请开具发票",
+      "nature": "SIMULATED_SCENARIO",
+      "review_date": "2026-10-15",
+      "scope": "模拟客服平台；政策时限不是已验证真实业务规则",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/02-支付问题.md"
+      ],
+      "review_status": "CODEX_FACT_CHECK_PENDING_AUTHOR"
+    },
+    {
+      "source_ref": "faq/03-功能异常.md#页面一直转圈或白屏怎么办",
+      "nature": "SIMULATED_SCENARIO",
+      "review_date": "2026-10-14",
+      "scope": "模拟客服平台；政策时限不是已验证真实业务规则",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/03-功能异常.md"
+      ],
+      "review_status": "SIMULATION_BOUNDARY_REVIEWED"
+    },
+    {
+      "source_ref": "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办",
+      "nature": "SIMULATED_SCENARIO",
+      "review_date": "2026-10-14",
+      "scope": "模拟客服平台；政策时限不是已验证真实业务规则",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/03-功能异常.md"
+      ],
+      "review_status": "SIMULATION_BOUNDARY_REVIEWED"
+    },
+    {
+      "source_ref": "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+      "nature": "SIMULATED_SCENARIO",
+      "review_date": "2026-10-14",
+      "scope": "模拟客服平台；政策时限不是已验证真实业务规则",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/03-功能异常.md"
+      ],
+      "review_status": "SIMULATION_BOUNDARY_REVIEWED"
+    },
+    {
+      "source_ref": "faq/03-功能异常.md#上传附件失败怎么办",
+      "nature": "SIMULATED_SCENARIO",
+      "review_date": "2026-10-14",
+      "scope": "模拟客服平台；政策时限不是已验证真实业务规则",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/03-功能异常.md"
+      ],
+      "review_status": "SIMULATION_BOUNDARY_REVIEWED"
+    },
+    {
+      "source_ref": "faq/04-工单流程与通用问题.md#工单的处理流程与时限",
+      "nature": "PROJECT_RULE",
+      "review_date": "2026-10-14",
+      "scope": "当前项目代码与公开API",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/enums/TicketStatus.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/controller/TicketController.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/service/impl/TicketServiceImpl.java"
+      ],
+      "review_status": "CODE_REVIEWED"
+    },
+    {
+      "source_ref": "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+      "nature": "PROJECT_RULE",
+      "review_date": "2026-10-14",
+      "scope": "当前项目代码与公开API",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/enums/TicketStatus.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/controller/TicketController.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/service/impl/TicketServiceImpl.java"
+      ],
+      "review_status": "CODE_REVIEWED"
+    },
+    {
+      "source_ref": "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开",
+      "nature": "PROJECT_RULE",
+      "review_date": "2026-10-14",
+      "scope": "当前项目代码与公开API",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/enums/TicketStatus.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/controller/TicketController.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/service/impl/TicketServiceImpl.java"
+      ],
+      "review_status": "CODE_REVIEWED"
+    },
+    {
+      "source_ref": "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+      "nature": "PROJECT_RULE",
+      "review_date": "2026-10-14",
+      "scope": "当前项目代码与公开API",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/enums/TicketStatus.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/controller/TicketController.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/service/impl/TicketServiceImpl.java"
+      ],
+      "review_status": "CODE_REVIEWED"
+    },
+    {
+      "source_ref": "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单",
+      "nature": "PROJECT_RULE",
+      "review_date": "2026-10-14",
+      "scope": "当前项目代码与公开API",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/phase3/AccessPolicy.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/phase3/AsyncAnalysisWorker.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/agent/AssignmentActions.java",
+        "07_测试与质量/01_接口文档/阶段三接口补充.md"
+      ],
+      "review_status": "CODE_REVIEWED"
+    },
+    {
+      "source_ref": "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+      "nature": "PROJECT_RULE",
+      "review_date": "2026-10-16",
+      "scope": "当前项目代码与公开API",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/phase3/AccessPolicy.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/phase3/AsyncAnalysisWorker.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/agent/AssignmentActions.java",
+        "07_测试与质量/01_接口文档/阶段三接口补充.md",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/phase3/RuleClassifier.java"
+      ],
+      "review_status": "CODEX_FACT_CHECK_PENDING_AUTHOR",
+      "review_note": "Clarify DEGRADED/RULE as rule fallback, supported by AsyncAnalysisWorker/RuleClassifier and existing FAQ; not model success. Author review pending."
+    },
+    {
+      "source_ref": "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+      "nature": "PROJECT_RULE",
+      "review_date": "2026-10-14",
+      "scope": "当前项目代码与公开API",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/phase3/AccessPolicy.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/phase3/AsyncAnalysisWorker.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/agent/AssignmentActions.java",
+        "07_测试与质量/01_接口文档/阶段三接口补充.md"
+      ],
+      "review_status": "CODE_REVIEWED"
+    },
+    {
+      "source_ref": "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+      "nature": "PROJECT_RULE",
+      "review_date": "2026-10-14",
+      "scope": "当前项目代码与公开API",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/phase3/AccessPolicy.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/phase3/AsyncAnalysisWorker.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/agent/AssignmentActions.java",
+        "07_测试与质量/01_接口文档/阶段三接口补充.md"
+      ],
+      "review_status": "CODE_REVIEWED"
+    },
+    {
+      "source_ref": "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+      "nature": "SIMULATED_SCENARIO",
+      "review_date": "2026-10-14",
+      "scope": "模拟客服平台；政策时限不是已验证真实业务规则",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/resources/knowledge/tickets/01-账户问题.md"
+      ],
+      "review_status": "SIMULATION_BOUNDARY_REVIEWED"
+    },
+    {
+      "source_ref": "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+      "nature": "SIMULATED_SCENARIO",
+      "review_date": "2026-10-14",
+      "scope": "模拟客服平台；政策时限不是已验证真实业务规则",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/resources/knowledge/tickets/01-账户问题.md"
+      ],
+      "review_status": "SIMULATION_BOUNDARY_REVIEWED"
+    },
+    {
+      "source_ref": "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+      "nature": "SIMULATED_SCENARIO",
+      "review_date": "2026-10-14",
+      "scope": "模拟客服平台；政策时限不是已验证真实业务规则",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/resources/knowledge/tickets/01-账户问题.md"
+      ],
+      "review_status": "SIMULATION_BOUNDARY_REVIEWED"
+    },
+    {
+      "source_ref": "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+      "nature": "SIMULATED_SCENARIO",
+      "review_date": "2026-10-14",
+      "scope": "模拟客服平台；政策时限不是已验证真实业务规则",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/resources/knowledge/tickets/02-支付问题.md"
+      ],
+      "review_status": "SIMULATION_BOUNDARY_REVIEWED"
+    },
+    {
+      "source_ref": "tickets/02-支付问题.md#同一笔订单被扣款两次",
+      "nature": "SIMULATED_SCENARIO",
+      "review_date": "2026-10-14",
+      "scope": "模拟客服平台；政策时限不是已验证真实业务规则",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/resources/knowledge/tickets/02-支付问题.md"
+      ],
+      "review_status": "SIMULATION_BOUNDARY_REVIEWED"
+    },
+    {
+      "source_ref": "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信",
+      "nature": "SIMULATED_SCENARIO",
+      "review_date": "2026-10-14",
+      "scope": "模拟客服平台；政策时限不是已验证真实业务规则",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/resources/knowledge/tickets/02-支付问题.md"
+      ],
+      "review_status": "SIMULATION_BOUNDARY_REVIEWED"
+    },
+    {
+      "source_ref": "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+      "nature": "SIMULATED_SCENARIO",
+      "review_date": "2026-10-14",
+      "scope": "模拟客服平台；政策时限不是已验证真实业务规则",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/resources/knowledge/tickets/03-功能异常.md"
+      ],
+      "review_status": "SIMULATION_BOUNDARY_REVIEWED"
+    },
+    {
+      "source_ref": "tickets/03-功能异常.md#打开工单详情页白屏",
+      "nature": "SIMULATED_SCENARIO",
+      "review_date": "2026-10-14",
+      "scope": "模拟客服平台；政策时限不是已验证真实业务规则",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/resources/knowledge/tickets/03-功能异常.md"
+      ],
+      "review_status": "SIMULATION_BOUNDARY_REVIEWED"
+    },
+    {
+      "source_ref": "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+      "nature": "SIMULATED_SCENARIO",
+      "review_date": "2026-10-14",
+      "scope": "模拟客服平台；政策时限不是已验证真实业务规则",
+      "basis": [
+        "06_项目源代码/ticket-service/src/main/resources/knowledge/tickets/03-功能异常.md"
+      ],
+      "review_status": "SIMULATION_BOUNDARY_REVIEWED"
+    }
+  ]
+}

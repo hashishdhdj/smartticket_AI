@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-16",
+  "status": "TECHNICAL_DIAGNOSIS_NOT_HUMAN_GRADING",
+  "original_report": "20261016_真实评估_rag_30题_quality_final_scope.json",
+  "original_report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+  "recovery_report": "20261016_真实评估_rag_2题_quality_generation_retry.json",
+  "recovery_report_sha256": "0f927d9134c9f2d308e12e6a3bb3b98d33e1d6a50f7e744818e914cf49b29b1f",
+  "note": "Application HTTP succeeded while upstream chat failed. Do not interpret dispatch_success or rag_degraded_or_failed_count as upstream health; do not overwrite original batch scores.",
+  "rows": [
+    {
+      "case_id": "NW08",
+      "original_has_answer": false,
+      "original_threshold_abstention": false,
+      "original_vendor_outcomes": [
+        {
+          "state": "UNKNOWN_CHARGE",
+          "http_status": 502,
+          "error_type": "URLError",
+          "error_detail": "[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)",
+          "charged_upper_rmb": 0.034803
+        }
+      ],
+      "original_cause": "UPSTREAM_TLS_EOF_NOT_MODEL_ABSTENTION",
+      "recovery_has_answer": false,
+      "recovery_vendor_outcomes": [
+        {
+          "state": "UNKNOWN_CHARGE",
+          "http_status": 502,
+          "error_type": "TimeoutError",
+          "error_detail": "The read operation timed out",
+          "charged_upper_rmb": 0.034803
+        }
+      ],
+      "recovery_cause": "UPSTREAM_READ_TIMEOUT"
+    },
+    {
+      "case_id": "NW09",
+      "original_has_answer": false,
+      "original_threshold_abstention": false,
+      "original_vendor_outcomes": [
+        {
+          "state": "UNKNOWN_CHARGE",
+          "http_status": 502,
+          "error_type": "URLError",
+          "error_detail": "[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)",
+          "charged_upper_rmb": 0.034704
+        }
+      ],
+      "original_cause": "UPSTREAM_TLS_EOF_NOT_MODEL_ABSTENTION",
+      "recovery_has_answer": true,
+      "recovery_vendor_outcomes": [
+        {
+          "state": "RESPONDED",
+          "http_status": 200,
+          "error_type": null,
+          "error_detail": null,
+          "charged_upper_rmb": 0.005946
+        }
+      ],
+      "recovery_cause": "GENERATED_ANSWER_PENDING_AUTHOR_REVIEW"
+    }
+  ]
+}

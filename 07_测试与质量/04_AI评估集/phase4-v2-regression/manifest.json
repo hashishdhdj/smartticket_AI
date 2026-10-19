@@ -1,0 +1,13 @@
+{
+  "version": "phase4-v2-regression",
+  "purpose": "FOLLOWUP_REGRESSION_NOT_BLIND_ACCEPTANCE",
+  "author_review_status": "PENDING",
+  "created_before_first_v3_vendor_evaluation": true,
+  "note": "New formulations frozen before v3 model execution; deliberately covers known failure classes. AI-assisted labels require author review; not independent blind evidence.",
+  "files": {
+    "rag-followup-v2.jsonl": {
+      "count": 30,
+      "sha256": "843e6be0a5602eb1de14be1c88195dd1becef0f245776fc3baee0f58c7ec0d34"
+    }
+  }
+}

@@ -1,0 +1,1133 @@
+{
+  "info": {
+    "name": "SmartTicket 工单接口（阶段1 收官 · 8 个接口）",
+    "_postman_id": "b7c1e2f4-3a55-4c8e-9d21-6f0a1c9d4e77",
+    "description": "AI驱动的智能工单服务系统 —— 阶段1 交付的 8 个工单接口验收用例（创建 / 详情 / 分页 / 更新 / 日志 / 指派 / 关闭 / 解决）。\n\n前置条件：\n1. MySQL 容器处于运行状态（docker ps 可见 smartticket-mysql healthy）；\n2. ticket-service 已启动（mvn spring-boot:run），监听 8080；\n3. 先执行「1. 创建工单（正常）」，该请求会把返回的 data.id 写入集合变量 {{id}}，后续用例复用。\n\n全部接口均返回 HTTP 200，真实结果看响应体 code 字段。",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. 创建工单 POST /api/tickets",
+      "item": [
+        {
+          "name": "1.1 创建工单（正常）——并记录 id 供后续用例使用",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('统一返回格式：code=0', () => pm.expect(json.code).to.eql(0));",
+                  "pm.test('状态固定为待分配', () => pm.expect(json.data.status).to.eql('PENDING_ASSIGN'));",
+                  "pm.test('优先级为入参 HIGH', () => pm.expect(json.data.priority).to.eql('HIGH'));",
+                  "pm.test('工单编号符合 ST-yyyyMMdd-HHmmss-XXXX 规则', () => pm.expect(json.data.ticketNo).to.match(/^ST-\\d{8}-\\d{6}-[0-9A-F]{4}$/));",
+                  "pm.test('creatorId 与入参一致', () => pm.expect(json.data.creatorId).to.eql(1));",
+                  "pm.test('createdAt 已由数据库填充', () => pm.expect(json.data.createdAt).to.be.a('string').and.not.empty);",
+                  "pm.test('不返回内部字段 deleted', () => pm.expect(json.data).to.not.have.property('deleted'));",
+                  "pm.collectionVariables.set('id', json.data.id);",
+                  "console.log('已创建工单 id = ' + json.data.id + '，编号 = ' + json.data.ticketNo);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"打印机无法连接\",\n  \"description\": \"办公室3楼打印机离线\",\n  \"category\": \"硬件设备\",\n  \"priority\": \"HIGH\",\n  \"tags\": \"打印,硬件\",\n  \"creatorId\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets"
+              ]
+            },
+            "description": "创建工单：状态由服务端固定为 PENDING_ASSIGN，工单编号由服务端生成。"
+          }
+        },
+        {
+          "name": "1.2 创建工单（不传 priority，应取数据库默认值 MEDIUM）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('code=0', () => pm.expect(json.code).to.eql(0));",
+                  "pm.test('priority 回落为 MEDIUM', () => pm.expect(json.data.priority).to.eql('MEDIUM'));",
+                  "// 这条工单保持待分配状态，作为 6.4~6.6 关闭/指派用例的目标",
+                  "pm.collectionVariables.set('closedId', json.data.id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"会议室投屏失败\",\n  \"creatorId\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets"
+              ]
+            },
+            "description": "不传优先级时由服务端显式写入 MEDIUM，保证出参与库内一致。"
+          }
+        },
+        {
+          "name": "1.3 创建工单（标题为空白，应 40000）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('HTTP 仍为 200（业务码与传输层解耦）', () => pm.response.to.have.status(200));",
+                  "pm.test('code=40000 参数校验失败', () => pm.expect(json.code).to.eql(40000));",
+                  "pm.test('message 指明字段 title', () => pm.expect(json.message).to.include('title'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"   \",\n  \"creatorId\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets"
+              ]
+            },
+            "description": "@NotBlank 生效，返回 40000 并带字段级提示。"
+          }
+        },
+        {
+          "name": "1.4 创建工单（缺 creatorId，应 40000）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('code=40000', () => pm.expect(json.code).to.eql(40000));",
+                  "pm.test('message 指明字段 creatorId', () => pm.expect(json.message).to.include('creatorId'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"缺少创建人的工单\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets"
+              ]
+            },
+            "description": "creator_id 为 NOT NULL，阶段1 无登录体系，创建人必须显式传入。"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. 查询详情 GET /api/tickets/{id}",
+      "item": [
+        {
+          "name": "2.1 查询详情（使用 1.1 创建的 id）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('code=0', () => pm.expect(json.code).to.eql(0));",
+                  "pm.test('id 与请求一致', () => pm.expect(String(json.data.id)).to.eql(pm.collectionVariables.get('id')));",
+                  "pm.test('不返回内部字段 deleted', () => pm.expect(json.data).to.not.have.property('deleted'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets/{{id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets",
+                "{{id}}"
+              ]
+            },
+            "description": "按 id 查询详情。若未先执行 1.1，{{id}} 为空，会命中 10003。"
+          }
+        },
+        {
+          "name": "2.2 查询详情（不存在的工单，应 10003）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('code=10003 工单不存在', () => pm.expect(json.code).to.eql(10003));",
+                  "pm.test('message 含被查询的 id', () => pm.expect(json.message).to.include('999999999'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets/999999999",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets",
+                "999999999"
+              ]
+            },
+            "description": "不存在的 id 返回业务码 10003，而不是空 body 或 500。"
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. 分页查询 GET /api/tickets",
+      "item": [
+        {
+          "name": "3.1 分页查询（默认参数）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('code=0', () => pm.expect(json.code).to.eql(0));",
+                  "pm.test('返回 PageVO 五个字段', () => {",
+                  "  pm.expect(json.data).to.have.all.keys('records', 'total', 'current', 'size', 'pages');",
+                  "});",
+                  "pm.test('records 是数组', () => pm.expect(json.data.records).to.be.an('array'));",
+                  "pm.test('current=1 且 size=10', () => {",
+                  "  pm.expect(json.data.current).to.eql(1);",
+                  "  pm.expect(json.data.size).to.eql(10);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets?current=1&size=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets"
+              ],
+              "query": [
+                {
+                  "key": "current",
+                  "value": "1"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "默认按 created_at DESC, id DESC 排序。若不注册分页插件，这里会返回全表且 total 不准。"
+          }
+        },
+        {
+          "name": "3.2 分页查询（按状态筛选 PENDING_ASSIGN）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('code=0', () => pm.expect(json.code).to.eql(0));",
+                  "pm.test('返回记录的 status 全部为 PENDING_ASSIGN', () => {",
+                  "  json.data.records.forEach((record) => pm.expect(record.status).to.eql('PENDING_ASSIGN'));",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets?status=PENDING_ASSIGN&size=100",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "PENDING_ASSIGN"
+                },
+                {
+                  "key": "size",
+                  "value": "100"
+                }
+              ]
+            },
+            "description": "状态筛选复用状态机的取值校验，非法值会返回 10002 而不是静默查空。"
+          }
+        },
+        {
+          "name": "3.3 分页查询（size 超上限 100，应 40000）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('code=40000', () => pm.expect(json.code).to.eql(40000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets?size=101",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets"
+              ],
+              "query": [
+                {
+                  "key": "size",
+                  "value": "101"
+                }
+              ]
+            },
+            "description": "Controller 上的 @Validated + @Max(100) 生效，防止一次性拉全表。"
+          }
+        },
+        {
+          "name": "3.4 分页查询（非法状态值，应 10002）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('code=10002 未知的工单状态值', () => pm.expect(json.code).to.eql(10002));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets?status=NOT_A_STATUS",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "NOT_A_STATUS"
+                }
+              ]
+            },
+            "description": "TicketStatus.fromCode 抛业务异常，错误码 10002。"
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. 更新工单 PUT /api/tickets/{id}",
+      "item": [
+        {
+          "name": "4.1 更新工单（改 title/priority，清空 description/tags）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('code=0', () => pm.expect(json.code).to.eql(0));",
+                  "pm.test('title 已更新', () => pm.expect(json.data.title).to.eql('打印机无法连接（已重新处理）'));",
+                  "pm.test('priority 已更新为 URGENT', () => pm.expect(json.data.priority).to.eql('URGENT'));",
+                  "pm.test('description 已被清空（null 字段被省略）', () => pm.expect(json.data).to.not.have.property('description'));",
+                  "pm.test('tags 已被清空', () => pm.expect(json.data).to.not.have.property('tags'));",
+                  "pm.test('状态未被修改，仍为 PENDING_ASSIGN', () => pm.expect(json.data.status).to.eql('PENDING_ASSIGN'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"打印机无法连接（已重新处理）\",\n  \"description\": null,\n  \"category\": \"硬件设备\",\n  \"priority\": \"URGENT\",\n  \"tags\": null,\n  \"operatorId\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets/{{id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets",
+                "{{id}}"
+              ]
+            },
+            "description": "PUT 为全量替换：title/priority 必填，description/category/tags 传 null 即清空。operatorId 用于写操作日志，不是业务字段。"
+          }
+        },
+        {
+          "name": "4.2 更新工单（越权多传 status=CLOSED，应被忽略）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('code=0', () => pm.expect(json.code).to.eql(0));",
+                  "pm.test('状态仍为 PENDING_ASSIGN —— 更新接口无法改状态', () => pm.expect(json.data.status).to.eql('PENDING_ASSIGN'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"试探越权改状态\",\n  \"priority\": \"MEDIUM\",\n  \"operatorId\": 2,\n  \"status\": \"CLOSED\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets/{{id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets",
+                "{{id}}"
+              ]
+            },
+            "description": "TicketUpdateDTO 不含 status 字段，JSON 中的多余字段被 Jackson 直接忽略，从结构上杜绝越权改状态。"
+          }
+        },
+        {
+          "name": "4.3 更新工单（缺 priority，应 40000）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('code=40000', () => pm.expect(json.code).to.eql(40000));",
+                  "pm.test('message 指明字段 priority', () => pm.expect(json.message).to.include('priority'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"只改标题不带优先级\",\n  \"operatorId\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets/{{id}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets",
+                "{{id}}"
+              ]
+            },
+            "description": "PUT 全量替换语义下 priority 必填，避免「未传」与「清空」语义混淆。"
+          }
+        },
+        {
+          "name": "4.4 更新工单（不存在的工单，应 10003）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('code=10003', () => pm.expect(json.code).to.eql(10003));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"改一个不存在的工单\",\n  \"priority\": \"LOW\",\n  \"operatorId\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets/999999999",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets",
+                "999999999"
+              ]
+            },
+            "description": "先查存在性再更新，返回业务码 10003。"
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. 操作日志 GET /api/tickets/{id}/logs",
+      "item": [
+        {
+          "name": "5.1 查询操作日志（应含一条 CREATE 记录）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('code=0', () => pm.expect(json.code).to.eql(0));",
+                  "pm.test('至少有一条日志', () => pm.expect(json.data.length).to.be.at.least(1));",
+                  "const createLog = json.data.find((log) => log.action === 'CREATE');",
+                  "pm.test('存在 CREATE 记录', () => pm.expect(createLog).to.be.an('object'));",
+                  "pm.test('CREATE 记录字段完整', () => {",
+                  "  pm.expect(createLog.toStatus).to.eql('PENDING_ASSIGN');",
+                  "  pm.expect(createLog.operatorId).to.eql(1);",
+                  "  pm.expect(createLog.ticketId).to.eql(Number(pm.collectionVariables.get('id')));",
+                  "  pm.expect(createLog.createdAt).to.be.a('string').and.not.empty;",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets/{{id}}/logs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets",
+                "{{id}}",
+                "logs"
+              ]
+            },
+            "description": "按 created_at 升序返回。创建工单时同事务写入一条 CREATE 日志。"
+          }
+        },
+        {
+          "name": "5.2 查询操作日志（工单不存在，应 10003）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('code=10003', () => pm.expect(json.code).to.eql(10003));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets/999999999/logs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets",
+                "999999999",
+                "logs"
+              ]
+            },
+            "description": "工单不存在时明确报错，而不是返回空列表让人误以为「这个工单没有日志」。"
+          }
+        }
+      ]
+    },
+    {
+      "name": "6. 指派与关闭 POST /api/tickets/{id}/assign | /close",
+      "item": [
+        {
+          "name": "6.1 指派工单（待分配 → 处理中）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('code=0', () => pm.expect(json.code).to.eql(0));",
+                  "pm.test('状态经状态机流转到 PROCESSING', () => pm.expect(json.data.status).to.eql('PROCESSING'));",
+                  "pm.test('处理人已写入', () => pm.expect(json.data.assigneeId).to.eql(2));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assigneeId\": 2,\n  \"operatorId\": 1,\n  \"remark\": \"指派给运维2号\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets/{{id}}/assign",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets",
+                "{{id}}",
+                "assign"
+              ]
+            },
+            "description": "指派语义按状态决定：待分配 → 经状态机流转到处理中。请先执行 1.1 创建工单。"
+          }
+        },
+        {
+          "name": "6.2 转派工单（处理中 → 处理中，只换人）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('code=0', () => pm.expect(json.code).to.eql(0));",
+                  "pm.test('状态不变，仍为 PROCESSING', () => pm.expect(json.data.status).to.eql('PROCESSING'));",
+                  "pm.test('处理人已变更为 3', () => pm.expect(json.data.assigneeId).to.eql(3));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assigneeId\": 3,\n  \"operatorId\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets/{{id}}/assign",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets",
+                "{{id}}",
+                "assign"
+              ]
+            },
+            "description": "处理中再次指派视为转派：只换处理人、状态不变（状态机不允许自身流转）。"
+          }
+        },
+        {
+          "name": "6.3 处理中的工单直接关闭（应 10001 被拒）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('code=10001 非法状态流转', () => pm.expect(json.code).to.eql(10001));",
+                  "pm.test('提示含起止状态', () => {",
+                  "  pm.expect(json.message).to.include('PROCESSING');",
+                  "  pm.expect(json.message).to.include('CLOSED');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"operatorId\": 1,\n  \"remark\": \"问题还没解决就想关闭\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets/{{id}}/close",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets",
+                "{{id}}",
+                "close"
+              ]
+            },
+            "description": "关键验收用例：处理中 → 已关闭 不在状态机白名单内，必须被拒绝（矩阵中只有待分配/已解决可直接关闭）。"
+          }
+        },
+        {
+          "name": "6.4 关闭工单（待分配可直接关闭，应成功）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('code=0', () => pm.expect(json.code).to.eql(0));",
+                  "pm.test('状态为 CLOSED', () => pm.expect(json.data.status).to.eql('CLOSED'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"operatorId\": 1,\n  \"remark\": \"误创建，作废\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets/{{closedId}}/close",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets",
+                "{{closedId}}",
+                "close"
+              ]
+            },
+            "description": "使用另一个处于待分配状态工单的 id（变量 {{closedId}}）。矩阵中 PENDING_ASSIGN → CLOSED 合法。"
+          }
+        },
+        {
+          "name": "6.5 重复关闭同一工单（应 10001，自身流转被拒）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('code=10001', () => pm.expect(json.code).to.eql(10001));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"operatorId\": 1,\n  \"remark\": \"再关一次\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets/{{closedId}}/close",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets",
+                "{{closedId}}",
+                "close"
+              ]
+            },
+            "description": "CLOSED → CLOSED 属自身流转，一律拒绝。"
+          }
+        },
+        {
+          "name": "6.6 指派已关闭的工单（应 10005，不允许隐式重开）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('code=10005 当前状态不允许此操作', () => pm.expect(json.code).to.eql(10005));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assigneeId\": 9,\n  \"operatorId\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets/{{closedId}}/assign",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "tickets",
+                "{{closedId}}",
+                "assign"
+              ]
+            },
+            "description": "指派已关闭工单等于让它变成处理中（即隐式重开），因此拒绝；重开应作为独立操作（本阶段未实现）。"
+          }
+        }
+      ]
+    },
+    {
+      "name": "7. 解决工单 POST /api/tickets/{id}/resolve",
+      "item": [
+        {
+          "name": "7.1 解决工单（处理中 -> 已解决，应 0）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('code = 0', () => pm.expect(json.code).to.eql(0));",
+                  "pm.test('状态变为 RESOLVED', () => pm.expect(json.data.status).to.eql('RESOLVED'));",
+                  "pm.test('处理人保持不变', () => pm.expect(json.data.assigneeId).to.eql(2));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"operatorId\": 1,\n  \"remark\": \"已重启服务并修复配置\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets/{{id}}/resolve",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "tickets", "{{id}}", "resolve"]
+            },
+            "description": "需先执行 6.1 指派（把工单从待分配推到处理中），否则会被状态机拒绝。解决是纯流转：目标固定为已解决，入参不含状态。"
+          }
+        },
+        {
+          "name": "7.2 解决工单（已关闭工单，应 10001）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('code = 10001（非法流转）', () => pm.expect(json.code).to.eql(10001));",
+                  "pm.test('提示含起止状态', () => {",
+                  "    pm.expect(json.message).to.include('CLOSED');",
+                  "    pm.expect(json.message).to.include('RESOLVED');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"operatorId\": 1,\n  \"remark\": \"尝试解决已关闭工单\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets/{{closedId}}/resolve",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "tickets", "{{closedId}}", "resolve"]
+            },
+            "description": "closedId 由 1.2 创建、6.4 关闭。CLOSED -> RESOLVED 不在状态机白名单内（重开应走独立接口），必须被拒绝。"
+          }
+        },
+        {
+          "name": "7.3 解决工单（不存在的工单，应 10003）",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('code = 10003', () => pm.expect(json.code).to.eql(10003));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"operatorId\": 1,\n  \"remark\": \"不存在的工单\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tickets/999999999/resolve",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "tickets", "999999999", "resolve"]
+            },
+            "description": "工单不存在时明确报错，而不是静默返回成功。"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "id",
+      "value": ""
+    },
+    {
+      "key": "closedId",
+      "value": ""
+    }
+  ]
+}

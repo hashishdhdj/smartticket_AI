@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-19T13:09:11+08:00",
+  "status": "PASS",
+  "vendor_calls": 0,
+  "jar_sha256": "0bf1ebea9260f067963e1fe5146a8f20bc9f35d006540e7ccd6af96122310e28",
+  "threshold": 0.63,
+  "scope": "Actual final-JAR HTTP, local embeddings and chat disabled. Routing/diagnostics only, not generated answer correctness.",
+  "rows": [
+    {
+      "id": "NW02",
+      "confidence": 0.6317270366901627,
+      "statusReason": "AI_UNAVAILABLE"
+    },
+    {
+      "id": "NW19",
+      "confidence": 0.6886434799583754,
+      "statusReason": "AI_UNAVAILABLE"
+    },
+    {
+      "id": "NW22",
+      "confidence": 0.5347624656983019,
+      "statusReason": "BELOW_THRESHOLD"
+    }
+  ],
+  "external_calls_before": 399,
+  "external_calls_after": 399
+}

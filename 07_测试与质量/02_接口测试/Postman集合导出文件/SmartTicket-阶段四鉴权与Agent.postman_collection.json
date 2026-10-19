@@ -1,0 +1,556 @@
+{
+  "info": {
+    "name": "SmartTicket 阶段四工程验收（offline-demo）",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "只在offline-demo模式按顺序运行；会创建合成工单并进行幂等重放，不含真实凭据或自动人工确认请求。填入本机演示账号Token和submitterId。未实际运行本Postman集合，工程行为另有Java/真实故障报告。 2026-10-15追加12—15：匹配版本更新、旧页面409及未覆盖验证；请按顺序执行。"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:8080",
+      "type": "string"
+    },
+    {
+      "key": "submitterToken",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "handlerToken",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "adminToken",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "submitterId",
+      "value": "100",
+      "type": "string"
+    },
+    {
+      "key": "ticketId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "idempotencyKey",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "replayTaskId",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "01 创建合成工单（可信身份覆盖creatorId）",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-API-Key",
+            "value": "{{submitterToken}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/tickets",
+        "auth": {
+          "type": "noauth"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"title\": \"阶段四Postman合成工单\", \"description\": \"仅用于本地工程验收，不含真实客户信息\", \"creatorId\": 1, \"priority\": \"MEDIUM\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+              "pm.test('business code 0', () => pm.expect(pm.response.json().code).to.eql(0));",
+              "const d=pm.response.json().data; pm.collectionVariables.set('ticketId',d.id); pm.collectionVariables.set('idempotencyKey',pm.variables.replaceIn('{{$guid}}')); pm.collectionVariables.unset('replayTaskId');",
+              "pm.test('可信创建人',()=>pm.expect(String(d.creatorId)).to.eql(String(pm.variables.get('submitterId'))));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "02 查询自己的工单",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-API-Key",
+            "value": "{{submitterToken}}",
+            "type": "text"
+          }
+        ],
+        "url": "{{baseUrl}}/api/tickets/{{ticketId}}",
+        "auth": {
+          "type": "noauth"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+              "pm.test('business code 0', () => pm.expect(pm.response.json().code).to.eql(0));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "03 查询日志",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-API-Key",
+            "value": "{{submitterToken}}",
+            "type": "text"
+          }
+        ],
+        "url": "{{baseUrl}}/api/tickets/{{ticketId}}/logs",
+        "auth": {
+          "type": "noauth"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+              "pm.test('business code 0', () => pm.expect(pm.response.json().code).to.eql(0));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "04 查询分析任务（降级不等于AI成功）",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-API-Key",
+            "value": "{{submitterToken}}",
+            "type": "text"
+          }
+        ],
+        "url": "{{baseUrl}}/api/tickets/{{ticketId}}/analysis",
+        "auth": {
+          "type": "noauth"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+              "pm.test('business code 0', () => pm.expect(pm.response.json().code).to.eql(0));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "05 无凭据拒绝401",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/tickets/{{ticketId}}",
+        "auth": {
+          "type": "noauth"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 401', () => pm.response.to.have.status(401));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "06 未指派处理人拒绝403",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-API-Key",
+            "value": "{{handlerToken}}",
+            "type": "text"
+          }
+        ],
+        "url": "{{baseUrl}}/api/tickets/{{ticketId}}",
+        "auth": {
+          "type": "noauth"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 403', () => pm.response.to.have.status(403));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "07 普通账号不能查管理员指标",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-API-Key",
+            "value": "{{submitterToken}}",
+            "type": "text"
+          }
+        ],
+        "url": "{{baseUrl}}/api/admin/metrics",
+        "auth": {
+          "type": "noauth"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 403', () => pm.response.to.have.status(403));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "08 管理员查询指标",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-API-Key",
+            "value": "{{adminToken}}",
+            "type": "text"
+          }
+        ],
+        "url": "{{baseUrl}}/api/admin/metrics",
+        "auth": {
+          "type": "noauth"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+              "pm.test('business code 0', () => pm.expect(pm.response.json().code).to.eql(0));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "09 管理员首次重放",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-API-Key",
+            "value": "{{adminToken}}",
+            "type": "text"
+          },
+          {
+            "key": "Idempotency-Key",
+            "value": "{{idempotencyKey}}"
+          }
+        ],
+        "url": "{{baseUrl}}/api/tickets/{{ticketId}}/analysis/replay",
+        "auth": {
+          "type": "noauth"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+              "pm.test('business code 0', () => pm.expect(pm.response.json().code).to.eql(0));",
+              "pm.collectionVariables.set('replayTaskId',pm.response.json().data.taskId);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "10 相同键重放返回同任务",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-API-Key",
+            "value": "{{adminToken}}",
+            "type": "text"
+          },
+          {
+            "key": "Idempotency-Key",
+            "value": "{{idempotencyKey}}"
+          }
+        ],
+        "url": "{{baseUrl}}/api/tickets/{{ticketId}}/analysis/replay",
+        "auth": {
+          "type": "noauth"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+              "pm.test('business code 0', () => pm.expect(pm.response.json().code).to.eql(0));",
+              "pm.test('相同任务ID',()=>pm.expect(pm.response.json().data.taskId).to.eql(pm.collectionVariables.get('replayTaskId')));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "11 Agent工程入口（离线模式应STOPPED，不冒充真模型）",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-API-Key",
+            "value": "{{submitterToken}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/agent/runs",
+        "auth": {
+          "type": "noauth"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"message\": \"查看{{ticketId}}号工单并说明状态，不要修改任何内容。\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+              "pm.test('business code 0', () => pm.expect(pm.response.json().code).to.eql(0));",
+              "pm.test('离线模型明确停止',()=>{const d=pm.response.json().data;pm.expect(d.status).to.eql('STOPPED');pm.expect(d.needHuman).to.eql(true);});",
+              "pm.test('离线停止原因明确',()=>pm.expect(pm.response.json().data.statusReason).to.eql('EXECUTION_STOPPED'));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "12 读取客户端版本快照",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-API-Key",
+            "value": "{{submitterToken}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/tickets/{{ticketId}}",
+        "auth": {
+          "type": "noauth"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));",
+              "pm.test('business code 0',()=>pm.expect(pm.response.json().code).to.eql(0));",
+              "pm.collectionVariables.set('ticketVersionBefore',pm.response.json().data.version);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "13 匹配客户端版本更新成功",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "X-API-Key",
+            "value": "{{submitterToken}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/tickets/{{ticketId}}",
+        "auth": {
+          "type": "noauth"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"title\":\"版本校验后更新\",\"description\":\"合成接口验收\",\"priority\":\"MEDIUM\",\"operatorId\":1,\"expectedVersion\":{{ticketVersionBefore}}}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));",
+              "pm.test('business code 0',()=>pm.expect(pm.response.json().code).to.eql(0));",
+              "pm.test('标题已更新',()=>pm.expect(pm.response.json().data.title).to.eql('版本校验后更新'));",
+              "pm.test('版本递增',()=>pm.expect(pm.response.json().data.version).to.eql(Number(pm.variables.get('ticketVersionBefore'))+1));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "14 旧页面版本拒绝409",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "X-API-Key",
+            "value": "{{submitterToken}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/tickets/{{ticketId}}",
+        "auth": {
+          "type": "noauth"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"title\":\"旧页面不应覆盖\",\"description\":\"合成接口验收\",\"priority\":\"MEDIUM\",\"operatorId\":1,\"expectedVersion\":{{ticketVersionBefore}}}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 409',()=>pm.response.to.have.status(409));",
+              "pm.test('版本冲突业务码',()=>pm.expect(pm.response.json().code).to.eql(10011));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "15 确认冲突未覆盖最新数据",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-API-Key",
+            "value": "{{submitterToken}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/tickets/{{ticketId}}",
+        "auth": {
+          "type": "noauth"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));",
+              "pm.test('business code 0',()=>pm.expect(pm.response.json().code).to.eql(0));",
+              "pm.test('旧页面没有覆盖',()=>pm.expect(pm.response.json().data.title).to.eql('版本校验后更新'));",
+              "pm.test('冲突不增加版本',()=>pm.expect(pm.response.json().data.version).to.eql(Number(pm.variables.get('ticketVersionBefore'))+1));"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

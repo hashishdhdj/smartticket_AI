@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-14",
+  "model": "deepseek-flash",
+  "kind": "PROJECT_REAL_SMOKE",
+  "independent_evaluation": false,
+  "authorized_batch_budget_rmb": 10,
+  "embedding_calls": 0,
+  "background_model_calls": 0,
+  "results": [
+    {
+      "kind": "classification",
+      "response": {
+        "degraded": true,
+        "degradedReasonCode": 10007,
+        "degradedReason": "AI 服务暂时不可用，已降级为人工处理",
+        "promptVersion": "ticket-classify-v1",
+        "costMs": 11
+      },
+      "passed": false
+    },
+    {
+      "kind": "agent_detail_logs",
+      "ticketId": 80,
+      "response": {
+        "runId": "28ed48e7-0ec1-45e8-8541-12ee8741b401",
+        "status": "STOPPED",
+        "answer": "无法在权限或调用预算内完成，请人工处理",
+        "needHuman": true,
+        "modelCalls": 0,
+        "toolCalls": 0,
+        "tokens": 0,
+        "steps": [],
+        "evidence": []
+      }
+    }
+  ],
+  "status": "EXECUTED_REQUIRES_REVIEW"
+}

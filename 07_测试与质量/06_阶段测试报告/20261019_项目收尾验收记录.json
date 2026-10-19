@@ -1,0 +1,96 @@
+{
+  "date": "2026-10-19",
+  "status": "IMPLEMENTATION_AND_LOCAL_VERIFICATION_COMPLETE_PENDING_OWNER_EXPERT_ACCEPTANCE",
+  "scope": "Internship backend + constrained Agent project; no review package created or sent",
+  "source_files": 159,
+  "source_manifest_sha256": "23c53a323b15c1a3a0cd07076a1650c30aa26e375bb78b13f933e5985e270bbd",
+  "jar_sha256": "0bf1ebea9260f067963e1fe5146a8f20bc9f35d006540e7ccd6af96122310e28",
+  "delivery_artifact_path": "08_部署与环境/04_交付产物/SmartTicket-AI-20261016-0bf1ebea9260.jar",
+  "linux_fresh_cache": {
+    "unit": {
+      "tests": 234,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "integration": {
+      "tests": 137,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "same_docker_host": true,
+    "remote_ci": false
+  },
+  "python_tests": {
+    "budget_proxy": 14,
+    "ollama_dns": 3,
+    "evaluation_preflight": 5
+  },
+  "http_collection": {
+    "requests": 15,
+    "assertions": 35
+  },
+  "rag_offline_checks": 3,
+  "nw13": {
+    "final_jar_verified": true,
+    "statusReason": "ANSWERED",
+    "needHuman": false,
+    "latency_ms": 2313,
+    "technical_observation": "CODEX_SOURCE_FACT_CHECK_NOT_AUTHOR_OR_INDEPENDENT_EXPERT_SIGNOFF",
+    "observed_facts": [
+      "10MB limit",
+      "15MB exceeds limit",
+      "demo capability boundary",
+      "no compression/splitting method"
+    ],
+    "remaining_review": "Generic phrase about preparing a compliant file still needs owner/expert usability judgement; one call is not a statistical accuracy estimate"
+  },
+  "cost": {
+    "additional_calls_today": 1,
+    "cumulative_external_calls": 400,
+    "call_ceiling": 400,
+    "rmb_ceiling": 10,
+    "estimated_upper_rmb": 2.5128710800000005,
+    "no_auto_retry": true
+  },
+  "evidence": {
+    "delivery": {
+      "path": "07_测试与质量/06_阶段测试报告/20261016_165231_9116d9_干净交付包构建与启动.json",
+      "sha256": "2b20ef713e6c546f6cd99245e48f48b3378362564cc682f2ecff2b5999d1e5b7"
+    },
+    "linux_source_tests": {
+      "path": "07_测试与质量/06_阶段测试报告/20261019_130442_42a149_Linux空缓存复现.json",
+      "sha256": "d5fa4e0e50a001af99393f2f203e4501faf5afe175712bc474458f60d6fb88eb"
+    },
+    "linux_runtime": {
+      "path": "07_测试与质量/06_阶段测试报告/20261019_130908_2bd38e_Linux交付包启动验收.json",
+      "sha256": "1115b64becaea05950fe4efce3306093bea81f1b3f05773b8a7d2e626ec5178f"
+    },
+    "api_collection": {
+      "path": "07_测试与质量/06_阶段测试报告/20261019_130925_接口集合真实HTTP验收.json",
+      "sha256": "3e76b736e4823219b4f05d2599f0294443108aa84ef0dfaebd9c8b7fc686abf3"
+    },
+    "local_rag": {
+      "path": "07_测试与质量/06_阶段测试报告/20261019_130911_RAG最终版本地HTTP验收.json",
+      "sha256": "d51846997a35d8ea59f974092b2999d2d7dba34f1f3e910fc5b48319f8e72eb3"
+    },
+    "final_nw13": {
+      "path": "07_测试与质量/06_阶段测试报告/20261019_真实评估_rag_1题_final_nw13_20261019.json",
+      "sha256": "bc198b2084789a6305f220bdb0c73c643c9c6e232118f0a26b3e031f78846ffa"
+    }
+  },
+  "supporting_tool_sha256": {
+    "08_部署与环境/03_scripts/stage4-evaluate.py": "f89347d95ee0ce123e15c8905f0acb1930a807995bfb84e39e351c848a963d89",
+    "08_部署与环境/03_scripts/test_eval_preflight.py": "7c52f24c11780ca8e2d3919a32309b9ce45a68fec2e219f32a837bab25897060",
+    "08_部署与环境/03_scripts/verify-rag-local-http.py": "c045949d557cf94b2d3cff4d51827fb81f793721b263fe62a713b986f5e8cac3",
+    ".github/workflows/verify.yml": "d4574262266bc63cb3ba545fb11142b4650d88b9e99b8d8acec109e6103749ef"
+  },
+  "pending_acceptance": [
+    "148 owner semantic reviews not signed",
+    "Independent expert judgement not received",
+    "Remote CI not executed; no git remote",
+    "Owner demo/explanation not witnessed",
+    "Production performance and long-term model reliability not claimed"
+  ]
+}

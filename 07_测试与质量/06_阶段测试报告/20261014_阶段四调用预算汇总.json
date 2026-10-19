@@ -1,0 +1,2705 @@
+{
+  "authorized_rmb": 10,
+  "prior_batch_reserved_rmb": 1,
+  "fx_budget_factor": 10,
+  "prices_checked_date": "2026-10-14",
+  "calls": [
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.007024319999999999,
+      "charged_upper_rmb": 0.00130248,
+      "dispatched_at": "2026-10-14T12:31:21.641464+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 1809,
+        "total_tokens": 1809
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00620712,
+      "charged_upper_rmb": 0.001098,
+      "dispatched_at": "2026-10-14T12:31:24.327325+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 1525,
+        "total_tokens": 1525
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.008028,
+      "charged_upper_rmb": 0.008028,
+      "dispatched_at": "2026-10-14T12:31:29.848747+08:00",
+      "state": "UNKNOWN_CHARGE",
+      "http_status": 502
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.007024319999999999,
+      "charged_upper_rmb": 0.00130248,
+      "dispatched_at": "2026-10-14T12:34:35.661833+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 1809,
+        "total_tokens": 1809
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00620712,
+      "charged_upper_rmb": 0.001098,
+      "dispatched_at": "2026-10-14T12:34:38.278768+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 1525,
+        "total_tokens": 1525
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.008028,
+      "charged_upper_rmb": 0.0015580799999999999,
+      "dispatched_at": "2026-10-14T12:34:41.585443+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 2164,
+        "total_tokens": 2164
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00314352,
+      "charged_upper_rmb": 0.00314352,
+      "dispatched_at": "2026-10-14T12:34:44.852238+08:00",
+      "state": "UNKNOWN_CHARGE",
+      "http_status": 502,
+      "error_type": "URLError"
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.007024319999999999,
+      "charged_upper_rmb": 0.00130248,
+      "dispatched_at": "2026-10-14T12:37:31.026357+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 1809,
+        "total_tokens": 1809
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00620712,
+      "charged_upper_rmb": 0.001098,
+      "dispatched_at": "2026-10-14T12:37:34.637983+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 1525,
+        "total_tokens": 1525
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.008028,
+      "charged_upper_rmb": 0.0015580799999999999,
+      "dispatched_at": "2026-10-14T12:37:37.991975+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 2164,
+        "total_tokens": 2164
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00314352,
+      "charged_upper_rmb": 0.00039887999999999995,
+      "dispatched_at": "2026-10-14T12:37:41.236991+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 554,
+        "total_tokens": 554
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015458399999999997,
+      "charged_upper_rmb": 5.039999999999999e-06,
+      "dispatched_at": "2026-10-14T12:37:44.228246+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 7,
+        "total_tokens": 7
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00154368,
+      "charged_upper_rmb": 5.76e-06,
+      "dispatched_at": "2026-10-14T12:37:49.532239+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 8,
+        "total_tokens": 8
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00153504,
+      "charged_upper_rmb": 4.319999999999999e-06,
+      "dispatched_at": "2026-10-14T12:37:52.356333+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 6,
+        "total_tokens": 6
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015609599999999997,
+      "charged_upper_rmb": 7.919999999999999e-06,
+      "dispatched_at": "2026-10-14T12:37:55.028406+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 11,
+        "total_tokens": 11
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015393599999999996,
+      "charged_upper_rmb": 4.319999999999999e-06,
+      "dispatched_at": "2026-10-14T12:37:58.006926+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 6,
+        "total_tokens": 6
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015458399999999997,
+      "charged_upper_rmb": 5.76e-06,
+      "dispatched_at": "2026-10-14T12:38:01.524636+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 8,
+        "total_tokens": 8
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015393599999999996,
+      "charged_upper_rmb": 5.039999999999999e-06,
+      "dispatched_at": "2026-10-14T12:38:04.118113+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 7,
+        "total_tokens": 7
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00154368,
+      "charged_upper_rmb": 5.039999999999999e-06,
+      "dispatched_at": "2026-10-14T12:38:06.766534+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 7,
+        "total_tokens": 7
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00153504,
+      "charged_upper_rmb": 3.6e-06,
+      "dispatched_at": "2026-10-14T12:38:09.225869+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 5,
+        "total_tokens": 5
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00154368,
+      "charged_upper_rmb": 6.479999999999999e-06,
+      "dispatched_at": "2026-10-14T12:38:12.384566+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 9,
+        "total_tokens": 9
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.001548,
+      "charged_upper_rmb": 6.479999999999999e-06,
+      "dispatched_at": "2026-10-14T12:38:15.191615+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 9,
+        "total_tokens": 9
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.001548,
+      "charged_upper_rmb": 7.919999999999999e-06,
+      "dispatched_at": "2026-10-14T12:38:17.584410+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 11,
+        "total_tokens": 11
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015372,
+      "charged_upper_rmb": 3.6e-06,
+      "dispatched_at": "2026-10-14T12:38:20.637997+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 5,
+        "total_tokens": 5
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015393599999999996,
+      "charged_upper_rmb": 5.76e-06,
+      "dispatched_at": "2026-10-14T12:38:23.432359+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 8,
+        "total_tokens": 8
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015501599999999999,
+      "charged_upper_rmb": 7.919999999999999e-06,
+      "dispatched_at": "2026-10-14T12:38:26.552805+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 11,
+        "total_tokens": 11
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00154368,
+      "charged_upper_rmb": 6.479999999999999e-06,
+      "dispatched_at": "2026-10-14T12:38:29.002145+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 9,
+        "total_tokens": 9
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015501599999999999,
+      "charged_upper_rmb": 7.919999999999999e-06,
+      "dispatched_at": "2026-10-14T12:38:32.789248+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 11,
+        "total_tokens": 11
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00157176,
+      "charged_upper_rmb": 1.0079999999999998e-05,
+      "dispatched_at": "2026-10-14T12:38:35.336721+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 14,
+        "total_tokens": 14
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015523199999999998,
+      "charged_upper_rmb": 7.919999999999999e-06,
+      "dispatched_at": "2026-10-14T12:38:38.464598+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 11,
+        "total_tokens": 11
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00155664,
+      "charged_upper_rmb": 7.919999999999999e-06,
+      "dispatched_at": "2026-10-14T12:38:41.124716+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 11,
+        "total_tokens": 11
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015609599999999997,
+      "charged_upper_rmb": 9.359999999999998e-06,
+      "dispatched_at": "2026-10-14T12:38:44.306505+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 13,
+        "total_tokens": 13
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015393599999999996,
+      "charged_upper_rmb": 5.76e-06,
+      "dispatched_at": "2026-10-14T12:38:47.429304+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 8,
+        "total_tokens": 8
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00155664,
+      "charged_upper_rmb": 9.359999999999998e-06,
+      "dispatched_at": "2026-10-14T12:38:50.591713+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 13,
+        "total_tokens": 13
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00154872,
+      "charged_upper_rmb": 1.0079999999999998e-05,
+      "dispatched_at": "2026-10-14T12:38:55.520383+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 14,
+        "total_tokens": 14
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015372,
+      "charged_upper_rmb": 5.76e-06,
+      "dispatched_at": "2026-10-14T12:38:57.996710+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 8,
+        "total_tokens": 8
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015631199999999999,
+      "charged_upper_rmb": 9.359999999999998e-06,
+      "dispatched_at": "2026-10-14T12:39:00.390059+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 13,
+        "total_tokens": 13
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00153504,
+      "charged_upper_rmb": 3.6e-06,
+      "dispatched_at": "2026-10-14T12:39:03.379120+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 5,
+        "total_tokens": 5
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00153288,
+      "charged_upper_rmb": 4.319999999999999e-06,
+      "dispatched_at": "2026-10-14T12:39:05.915670+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 6,
+        "total_tokens": 6
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015393599999999996,
+      "charged_upper_rmb": 5.039999999999999e-06,
+      "dispatched_at": "2026-10-14T12:39:08.938177+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 7,
+        "total_tokens": 7
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015372,
+      "charged_upper_rmb": 4.319999999999999e-06,
+      "dispatched_at": "2026-10-14T12:39:12.515645+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 6,
+        "total_tokens": 6
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00153504,
+      "charged_upper_rmb": 4.319999999999999e-06,
+      "dispatched_at": "2026-10-14T12:39:15.760511+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 6,
+        "total_tokens": 6
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00153288,
+      "charged_upper_rmb": 2.88e-06,
+      "dispatched_at": "2026-10-14T12:39:18.190479+08:00",
+      "state": "RESPONDED",
+      "usage": {
+        "prompt_tokens": 4,
+        "total_tokens": 4
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015933599999999998,
+      "charged_upper_rmb": 0.0015933599999999998,
+      "dispatched_at": "2026-10-14T12:42:31.781776+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015804,
+      "charged_upper_rmb": 0.0015804,
+      "dispatched_at": "2026-10-14T12:42:35.273790+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015782399999999999,
+      "charged_upper_rmb": 0.0015782399999999999,
+      "dispatched_at": "2026-10-14T12:42:37.611669+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015911999999999999,
+      "charged_upper_rmb": 0.0015911999999999999,
+      "dispatched_at": "2026-10-14T12:42:40.271731+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015933599999999998,
+      "charged_upper_rmb": 0.0015933599999999998,
+      "dispatched_at": "2026-10-14T12:42:43.076843+08:00",
+      "state": "UNKNOWN_CHARGE",
+      "http_status": 502,
+      "error_type": "URLError",
+      "error_detail": "[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)"
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015825600000000002,
+      "charged_upper_rmb": 0.0015825600000000002,
+      "dispatched_at": "2026-10-14T12:42:49.202761+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015933599999999998,
+      "charged_upper_rmb": 0.0015933599999999998,
+      "dispatched_at": "2026-10-14T12:42:51.411231+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015933599999999998,
+      "charged_upper_rmb": 0.0015933599999999998,
+      "dispatched_at": "2026-10-14T12:42:53.896274+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015911999999999999,
+      "charged_upper_rmb": 0.0015911999999999999,
+      "dispatched_at": "2026-10-14T12:42:56.358255+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015868799999999997,
+      "charged_upper_rmb": 0.0015868799999999997,
+      "dispatched_at": "2026-10-14T12:42:59.024380+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015847199999999997,
+      "charged_upper_rmb": 0.0015847199999999997,
+      "dispatched_at": "2026-10-14T12:43:01.968637+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015832799999999998,
+      "charged_upper_rmb": 0.0015832799999999998,
+      "dispatched_at": "2026-10-14T12:43:05.156069+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00157176,
+      "charged_upper_rmb": 0.00157176,
+      "dispatched_at": "2026-10-14T12:43:08.011056+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015825600000000002,
+      "charged_upper_rmb": 0.0015825600000000002,
+      "dispatched_at": "2026-10-14T12:43:10.795090+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00158544,
+      "charged_upper_rmb": 0.00158544,
+      "dispatched_at": "2026-10-14T12:43:13.890228+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00158904,
+      "charged_upper_rmb": 0.00158904,
+      "dispatched_at": "2026-10-14T12:43:16.218706+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00159624,
+      "charged_upper_rmb": 0.00159624,
+      "dispatched_at": "2026-10-14T12:43:18.825288+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00158832,
+      "charged_upper_rmb": 0.00158832,
+      "dispatched_at": "2026-10-14T12:43:21.457539+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015991199999999999,
+      "charged_upper_rmb": 0.0015991199999999999,
+      "dispatched_at": "2026-10-14T12:43:23.819278+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00158544,
+      "charged_upper_rmb": 0.00158544,
+      "dispatched_at": "2026-10-14T12:43:26.077802+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015681599999999996,
+      "charged_upper_rmb": 0.0015681599999999996,
+      "dispatched_at": "2026-10-14T12:43:28.311916+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00156744,
+      "charged_upper_rmb": 0.00156744,
+      "dispatched_at": "2026-10-14T12:43:30.547043+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015652799999999998,
+      "charged_upper_rmb": 0.0015652799999999998,
+      "dispatched_at": "2026-10-14T12:43:33.005351+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015811199999999999,
+      "charged_upper_rmb": 0.0015811199999999999,
+      "dispatched_at": "2026-10-14T12:43:36.012365+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015588,
+      "charged_upper_rmb": 0.0015588,
+      "dispatched_at": "2026-10-14T12:43:38.331002+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00157392,
+      "charged_upper_rmb": 0.00157392,
+      "dispatched_at": "2026-10-14T12:43:40.582048+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015804,
+      "charged_upper_rmb": 0.0015804,
+      "dispatched_at": "2026-10-14T12:43:44.464646+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015782399999999999,
+      "charged_upper_rmb": 0.0015782399999999999,
+      "dispatched_at": "2026-10-14T12:43:46.673875+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015696,
+      "charged_upper_rmb": 0.0015696,
+      "dispatched_at": "2026-10-14T12:43:49.147143+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.001548,
+      "charged_upper_rmb": 0.001548,
+      "dispatched_at": "2026-10-14T12:43:51.469303+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.01824,
+      "charged_upper_rmb": 0.002202,
+      "dispatched_at": "2026-10-14T12:43:53.836755+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 450,
+        "completion_tokens": 71,
+        "total_tokens": 521,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 194
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.01824,
+      "charged_upper_rmb": 0.002025,
+      "dispatched_at": "2026-10-14T12:43:55.684737+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 451,
+        "completion_tokens": 56,
+        "total_tokens": 507,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 323
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018212999999999997,
+      "charged_upper_rmb": 0.002136,
+      "dispatched_at": "2026-10-14T12:43:57.257621+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 452,
+        "completion_tokens": 65,
+        "total_tokens": 517,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 324
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018177,
+      "charged_upper_rmb": 0.002352,
+      "dispatched_at": "2026-10-14T12:43:58.966561+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 448,
+        "completion_tokens": 84,
+        "total_tokens": 532,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 320
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018230999999999997,
+      "charged_upper_rmb": 0.002175,
+      "dispatched_at": "2026-10-14T12:44:00.798153+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 449,
+        "completion_tokens": 69,
+        "total_tokens": 518,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 321
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018222,
+      "charged_upper_rmb": 0.002124,
+      "dispatched_at": "2026-10-14T12:44:02.955215+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 448,
+        "completion_tokens": 65,
+        "total_tokens": 513,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 320
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018222,
+      "charged_upper_rmb": 0.0020369999999999997,
+      "dispatched_at": "2026-10-14T12:44:04.670885+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 451,
+        "completion_tokens": 57,
+        "total_tokens": 508,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 323
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.01824,
+      "charged_upper_rmb": 0.002079,
+      "dispatched_at": "2026-10-14T12:44:06.621400+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 453,
+        "completion_tokens": 60,
+        "total_tokens": 513,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 325
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018249,
+      "charged_upper_rmb": 0.002307,
+      "dispatched_at": "2026-10-14T12:44:08.471836+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 453,
+        "completion_tokens": 79,
+        "total_tokens": 532,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 325
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.01824,
+      "charged_upper_rmb": 0.002295,
+      "dispatched_at": "2026-10-14T12:44:10.094303+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 453,
+        "completion_tokens": 78,
+        "total_tokens": 531,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 325
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018204,
+      "charged_upper_rmb": 0.002142,
+      "dispatched_at": "2026-10-14T12:44:11.749408+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 450,
+        "completion_tokens": 66,
+        "total_tokens": 516,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 322
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018222,
+      "charged_upper_rmb": 0.0021869999999999997,
+      "dispatched_at": "2026-10-14T12:44:13.323683+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 449,
+        "completion_tokens": 70,
+        "total_tokens": 519,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 321
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018230999999999997,
+      "charged_upper_rmb": 0.002322,
+      "dispatched_at": "2026-10-14T12:44:15.063777+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 450,
+        "completion_tokens": 81,
+        "total_tokens": 531,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 322
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018204,
+      "charged_upper_rmb": 0.0021629999999999996,
+      "dispatched_at": "2026-10-14T12:44:18.931643+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 449,
+        "completion_tokens": 68,
+        "total_tokens": 517,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 321
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018185999999999997,
+      "charged_upper_rmb": 0.0022289999999999996,
+      "dispatched_at": "2026-10-14T12:44:22.040888+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 451,
+        "completion_tokens": 73,
+        "total_tokens": 524,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 323
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.01824,
+      "charged_upper_rmb": 0.0022319999999999996,
+      "dispatched_at": "2026-10-14T12:44:24.797613+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 452,
+        "completion_tokens": 73,
+        "total_tokens": 525,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 324
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018177,
+      "charged_upper_rmb": 0.0021360000000000003,
+      "dispatched_at": "2026-10-14T12:44:26.347064+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 448,
+        "completion_tokens": 66,
+        "total_tokens": 514,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 320
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018167999999999997,
+      "charged_upper_rmb": 0.002169,
+      "dispatched_at": "2026-10-14T12:44:28.141532+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 447,
+        "completion_tokens": 69,
+        "total_tokens": 516,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 319
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018212999999999997,
+      "charged_upper_rmb": 0.002268,
+      "dispatched_at": "2026-10-14T12:44:29.828142+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 448,
+        "completion_tokens": 77,
+        "total_tokens": 525,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 320
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018222,
+      "charged_upper_rmb": 0.002319,
+      "dispatched_at": "2026-10-14T12:44:32.168143+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 449,
+        "completion_tokens": 81,
+        "total_tokens": 530,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 321
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018222,
+      "charged_upper_rmb": 0.002214,
+      "dispatched_at": "2026-10-14T12:44:33.998920+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 450,
+        "completion_tokens": 72,
+        "total_tokens": 522,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 322
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.01824,
+      "charged_upper_rmb": 0.002142,
+      "dispatched_at": "2026-10-14T12:44:35.716959+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 450,
+        "completion_tokens": 66,
+        "total_tokens": 516,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 322
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018204,
+      "charged_upper_rmb": 0.002235,
+      "dispatched_at": "2026-10-14T12:44:38.804243+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 449,
+        "completion_tokens": 74,
+        "total_tokens": 523,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 321
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018159,
+      "charged_upper_rmb": 0.0022259999999999997,
+      "dispatched_at": "2026-10-14T12:44:40.733607+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 446,
+        "completion_tokens": 74,
+        "total_tokens": 520,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 318
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018230999999999997,
+      "charged_upper_rmb": 0.002391,
+      "dispatched_at": "2026-10-14T12:44:42.346397+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 453,
+        "completion_tokens": 86,
+        "total_tokens": 539,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 325
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018195,
+      "charged_upper_rmb": 0.0020459999999999996,
+      "dispatched_at": "2026-10-14T12:44:44.109467+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 446,
+        "completion_tokens": 59,
+        "total_tokens": 505,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 318
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018204,
+      "charged_upper_rmb": 0.00234,
+      "dispatched_at": "2026-10-14T12:44:45.857031+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 448,
+        "completion_tokens": 83,
+        "total_tokens": 531,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 320
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018177,
+      "charged_upper_rmb": 0.002166,
+      "dispatched_at": "2026-10-14T12:44:47.553727+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 446,
+        "completion_tokens": 69,
+        "total_tokens": 515,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 318
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018204,
+      "charged_upper_rmb": 0.0021869999999999997,
+      "dispatched_at": "2026-10-14T12:44:49.338025+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 449,
+        "completion_tokens": 70,
+        "total_tokens": 519,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 321
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018195,
+      "charged_upper_rmb": 0.002082,
+      "dispatched_at": "2026-10-14T12:44:51.291520+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 446,
+        "completion_tokens": 62,
+        "total_tokens": 508,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 318
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.016787999999999997,
+      "charged_upper_rmb": 0.002535,
+      "dispatched_at": "2026-10-14T12:44:53.704319+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_lRQmOixgHGB4iF1qwOcu2916",
+          "type": "function",
+          "function": {
+            "name": "getTicketDetail",
+            "arguments": "{\"ticketId\": 160}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_EMApOyaaIzlIND0Nh4BD0552",
+          "type": "function",
+          "function": {
+            "name": "getTicketLogs",
+            "arguments": "{\"ticketId\": 160}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 509,
+        "completion_tokens": 84,
+        "total_tokens": 593,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 253
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.019605,
+      "charged_upper_rmb": 0.003045,
+      "dispatched_at": "2026-10-14T12:44:55.453402+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_JtWP3drjBdMm1wzw7fft5213",
+          "type": "function",
+          "function": {
+            "name": "searchKnowledge",
+            "arguments": "{\"query\": \"登录验证码异常\"}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_xAcX0duGFAf3LSXBkuU94515",
+          "type": "function",
+          "function": {
+            "name": "searchKnowledge",
+            "arguments": "{\"query\": \"验证码 无法显示 登录失败 处理\"}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 707,
+        "completion_tokens": 77,
+        "total_tokens": 784,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 195
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00153288,
+      "charged_upper_rmb": 0.00153288,
+      "dispatched_at": "2026-10-14T12:44:56.730396+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.001548,
+      "charged_upper_rmb": 0.001548,
+      "dispatched_at": "2026-10-14T12:44:59.151883+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.016787999999999997,
+      "charged_upper_rmb": 0.002535,
+      "dispatched_at": "2026-10-14T12:45:01.613339+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_otX8HsiVqvHj7nv8Hty51118",
+          "type": "function",
+          "function": {
+            "name": "getTicketDetail",
+            "arguments": "{\"ticketId\": 161}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_PwWvK4lcfFXVOKnck1OO7928",
+          "type": "function",
+          "function": {
+            "name": "getTicketLogs",
+            "arguments": "{\"ticketId\": 161}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 509,
+        "completion_tokens": 84,
+        "total_tokens": 593,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 253
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.019622999999999998,
+      "charged_upper_rmb": 0.003117,
+      "dispatched_at": "2026-10-14T12:45:03.342093+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_BxtbCkRfEKT8VlDTubv70130",
+          "type": "function",
+          "function": {
+            "name": "searchKnowledge",
+            "arguments": "{\"query\": \"银行已扣款无订单 处理建议\"}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_cLhZPnFwcGwW5tolOYl38256",
+          "type": "function",
+          "function": {
+            "name": "searchKnowledge",
+            "arguments": "{\"query\": \"银行扣款成功但无订单 支付异常\"}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 711,
+        "completion_tokens": 82,
+        "total_tokens": 793,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 199
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015444,
+      "charged_upper_rmb": 0.0015444,
+      "dispatched_at": "2026-10-14T12:45:05.713852+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00154872,
+      "charged_upper_rmb": 0.00154872,
+      "dispatched_at": "2026-10-14T12:45:08.262562+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.016787999999999997,
+      "charged_upper_rmb": 0.0025470000000000002,
+      "dispatched_at": "2026-10-14T12:45:11.228107+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_AA9CCDGvfOazGeZGJPte5362",
+          "type": "function",
+          "function": {
+            "name": "getTicketDetail",
+            "arguments": "{\"ticketId\": 162}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_aIoXnJXf4Vr7lSPBhCTx4819",
+          "type": "function",
+          "function": {
+            "name": "getTicketLogs",
+            "arguments": "{\"ticketId\": 162}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 509,
+        "completion_tokens": 85,
+        "total_tokens": 594,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 253
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.019575000000000002,
+      "charged_upper_rmb": 0.003186,
+      "dispatched_at": "2026-10-14T12:45:12.942318+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_FtEEfa6GkXg9RPoMukB73246",
+          "type": "function",
+          "function": {
+            "name": "searchKnowledge",
+            "arguments": "{\"query\": \"重复扣款 处理流程\"}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_UBhH7xZhtcFsRJvJwZgM5459",
+          "type": "function",
+          "function": {
+            "name": "searchKnowledge",
+            "arguments": "{\"query\": \"重复扣款 退款 建议\"}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 706,
+        "completion_tokens": 89,
+        "total_tokens": 795,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 194
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00153576,
+      "charged_upper_rmb": 0.00153576,
+      "dispatched_at": "2026-10-14T12:45:14.862969+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015364799999999998,
+      "charged_upper_rmb": 0.0015364799999999998,
+      "dispatched_at": "2026-10-14T12:45:17.192053+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.016787999999999997,
+      "charged_upper_rmb": 0.002535,
+      "dispatched_at": "2026-10-14T12:45:19.896902+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_2ZQbtC4YliV1XpSwh7aL3684",
+          "type": "function",
+          "function": {
+            "name": "getTicketDetail",
+            "arguments": "{\"ticketId\": 163}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_0bijysgm9XMACtCcGtE58617",
+          "type": "function",
+          "function": {
+            "name": "getTicketLogs",
+            "arguments": "{\"ticketId\": 163}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 509,
+        "completion_tokens": 84,
+        "total_tokens": 593,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 253
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.019587,
+      "charged_upper_rmb": 0.019587,
+      "dispatched_at": "2026-10-14T12:45:21.536913+08:00",
+      "state": "UNKNOWN_CHARGE",
+      "http_status": 502,
+      "error_type": "URLError",
+      "error_detail": "[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)"
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.016787999999999997,
+      "charged_upper_rmb": 0.002535,
+      "dispatched_at": "2026-10-14T12:45:26.753553+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_bs9NBRhZwcOtOfDmMgRQ5215",
+          "type": "function",
+          "function": {
+            "name": "getTicketDetail",
+            "arguments": "{\"ticketId\": 164}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_hYn9iDbtZ9HQONI1Us843793",
+          "type": "function",
+          "function": {
+            "name": "getTicketLogs",
+            "arguments": "{\"ticketId\": 164}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 509,
+        "completion_tokens": 84,
+        "total_tokens": 593,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 253
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.019551,
+      "charged_upper_rmb": 0.003045,
+      "dispatched_at": "2026-10-14T12:45:28.513977+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_R6Zuz07N99QY8RsUJNtE7614",
+          "type": "function",
+          "function": {
+            "name": "searchKnowledge",
+            "arguments": "{\"query\": \"申请发票 处理流程\"}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_naIDa1LWhevFGi9ODyiC5141",
+          "type": "function",
+          "function": {
+            "name": "searchKnowledge",
+            "arguments": "{\"query\": \"发票申请 开票 工单处理建议\"}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 703,
+        "completion_tokens": 78,
+        "total_tokens": 781,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 191
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00153576,
+      "charged_upper_rmb": 0.00153576,
+      "dispatched_at": "2026-10-14T12:45:30.008799+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.0015451199999999999,
+      "charged_upper_rmb": 0.0015451199999999999,
+      "dispatched_at": "2026-10-14T12:45:32.697607+08:00",
+      "state": "VENDOR_ERROR",
+      "http_status": 400
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.016725,
+      "charged_upper_rmb": 0.002541,
+      "dispatched_at": "2026-10-14T12:45:36.288316+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_mNSjodWTyLpc2KWK8ztQ3957",
+          "type": "function",
+          "function": {
+            "name": "getTicketDetail",
+            "arguments": "{\"ticketId\": 165}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_xlalI4FwXQv2um96lSgi9833",
+          "type": "function",
+          "function": {
+            "name": "getTicketLogs",
+            "arguments": "{\"ticketId\": 165}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 503,
+        "completion_tokens": 86,
+        "total_tokens": 589,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 247
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.019472999999999997,
+      "charged_upper_rmb": 0.0047279999999999996,
+      "dispatched_at": "2026-10-14T12:45:38.024000+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 700,
+        "completion_tokens": 219,
+        "total_tokens": 919,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 188
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.016725,
+      "charged_upper_rmb": 0.002541,
+      "dispatched_at": "2026-10-14T12:45:40.177022+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_T7ByRiMUOG9NS24OpUm85119",
+          "type": "function",
+          "function": {
+            "name": "getTicketDetail",
+            "arguments": "{\"ticketId\": 166}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_J9YeaLtkKHHGVrCNnFMC1435",
+          "type": "function",
+          "function": {
+            "name": "getTicketLogs",
+            "arguments": "{\"ticketId\": 166}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 503,
+        "completion_tokens": 86,
+        "total_tokens": 589,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 247
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.019472999999999997,
+      "charged_upper_rmb": 0.004788000000000001,
+      "dispatched_at": "2026-10-14T12:45:41.746776+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 700,
+        "completion_tokens": 224,
+        "total_tokens": 924,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 188
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.016725,
+      "charged_upper_rmb": 0.002541,
+      "dispatched_at": "2026-10-14T12:45:43.983410+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_KZpUS06QnVjqWfU24lty9976",
+          "type": "function",
+          "function": {
+            "name": "getTicketDetail",
+            "arguments": "{\"ticketId\": 167}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_EW8rpdeeWr4DnQziT3pm6146",
+          "type": "function",
+          "function": {
+            "name": "getTicketLogs",
+            "arguments": "{\"ticketId\": 167}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 503,
+        "completion_tokens": 86,
+        "total_tokens": 589,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 247
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.019472999999999997,
+      "charged_upper_rmb": 0.004056000000000001,
+      "dispatched_at": "2026-10-14T12:45:45.498115+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 700,
+        "completion_tokens": 163,
+        "total_tokens": 863,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 188
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.017910000000000002,
+      "charged_upper_rmb": 0.002913,
+      "dispatched_at": "2026-10-14T12:45:48.296647+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_t3y2guDW5SpJHKLSCyIn1595",
+          "type": "function",
+          "function": {
+            "name": "getTicketDetail",
+            "arguments": "{\"ticketId\": 168}"
+          }
+        },
+        {
+          "index": 1,
+          "id": "call_01_yXuFcRKkaDSxRJ7Lqbia5152",
+          "type": "function",
+          "function": {
+            "name": "getTicketLogs",
+            "arguments": "{\"ticketId\": 168}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 611,
+        "completion_tokens": 90,
+        "total_tokens": 701,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 227
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.020832,
+      "charged_upper_rmb": 0.003297,
+      "dispatched_at": "2026-10-14T12:45:50.395762+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_vmqTvXedlcSgUaTexJ3O7914",
+          "type": "function",
+          "function": {
+            "name": "prepareAssignTicket",
+            "arguments": "{\"ticketId\": 168, \"assigneeId\": 2043561361}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 815,
+        "completion_tokens": 71,
+        "total_tokens": 886,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 175
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.022757999999999997,
+      "charged_upper_rmb": 0.0059429999999999995,
+      "dispatched_at": "2026-10-14T12:45:51.845400+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 977,
+        "completion_tokens": 251,
+        "total_tokens": 1228,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 209
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.017910000000000002,
+      "charged_upper_rmb": 0.0024809999999999997,
+      "dispatched_at": "2026-10-14T12:45:54.590068+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_ynvk4OHpbLzhexMpgux07296",
+          "type": "function",
+          "function": {
+            "name": "getTicketDetail",
+            "arguments": "{\"ticketId\": 169}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 611,
+        "completion_tokens": 54,
+        "total_tokens": 665,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 227
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.019559999999999998,
+      "charged_upper_rmb": 0.002883,
+      "dispatched_at": "2026-10-14T12:45:57.476941+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_zgrsTOOJJdQw6iedQeAI7009",
+          "type": "function",
+          "function": {
+            "name": "prepareAssignTicket",
+            "arguments": "{\"ticketId\": 169, \"assigneeId\": 2043561361}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 717,
+        "completion_tokens": 61,
+        "total_tokens": 778,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 205
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.021306,
+      "charged_upper_rmb": 0.004691999999999999,
+      "dispatched_at": "2026-10-14T12:46:02.495635+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 872,
+        "completion_tokens": 173,
+        "total_tokens": 1045,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 232
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.017910000000000002,
+      "charged_upper_rmb": 0.0024809999999999997,
+      "dispatched_at": "2026-10-14T12:46:05.478653+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_9vqEj1G3SVm2HQydBYy88318",
+          "type": "function",
+          "function": {
+            "name": "getTicketDetail",
+            "arguments": "{\"ticketId\": 170}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 611,
+        "completion_tokens": 54,
+        "total_tokens": 665,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 227
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.019559999999999998,
+      "charged_upper_rmb": 0.002883,
+      "dispatched_at": "2026-10-14T12:46:06.932684+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_NEnnIBkc7mBMjfRr3EHJ0466",
+          "type": "function",
+          "function": {
+            "name": "prepareAssignTicket",
+            "arguments": "{\"ticketId\": 170, \"assigneeId\": 2043561361}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 717,
+        "completion_tokens": 61,
+        "total_tokens": 778,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 205
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.021306,
+      "charged_upper_rmb": 0.0051719999999999995,
+      "dispatched_at": "2026-10-14T12:46:08.802697+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 868,
+        "completion_tokens": 214,
+        "total_tokens": 1082,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 228
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.016689000000000002,
+      "charged_upper_rmb": 0.0020909999999999995,
+      "dispatched_at": "2026-10-14T12:46:11.724121+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_luMaGqVbQmmRA22pAgKd7305",
+          "type": "function",
+          "function": {
+            "name": "getTicketDetail",
+            "arguments": "{\"ticketId\": 159}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 501,
+        "completion_tokens": 49,
+        "total_tokens": 550,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 245
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.017829,
+      "charged_upper_rmb": 0.003387,
+      "dispatched_at": "2026-10-14T12:46:14.066966+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 577,
+        "completion_tokens": 138,
+        "total_tokens": 715,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 193
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.016742999999999997,
+      "charged_upper_rmb": 0.002142,
+      "dispatched_at": "2026-10-14T12:46:16.800587+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_Y44NBpUk86ws95fUfkzq0376",
+          "type": "function",
+          "function": {
+            "name": "getTicketLogs",
+            "arguments": "{\"ticketId\": 159}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 506,
+        "completion_tokens": 52,
+        "total_tokens": 558,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 250
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.017916,
+      "charged_upper_rmb": 0.0028469999999999997,
+      "dispatched_at": "2026-10-14T12:46:18.785812+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 585,
+        "completion_tokens": 91,
+        "total_tokens": 676,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 201
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.016800000000000002,
+      "charged_upper_rmb": 0.0021479999999999997,
+      "dispatched_at": "2026-10-14T12:46:23.087056+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_loctNWkTRt0qDM9qpn5t8406",
+          "type": "function",
+          "function": {
+            "name": "getTicketDetail",
+            "arguments": "{\"ticketId\": 173}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 512,
+        "completion_tokens": 51,
+        "total_tokens": 563,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 256
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.018378,
+      "charged_upper_rmb": 0.005313,
+      "dispatched_at": "2026-10-14T12:46:24.860238+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 615,
+        "completion_tokens": 289,
+        "total_tokens": 904,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 231
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.016715999999999998,
+      "charged_upper_rmb": 0.0027689999999999998,
+      "dispatched_at": "2026-10-14T12:46:28.268972+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 503,
+        "completion_tokens": 105,
+        "total_tokens": 608,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 247
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.017883,
+      "charged_upper_rmb": 0.017883,
+      "dispatched_at": "2026-10-14T12:46:30.646146+08:00",
+      "state": "UNKNOWN_CHARGE",
+      "http_status": 502,
+      "error_type": "URLError",
+      "error_detail": "[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)"
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.016745999999999997,
+      "charged_upper_rmb": 0.002172,
+      "dispatched_at": "2026-10-14T12:46:35.433870+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_KVCLyY4sdIK7kKwcFscc4309",
+          "type": "function",
+          "function": {
+            "name": "getTicketDetail",
+            "arguments": "{\"ticketId\": 9223372036854775806}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 508,
+        "completion_tokens": 54,
+        "total_tokens": 562,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 252
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.017960999999999998,
+      "charged_upper_rmb": 0.0030269999999999997,
+      "dispatched_at": "2026-10-14T12:46:40.588036+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 589,
+        "completion_tokens": 105,
+        "total_tokens": 694,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 205
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.017844,
+      "charged_upper_rmb": 0.0035009999999999998,
+      "dispatched_at": "2026-10-14T12:46:42.710548+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "tool_calls",
+      "tool_calls": [
+        {
+          "index": 0,
+          "id": "call_00_1L7bsKaPbl77IuNJoiQ41571",
+          "type": "function",
+          "function": {
+            "name": "getTicketDetail",
+            "arguments": "{\"ticketId\": 177}"
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 603,
+        "completion_tokens": 141,
+        "total_tokens": 744,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 219
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.020745,
+      "charged_upper_rmb": 0.0050160000000000005,
+      "dispatched_at": "2026-10-14T12:46:44.827772+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 796,
+        "completion_tokens": 219,
+        "total_tokens": 1015,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 156
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.016725,
+      "charged_upper_rmb": 0.002169,
+      "dispatched_at": "2026-10-14T12:46:47.462366+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 503,
+        "completion_tokens": 55,
+        "total_tokens": 558,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 247
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "chat",
+      "model": "deepseek-flash",
+      "reserved_rmb": 0.017825999999999998,
+      "charged_upper_rmb": 0.00369,
+      "dispatched_at": "2026-10-14T12:46:49.316675+08:00",
+      "state": "RESPONDED",
+      "finish_reason": "stop",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 598,
+        "completion_tokens": 158,
+        "total_tokens": 756,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 214
+      },
+      "http_status": 200
+    },
+    {
+      "kind": "embed",
+      "model": "text-embedding-v4",
+      "reserved_rmb": 0.00169272,
+      "charged_upper_rmb": 0.00169272,
+      "dispatched_at": "2026-10-14T12:48:07.568515+08:00",
+      "state": "VENDOR_ERROR",
+      "vendor_error_code": "Arrearage",
+      "vendor_error_detail": "Access denied, please make sure your account is in good standing. For details, see: https://help.aliyun.com/zh/model-studio/error-code#overdue-payment",
+      "http_status": 400
+    },
+    {
+      "kind": "embed",
+      "model": "BAAI/bge-m3",
+      "reserved_rmb": 0.0,
+      "charged_upper_rmb": 0.0,
+      "dispatched_at": "2026-10-14T13:12:07.051438+08:00",
+      "state": "VENDOR_ERROR",
+      "provider": "siliconflow",
+      "vendor_error_code": 30014,
+      "vendor_error_detail": "Token is invalid.",
+      "http_status": 401
+    }
+  ],
+  "estimated_total_upper_rmb": 1.30623808,
+  "billing_note": "Conservative envelope using peak/no-cache prices and budgeting factor10; not the actual CNY vendor bill."
+}

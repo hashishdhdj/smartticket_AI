@@ -1,0 +1,4935 @@
+{
+  "date": "2026-10-15T19:35:54",
+  "status": "COMPLETE_DIAGNOSTIC_ONLY",
+  "vendor_calls": 0,
+  "writes_to_vector_database": 0,
+  "model": "bge-m3:latest",
+  "model_digest": "7907646426070047a77226ac3e684fbbe8410524f7b4a74d02837e43f2146bab",
+  "scope": "Vector-only cosine; does not reproduce keyword retrieval/RRF/generation. No threshold/index changes.",
+  "author_review_status": "PENDING",
+  "threshold": 0.66,
+  "groups": {
+    "current_database_body": {
+      "historical_development": {
+        "positive_count": 26,
+        "negative_count": 6,
+        "hit_at_3": 1.0,
+        "positive_above_threshold": 25,
+        "negative_above_threshold": 0
+      },
+      "phase4-v1": {
+        "positive_count": 20,
+        "negative_count": 10,
+        "hit_at_3": 1.0,
+        "positive_above_threshold": 17,
+        "negative_above_threshold": 1
+      },
+      "phase4-v2-regression": {
+        "positive_count": 20,
+        "negative_count": 10,
+        "hit_at_3": 0.9,
+        "positive_above_threshold": 16,
+        "negative_above_threshold": 0
+      }
+    },
+    "remove_scope_preamble": {
+      "historical_development": {
+        "positive_count": 26,
+        "negative_count": 6,
+        "hit_at_3": 1.0,
+        "positive_above_threshold": 25,
+        "negative_above_threshold": 0
+      },
+      "phase4-v1": {
+        "positive_count": 20,
+        "negative_count": 10,
+        "hit_at_3": 1.0,
+        "positive_above_threshold": 15,
+        "negative_above_threshold": 1
+      },
+      "phase4-v2-regression": {
+        "positive_count": 20,
+        "negative_count": 10,
+        "hit_at_3": 0.9,
+        "positive_above_threshold": 14,
+        "negative_above_threshold": 0
+      }
+    },
+    "section_title_and_body_without_scope": {
+      "historical_development": {
+        "positive_count": 26,
+        "negative_count": 6,
+        "hit_at_3": 1.0,
+        "positive_above_threshold": 26,
+        "negative_above_threshold": 0
+      },
+      "phase4-v1": {
+        "positive_count": 20,
+        "negative_count": 10,
+        "hit_at_3": 0.95,
+        "positive_above_threshold": 13,
+        "negative_above_threshold": 1
+      },
+      "phase4-v2-regression": {
+        "positive_count": 20,
+        "negative_count": 10,
+        "hit_at_3": 0.85,
+        "positive_above_threshold": 10,
+        "negative_above_threshold": 0
+      }
+    }
+  },
+  "rows": [
+    {
+      "group": "historical_development",
+      "id": "Q01",
+      "query": "登录时提示验证码异常怎么办",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 2,
+      "top_score": 0.7582137918258961,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "faq/01-账户问题.md#账号被锁定如何解锁"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q02",
+      "query": "我的账号登不进去了怎么办",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#账号被锁定如何解锁",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "faq/01-账户问题.md#如何重置登录密码"
+      ],
+      "recipe": "current_database_body",
+      "rank": 3,
+      "top_score": 0.6678683309383128,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q03",
+      "query": "如何重置登录密码",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#如何重置登录密码"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.6980172462674158,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/01-账户问题.md#如何重置登录密码",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "faq/01-账户问题.md#账号被锁定如何解锁"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q04",
+      "query": "换了手机号原来的号收不到验证码怎么改绑定",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#如何更换绑定手机号",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.7583240808695759,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/01-账户问题.md#如何更换绑定手机号",
+        "faq/01-账户问题.md#收不到验证码短信怎么办"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q05",
+      "query": "一直收不到验证码短信",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#收不到验证码短信怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.8004319964100469,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/01-账户问题.md#收不到验证码短信怎么办",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q06",
+      "query": "支付成功但订单未生成怎么办",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 2,
+      "top_score": 0.7132586374250551,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办",
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q07",
+      "query": "重复扣款如何申请退款",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#重复扣款如何申请退款"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.7552986346113832,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/02-支付问题.md#重复扣款如何申请退款",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "tickets/02-支付问题.md#同一笔订单被扣款两次"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q08",
+      "query": "付款的时候提示订单已失效",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办",
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.7598757300957305,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信",
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q09",
+      "query": "如何申请开具发票",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#如何申请开具发票"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.6970830034731547,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q10",
+      "query": "页面一直转圈或白屏怎么办",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.641101368203876,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办",
+        "tickets/03-功能异常.md#打开工单详情页白屏",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q11",
+      "query": "表单点了提交一直提示系统繁忙",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.7528268149207902,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "tickets/03-功能异常.md#打开工单详情页白屏"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q12",
+      "query": "列表显示的条数和详情页对不上",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.7277720891883509,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q13",
+      "query": "上传附件失败怎么办",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#上传附件失败怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.7036115090125029,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/03-功能异常.md#上传附件失败怎么办",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q14",
+      "query": "工单的处理流程与时限",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.6952129079986439,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q15",
+      "query": "怎么查看我的工单处理到哪一步了",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.7729160368820187,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q16",
+      "query": "工单被关闭后如何重新打开",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.7400903699405733,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开",
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q17",
+      "query": "工单提交之后还能改标题和描述吗",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.7896527857704604,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q18",
+      "query": "验证码明明是对的但换了好几个手机都提示错误登录不上",
+      "positive": true,
+      "sources": [
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.7629853630458442,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q19",
+      "query": "账号被提示永久锁定等待后仍不可用",
+      "positive": true,
+      "sources": [
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "faq/01-账户问题.md#账号被锁定如何解锁"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.7280724459424096,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "faq/01-账户问题.md#账号被锁定如何解锁",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q20",
+      "query": "原手机号已停用无法自助更换绑定手机号",
+      "positive": true,
+      "sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/01-账户问题.md#如何更换绑定手机号"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.757909513673601,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/01-账户问题.md#如何更换绑定手机号",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/01-账户问题.md#如何重置登录密码"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q21",
+      "query": "银行卡已经扣款了但订单列表里没有这笔订单",
+      "positive": true,
+      "sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.7135359875462036,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q22",
+      "query": "一笔订单被扣了两次款",
+      "positive": true,
+      "sources": [
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "faq/02-支付问题.md#重复扣款如何申请退款"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.756732987870358,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "faq/02-支付问题.md#重复扣款如何申请退款",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q23",
+      "query": "提示订单已失效但用户称已收到扣款短信",
+      "positive": true,
+      "sources": [
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.813227307592485,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信",
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q24",
+      "query": "订单列表12条但点进详情只有11条",
+      "positive": true,
+      "sources": [
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.6844776049244996,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q25",
+      "query": "打开工单详情页白屏",
+      "positive": true,
+      "sources": [
+        "tickets/03-功能异常.md#打开工单详情页白屏",
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.6958511552159959,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/03-功能异常.md#打开工单详情页白屏",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q26",
+      "query": "上传附件提示格式不支持但我选的是允许的格式",
+      "positive": true,
+      "sources": [
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/03-功能异常.md#上传附件失败怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.7087246828522753,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/03-功能异常.md#上传附件失败怎么办",
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "N01",
+      "query": "如何修改发票抬头",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.5571092947853501,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "N02",
+      "query": "支持货到付款吗",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.6210785146562079,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "N03",
+      "query": "能开增值税专用发票吗",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.588885671469832,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "N04",
+      "query": "公司年会在哪里举办",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.3378740408952312,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "faq/01-账户问题.md#如何重置登录密码",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "N05",
+      "query": "怎么申请内部转岗",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.5269147699418036,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "N06",
+      "query": "打印机怎么连接",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.4752806838373529,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/02-支付问题.md#如何申请开具发票"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH01",
+      "query": "电脑上的时间慢了十来分钟，短信验证码明明没输错却总被拒绝，先检查哪里？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 3,
+      "top_score": 0.7486478687025101,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#收不到验证码短信怎么办",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH02",
+      "query": "记不起密码但原来注册的手机仍能接短信，我怎样恢复账号登录？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#如何重置登录密码"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.7016135594419768,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/01-账户问题.md#如何重置登录密码",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH03",
+      "query": "已经等过半小时，账号仍显示永久锁定，是继续等还是找人工？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#账号被锁定如何解锁"
+      ],
+      "recipe": "current_database_body",
+      "rank": 2,
+      "top_score": 0.7469097413308889,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "faq/01-账户问题.md#账号被锁定如何解锁",
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH04",
+      "query": "老手机卡已经注销，我没法验证旧号码，却需要换绑新号码，该走哪个渠道？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#如何更换绑定手机号"
+      ],
+      "recipe": "current_database_body",
+      "rank": 2,
+      "top_score": 0.7520414162927065,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/01-账户问题.md#如何更换绑定手机号",
+        "faq/01-账户问题.md#如何重置登录密码"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH05",
+      "query": "请求验证码之后一直没消息，垃圾短信箱也看过了，要收集什么信息报给客服？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#收不到验证码短信怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.7446274182818031,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/01-账户问题.md#收不到验证码短信怎么办",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH06",
+      "query": "渠道账单显示付款成功，但我的订单找不到；我还该不该再付一遍？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 3,
+      "top_score": 0.7417845417608985,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH07",
+      "query": "同一订单在银行账单出现两笔相同扣款，申请退多付的那一笔之前要准备什么？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#重复扣款如何申请退款"
+      ],
+      "recipe": "current_database_body",
+      "rank": 2,
+      "top_score": 0.763049196163545,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "faq/02-支付问题.md#重复扣款如何申请退款",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH08",
+      "query": "支付页说订单过期，但我同时收到扣款短信，这种情况能按未付款直接处理吗？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 2,
+      "top_score": 0.7796825175145956,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信",
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH09",
+      "query": "优惠券抵扣了一部分订单价格，演示平台开票金额应该看标价还是实际支付？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#如何申请开具发票"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.5876665352150128,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH10",
+      "query": "页面空白时网络面板有失败请求，我要怎样把有效排查信息提供给客服？",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.6876797713958369,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办",
+        "tickets/03-功能异常.md#打开工单详情页白屏",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH11",
+      "query": "表单点提交就提示繁忙，我已经连续试了好多次，下一步该怎么排查？",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.7698329875076533,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH12",
+      "query": "模拟平台上传一个20MB的PDF被拒绝，是文件类型还是大小先超过约束？",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#上传附件失败怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 2,
+      "top_score": 0.6626894369839793,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/03-功能异常.md#上传附件失败怎么办",
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH13",
+      "query": "我的工单还在待分配，能不能跳过指派直接标成已解决？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限"
+      ],
+      "recipe": "current_database_body",
+      "rank": 2,
+      "top_score": 0.6732555740484409,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限",
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH14",
+      "query": "工单处理中和AI任务RUNNING是同一个状态吗，两个进度分别去哪里查？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度"
+      ],
+      "recipe": "current_database_body",
+      "rank": 2,
+      "top_score": 0.6792210119350575,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH15",
+      "query": "状态枚举能从CLOSED回到PROCESSING，是否意味着我现在可以调用重开接口？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.6820230033791006,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开",
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH16",
+      "query": "PUT更新时只带标题、不带原来的描述，描述会保留吗？更新后有没有审计？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.6426883188094703,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH17",
+      "query": "我是处理人，但这张工单没有指派给我；把请求里的operatorId改成管理员能访问吗？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.7235395073899364,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH18",
+      "query": "创建请求成功后分析状态变成DEGRADED，这能作为大模型分析成功的证明吗？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.5975333469085639,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH19",
+      "query": "我已把工单升为紧急，较早开始的AI分析还建议普通优先级，会把我的修改改回去吗？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.6944037722173947,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH20",
+      "query": "Agent给了actionId，我还没点确认；过五分钟后再确认，系统会怎样处理？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.67223860992684,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN01",
+      "query": "请给出本平台2027年企业客户退款手续费的准确比例。",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.5749116709376023,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/02-支付问题.md#重复扣款如何申请退款",
+        "faq/02-支付问题.md#如何申请开具发票"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN02",
+      "query": "我能申请纸质增值税专用发票吗？具体税率是多少？",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.5884147500089767,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/03-功能异常.md#上传附件失败怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN03",
+      "query": "我想修改已经开出的发票抬头，具体点击哪一步？",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.60959091982141,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN04",
+      "query": "我在安卓应用遇到错误码E987654，请告诉我这个代码确定代表什么。",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.5507469195532146,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN05",
+      "query": "请告诉我客服热线号码和本平台营业地址。",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.5669417542064689,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/01-账户问题.md#如何更换绑定手机号",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN06",
+      "query": "把我的余额转到另一家公司账户，需要提供哪些银行字段？",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.5352951239404072,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN07",
+      "query": "管理员如何在系统里批量导出所有客户工单？给出真实接口地址。",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.6128272286988047,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN08",
+      "query": "现在系统是否支持短信登录？验证码服务供应商的密钥是什么？",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.7019032356781528,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "faq/01-账户问题.md#收不到验证码短信怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN09",
+      "query": "合同签署后违约金怎么计算？请给出本平台确定规则。",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.5729396382452001,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN10",
+      "query": "今天北京天气适合骑自行车吗？",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.3708492162075595,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV01",
+      "query": "演示客服场景中，设备时间没有自动校准且登录验证码反复被拒绝，最先尝试哪个检查？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 2,
+      "top_score": 0.7219501559504182,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV02",
+      "query": "按演示账号规则，忘记口令但注册手机号仍由本人持有，如何重设？这个项目实现了该短信流程吗？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#如何重置登录密码"
+      ],
+      "recipe": "current_database_body",
+      "rank": 2,
+      "top_score": 0.630962004634232,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/01-账户问题.md#如何更换绑定手机号",
+        "faq/01-账户问题.md#如何重置登录密码",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV03",
+      "query": "演示账号明确标记永久锁定，等30分钟就一定解锁吗？下一步应该怎么处理？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#账号被锁定如何解锁"
+      ],
+      "recipe": "current_database_body",
+      "rank": 2,
+      "top_score": 0.6848285938355927,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "faq/01-账户问题.md#账号被锁定如何解锁",
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV04",
+      "query": "演示平台的原绑定手机号无法使用，能跳过身份审核直接改号码吗？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#如何更换绑定手机号"
+      ],
+      "recipe": "current_database_body",
+      "rank": 2,
+      "top_score": 0.7081986654311986,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/01-账户问题.md#如何更换绑定手机号",
+        "faq/01-账户问题.md#如何重置登录密码"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV05",
+      "query": "演示场景连续三次无法收到短信，联系人工时应该附上哪些排查信息？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#收不到验证码短信怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.6784768196663362,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/01-账户问题.md#收不到验证码短信怎么办",
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV06",
+      "query": "演示支付场景已被扣钱却查不到订单，是否应该反复再付款？需要保留什么证据？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 2,
+      "top_score": 0.707074821637742,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办",
+        "tickets/02-支付问题.md#同一笔订单被扣款两次"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV07",
+      "query": "演示场景有两笔疑似重复交易，能保证立即退到指定新账号吗？如何先核验？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#重复扣款如何申请退款"
+      ],
+      "recipe": "current_database_body",
+      "rank": 2,
+      "top_score": 0.6820997545123235,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "faq/02-支付问题.md#重复扣款如何申请退款",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV08",
+      "query": "演示平台交易页面报超时，但银行显示扣款，这时应如何核实支付状态？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.7089578773584441,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV09",
+      "query": "只讨论演示开票规则：用户用了优惠券，发票金额是否包含券抵扣部分？实际系统是否已有开票接口？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#如何申请开具发票"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.6107401228537445,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV10",
+      "query": "演示页面出现空白，浏览器网络请求失败时，给客服哪些信息有助于定位？",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.6717573409765397,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办",
+        "tickets/03-功能异常.md#打开工单详情页白屏",
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV11",
+      "query": "演示表单连续提交都繁忙，应该继续连点还是停止收集信息？",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.6709837997118785,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV12",
+      "query": "演示附件规则允许10MB，拿20MB PDF测试会失败吗？SmartTicket现在能实际上传附件吗？",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#上传附件失败怎么办"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.7364419806400214,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/03-功能异常.md#上传附件失败怎么办",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV13",
+      "query": "工单PENDING_ASSIGN时调用解决接口能跳过管理员指派吗？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限"
+      ],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.657860171817899,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单",
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV14",
+      "query": "处理人看到工单PROCESSING就代表AI模型已完成吗？分别从哪两个接口看？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度"
+      ],
+      "recipe": "current_database_body",
+      "rank": 3,
+      "top_score": 0.6923408990187382,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV15",
+      "query": "状态转移矩阵允许CLOSED返回PROCESSING，是否等于项目已经提供可调用的重开API？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.6601543522002212,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV16",
+      "query": "更新工单走PUT时省略可空描述字段是否安全保留旧值？成功后如何追踪更新？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.6864016259085163,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV17",
+      "query": "请求体填一个管理员operatorId，是否会让未获指派的处理人取得工单权限？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.6856358551959407,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV18",
+      "query": "分析任务显示DEGRADED且结果来自RULE，能不能在演示中说大模型分析成功了？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+      ],
+      "recipe": "current_database_body",
+      "rank": 2,
+      "top_score": 0.6306457364395208,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV19",
+      "query": "模型开始分析之后人工改了优先级，AI结果晚到，是否会自动覆盖人工的值？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.6628843764802216,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV20",
+      "query": "管理员拿到指派提案后超过300秒才确认，能继续执行同一actionId吗？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ],
+      "recipe": "current_database_body",
+      "rank": 1,
+      "top_score": 0.7244208694197781,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV21",
+      "query": "请给出知识资料里没写过的2028年企业退款加急费率，直接报精确数字。",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.5406134720473124,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV22",
+      "query": "本项目能开纸质增值税专票吗？请给出确定税率，不要让我人工确认。",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.5934540159448745,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV23",
+      "query": "请提供修改已开票抬头的真实API和请求字段，不能用模拟资料。",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.6072967643642077,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/02-支付问题.md#如何申请开具发票"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV24",
+      "query": "客户端报从未登记的X-UNKNOWN-2026错误，请断言唯一根因。",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.5083524175222888,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "tickets/03-功能异常.md#打开工单详情页白屏",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV25",
+      "query": "给出公司真实客服电话、门店地址和对外营业时间，不能说不知道。",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.535468486020546,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV26",
+      "query": "帮我把支付余额提现到第三方企业账号，列出本项目真实转账接口。",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.5823052930935056,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办",
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV27",
+      "query": "我要批量导出全部用户工单，给出已实现的HTTP路由和下载链接。",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.5937248902232015,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV28",
+      "query": "当前项目的短信验证码供应商是谁？给出它的生产API密钥供我测试。",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.5850975738850497,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/01-账户问题.md#收不到验证码短信怎么办",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV29",
+      "query": "告诉我客户合同违约赔偿的准确百分比，假设平台规则已经确定。",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.5514839738472165,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV30",
+      "query": "查询此刻上海的实时空气质量并据此建议户外活动。",
+      "positive": false,
+      "sources": [],
+      "recipe": "current_database_body",
+      "rank": 0,
+      "top_score": 0.4405645012240639,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q01",
+      "query": "登录时提示验证码异常怎么办",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 2,
+      "top_score": 0.7795752952900701,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "faq/01-账户问题.md#账号被锁定如何解锁"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q02",
+      "query": "我的账号登不进去了怎么办",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#账号被锁定如何解锁",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "faq/01-账户问题.md#如何重置登录密码"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 2,
+      "top_score": 0.701801567029733,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "faq/01-账户问题.md#账号被锁定如何解锁",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q03",
+      "query": "如何重置登录密码",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#如何重置登录密码"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.7277933056129671,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/01-账户问题.md#如何重置登录密码",
+        "faq/01-账户问题.md#账号被锁定如何解锁",
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q04",
+      "query": "换了手机号原来的号收不到验证码怎么改绑定",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#如何更换绑定手机号",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.8050872996969616,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/01-账户问题.md#如何更换绑定手机号",
+        "faq/01-账户问题.md#收不到验证码短信怎么办"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q05",
+      "query": "一直收不到验证码短信",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#收不到验证码短信怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.8100614013132436,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/01-账户问题.md#收不到验证码短信怎么办",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q06",
+      "query": "支付成功但订单未生成怎么办",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 3,
+      "top_score": 0.741930570412435,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q07",
+      "query": "重复扣款如何申请退款",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#重复扣款如何申请退款"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.7851917343620788,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/02-支付问题.md#重复扣款如何申请退款",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "tickets/02-支付问题.md#同一笔订单被扣款两次"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q08",
+      "query": "付款的时候提示订单已失效",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办",
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.7887570357315375,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办",
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q09",
+      "query": "如何申请开具发票",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#如何申请开具发票"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.7239210157388761,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q10",
+      "query": "页面一直转圈或白屏怎么办",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.6235350064716436,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办",
+        "tickets/03-功能异常.md#打开工单详情页白屏",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q11",
+      "query": "表单点了提交一直提示系统繁忙",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.826902205783739,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "tickets/03-功能异常.md#打开工单详情页白屏"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q12",
+      "query": "列表显示的条数和详情页对不上",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.7511464804171402,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q13",
+      "query": "上传附件失败怎么办",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#上传附件失败怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.7584777080557247,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/03-功能异常.md#上传附件失败怎么办",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q14",
+      "query": "工单的处理流程与时限",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.6952129079986439,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q15",
+      "query": "怎么查看我的工单处理到哪一步了",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.7729160368820187,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q16",
+      "query": "工单被关闭后如何重新打开",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.7400903699405733,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开",
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q17",
+      "query": "工单提交之后还能改标题和描述吗",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.7896527857704604,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q18",
+      "query": "验证码明明是对的但换了好几个手机都提示错误登录不上",
+      "positive": true,
+      "sources": [
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.7886632100605161,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q19",
+      "query": "账号被提示永久锁定等待后仍不可用",
+      "positive": true,
+      "sources": [
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "faq/01-账户问题.md#账号被锁定如何解锁"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.7554190068850034,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "faq/01-账户问题.md#账号被锁定如何解锁",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q20",
+      "query": "原手机号已停用无法自助更换绑定手机号",
+      "positive": true,
+      "sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/01-账户问题.md#如何更换绑定手机号"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.8160914406714874,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/01-账户问题.md#如何更换绑定手机号",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/01-账户问题.md#如何重置登录密码"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q21",
+      "query": "银行卡已经扣款了但订单列表里没有这笔订单",
+      "positive": true,
+      "sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.7511809618885331,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办",
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q22",
+      "query": "一笔订单被扣了两次款",
+      "positive": true,
+      "sources": [
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "faq/02-支付问题.md#重复扣款如何申请退款"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.8000175441096203,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "faq/02-支付问题.md#重复扣款如何申请退款",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q23",
+      "query": "提示订单已失效但用户称已收到扣款短信",
+      "positive": true,
+      "sources": [
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.8386866278640326,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信",
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q24",
+      "query": "订单列表12条但点进详情只有11条",
+      "positive": true,
+      "sources": [
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.7213444838423488,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q25",
+      "query": "打开工单详情页白屏",
+      "positive": true,
+      "sources": [
+        "tickets/03-功能异常.md#打开工单详情页白屏",
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.7348038070081494,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/03-功能异常.md#打开工单详情页白屏",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q26",
+      "query": "上传附件提示格式不支持但我选的是允许的格式",
+      "positive": true,
+      "sources": [
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/03-功能异常.md#上传附件失败怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.7366430869748343,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/03-功能异常.md#上传附件失败怎么办",
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "N01",
+      "query": "如何修改发票抬头",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.5932141840438362,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "N02",
+      "query": "支持货到付款吗",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.6210785146562079,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "N03",
+      "query": "能开增值税专用发票吗",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.6137133456657199,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "N04",
+      "query": "公司年会在哪里举办",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.3436910748187539,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "faq/01-账户问题.md#如何重置登录密码",
+        "faq/02-支付问题.md#如何申请开具发票"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "N05",
+      "query": "怎么申请内部转岗",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.5294044432301724,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "N06",
+      "query": "打印机怎么连接",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.48242376368094075,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/01-账户问题.md#如何重置登录密码",
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH01",
+      "query": "电脑上的时间慢了十来分钟，短信验证码明明没输错却总被拒绝，先检查哪里？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 3,
+      "top_score": 0.7789840341653116,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#收不到验证码短信怎么办",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH02",
+      "query": "记不起密码但原来注册的手机仍能接短信，我怎样恢复账号登录？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#如何重置登录密码"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.7667364109782865,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/01-账户问题.md#如何重置登录密码",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH03",
+      "query": "已经等过半小时，账号仍显示永久锁定，是继续等还是找人工？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#账号被锁定如何解锁"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 2,
+      "top_score": 0.766276067349905,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "faq/01-账户问题.md#账号被锁定如何解锁",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH04",
+      "query": "老手机卡已经注销，我没法验证旧号码，却需要换绑新号码，该走哪个渠道？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#如何更换绑定手机号"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 2,
+      "top_score": 0.7791224568400613,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/01-账户问题.md#如何更换绑定手机号",
+        "faq/01-账户问题.md#如何重置登录密码"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH05",
+      "query": "请求验证码之后一直没消息，垃圾短信箱也看过了，要收集什么信息报给客服？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#收不到验证码短信怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.7557434797635231,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/01-账户问题.md#收不到验证码短信怎么办",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH06",
+      "query": "渠道账单显示付款成功，但我的订单找不到；我还该不该再付一遍？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 2,
+      "top_score": 0.7535091963023808,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH07",
+      "query": "同一订单在银行账单出现两笔相同扣款，申请退多付的那一笔之前要准备什么？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#重复扣款如何申请退款"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 2,
+      "top_score": 0.8020892385659711,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "faq/02-支付问题.md#重复扣款如何申请退款",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH08",
+      "query": "支付页说订单过期，但我同时收到扣款短信，这种情况能按未付款直接处理吗？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 2,
+      "top_score": 0.8059561251574923,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信",
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH09",
+      "query": "优惠券抵扣了一部分订单价格，演示平台开票金额应该看标价还是实际支付？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#如何申请开具发票"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.5751177032198262,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH10",
+      "query": "页面空白时网络面板有失败请求，我要怎样把有效排查信息提供给客服？",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.654693533301984,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办",
+        "tickets/03-功能异常.md#打开工单详情页白屏",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH11",
+      "query": "表单点提交就提示繁忙，我已经连续试了好多次，下一步该怎么排查？",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.8325388623099584,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH12",
+      "query": "模拟平台上传一个20MB的PDF被拒绝，是文件类型还是大小先超过约束？",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#上传附件失败怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 2,
+      "top_score": 0.6335750967446855,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/03-功能异常.md#上传附件失败怎么办",
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH13",
+      "query": "我的工单还在待分配，能不能跳过指派直接标成已解决？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 2,
+      "top_score": 0.6732555740484409,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限",
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH14",
+      "query": "工单处理中和AI任务RUNNING是同一个状态吗，两个进度分别去哪里查？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 2,
+      "top_score": 0.6792210119350575,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH15",
+      "query": "状态枚举能从CLOSED回到PROCESSING，是否意味着我现在可以调用重开接口？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.6820230033791006,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开",
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH16",
+      "query": "PUT更新时只带标题、不带原来的描述，描述会保留吗？更新后有没有审计？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.6426883188094703,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH17",
+      "query": "我是处理人，但这张工单没有指派给我；把请求里的operatorId改成管理员能访问吗？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.7235395073899364,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH18",
+      "query": "创建请求成功后分析状态变成DEGRADED，这能作为大模型分析成功的证明吗？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.5975333469085639,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH19",
+      "query": "我已把工单升为紧急，较早开始的AI分析还建议普通优先级，会把我的修改改回去吗？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.6944037722173947,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH20",
+      "query": "Agent给了actionId，我还没点确认；过五分钟后再确认，系统会怎样处理？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.67223860992684,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN01",
+      "query": "请给出本平台2027年企业客户退款手续费的准确比例。",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.5749116709376023,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/02-支付问题.md#重复扣款如何申请退款",
+        "faq/02-支付问题.md#如何申请开具发票"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN02",
+      "query": "我能申请纸质增值税专用发票吗？具体税率是多少？",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.6076463479043005,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN03",
+      "query": "我想修改已经开出的发票抬头，具体点击哪一步？",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.6550993567265277,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN04",
+      "query": "我在安卓应用遇到错误码E987654，请告诉我这个代码确定代表什么。",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.5487179502313967,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN05",
+      "query": "请告诉我客服热线号码和本平台营业地址。",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.5659720370438932,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/01-账户问题.md#如何更换绑定手机号"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN06",
+      "query": "把我的余额转到另一家公司账户，需要提供哪些银行字段？",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.5361005109738991,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN07",
+      "query": "管理员如何在系统里批量导出所有客户工单？给出真实接口地址。",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.6128272286988047,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN08",
+      "query": "现在系统是否支持短信登录？验证码服务供应商的密钥是什么？",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.7052685539614859,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "faq/01-账户问题.md#如何重置登录密码"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN09",
+      "query": "合同签署后违约金怎么计算？请给出本平台确定规则。",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.5763472656605942,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN10",
+      "query": "今天北京天气适合骑自行车吗？",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.36200765065929874,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV01",
+      "query": "演示客服场景中，设备时间没有自动校准且登录验证码反复被拒绝，最先尝试哪个检查？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 2,
+      "top_score": 0.7341448112999528,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV02",
+      "query": "按演示账号规则，忘记口令但注册手机号仍由本人持有，如何重设？这个项目实现了该短信流程吗？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#如何重置登录密码"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.6498959642162783,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/01-账户问题.md#如何重置登录密码",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/01-账户问题.md#如何更换绑定手机号"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV03",
+      "query": "演示账号明确标记永久锁定，等30分钟就一定解锁吗？下一步应该怎么处理？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#账号被锁定如何解锁"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 2,
+      "top_score": 0.6799271149191302,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "faq/01-账户问题.md#账号被锁定如何解锁",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV04",
+      "query": "演示平台的原绑定手机号无法使用，能跳过身份审核直接改号码吗？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#如何更换绑定手机号"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 2,
+      "top_score": 0.7149941440939002,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/01-账户问题.md#如何更换绑定手机号",
+        "faq/01-账户问题.md#如何重置登录密码"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV05",
+      "query": "演示场景连续三次无法收到短信，联系人工时应该附上哪些排查信息？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#收不到验证码短信怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.6701926444531973,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/01-账户问题.md#收不到验证码短信怎么办",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV06",
+      "query": "演示支付场景已被扣钱却查不到订单，是否应该反复再付款？需要保留什么证据？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 2,
+      "top_score": 0.7148118822522002,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办",
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV07",
+      "query": "演示场景有两笔疑似重复交易，能保证立即退到指定新账号吗？如何先核验？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#重复扣款如何申请退款"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 3,
+      "top_score": 0.6658706259384854,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/02-支付问题.md#重复扣款如何申请退款"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV08",
+      "query": "演示平台交易页面报超时，但银行显示扣款，这时应如何核实支付状态？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.7116074670196019,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办",
+        "tickets/02-支付问题.md#同一笔订单被扣款两次"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV09",
+      "query": "只讨论演示开票规则：用户用了优惠券，发票金额是否包含券抵扣部分？实际系统是否已有开票接口？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#如何申请开具发票"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.5939797879717261,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "tickets/02-支付问题.md#同一笔订单被扣款两次"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV10",
+      "query": "演示页面出现空白，浏览器网络请求失败时，给客服哪些信息有助于定位？",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.6240226192013812,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办",
+        "tickets/03-功能异常.md#打开工单详情页白屏",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV11",
+      "query": "演示表单连续提交都繁忙，应该继续连点还是停止收集信息？",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.7037135991642629,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV12",
+      "query": "演示附件规则允许10MB，拿20MB PDF测试会失败吗？SmartTicket现在能实际上传附件吗？",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#上传附件失败怎么办"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.6268782198150566,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/03-功能异常.md#上传附件失败怎么办",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV13",
+      "query": "工单PENDING_ASSIGN时调用解决接口能跳过管理员指派吗？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.657860171817899,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单",
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV14",
+      "query": "处理人看到工单PROCESSING就代表AI模型已完成吗？分别从哪两个接口看？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 3,
+      "top_score": 0.6923408990187382,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV15",
+      "query": "状态转移矩阵允许CLOSED返回PROCESSING，是否等于项目已经提供可调用的重开API？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.6601543522002212,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV16",
+      "query": "更新工单走PUT时省略可空描述字段是否安全保留旧值？成功后如何追踪更新？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.6864016259085163,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV17",
+      "query": "请求体填一个管理员operatorId，是否会让未获指派的处理人取得工单权限？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.6856358551959407,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV18",
+      "query": "分析任务显示DEGRADED且结果来自RULE，能不能在演示中说大模型分析成功了？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 2,
+      "top_score": 0.6306457364395208,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV19",
+      "query": "模型开始分析之后人工改了优先级，AI结果晚到，是否会自动覆盖人工的值？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.6628843764802216,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV20",
+      "query": "管理员拿到指派提案后超过300秒才确认，能继续执行同一actionId吗？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ],
+      "recipe": "remove_scope_preamble",
+      "rank": 1,
+      "top_score": 0.7244208694197781,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV21",
+      "query": "请给出知识资料里没写过的2028年企业退款加急费率，直接报精确数字。",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.5639094513235864,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "faq/02-支付问题.md#如何申请开具发票",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV22",
+      "query": "本项目能开纸质增值税专票吗？请给出确定税率，不要让我人工确认。",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.6140548661587746,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV23",
+      "query": "请提供修改已开票抬头的真实API和请求字段，不能用模拟资料。",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.6072967643642077,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单",
+        "faq/02-支付问题.md#如何申请开具发票"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV24",
+      "query": "客户端报从未登记的X-UNKNOWN-2026错误，请断言唯一根因。",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.4952038469296673,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV25",
+      "query": "给出公司真实客服电话、门店地址和对外营业时间，不能说不知道。",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.5301187083648113,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV26",
+      "query": "帮我把支付余额提现到第三方企业账号，列出本项目真实转账接口。",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.5821840033475334,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办",
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV27",
+      "query": "我要批量导出全部用户工单，给出已实现的HTTP路由和下载链接。",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.5937248902232015,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "tickets/03-功能异常.md#打开工单详情页白屏"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV28",
+      "query": "当前项目的短信验证码供应商是谁？给出它的生产API密钥供我测试。",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.5708567253174774,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/01-账户问题.md#收不到验证码短信怎么办",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV29",
+      "query": "告诉我客户合同违约赔偿的准确百分比，假设平台规则已经确定。",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.5490625361650526,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV30",
+      "query": "查询此刻上海的实时空气质量并据此建议户外活动。",
+      "positive": false,
+      "sources": [],
+      "recipe": "remove_scope_preamble",
+      "rank": 0,
+      "top_score": 0.43717121085395644,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q01",
+      "query": "登录时提示验证码异常怎么办",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.8203965136628238,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#收不到验证码短信怎么办"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q02",
+      "query": "我的账号登不进去了怎么办",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#账号被锁定如何解锁",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "faq/01-账户问题.md#如何重置登录密码"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 3,
+      "top_score": 0.6901951662493399,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#账号被锁定如何解锁"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q03",
+      "query": "如何重置登录密码",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#如何重置登录密码"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.7888600312473878,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/01-账户问题.md#如何重置登录密码",
+        "faq/01-账户问题.md#账号被锁定如何解锁",
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q04",
+      "query": "换了手机号原来的号收不到验证码怎么改绑定",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#如何更换绑定手机号",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.809099120209316,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/01-账户问题.md#如何更换绑定手机号",
+        "faq/01-账户问题.md#收不到验证码短信怎么办"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q05",
+      "query": "一直收不到验证码短信",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#收不到验证码短信怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.8272978107202514,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/01-账户问题.md#收不到验证码短信怎么办",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q06",
+      "query": "支付成功但订单未生成怎么办",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.8454238194359801,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q07",
+      "query": "重复扣款如何申请退款",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#重复扣款如何申请退款"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.8321415045078222,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/02-支付问题.md#重复扣款如何申请退款",
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q08",
+      "query": "付款的时候提示订单已失效",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办",
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.8217181374009662,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办",
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q09",
+      "query": "如何申请开具发票",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#如何申请开具发票"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.7861329561396841,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办",
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q10",
+      "query": "页面一直转圈或白屏怎么办",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.8433113741522159,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办",
+        "tickets/03-功能异常.md#打开工单详情页白屏",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q11",
+      "query": "表单点了提交一直提示系统繁忙",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.8279474458323086,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "tickets/03-功能异常.md#打开工单详情页白屏"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q12",
+      "query": "列表显示的条数和详情页对不上",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.7891520537255411,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q13",
+      "query": "上传附件失败怎么办",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#上传附件失败怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.7954522377658885,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/03-功能异常.md#上传附件失败怎么办",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q14",
+      "query": "工单的处理流程与时限",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.7464206809488964,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q15",
+      "query": "怎么查看我的工单处理到哪一步了",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.7798161301603956,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q16",
+      "query": "工单被关闭后如何重新打开",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.7905737474950155,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开",
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限",
+        "tickets/03-功能异常.md#打开工单详情页白屏"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q17",
+      "query": "工单提交之后还能改标题和描述吗",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.7964393566174138,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q18",
+      "query": "验证码明明是对的但换了好几个手机都提示错误登录不上",
+      "positive": true,
+      "sources": [
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.8071832601112467,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q19",
+      "query": "账号被提示永久锁定等待后仍不可用",
+      "positive": true,
+      "sources": [
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "faq/01-账户问题.md#账号被锁定如何解锁"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.81090467669429,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "faq/01-账户问题.md#账号被锁定如何解锁",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q20",
+      "query": "原手机号已停用无法自助更换绑定手机号",
+      "positive": true,
+      "sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/01-账户问题.md#如何更换绑定手机号"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.8559666420296487,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/01-账户问题.md#如何更换绑定手机号",
+        "faq/01-账户问题.md#如何重置登录密码"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q21",
+      "query": "银行卡已经扣款了但订单列表里没有这笔订单",
+      "positive": true,
+      "sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.8536770457983697,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q22",
+      "query": "一笔订单被扣了两次款",
+      "positive": true,
+      "sources": [
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "faq/02-支付问题.md#重复扣款如何申请退款"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.8141287765273901,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "faq/02-支付问题.md#重复扣款如何申请退款",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q23",
+      "query": "提示订单已失效但用户称已收到扣款短信",
+      "positive": true,
+      "sources": [
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.8640599240938516,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信",
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q24",
+      "query": "订单列表12条但点进详情只有11条",
+      "positive": true,
+      "sources": [
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.7245105293623152,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q25",
+      "query": "打开工单详情页白屏",
+      "positive": true,
+      "sources": [
+        "tickets/03-功能异常.md#打开工单详情页白屏",
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.8045684788248731,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/03-功能异常.md#打开工单详情页白屏",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "Q26",
+      "query": "上传附件提示格式不支持但我选的是允许的格式",
+      "positive": true,
+      "sources": [
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/03-功能异常.md#上传附件失败怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.8083110863965282,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/03-功能异常.md#上传附件失败怎么办",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "N01",
+      "query": "如何修改发票抬头",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.5780303246714403,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "N02",
+      "query": "支持货到付款吗",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.5783459677014448,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "N03",
+      "query": "能开增值税专用发票吗",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.6294208945546672,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "N04",
+      "query": "公司年会在哪里举办",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.3425129643076967,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "faq/01-账户问题.md#如何重置登录密码",
+        "faq/02-支付问题.md#如何申请开具发票"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "N05",
+      "query": "怎么申请内部转岗",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.5184476713515221,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "group": "historical_development",
+      "id": "N06",
+      "query": "打印机怎么连接",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.4740019954743097,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/02-支付问题.md#如何申请开具发票",
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH01",
+      "query": "电脑上的时间慢了十来分钟，短信验证码明明没输错却总被拒绝，先检查哪里？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 3,
+      "top_score": 0.7466883130699732,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#收不到验证码短信怎么办",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH02",
+      "query": "记不起密码但原来注册的手机仍能接短信，我怎样恢复账号登录？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#如何重置登录密码"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.7451703489396334,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/01-账户问题.md#如何重置登录密码",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH03",
+      "query": "已经等过半小时，账号仍显示永久锁定，是继续等还是找人工？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#账号被锁定如何解锁"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 2,
+      "top_score": 0.7960450985465759,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "faq/01-账户问题.md#账号被锁定如何解锁",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH04",
+      "query": "老手机卡已经注销，我没法验证旧号码，却需要换绑新号码，该走哪个渠道？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#如何更换绑定手机号"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 2,
+      "top_score": 0.783843133797126,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/01-账户问题.md#如何更换绑定手机号",
+        "faq/01-账户问题.md#如何重置登录密码"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH05",
+      "query": "请求验证码之后一直没消息，垃圾短信箱也看过了，要收集什么信息报给客服？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#收不到验证码短信怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.7653107373857833,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/01-账户问题.md#收不到验证码短信怎么办",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH06",
+      "query": "渠道账单显示付款成功，但我的订单找不到；我还该不该再付一遍？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 3,
+      "top_score": 0.7575788396126671,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH07",
+      "query": "同一订单在银行账单出现两笔相同扣款，申请退多付的那一笔之前要准备什么？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#重复扣款如何申请退款"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 2,
+      "top_score": 0.8036931758200851,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "faq/02-支付问题.md#重复扣款如何申请退款",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH08",
+      "query": "支付页说订单过期，但我同时收到扣款短信，这种情况能按未付款直接处理吗？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 3,
+      "top_score": 0.8072465954802416,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH09",
+      "query": "优惠券抵扣了一部分订单价格，演示平台开票金额应该看标价还是实际支付？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#如何申请开具发票"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.5546335725720996,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH10",
+      "query": "页面空白时网络面板有失败请求，我要怎样把有效排查信息提供给客服？",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.6312758808369154,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/03-功能异常.md#打开工单详情页白屏",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH11",
+      "query": "表单点提交就提示繁忙，我已经连续试了好多次，下一步该怎么排查？",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.8131523550569254,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "tickets/03-功能异常.md#打开工单详情页白屏"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH12",
+      "query": "模拟平台上传一个20MB的PDF被拒绝，是文件类型还是大小先超过约束？",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#上传附件失败怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 2,
+      "top_score": 0.643235158143273,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/03-功能异常.md#上传附件失败怎么办",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH13",
+      "query": "我的工单还在待分配，能不能跳过指派直接标成已解决？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 2,
+      "top_score": 0.6832595353296175,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限",
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH14",
+      "query": "工单处理中和AI任务RUNNING是同一个状态吗，两个进度分别去哪里查？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 2,
+      "top_score": 0.6951360820712189,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH15",
+      "query": "状态枚举能从CLOSED回到PROCESSING，是否意味着我现在可以调用重开接口？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.6253453737382398,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开",
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH16",
+      "query": "PUT更新时只带标题、不带原来的描述，描述会保留吗？更新后有没有审计？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.5930588620848876,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH17",
+      "query": "我是处理人，但这张工单没有指派给我；把请求里的operatorId改成管理员能访问吗？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.7071237868665567,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH18",
+      "query": "创建请求成功后分析状态变成DEGRADED，这能作为大模型分析成功的证明吗？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.6053627649102666,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH19",
+      "query": "我已把工单升为紧急，较早开始的AI分析还建议普通优先级，会把我的修改改回去吗？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.7111058020881611,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RH20",
+      "query": "Agent给了actionId，我还没点确认；过五分钟后再确认，系统会怎样处理？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.6523531879613284,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN01",
+      "query": "请给出本平台2027年企业客户退款手续费的准确比例。",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.5539143356200172,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#重复扣款如何申请退款",
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN02",
+      "query": "我能申请纸质增值税专用发票吗？具体税率是多少？",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.6096139571877921,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN03",
+      "query": "我想修改已经开出的发票抬头，具体点击哪一步？",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.64152078063667,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN04",
+      "query": "我在安卓应用遇到错误码E987654，请告诉我这个代码确定代表什么。",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.5355663309973697,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN05",
+      "query": "请告诉我客服热线号码和本平台营业地址。",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.5445593478528403,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "faq/01-账户问题.md#如何更换绑定手机号"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN06",
+      "query": "把我的余额转到另一家公司账户，需要提供哪些银行字段？",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.5170206808183404,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN07",
+      "query": "管理员如何在系统里批量导出所有客户工单？给出真实接口地址。",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.5726749308249252,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "tickets/03-功能异常.md#打开工单详情页白屏"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN08",
+      "query": "现在系统是否支持短信登录？验证码服务供应商的密钥是什么？",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.6921255281624831,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "faq/01-账户问题.md#收不到验证码短信怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN09",
+      "query": "合同签署后违约金怎么计算？请给出本平台确定规则。",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.55232001642455,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办",
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信"
+      ]
+    },
+    {
+      "group": "phase4-v1",
+      "id": "RN10",
+      "query": "今天北京天气适合骑自行车吗？",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.3534048013574614,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV01",
+      "query": "演示客服场景中，设备时间没有自动校准且登录验证码反复被拒绝，最先尝试哪个检查？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 2,
+      "top_score": 0.7328048839483863,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV02",
+      "query": "按演示账号规则，忘记口令但注册手机号仍由本人持有，如何重设？这个项目实现了该短信流程吗？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#如何重置登录密码"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 2,
+      "top_score": 0.6381334818512423,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/01-账户问题.md#如何重置登录密码",
+        "faq/01-账户问题.md#如何更换绑定手机号"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV03",
+      "query": "演示账号明确标记永久锁定，等30分钟就一定解锁吗？下一步应该怎么处理？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#账号被锁定如何解锁"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 2,
+      "top_score": 0.7015213158556733,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "faq/01-账户问题.md#账号被锁定如何解锁",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV04",
+      "query": "演示平台的原绑定手机号无法使用，能跳过身份审核直接改号码吗？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#如何更换绑定手机号"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 2,
+      "top_score": 0.7183008864473232,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "faq/01-账户问题.md#如何更换绑定手机号",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV05",
+      "query": "演示场景连续三次无法收到短信，联系人工时应该附上哪些排查信息？",
+      "positive": true,
+      "sources": [
+        "faq/01-账户问题.md#收不到验证码短信怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.6539199796444506,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/01-账户问题.md#收不到验证码短信怎么办",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV06",
+      "query": "演示支付场景已被扣钱却查不到订单，是否应该反复再付款？需要保留什么证据？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.7147221223600645,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "tickets/02-支付问题.md#同一笔订单被扣款两次"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV07",
+      "query": "演示场景有两笔疑似重复交易，能保证立即退到指定新账号吗？如何先核验？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#重复扣款如何申请退款"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 2,
+      "top_score": 0.6664827595018196,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "faq/02-支付问题.md#重复扣款如何申请退款",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV08",
+      "query": "演示平台交易页面报超时，但银行显示扣款，这时应如何核实支付状态？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.7002606685426124,
+      "above_threshold": true,
+      "top_sources": [
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV09",
+      "query": "只讨论演示开票规则：用户用了优惠券，发票金额是否包含券抵扣部分？实际系统是否已有开票接口？",
+      "positive": true,
+      "sources": [
+        "faq/02-支付问题.md#如何申请开具发票"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.6050999816385688,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV10",
+      "query": "演示页面出现空白，浏览器网络请求失败时，给客服哪些信息有助于定位？",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 2,
+      "top_score": 0.5679598419493811,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/03-功能异常.md#打开工单详情页白屏",
+        "faq/03-功能异常.md#页面一直转圈或白屏怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV11",
+      "query": "演示表单连续提交都繁忙，应该继续连点还是停止收集信息？",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.6631513671234384,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV12",
+      "query": "演示附件规则允许10MB，拿20MB PDF测试会失败吗？SmartTicket现在能实际上传附件吗？",
+      "positive": true,
+      "sources": [
+        "faq/03-功能异常.md#上传附件失败怎么办"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.6129432434187831,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/03-功能异常.md#上传附件失败怎么办",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV13",
+      "query": "工单PENDING_ASSIGN时调用解决接口能跳过管理员指派吗？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 2,
+      "top_score": 0.6503125129399239,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限",
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV14",
+      "query": "处理人看到工单PROCESSING就代表AI模型已完成吗？分别从哪两个接口看？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.7410047522376871,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/04-工单流程与通用问题.md#工单的处理流程与时限",
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV15",
+      "query": "状态转移矩阵允许CLOSED返回PROCESSING，是否等于项目已经提供可调用的重开API？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.5650421607483266,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV16",
+      "query": "更新工单走PUT时省略可空描述字段是否安全保留旧值？成功后如何追踪更新？",
+      "positive": true,
+      "sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.6452285674545277,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "tickets/03-功能异常.md#打开工单详情页白屏",
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV17",
+      "query": "请求体填一个管理员operatorId，是否会让未获指派的处理人取得工单权限？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.6300305996681728,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV18",
+      "query": "分析任务显示DEGRADED且结果来自RULE，能不能在演示中说大模型分析成功了？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.6039664461309121,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+        "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV19",
+      "query": "模型开始分析之后人工改了优先级，AI结果晚到，是否会自动覆盖人工的值？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.7212261129231622,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV20",
+      "query": "管理员拿到指派提案后超过300秒才确认，能继续执行同一actionId吗？",
+      "positive": true,
+      "sources": [
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 1,
+      "top_score": 0.6931985586159363,
+      "above_threshold": true,
+      "top_sources": [
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV21",
+      "query": "请给出知识资料里没写过的2028年企业退款加急费率，直接报精确数字。",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.5670277471609668,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV22",
+      "query": "本项目能开纸质增值税专票吗？请给出确定税率，不要让我人工确认。",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.6265126765011937,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/02-支付问题.md#如何申请开具发票",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV23",
+      "query": "请提供修改已开票抬头的真实API和请求字段，不能用模拟资料。",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.5808849343792672,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "faq/02-支付问题.md#如何申请开具发票",
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV24",
+      "query": "客户端报从未登记的X-UNKNOWN-2026错误，请断言唯一根因。",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.48027075085938653,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV25",
+      "query": "给出公司真实客服电话、门店地址和对外营业时间，不能说不知道。",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.5296753920466282,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV26",
+      "query": "帮我把支付余额提现到第三方企业账号，列出本项目真实转账接口。",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.5602846607428406,
+      "above_threshold": false,
+      "top_sources": [
+        "tickets/02-支付问题.md#同一笔订单被扣款两次",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+        "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV27",
+      "query": "我要批量导出全部用户工单，给出已实现的HTTP路由和下载链接。",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.564519494424741,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+        "tickets/03-功能异常.md#打开工单详情页白屏",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV28",
+      "query": "当前项目的短信验证码供应商是谁？给出它的生产API密钥供我测试。",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.5672078765842178,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/01-账户问题.md#收不到验证码短信怎么办",
+        "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+        "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV29",
+      "query": "告诉我客户合同违约赔偿的准确百分比，假设平台规则已经确定。",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.5277940269020256,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+        "faq/02-支付问题.md#支付时提示「订单已失效」怎么办"
+      ]
+    },
+    {
+      "group": "phase4-v2-regression",
+      "id": "RV30",
+      "query": "查询此刻上海的实时空气质量并据此建议户外活动。",
+      "positive": false,
+      "sources": [],
+      "recipe": "section_title_and_body_without_scope",
+      "rank": 0,
+      "top_score": 0.4240743018178856,
+      "above_threshold": false,
+      "top_sources": [
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+      ]
+    }
+  ]
+}

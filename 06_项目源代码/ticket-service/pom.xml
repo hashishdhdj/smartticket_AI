@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 阶段2 第1天：3.3.13 → 3.5.14。
+         Spring AI 1.x 的 GA 版只支持 Spring Boot 3.4.x / 3.5.x（官方兼容说明），
+         继续留在 3.3.x 只能退回到 1.0.0-Mx 里程碑版，不如升到 3.5.x 这条仍在维护的 GA 线。
+         3.5.x 仍是 Spring Framework 6.2 + Jackson 2，与阶段1 的 MyBatis-Plus / Redis 用法不冲突。 -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.14</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.smartticket</groupId>
+    <artifactId>ticket-service</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>ticket-service</name>
+    <description>AI 驱动的智能工单服务系统 - 后端服务</description>
+
+    <properties>
+        <java.version>17</java.version>
+        <mybatis-plus.version>3.5.17</mybatis-plus.version>
+        <!-- Spring AI：1.1.x 是当前 GA 线，对应 Spring Boot 3.4/3.5 -->
+        <spring-ai.version>1.1.6</spring-ai.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- 显式声明编译目标（Maven依赖清单 §七.3 要求，不依赖父 POM 的默认推导） -->
+        <maven.compiler.release>17</maven.compiler.release>
+    </properties>
+
+    <!-- MyBatis-Plus 官方 BOM：统一 starter 与 jsqlparser 的版本，避免两者不一致导致分页功能失效 -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-bom</artifactId>
+                <version>${mybatis-plus.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Spring AI 官方 BOM：统一 spring-ai-* 各模块版本（含 openai / model / client-chat） -->
+            <dependency>
+                <groupId>org.springframework.ai</groupId>
+                <artifactId>spring-ai-bom</artifactId>
+                <version>${spring-ai.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency><groupId>io.micrometer</groupId><artifactId>micrometer-core</artifactId></dependency>
+        <!-- Web：REST 接口与内嵌容器 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Validation：JSR-380 参数校验 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+        <!-- Lombok：减少样板代码 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- MySQL Driver -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- PostgreSQL Driver（阶段2 第5天，RAG 向量库）。
+             与 MySQL 驱动并存：工单数据在 MySQL、知识库向量在 PostgreSQL，
+             两者是两个库、两条独立连接，谁也不替代谁。版本由 Spring Boot 父 POM 管理。
+
+             刻意不写 <scope>runtime</scope>（MySQL 驱动写了）：
+             写入 vector 列时要显式构造 org.postgresql.util.PGobject 来声明参数类型为 vector，
+             那是驱动里的类，运行时才可见的话编译不过。
+             不用 "?::vector" 拼接替代，是因为它依赖服务端把参数当 unknown 处理，
+             参数一旦被驱动定性为 varchar 就会报 cannot cast type character varying to vector。 -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+
+        <!-- DevTools：本地热重启（开发期） -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- Test：JUnit 5 + Mockito + Spring Test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- MyBatis-Plus：必须用 Spring Boot 3 专用 starter，用 mybatis-plus-boot-starter 会因 javax/jakarta 命名空间变更启动失败 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+        </dependency>
+
+        <!-- 分页插件依赖：3.5.9 起从主包拆出，不引入则 PaginationInnerInterceptor 不存在 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-jsqlparser</artifactId>
+        </dependency>
+
+        <!-- Redis：第8天只做接入（连接 + 读写通），缓存业务在第9天。
+             用 starter 自动配置的 StringRedisTemplate，不额外写配置类。
+             连接池 commons-pool2 不引入：默认 Lettuce 共享连接，阶段1 无池化需求 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!-- RabbitMQ（阶段3 第6周接入，章程第6周任务 1）。
+             用途：工单创建成功后发一条消息，AI 分析在消费者线程里跑，不阻塞创建请求。
+
+             为什么用 spring-boot-starter-amqp 而不是官方 amqp-client：
+             starter 提供 RabbitTemplate / 连接工厂 / 监听容器的自动配置与生命周期管理，
+             并让 spring.rabbitmq.* 直接可用；只用裸客户端则这些都要手写。
+             这也与项目"starter 优先、版本交给 Spring Boot 管理"的约定一致（见 Maven 依赖清单 〇 节）。
+             版本由 Spring Boot 父 POM 管理，不手写。 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+
+        <!-- Spring AI（阶段2 第1天接入）。
+             选 OpenAI 兼容 starter 而不是「OpenAI 官方 SDK」：DeepSeek、通义千问、Moonshot、
+             本地 vLLM/Ollama 都实现了 /v1/chat/completions 这套协议，只换 base-url 与 model
+             就能切换厂商，不锁死在单一供应商。 -->
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-starter-model-openai</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+    <profiles>
+        <profile>
+            <id>unit</id>
+            <build><plugins><plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration><includes>
+                        <include>**/AiClassificationParserTest.java</include>
+                        <include>**/AiClassificationSchemaTest.java</include>
+                        <include>**/AiPromptFactoryTest.java</include>
+                        <include>**/AiChatServiceImplTest.java</include>
+                        <include>**/TicketAnalysisServiceImplTest.java</include>
+                        <include>**/ErrorCodeTest.java</include>
+                        <include>**/TicketPriorityTest.java</include>
+                        <include>**/TicketStatusTest.java</include>
+                        <include>**/EmbeddingServiceImplTest.java</include>
+                        <include>**/KnowledgeRetrievalServiceImplTest.java</include>
+                        <include>**/KnowledgeSearchServiceImplTest.java</include>
+                        <include>**/RagAnswerServiceImplTest.java</include>
+                        <include>**/AgentToolContextTest.java</include>
+                        <include>**/AgentToolsTest.java</include>
+                        <include>**/AgentAnswerTest.java</include>
+                        <include>**/KnowledgeChunkerTest.java</include>
+                        <include>**/EmbeddingConfigProtocolTest.java</include>
+                        <include>**/KnowledgeCorpusLoaderTest.java</include>
+                        <include>**/KnowledgeProvenanceTest.java</include>
+                        <include>**/KnowledgeIndexingServiceTest.java</include>
+                        <include>**/RagAnswerParserTest.java</include>
+                        <include>**/RagAnswerPromptFactoryTest.java</include>
+                        <include>**/RagAnswerSchemaTest.java</include>
+                        <include>**/RrfFusionTest.java</include>
+                        <include>**/TicketServiceImplTest.java</include>
+                        <include>**/ApiContractTest.java</include>
+                </includes></configuration>
+            </plugin></plugins></build>
+        </profile>
+        <profile>
+            <id>integration</id>
+            <build><plugins><plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration><includes>
+                        <include>**/AiConfigurationTest.java</include>
+                        <include>**/AiOpenAiProtocolTest.java</include>
+                        <include>**/AiControllerTest.java</include>
+                        <include>**/KnowledgeControllerTest.java</include>
+                        <include>**/TicketApiTest.java</include>
+                        <include>**/TicketMapperTest.java</include>
+                        <include>**/AgentOpenAiProtocolTest.java</include>
+                        <include>**/Phase3IntegrationTest.java</include>
+                        <include>**/KnowledgeVectorIntegrationTest.java</include>
+                        <include>**/TicketCacheTest.java</include>
+                        <include>**/RabbitConnectivityTest.java</include>
+                        <include>**/RabbitJsonMessageTest.java</include>
+                        <include>**/RedisConnectivityTest.java</include>
+                </includes></configuration>
+            </plugin></plugins></build>
+        </profile>
+    </profiles>
+
+</project>

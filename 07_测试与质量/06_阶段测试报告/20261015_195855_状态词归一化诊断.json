@@ -1,0 +1,180 @@
+{
+  "date": "2026-10-15T19:58:55",
+  "status": "DIAGNOSTIC_ONLY",
+  "vendor_calls": 0,
+  "writes_to_vector_database": 0,
+  "threshold_unchanged": 0.66,
+  "scope": "Vector-only on existing seen data; no independent acceptance or generation",
+  "rows": [
+    {
+      "recipe": "replace_code",
+      "id": "RH16",
+      "group": "phase4-v1",
+      "positive": true,
+      "query": "PUT更新时只带标题、不带原来的描述，描述会保留吗？更新后有没有审计？",
+      "effective_query": "全量替换更新更新时只带标题、不带原来的描述，描述会保留吗？更新后有没有审计？",
+      "old_score": 0.6426883188094703,
+      "new_score": 0.6467970301267288,
+      "old_rank": 1,
+      "new_rank": 1,
+      "new_top_sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号"
+      ]
+    },
+    {
+      "recipe": "replace_code",
+      "id": "RH18",
+      "group": "phase4-v1",
+      "positive": true,
+      "query": "创建请求成功后分析状态变成DEGRADED，这能作为大模型分析成功的证明吗？",
+      "effective_query": "创建请求成功后分析状态变成规则兜底，这能作为大模型分析成功的证明吗？",
+      "old_score": 0.5975333469085639,
+      "new_score": 0.5851146404836864,
+      "old_rank": 1,
+      "new_rank": 1,
+      "new_top_sources": [
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "recipe": "replace_code",
+      "id": "RV13",
+      "group": "phase4-v2-regression",
+      "positive": true,
+      "query": "工单PENDING_ASSIGN时调用解决接口能跳过管理员指派吗？",
+      "effective_query": "工单待分配时调用解决接口能跳过管理员指派吗？",
+      "old_score": 0.657860171817899,
+      "new_score": 0.6483970024214216,
+      "old_rank": 0,
+      "new_rank": 0,
+      "new_top_sources": [
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开",
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单"
+      ]
+    },
+    {
+      "recipe": "replace_code",
+      "id": "RV16",
+      "group": "phase4-v2-regression",
+      "positive": true,
+      "query": "更新工单走PUT时省略可空描述字段是否安全保留旧值？成功后如何追踪更新？",
+      "effective_query": "更新工单走全量替换更新时省略可空描述字段是否安全保留旧值？成功后如何追踪更新？",
+      "old_score": 0.6864016259085163,
+      "new_score": 0.6847727368204669,
+      "old_rank": 1,
+      "new_rank": 1,
+      "new_top_sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "faq/04-工单流程与通用问题.md#如何查询工单处理进度"
+      ]
+    },
+    {
+      "recipe": "replace_code",
+      "id": "RV18",
+      "group": "phase4-v2-regression",
+      "positive": true,
+      "query": "分析任务显示DEGRADED且结果来自RULE，能不能在演示中说大模型分析成功了？",
+      "effective_query": "分析任务显示规则兜底且结果来自规则，能不能在演示中说大模型分析成功了？",
+      "old_score": 0.6306457364395208,
+      "new_score": 0.5534116168133738,
+      "old_rank": 2,
+      "new_rank": 2,
+      "new_top_sources": [
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "recipe": "append_alias",
+      "id": "RH16",
+      "group": "phase4-v1",
+      "positive": true,
+      "query": "PUT更新时只带标题、不带原来的描述，描述会保留吗？更新后有没有审计？",
+      "effective_query": "PUT 全量替换更新更新时只带标题、不带原来的描述，描述会保留吗？更新后有没有审计？",
+      "old_score": 0.6426883188094703,
+      "new_score": 0.6312094650354545,
+      "old_rank": 1,
+      "new_rank": 1,
+      "new_top_sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号"
+      ]
+    },
+    {
+      "recipe": "append_alias",
+      "id": "RH18",
+      "group": "phase4-v1",
+      "positive": true,
+      "query": "创建请求成功后分析状态变成DEGRADED，这能作为大模型分析成功的证明吗？",
+      "effective_query": "创建请求成功后分析状态变成DEGRADED 规则兜底，这能作为大模型分析成功的证明吗？",
+      "old_score": 0.5975333469085639,
+      "new_score": 0.5819805668082157,
+      "old_rank": 1,
+      "new_rank": 1,
+      "new_top_sources": [
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    },
+    {
+      "recipe": "append_alias",
+      "id": "RV13",
+      "group": "phase4-v2-regression",
+      "positive": true,
+      "query": "工单PENDING_ASSIGN时调用解决接口能跳过管理员指派吗？",
+      "effective_query": "工单PENDING_ASSIGN 待分配时调用解决接口能跳过管理员指派吗？",
+      "old_score": 0.657860171817899,
+      "new_score": 0.6608285258643314,
+      "old_rank": 0,
+      "new_rank": 0,
+      "new_top_sources": [
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+        "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开",
+        "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单"
+      ]
+    },
+    {
+      "recipe": "append_alias",
+      "id": "RV16",
+      "group": "phase4-v2-regression",
+      "positive": true,
+      "query": "更新工单走PUT时省略可空描述字段是否安全保留旧值？成功后如何追踪更新？",
+      "effective_query": "更新工单走PUT 全量替换更新时省略可空描述字段是否安全保留旧值？成功后如何追踪更新？",
+      "old_score": 0.6864016259085163,
+      "new_score": 0.6737077667564203,
+      "old_rank": 1,
+      "new_rank": 1,
+      "new_top_sources": [
+        "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+        "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+        "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号"
+      ]
+    },
+    {
+      "recipe": "append_alias",
+      "id": "RV18",
+      "group": "phase4-v2-regression",
+      "positive": true,
+      "query": "分析任务显示DEGRADED且结果来自RULE，能不能在演示中说大模型分析成功了？",
+      "effective_query": "分析任务显示DEGRADED 规则兜底且结果来自RULE 规则，能不能在演示中说大模型分析成功了？",
+      "old_score": 0.6306457364395208,
+      "new_score": 0.5839498925791515,
+      "old_rank": 2,
+      "new_rank": 2,
+      "new_top_sources": [
+        "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+        "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+        "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+      ]
+    }
+  ]
+}

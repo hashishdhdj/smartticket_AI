@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-19T13:04:43",
+  "status": "PASS",
+  "vendor_calls": 0,
+  "image": "maven:3.9.16-eclipse-temurin-17",
+  "image_digest": "maven@sha256:1a352420f7aba21f5ad08df31bab55f74c013fb491f1ae8ab1dd7ff9ed698584",
+  "scope": "Fresh Linux container and empty Maven cache on the same Docker host; not another physical machine or remote CI",
+  "source_manifest": "07_测试与质量/06_阶段测试报告/20261019_130442_42a149_Linux复现源码清单.json",
+  "source_manifest_sha256": "23c53a323b15c1a3a0cd07076a1650c30aa26e375bb78b13f933e5985e270bbd",
+  "private_configuration_in_source": false,
+  "private_logs": ".tmp/linux-repro-20261019_130442_42a149/out",
+  "container_exit_code": 0,
+  "unit": {
+    "tests": 234,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "unit_build_success": true,
+  "integration": {
+    "tests": 137,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "integration_build_success": true
+}

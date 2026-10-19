@@ -1,0 +1,20 @@
+{
+  "version": "phase4-v1",
+  "author_review_status": "PENDING",
+  "labels_locked_before_first_run": true,
+  "independent_wording_note": "新编演示问法，不复制旧32题；小语料、AI协助标注，泛化和答案语义需人工复核。",
+  "files": {
+    "rag-heldout-v1.jsonl": {
+      "count": 30,
+      "sha256": "3cd289664ab4247cae11521cb966d422a856412a5c0374e13b768a3507992cc2"
+    },
+    "classification-heldout-v1.jsonl": {
+      "count": 30,
+      "sha256": "f6d8efe9f05c8bd45e470939ba96a667f27f9af8456d8522aac6bcdfe4f907bb"
+    },
+    "agent-real-v1.jsonl": {
+      "count": 20,
+      "sha256": "1bad407d0d1feda7d5d1af6dc3a749cedf61cd91c16d5df402ad7846eae45c1f"
+    }
+  }
+}

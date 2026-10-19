@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-14",
+  "model": "deepseek-flash",
+  "kind": "PROJECT_REAL_SMOKE",
+  "independent_evaluation": false,
+  "authorized_batch_budget_rmb": 10,
+  "embedding_calls": 0,
+  "background_model_calls": 0,
+  "results": [
+    {
+      "kind": "classification",
+      "response": {
+        "degraded": false,
+        "category": "账户问题",
+        "priority": "MEDIUM",
+        "confidence": 0.9,
+        "keywords": [
+          "忘记登录密码",
+          "个人账号",
+          "无法登录"
+        ],
+        "reason": "用户个人账号忘记密码导致无法登录，属于账户问题；仅本人受影响，不影响整体系统，故定为中优先级。",
+        "promptVersion": "ticket-classify-v1",
+        "model": "deepseek-flash",
+        "costMs": 1928
+      },
+      "passed": true
+    },
+    {
+      "kind": "agent_detail_logs",
+      "ticketId": 81,
+      "response": {
+        "runId": "f391509a-d746-437b-b56e-c8ae60204d0f",
+        "status": "SUCCEEDED",
+        "answer": "以下是 81 号工单的查询结果（来源：getTicketDetail、getTicketLogs）：\n\n**工单详情**\n- 标题：真实Agent冒烟-合成工单\n- 当前状态：PENDING_ASSIGN（待指派）\n- 优先级：MEDIUM\n- 描述：仅验证查询与日志工具，不涉及真实用户\n\n**最近操作记录**（仅 1 条）\n- 操作 ID 97｜操作人 109014｜动作：CREATE（创建工单）｜状态变更为 PENDING_ASSIGN｜备注：创建工单｜时间：2026-10-14T10:53:44\n\n说明：该工单自创建后没有后续操作记录，当前仍处于待指派状态。按要求未进行知识检索或指派操作。",
+        "needHuman": false,
+        "modelCalls": 2,
+        "toolCalls": 2,
+        "tokens": 1518,
+        "steps": [
+          {
+            "tool": "getTicketDetail",
+            "outcome": "SUCCESS",
+            "costMs": 596
+          },
+          {
+            "tool": "getTicketLogs",
+            "outcome": "SUCCESS",
+            "costMs": 7
+          }
+        ],
+        "evidence": [
+          {
+            "id": 81,
+            "version": 0,
+            "title": "真实Agent冒烟-合成工单",
+            "status": "PENDING_ASSIGN",
+            "priority": "MEDIUM",
+            "description": "仅验证查询与日志工具，不涉及真实用户"
+          },
+          [
+            {
+              "id": 97,
+              "ticketId": 81,
+              "operatorId": 109014,
+              "action": "CREATE",
+              "toStatus": "PENDING_ASSIGN",
+              "remark": "创建工单",
+              "createdAt": "2026-10-14T10:53:44"
+            }
+          ]
+        ]
+      },
+      "passed": true
+    }
+  ],
+  "status": "PASS",
+  "review_note": "核对真实响应、工具轨迹、工单详情与CREATE日志；单次冒烟不代表独立任务完成率。",
+  "billing_note": "Agent实际totalTokens=1518；分类SDK尚未暴露实际usage。预检估算费用不是整批账单；按默认50k预留与5次512输出的保守峰值价包络估算，本轮小于1元，厂商账单未核对。"
+}

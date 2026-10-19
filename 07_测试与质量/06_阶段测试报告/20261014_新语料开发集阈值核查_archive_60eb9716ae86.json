@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-15",
+  "kind": "DEVELOPMENT_CALIBRATION",
+  "independent_evaluation": false,
+  "starting_threshold": 0.66,
+  "embedding_model": "bge-m3:latest",
+  "embedding_provider": "ollama",
+  "dimensions": 1024,
+  "rows": [],
+  "status": "FAILED_OR_INCOMPLETE",
+  "error_type": "AssertionError"
+}

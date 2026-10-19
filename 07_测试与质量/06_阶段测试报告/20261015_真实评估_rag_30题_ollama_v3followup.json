@@ -1,0 +1,2879 @@
+{
+  "date": "2026-10-15",
+  "kind": "REAL_FROZEN_DRAFT_EVALUATION",
+  "threshold": 0.66,
+  "embedding_model": "bge-m3:latest",
+  "embedding_provider": "ollama",
+  "dataset_manifest": {
+    "version": "phase4-v2-regression",
+    "purpose": "FOLLOWUP_REGRESSION_NOT_BLIND_ACCEPTANCE",
+    "author_review_status": "PENDING",
+    "created_before_first_v3_vendor_evaluation": true,
+    "note": "New formulations frozen before v3 model execution; deliberately covers known failure classes. AI-assisted labels require author review; not independent blind evidence.",
+    "files": {
+      "rag-followup-v2.jsonl": {
+        "count": 30,
+        "sha256": "843e6be0a5602eb1de14be1c88195dd1becef0f245776fc3baee0f58c7ec0d34"
+      }
+    }
+  },
+  "dataset_directory": "phase4-v2-regression",
+  "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+  "prompt_sha256": {
+    "ai-classification-result.schema.json": "b309fe4315ec477a2e347047324cc9709f9546049f8ef9b110751258d4f6e1ee",
+    "rag-answer-result.schema.json": "847c103e1193218a2a6a74aa6033479cd5aa00724e9f345993785c6a052939cf",
+    "rag-answer-system.md": "fe6c51e2ed059d8dc8c36b4b5bfbf651c8e875492dce2f011ae5e4febbbbf666",
+    "rag-answer-user.md": "abcfb0b0e16b424666c29a17a087c36891f158a96b49d65a215332320351d8cc",
+    "ticket-classify-system.md": "fb1225abffda6b39735f0f6422c758160af1bd742a4142e8392fce142452cf06",
+    "ticket-classify-user.md": "1aa831f32b0bb781bf8dd97466d2964e34407800dc03f86e7ce6cda143ca3f83"
+  },
+  "corpus_sha256": "1651ef1d0917d08c3f0c42e9fa2df9a5d6e70678324c4d4f10a2e3f9b3626d58",
+  "author_review_status": "PENDING",
+  "semantic_answer_quality": "PENDING_HUMAN_REVIEW",
+  "rows": [
+    {
+      "id": "RV01",
+      "kind": "rag",
+      "case": {
+        "id": "RV01",
+        "kind": "rag",
+        "query": "演示客服场景中，设备时间没有自动校准且登录验证码反复被拒绝，最先尝试哪个检查？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+        ],
+        "reference_answer": "检查设备日期与时间自动获取，重新获取验证码；模拟平台规则，不保证通用适用。",
+        "required_facts": [
+          "时间",
+          "验证码"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043434.9770048,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 0.5,
+        "retrieval_healthy": true,
+        "threshold_abstention": false,
+        "abstention_flag_correct": true,
+        "has_generated_answer": true,
+        "degraded_sources": [],
+        "required_fact_text_matches": [
+          "时间",
+          "验证码"
+        ],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.7219500855700518,
+        "suggestion": "演示规则：先让用户把设备「日期与时间」改为自动获取，再重新获取验证码登录；该场景为模拟，非当前项目已实现能力。",
+        "similarQuestions": [
+          "登录页反复提示验证码错误，多设备均无法登录",
+          "登录时提示「验证码异常」怎么办",
+          "原手机号已停用，无法自助更换绑定手机号"
+        ],
+        "sources": [
+          {
+            "sourceFile": "tickets/01-账户问题.md",
+            "title": "登录页反复提示验证码错误，多设备均无法登录",
+            "score": 0.7219500855700518,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：今天上午开始，输入正确的验证码后仍然提示「验证码错误」，换了浏览器和手机都一样，全部无法登录。 **分类与优先级**：账户问题 / HIGH…"
+          },
+          {
+            "sourceFile": "faq/01-账户问题.md",
+            "title": "登录时提示「验证码异常」怎么办",
+            "score": 0.6742982316095565,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：输入验证码后提示异常或错误，反复重试仍无法登录。 **处理步骤**： 1. 检查手机「日期与时间」是否为自动获取。系统时间偏差超过 5 分钟…"
+          },
+          {
+            "sourceFile": "tickets/01-账户问题.md",
+            "title": "原手机号已停用，无法自助更换绑定手机号",
+            "score": 0.6274879539748671,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：换号后想更新绑定手机号，但收不到原号的验证码，自助更换走不通。 **分类与优先级**：账户问题 / MEDIUM **排查过程**： 1. …"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 3591
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 3625,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:50:35.192039+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 29,
+            "total_tokens": 29
+          },
+          "http_status": 200
+        },
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.033282,
+          "charged_upper_rmb": 0.005783999999999999,
+          "dispatched_at": "2026-10-15T13:50:36.464881+08:00",
+          "state": "RESPONDED",
+          "execution_scope": "EXTERNAL",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1572,
+            "completion_tokens": 89,
+            "total_tokens": 1661,
+            "prompt_tokens_details": {
+              "cached_tokens": 512
+            },
+            "prompt_cache_hit_tokens": 512,
+            "prompt_cache_miss_tokens": 1060
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV02",
+      "kind": "rag",
+      "case": {
+        "id": "RV02",
+        "kind": "rag",
+        "query": "按演示账号规则，忘记口令但注册手机号仍由本人持有，如何重设？这个项目实现了该短信流程吗？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/01-账户问题.md#如何重置登录密码"
+        ],
+        "reference_answer": "模拟平台通过忘记密码、注册手机号验证码设置新密码。",
+        "required_facts": [
+          "手机号",
+          "密码"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043438.5970833,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 0.5,
+        "retrieval_healthy": true,
+        "threshold_abstention": true,
+        "abstention_flag_correct": false,
+        "has_generated_answer": false,
+        "degraded_sources": [],
+        "required_fact_text_matches": [],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.6309619169854525,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "faq/01-账户问题.md",
+            "title": "如何更换绑定手机号",
+            "score": 0.6309619169854525,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：原手机号停用、换号，需要更新账号绑定。 **处理步骤**： 1. 原手机号仍可用：在「账号设置 → 安全中心 → 更换手机号」中，先验证原号…"
+          },
+          {
+            "sourceFile": "faq/01-账户问题.md",
+            "title": "如何重置登录密码",
+            "score": 0.6289032135394794,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：忘记密码，或怀疑密码泄露需要更换。 **处理步骤**： 1. 在登录页点击「忘记密码」。 2. 输入注册时使用的手机号，获取短信验证码。 3…"
+          },
+          {
+            "sourceFile": "tickets/01-账户问题.md",
+            "title": "原手机号已停用，无法自助更换绑定手机号",
+            "score": 0.6272651168473939,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：换号后想更新绑定手机号，但收不到原号的验证码，自助更换走不通。 **分类与优先级**：账户问题 / MEDIUM **排查过程**： 1. …"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 1115
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 1125,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:50:38.619187+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 33,
+            "total_tokens": 33
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV03",
+      "kind": "rag",
+      "case": {
+        "id": "RV03",
+        "kind": "rag",
+        "query": "演示账号明确标记永久锁定，等30分钟就一定解锁吗？下一步应该怎么处理？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/01-账户问题.md#账号被锁定如何解锁"
+        ],
+        "reference_answer": "永久锁定或等待后仍不可用应人工核验，不能承诺自动解锁。",
+        "required_facts": [
+          "人工",
+          "锁定"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043439.7274163,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 0.5,
+        "retrieval_healthy": true,
+        "threshold_abstention": false,
+        "abstention_flag_correct": true,
+        "has_generated_answer": true,
+        "degraded_sources": [],
+        "required_fact_text_matches": [
+          "人工",
+          "锁定"
+        ],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.6848286733542462,
+        "suggestion": "演示规则：永久锁定不会因等待30分钟自动解锁，需提交工单人工核验注册手机号、最近成功登录时间和常用设备型号。",
+        "similarQuestions": [
+          "账号被提示永久锁定，等待后仍不可用",
+          "账号被锁定如何解锁",
+          "页面一直转圈或白屏怎么办"
+        ],
+        "sources": [
+          {
+            "sourceFile": "tickets/01-账户问题.md",
+            "title": "账号被提示永久锁定，等待后仍不可用",
+            "score": 0.6848286733542462,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：账号提示已锁定，等了半小时还是无法登录。 **分类与优先级**：账户问题 / HIGH **排查过程**： 1. 查询风控记录，发现该账号命…"
+          },
+          {
+            "sourceFile": "faq/01-账户问题.md",
+            "title": "账号被锁定如何解锁",
+            "score": 0.6516023666621676,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：连续多次输入错误密码后账号被锁定，提示「账号已锁定」。 **处理步骤**： 1. 密码错误导致的锁定为**临时锁定，30 分钟后自动解除**…"
+          },
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "页面一直转圈或白屏怎么办",
+            "score": 0.5814837411603352,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：页面打开后长时间停留在加载状态，或显示空白页。 **处理步骤**： 1. 强制刷新页面：Windows 按 `Ctrl + F5`，macO…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 2643
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 2672,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:50:39.764193+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 27,
+            "total_tokens": 27
+          },
+          "http_status": 200
+        },
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.031992,
+          "charged_upper_rmb": 0.005336999999999999,
+          "dispatched_at": "2026-10-15T13:50:40.872952+08:00",
+          "state": "RESPONDED",
+          "execution_scope": "EXTERNAL",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1467,
+            "completion_tokens": 78,
+            "total_tokens": 1545,
+            "prompt_tokens_details": {
+              "cached_tokens": 512
+            },
+            "prompt_cache_hit_tokens": 512,
+            "prompt_cache_miss_tokens": 955
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV04",
+      "kind": "rag",
+      "case": {
+        "id": "RV04",
+        "kind": "rag",
+        "query": "演示平台的原绑定手机号无法使用，能跳过身份审核直接改号码吗？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/01-账户问题.md#如何更换绑定手机号"
+        ],
+        "reference_answer": "原号码不可用，需人工身份核验，不能跳过核验自行换绑。",
+        "required_facts": [
+          "人工",
+          "手机号"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043442.399082,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 0.5,
+        "retrieval_healthy": true,
+        "threshold_abstention": false,
+        "abstention_flag_correct": true,
+        "has_generated_answer": true,
+        "degraded_sources": [],
+        "required_fact_text_matches": [
+          "人工",
+          "手机号"
+        ],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.7081986939315235,
+        "suggestion": "演示规则：原号停用无法跳过审核自助换号，需提交工单人工核验账号ID、原手机号、新手机号及近期登录记录；该能力非当前项目已实现。",
+        "similarQuestions": [
+          "原手机号已停用，无法自助更换绑定手机号",
+          "如何更换绑定手机号",
+          "如何重置登录密码"
+        ],
+        "sources": [
+          {
+            "sourceFile": "tickets/01-账户问题.md",
+            "title": "原手机号已停用，无法自助更换绑定手机号",
+            "score": 0.7081986939315235,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：换号后想更新绑定手机号，但收不到原号的验证码，自助更换走不通。 **分类与优先级**：账户问题 / MEDIUM **排查过程**： 1. …"
+          },
+          {
+            "sourceFile": "faq/01-账户问题.md",
+            "title": "如何更换绑定手机号",
+            "score": 0.7010473670448237,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：原手机号停用、换号，需要更新账号绑定。 **处理步骤**： 1. 原手机号仍可用：在「账号设置 → 安全中心 → 更换手机号」中，先验证原号…"
+          },
+          {
+            "sourceFile": "faq/01-账户问题.md",
+            "title": "如何重置登录密码",
+            "score": 0.5931112457977668,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：忘记密码，或怀疑密码泄露需要更换。 **处理步骤**： 1. 在登录页点击「忘记密码」。 2. 输入注册时使用的手机号，获取短信验证码。 3…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 3010
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 3047,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:50:42.446100+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 25,
+            "total_tokens": 25
+          },
+          "http_status": 200
+        },
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.031245000000000002,
+          "charged_upper_rmb": 0.0054719999999999994,
+          "dispatched_at": "2026-10-15T13:50:43.527629+08:00",
+          "state": "RESPONDED",
+          "execution_scope": "EXTERNAL",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1432,
+            "completion_tokens": 98,
+            "total_tokens": 1530,
+            "prompt_tokens_details": {
+              "cached_tokens": 512
+            },
+            "prompt_cache_hit_tokens": 512,
+            "prompt_cache_miss_tokens": 920
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV05",
+      "kind": "rag",
+      "case": {
+        "id": "RV05",
+        "kind": "rag",
+        "query": "演示场景连续三次无法收到短信，联系人工时应该附上哪些排查信息？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/01-账户问题.md#收不到验证码短信怎么办"
+        ],
+        "reference_answer": "核对网络、拦截等；持续无短信提供手机号和尝试时间，请人工查下发记录。",
+        "required_facts": [
+          "时间",
+          "手机号"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043445.4435136,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 1.0,
+        "retrieval_healthy": true,
+        "threshold_abstention": false,
+        "abstention_flag_correct": true,
+        "has_generated_answer": true,
+        "degraded_sources": [],
+        "required_fact_text_matches": [
+          "时间",
+          "手机号"
+        ],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.6784768275077947,
+        "suggestion": "演示规则：连续3次收不到短信可提交工单，附手机号与尝试时间供人工核查；该短信能力非当前项目已实现功能。",
+        "similarQuestions": [
+          "收不到验证码短信怎么办",
+          "提示订单已失效，但用户称已收到扣款短信",
+          "登录时提示「验证码异常」怎么办"
+        ],
+        "sources": [
+          {
+            "sourceFile": "faq/01-账户问题.md",
+            "title": "收不到验证码短信怎么办",
+            "score": 0.6784768275077947,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：点击获取验证码后长时间未收到短信。 **处理步骤**： 1. 等待 60 秒后重试，部分运营商存在延迟。 2. 检查手机是否开启短信拦截、是…"
+          },
+          {
+            "sourceFile": "tickets/02-支付问题.md",
+            "title": "提示订单已失效，但用户称已收到扣款短信",
+            "score": 0.6227286947041717,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：点击支付后提示「订单已失效」，随后收到银行扣款短信。 **分类与优先级**：支付问题 / HIGH **排查过程**： 1. 未支付订单保留…"
+          },
+          {
+            "sourceFile": "faq/01-账户问题.md",
+            "title": "登录时提示「验证码异常」怎么办",
+            "score": 0.6138177514076931,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：输入验证码后提示异常或错误，反复重试仍无法登录。 **处理步骤**： 1. 检查手机「日期与时间」是否为自动获取。系统时间偏差超过 5 分钟…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 3432
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 3469,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:50:45.482519+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 23,
+            "total_tokens": 23
+          },
+          "http_status": 200
+        },
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.03216,
+          "charged_upper_rmb": 0.005417999999999999,
+          "dispatched_at": "2026-10-15T13:50:47.041965+08:00",
+          "state": "RESPONDED",
+          "execution_scope": "EXTERNAL",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1494,
+            "completion_tokens": 78,
+            "total_tokens": 1572,
+            "prompt_tokens_details": {
+              "cached_tokens": 512
+            },
+            "prompt_cache_hit_tokens": 512,
+            "prompt_cache_miss_tokens": 982
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV06",
+      "kind": "rag",
+      "case": {
+        "id": "RV06",
+        "kind": "rag",
+        "query": "演示支付场景已被扣钱却查不到订单，是否应该反复再付款？需要保留什么证据？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+        ],
+        "reference_answer": "不要重复下单，保存渠道交易流水号、金额和时间，人工对账；不保证实际到账时限。",
+        "required_facts": [
+          "流水",
+          "对账"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043448.9042318,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 0.5,
+        "retrieval_healthy": true,
+        "threshold_abstention": false,
+        "abstention_flag_correct": true,
+        "has_generated_answer": true,
+        "degraded_sources": [],
+        "required_fact_text_matches": [
+          "流水",
+          "对账"
+        ],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.7070748318336456,
+        "suggestion": "演示规则：先停止重复下单，记录渠道交易流水号、扣款金额和时间，提交工单人工对账；相关支付功能非当前项目已实现能力。",
+        "similarQuestions": [
+          "银行卡已扣款但订单列表中没有该订单",
+          "支付成功但订单未生成怎么办",
+          "同一笔订单被扣款两次"
+        ],
+        "sources": [
+          {
+            "sourceFile": "tickets/02-支付问题.md",
+            "title": "银行卡已扣款但订单列表中没有该订单",
+            "score": 0.7070748318336456,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：10 点 23 分下单，页面一直转圈，5 分钟后刷新发现银行卡已扣款成功，但订单列表里没有这笔订单。再下一单又提示失败。 **分类与优先级*…"
+          },
+          {
+            "sourceFile": "faq/02-支付问题.md",
+            "title": "支付成功但订单未生成怎么办",
+            "score": 0.6788599130093792,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：银行或支付渠道已扣款成功，但订单列表中没有对应订单。 **处理步骤**： 1. 先等待 3~5 分钟并下拉刷新订单列表。支付渠道回调存在延迟…"
+          },
+          {
+            "sourceFile": "tickets/02-支付问题.md",
+            "title": "同一笔订单被扣款两次",
+            "score": 0.6761995335401946,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：下单后发现银行卡被扣了两笔相同金额，订单只有一笔。 **分类与优先级**：支付问题 / URGENT **排查过程**： 1. 收集两笔扣款…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 2825
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 2843,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:50:48.931989+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 26,
+            "total_tokens": 26
+          },
+          "http_status": 200
+        },
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.033243,
+          "charged_upper_rmb": 0.005712,
+          "dispatched_at": "2026-10-15T13:50:50.014302+08:00",
+          "state": "RESPONDED",
+          "execution_scope": "EXTERNAL",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1584,
+            "completion_tokens": 80,
+            "total_tokens": 1664,
+            "prompt_tokens_details": {
+              "cached_tokens": 512
+            },
+            "prompt_cache_hit_tokens": 512,
+            "prompt_cache_miss_tokens": 1072
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV07",
+      "kind": "rag",
+      "case": {
+        "id": "RV07",
+        "kind": "rag",
+        "query": "演示场景有两笔疑似重复交易，能保证立即退到指定新账号吗？如何先核验？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/02-支付问题.md#重复扣款如何申请退款"
+        ],
+        "reference_answer": "保存两笔流水和金额，人工核对后按渠道办理原路退款。",
+        "required_facts": [
+          "流水",
+          "金额"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043451.74792,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 0.5,
+        "retrieval_healthy": true,
+        "threshold_abstention": false,
+        "abstention_flag_correct": true,
+        "has_generated_answer": true,
+        "degraded_sources": [],
+        "required_fact_text_matches": [
+          "流水",
+          "金额"
+        ],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.6820997323514502,
+        "suggestion": "演示规则：退款只能原路返回，不能退到指定新账号；先收集两笔渠道流水号与金额，提交支付问题-重复扣款工单人工核验。",
+        "similarQuestions": [
+          "同一笔订单被扣款两次",
+          "重复扣款如何申请退款",
+          "银行卡已扣款但订单列表中没有该订单"
+        ],
+        "sources": [
+          {
+            "sourceFile": "tickets/02-支付问题.md",
+            "title": "同一笔订单被扣款两次",
+            "score": 0.6820997323514502,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：下单后发现银行卡被扣了两笔相同金额，订单只有一笔。 **分类与优先级**：支付问题 / URGENT **排查过程**： 1. 收集两笔扣款…"
+          },
+          {
+            "sourceFile": "faq/02-支付问题.md",
+            "title": "重复扣款如何申请退款",
+            "score": 0.6623779542962406,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：同一笔订单被扣款两次及以上。 **处理步骤**： 1. 收集两次扣款的渠道流水号与金额。 2. 提交工单，类型选择「支付问题 - 重复扣款」…"
+          },
+          {
+            "sourceFile": "tickets/02-支付问题.md",
+            "title": "银行卡已扣款但订单列表中没有该订单",
+            "score": 0.6491375000827025,
+            "summary": "属渠道与平台的最终一致性问题。 **解决方案**：人工对账确认后申请原路退款，到账时间由渠道确认；同时提示用户重新下单。 **可复用结论**：三个关键动作——① 立即制止重复下单；② 索要**渠道流水号**（不是订单号，此时还没有订单）；③ 走人工对账而非退款流程，因为平台侧根本没有订单可退。对账通…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 2729
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 2750,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:50:51.783240+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 28,
+            "total_tokens": 28
+          },
+          "http_status": 200
+        },
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.030648,
+          "charged_upper_rmb": 0.005106,
+          "dispatched_at": "2026-10-15T13:50:52.890315+08:00",
+          "state": "RESPONDED",
+          "execution_scope": "EXTERNAL",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1370,
+            "completion_tokens": 83,
+            "total_tokens": 1453,
+            "prompt_tokens_details": {
+              "cached_tokens": 512
+            },
+            "prompt_cache_hit_tokens": 512,
+            "prompt_cache_miss_tokens": 858
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV08",
+      "kind": "rag",
+      "case": {
+        "id": "RV08",
+        "kind": "rag",
+        "query": "演示平台交易页面报超时，但银行显示扣款，这时应如何核实支付状态？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/02-支付问题.md#支付时提示「订单已失效」怎么办"
+        ],
+        "reference_answer": "不能按未付款直接结案，要核实流水和渠道扣款，走已扣款无订单的人工对账。",
+        "required_facts": [
+          "扣款",
+          "对账"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043454.5037642,
+      "checks": {
+        "hit_at_3": false,
+        "reciprocal_rank_at_3": 0,
+        "retrieval_healthy": true,
+        "threshold_abstention": false,
+        "abstention_flag_correct": false,
+        "has_generated_answer": false,
+        "degraded_sources": [],
+        "required_fact_text_matches": [],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.7089579218811186,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "tickets/02-支付问题.md",
+            "title": "银行卡已扣款但订单列表中没有该订单",
+            "score": 0.7089579218811186,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：10 点 23 分下单，页面一直转圈，5 分钟后刷新发现银行卡已扣款成功，但订单列表里没有这笔订单。再下一单又提示失败。 **分类与优先级*…"
+          },
+          {
+            "sourceFile": "tickets/02-支付问题.md",
+            "title": "同一笔订单被扣款两次",
+            "score": 0.7043807229202381,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：下单后发现银行卡被扣了两笔相同金额，订单只有一笔。 **分类与优先级**：支付问题 / URGENT **排查过程**： 1. 收集两笔扣款…"
+          },
+          {
+            "sourceFile": "tickets/02-支付问题.md",
+            "title": "提示订单已失效，但用户称已收到扣款短信",
+            "score": 0.702669626951752,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：点击支付后提示「订单已失效」，随后收到银行扣款短信。 **分类与优先级**：支付问题 / HIGH **排查过程**： 1. 未支付订单保留…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 3174
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 3204,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:50:54.539984+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 25,
+            "total_tokens": 25
+          },
+          "http_status": 200
+        },
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.033846,
+          "charged_upper_rmb": 0.006069,
+          "dispatched_at": "2026-10-15T13:50:55.626198+08:00",
+          "state": "RESPONDED",
+          "execution_scope": "EXTERNAL",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1635,
+            "completion_tokens": 97,
+            "total_tokens": 1732,
+            "prompt_tokens_details": {
+              "cached_tokens": 512
+            },
+            "prompt_cache_hit_tokens": 512,
+            "prompt_cache_miss_tokens": 1123
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV09",
+      "kind": "rag",
+      "case": {
+        "id": "RV09",
+        "kind": "rag",
+        "query": "只讨论演示开票规则：用户用了优惠券，发票金额是否包含券抵扣部分？实际系统是否已有开票接口？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/02-支付问题.md#如何申请开具发票"
+        ],
+        "reference_answer": "模拟规则按实付金额、不包括优惠券；真实规则需业务核实。",
+        "required_facts": [
+          "实付",
+          "优惠"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043457.7060988,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 1.0,
+        "retrieval_healthy": true,
+        "threshold_abstention": true,
+        "abstention_flag_correct": false,
+        "has_generated_answer": false,
+        "degraded_sources": [],
+        "required_fact_text_matches": [],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.6107401101786414,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "faq/02-支付问题.md",
+            "title": "如何申请开具发票",
+            "score": 0.6107401101786414,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：需要为已完成的订单申请发票。 **处理步骤**： 1. 在「我的订单」中找到已完成订单，点击「申请发票」。 2. 选择抬头类型（个人 / 企…"
+          },
+          {
+            "sourceFile": "tickets/02-支付问题.md",
+            "title": "同一笔订单被扣款两次",
+            "score": 0.5625979993405849,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：下单后发现银行卡被扣了两笔相同金额，订单只有一笔。 **分类与优先级**：支付问题 / URGENT **排查过程**： 1. 收集两笔扣款…"
+          },
+          {
+            "sourceFile": "tickets/02-支付问题.md",
+            "title": "提示订单已失效，但用户称已收到扣款短信",
+            "score": 0.5499889105525503,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：点击支付后提示「订单已失效」，随后收到银行扣款短信。 **分类与优先级**：支付问题 / HIGH **排查过程**： 1. 未支付订单保留…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 1100
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 1125,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:50:57.741874+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 35,
+            "total_tokens": 35
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV10",
+      "kind": "rag",
+      "case": {
+        "id": "RV10",
+        "kind": "rag",
+        "query": "演示页面出现空白，浏览器网络请求失败时，给客服哪些信息有助于定位？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/03-功能异常.md#页面一直转圈或白屏怎么办"
+        ],
+        "reference_answer": "记录失败请求状态、页面、环境及时间，排查缓存/网络，无法恢复转人工。",
+        "required_facts": [
+          "状态",
+          "时间"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043458.8347096,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 1.0,
+        "retrieval_healthy": true,
+        "threshold_abstention": false,
+        "abstention_flag_correct": true,
+        "has_generated_answer": true,
+        "degraded_sources": [],
+        "required_fact_text_matches": [
+          "状态"
+        ],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.6717573795608593,
+        "suggestion": "演示规则：让用户打开开发者工具网络面板，记录失败请求的状态码与地址并附在工单中；该页面能力非当前项目已实现。",
+        "similarQuestions": [
+          "页面一直转圈或白屏怎么办",
+          "打开工单详情页白屏",
+          "提交表单提示「系统繁忙」怎么办"
+        ],
+        "sources": [
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "页面一直转圈或白屏怎么办",
+            "score": 0.6717573795608593,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：页面打开后长时间停留在加载状态，或显示空白页。 **处理步骤**： 1. 强制刷新页面：Windows 按 `Ctrl + F5`，macO…"
+          },
+          {
+            "sourceFile": "tickets/03-功能异常.md",
+            "title": "打开工单详情页白屏",
+            "score": 0.6312550494450092,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：从列表点进某条工单详情，页面全白，其他工单正常。 **分类与优先级**：功能异常 / HIGH **排查过程**： 1. 让用户打开开发者工…"
+          },
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "提交表单提示「系统繁忙」怎么办",
+            "score": 0.5832773298325568,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：提交表单或保存时提示系统繁忙、操作失败。 **处理步骤**： 1. **不要连续重复点击提交**，等待 10~30 秒后再试一次。 2. 若…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 5087
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 5109,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:50:58.862393+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 22,
+            "total_tokens": 22
+          },
+          "http_status": 200
+        },
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.03195,
+          "charged_upper_rmb": 0.00528,
+          "dispatched_at": "2026-10-15T13:50:59.962624+08:00",
+          "state": "RESPONDED",
+          "execution_scope": "EXTERNAL",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1460,
+            "completion_tokens": 75,
+            "total_tokens": 1535,
+            "prompt_tokens_details": {
+              "cached_tokens": 512
+            },
+            "prompt_cache_hit_tokens": 512,
+            "prompt_cache_miss_tokens": 948
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV11",
+      "kind": "rag",
+      "case": {
+        "id": "RV11",
+        "kind": "rag",
+        "query": "演示表单连续提交都繁忙，应该继续连点还是停止收集信息？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办"
+        ],
+        "reference_answer": "暂停频繁重复提交，按文档检查网络/重试，持续失败收集时间与表单情况交人工。",
+        "required_facts": [
+          "提交",
+          "人工"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043463.9411824,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 1.0,
+        "retrieval_healthy": true,
+        "threshold_abstention": false,
+        "abstention_flag_correct": true,
+        "has_generated_answer": true,
+        "degraded_sources": [],
+        "required_fact_text_matches": [
+          "提交"
+        ],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.6709838282572073,
+        "suggestion": "演示规则：不要连续重复点击提交，等待10~30秒再试一次；若持续失败记录时间并提交工单，当前项目未实现相关前端页面功能。",
+        "similarQuestions": [
+          "提交表单提示「系统繁忙」怎么办",
+          "订单列表条数与详情页不一致"
+        ],
+        "sources": [
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "提交表单提示「系统繁忙」怎么办",
+            "score": 0.6709838282572073,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：提交表单或保存时提示系统繁忙、操作失败。 **处理步骤**： 1. **不要连续重复点击提交**，等待 10~30 秒后再试一次。 2. 若…"
+          },
+          {
+            "sourceFile": "tickets/03-功能异常.md",
+            "title": "订单列表条数与详情页不一致",
+            "score": 0.593506839213377,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：列表显示 12 条订单，点进详情只有 11 条，刷新几次都一样。 **分类与优先级**：功能异常 / MEDIUM **排查过程**： 1.…"
+          },
+          {
+            "sourceFile": "tickets/03-功能异常.md",
+            "title": "订单列表条数与详情页不一致",
+            "score": 0.5899431002209384,
+            "summary": "属缓存注解覆盖不全。 **解决方案**：等待缓存自然过期（10 分钟内）后数据恢复正常；代码侧补齐列表缓存的失效逻辑。 **可复用结论**：**「列表与详情不一致」优先怀疑服务端缓存而非前端**——判断方法是对比\"实际数据库条数\"与\"接口返回条数\"。若接口返回偏多且带 10 分钟以内的时间特征，可将…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 8223
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 8266,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:51:03.991935+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 21,
+            "total_tokens": 21
+          },
+          "http_status": 200
+        },
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.030425999999999998,
+          "charged_upper_rmb": 0.004851,
+          "dispatched_at": "2026-10-15T13:51:05.069052+08:00",
+          "state": "RESPONDED",
+          "execution_scope": "EXTERNAL",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1341,
+            "completion_tokens": 69,
+            "total_tokens": 1410,
+            "prompt_tokens_details": {
+              "cached_tokens": 512
+            },
+            "prompt_cache_hit_tokens": 512,
+            "prompt_cache_miss_tokens": 829
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV12",
+      "kind": "rag",
+      "case": {
+        "id": "RV12",
+        "kind": "rag",
+        "query": "演示附件规则允许10MB，拿20MB PDF测试会失败吗？SmartTicket现在能实际上传附件吗？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/03-功能异常.md#上传附件失败怎么办"
+        ],
+        "reference_answer": "模拟单附件上限10MB，20MB先超过大小；实际项目未提供附件上传能力。",
+        "required_facts": [
+          "10",
+          "大小"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043472.2031004,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 1.0,
+        "retrieval_healthy": true,
+        "threshold_abstention": false,
+        "abstention_flag_correct": true,
+        "has_generated_answer": true,
+        "degraded_sources": [],
+        "required_fact_text_matches": [
+          "10"
+        ],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.7364421235053282,
+        "suggestion": "演示规则：模拟场景限单个附件10MB，20MB PDF会因超限失败；SmartTicket当前未实现附件上传能力，无法实际测试。",
+        "similarQuestions": [
+          "上传附件失败怎么办",
+          "上传附件提示格式不支持，但文件是允许的格式",
+          "提交表单提示「系统繁忙」怎么办"
+        ],
+        "sources": [
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "上传附件失败怎么办",
+            "score": 0.7364421235053282,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：上传图片或文档时提示失败，或进度条卡住。 **处理步骤**： 1. 检查文件大小：单个附件不得超过 **10 MB**。 2. 检查文件格式…"
+          },
+          {
+            "sourceFile": "tickets/03-功能异常.md",
+            "title": "上传附件提示格式不支持，但文件是允许的格式",
+            "score": 0.6938626145843391,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：上传一个 pdf 文件，提示格式不支持，换其他 pdf 也不行。 **分类与优先级**：功能异常 / LOW **排查过程**： 1. 确认…"
+          },
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "提交表单提示「系统繁忙」怎么办",
+            "score": 0.5806751231931102,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：提交表单或保存时提示系统繁忙、操作失败。 **处理步骤**： 1. **不要连续重复点击提交**，等待 10~30 秒后再试一次。 2. 若…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 2820
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 2859,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:51:12.252681+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 30,
+            "total_tokens": 30
+          },
+          "http_status": 200
+        },
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.031557,
+          "charged_upper_rmb": 0.005235,
+          "dispatched_at": "2026-10-15T13:51:13.345210+08:00",
+          "state": "RESPONDED",
+          "execution_scope": "EXTERNAL",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1449,
+            "completion_tokens": 74,
+            "total_tokens": 1523,
+            "prompt_tokens_details": {
+              "cached_tokens": 512
+            },
+            "prompt_cache_hit_tokens": 512,
+            "prompt_cache_miss_tokens": 937
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV13",
+      "kind": "rag",
+      "case": {
+        "id": "RV13",
+        "kind": "rag",
+        "query": "工单PENDING_ASSIGN时调用解决接口能跳过管理员指派吗？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/04-工单流程与通用问题.md#工单的处理流程与时限"
+        ],
+        "reference_answer": "当前解决接口拒绝待分配直接解决；先由管理员指派为处理中。",
+        "required_facts": [
+          "待分配",
+          "处理中"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043475.0626876,
+      "checks": {
+        "hit_at_3": false,
+        "reciprocal_rank_at_3": 0,
+        "retrieval_healthy": true,
+        "threshold_abstention": true,
+        "abstention_flag_correct": false,
+        "has_generated_answer": false,
+        "degraded_sources": [],
+        "required_fact_text_matches": [],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.6578600751520072,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "Agent提出指派后是否已经修改工单",
+            "score": 0.6578600751520072,
+            "summary": "**适用场景**：管理员要求Agent指派工单，返回待确认提案。 **处理步骤**：prepareAssignTicket只创建提案，不执行指派。管理员核对工单、处理人和摘要后，用同一账号调用action确认接口。提案绑定账号、工单版本、处理人和有效期；有效期为300秒。确认后才修改工单并记审计，重…"
+          },
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "哪些账号可以查看和修改工单",
+            "score": 0.6375356160295889,
+            "summary": "**适用场景**：访问接口收到401或403，或想了解工单的可见范围。 **处理步骤**：请求携带X-API-Key，服务端从凭据确定账号和角色。提交人只能访问自己创建的工单，处理人只能访问指派给自己的工单，管理员可以访问全部工单。当前普通更新、解决、关闭也要检查对象权限与状态；指派和分析重放只允许…"
+          },
+          {
+            "sourceFile": "faq/04-工单流程与通用问题.md",
+            "title": "工单被关闭后如何重新打开",
+            "score": 0.6253387632409011,
+            "summary": "**适用场景**：问题未真正解决，但工单已关闭。 **处理步骤**： 1. 当前公开接口没有重开操作，指派接口也拒绝已关闭工单；可**新建工单**继续说明问题。 2. 新建时在描述中引用原工单编号，并说明未解决的具体点。 3. 管理员根据实际情况选择处理人，系统不会自动优先分配原处理人。 **注意事…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 1114
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 1156,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:51:15.116216+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 25,
+            "total_tokens": 25
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV14",
+      "kind": "rag",
+      "case": {
+        "id": "RV14",
+        "kind": "rag",
+        "query": "处理人看到工单PROCESSING就代表AI模型已完成吗？分别从哪两个接口看？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/04-工单流程与通用问题.md#如何查询工单处理进度"
+        ],
+        "reference_answer": "工单详情查业务状态，analysis查分析任务，两套状态分开。",
+        "required_facts": [
+          "analysis",
+          "状态"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043476.2205377,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 0.3333333333333333,
+        "retrieval_healthy": true,
+        "threshold_abstention": false,
+        "abstention_flag_correct": true,
+        "has_generated_answer": true,
+        "degraded_sources": [],
+        "required_fact_text_matches": [
+          "analysis"
+        ],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.6923408920968221,
+        "suggestion": "工单PROCESSING不代表AI完成，需另查analysis接口；SUCCEEDED才是模型分析完成，DEGRADED为规则兜底。",
+        "similarQuestions": [
+          "如何判断工单的AI分析是否完成",
+          "AI建议会覆盖人工填写的分类和优先级吗",
+          "如何查询工单处理进度"
+        ],
+        "sources": [
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "如何判断工单的AI分析是否完成",
+            "score": 0.6923408920968221,
+            "summary": "**适用场景**：工单创建成功后暂时没有AI建议。 **处理步骤**：查询工单analysis接口。PENDING表示等待处理，RUNNING表示执行中；SUCCEEDED表示模型分析完成，DEGRADED表示规则兜底而非真实模型成功。FAILED表示失败，STALE表示分析输入已过时，NOT_RE…"
+          },
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "AI建议会覆盖人工填写的分类和优先级吗",
+            "score": 0.6364125609398069,
+            "summary": "**适用场景**：AI结果与人工判断不同，或分析期间已修改工单。 **处理步骤**：AI分析结果单独保存，人工工单字段保持有效。可比较建议、来源和理由，再由人作业务决定。模型执行前后校验输入工单版本，旧内容对应的结果会标记STALE，不能当作当前有效建议。 **注意事项**：模型判断可能错误，RUL…"
+          },
+          {
+            "sourceFile": "faq/04-工单流程与通用问题.md",
+            "title": "如何查询工单处理进度",
+            "score": 0.620102740532333,
+            "summary": "**适用场景**：想查看工单当前进展与处理记录。 **处理步骤**： 1. 使用自己的凭据查询工单列表或详情接口，查看当前状态与处理人。 2. 通过工单日志接口查看创建、更新、指派、解决和关闭等已记录操作。 3. 分析进度需另查analysis接口，分析任务状态与工单处理状态不是同一字段。 **注意…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 2634
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 2672,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:51:16.268284+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 27,
+            "total_tokens": 27
+          },
+          "http_status": 200
+        },
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.029516999999999998,
+          "charged_upper_rmb": 0.004752,
+          "dispatched_at": "2026-10-15T13:51:17.378103+08:00",
+          "state": "RESPONDED",
+          "execution_scope": "EXTERNAL",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1264,
+            "completion_tokens": 80,
+            "total_tokens": 1344,
+            "prompt_tokens_details": {
+              "cached_tokens": 512
+            },
+            "prompt_cache_hit_tokens": 512,
+            "prompt_cache_miss_tokens": 752
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV15",
+      "kind": "rag",
+      "case": {
+        "id": "RV15",
+        "kind": "rag",
+        "query": "状态转移矩阵允许CLOSED返回PROCESSING，是否等于项目已经提供可调用的重开API？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开"
+        ],
+        "reference_answer": "矩阵允许不代表公开API存在；当前没有重开入口，指派拒绝已关闭工单，可新建续报。",
+        "required_facts": [
+          "接口",
+          "新建"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043478.891288,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 1.0,
+        "retrieval_healthy": true,
+        "threshold_abstention": false,
+        "abstention_flag_correct": true,
+        "has_generated_answer": true,
+        "degraded_sources": [],
+        "required_fact_text_matches": [
+          "接口",
+          "新建"
+        ],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.6601543409046396,
+        "suggestion": "状态矩阵允许CLOSED转PROCESSING不代表存在重开HTTP入口，当前公开接口无重开操作，可新建工单并引用原工单编号。",
+        "similarQuestions": [
+          "工单被关闭后如何重新打开",
+          "Agent提出指派后是否已经修改工单",
+          "如何判断工单的AI分析是否完成"
+        ],
+        "sources": [
+          {
+            "sourceFile": "faq/04-工单流程与通用问题.md",
+            "title": "工单被关闭后如何重新打开",
+            "score": 0.6601543409046396,
+            "summary": "**适用场景**：问题未真正解决，但工单已关闭。 **处理步骤**： 1. 当前公开接口没有重开操作，指派接口也拒绝已关闭工单；可**新建工单**继续说明问题。 2. 新建时在描述中引用原工单编号，并说明未解决的具体点。 3. 管理员根据实际情况选择处理人，系统不会自动优先分配原处理人。 **注意事…"
+          },
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "Agent提出指派后是否已经修改工单",
+            "score": 0.5407931418408687,
+            "summary": "**适用场景**：管理员要求Agent指派工单，返回待确认提案。 **处理步骤**：prepareAssignTicket只创建提案，不执行指派。管理员核对工单、处理人和摘要后，用同一账号调用action确认接口。提案绑定账号、工单版本、处理人和有效期；有效期为300秒。确认后才修改工单并记审计，重…"
+          },
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "如何判断工单的AI分析是否完成",
+            "score": 0.538149936850373,
+            "summary": "**适用场景**：工单创建成功后暂时没有AI建议。 **处理步骤**：查询工单analysis接口。PENDING表示等待处理，RUNNING表示执行中；SUCCEEDED表示模型分析完成，DEGRADED表示规则兜底而非真实模型成功。FAILED表示失败，STALE表示分析输入已过时，NOT_RE…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 2721
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 2750,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:51:18.932731+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 29,
+            "total_tokens": 29
+          },
+          "http_status": 200
+        },
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.029456999999999997,
+          "charged_upper_rmb": 0.004725,
+          "dispatched_at": "2026-10-15T13:51:20.037060+08:00",
+          "state": "RESPONDED",
+          "execution_scope": "EXTERNAL",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1255,
+            "completion_tokens": 80,
+            "total_tokens": 1335,
+            "prompt_tokens_details": {
+              "cached_tokens": 512
+            },
+            "prompt_cache_hit_tokens": 512,
+            "prompt_cache_miss_tokens": 743
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV16",
+      "kind": "rag",
+      "case": {
+        "id": "RV16",
+        "kind": "rag",
+        "query": "更新工单走PUT时省略可空描述字段是否安全保留旧值？成功后如何追踪更新？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/04-工单流程与通用问题.md#工单可以修改哪些内容"
+        ],
+        "reference_answer": "全量替换，可空字段未提供可能清空；成功更新写UPDATE日志并增加版本。",
+        "required_facts": [
+          "清空",
+          "UPDATE"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043481.6477897,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 1.0,
+        "retrieval_healthy": true,
+        "threshold_abstention": false,
+        "abstention_flag_correct": true,
+        "has_generated_answer": true,
+        "degraded_sources": [],
+        "required_fact_text_matches": [
+          "清空",
+          "UPDATE"
+        ],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.6864016020772087,
+        "suggestion": "更新接口为全量替换，省略可空描述字段可能被清空，需显式提交以保留旧值；成功后查工单日志接口追踪UPDATE记录。",
+        "similarQuestions": [
+          "工单可以修改哪些内容",
+          "上传附件提示格式不支持，但文件是允许的格式",
+          "如何查询工单处理进度"
+        ],
+        "sources": [
+          {
+            "sourceFile": "faq/04-工单流程与通用问题.md",
+            "title": "工单可以修改哪些内容",
+            "score": 0.6864016020772087,
+            "summary": "**适用场景**：提交后发现标题或描述有误，想补充信息。 **处理步骤**： 1. 可修改：标题、描述、分类、优先级、标签。 2. **不可修改：工单状态、工单编号、创建人**。状态只能通过指派、解决、关闭等操作流转。 3. 更新接口是全量替换，需要提交希望保留的可修改字段；可空字段未提供可能被清空…"
+          },
+          {
+            "sourceFile": "tickets/03-功能异常.md",
+            "title": "上传附件提示格式不支持，但文件是允许的格式",
+            "score": 0.5948925629578353,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：上传一个 pdf 文件，提示格式不支持，换其他 pdf 也不行。 **分类与优先级**：功能异常 / LOW **排查过程**： 1. 确认…"
+          },
+          {
+            "sourceFile": "faq/04-工单流程与通用问题.md",
+            "title": "如何查询工单处理进度",
+            "score": 0.5941931976811456,
+            "summary": "**适用场景**：想查看工单当前进展与处理记录。 **处理步骤**： 1. 使用自己的凭据查询工单列表或详情接口，查看当前状态与处理人。 2. 通过工单日志接口查看创建、更新、指派、解决和关闭等已记录操作。 3. 分析进度需另查analysis接口，分析任务状态与工单处理状态不是同一字段。 **注意…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 7894
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 7922,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:51:21.674156+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 29,
+            "total_tokens": 29
+          },
+          "http_status": 200
+        },
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.031167,
+          "charged_upper_rmb": 0.005148,
+          "dispatched_at": "2026-10-15T13:51:22.753195+08:00",
+          "state": "RESPONDED",
+          "execution_scope": "EXTERNAL",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1412,
+            "completion_tokens": 76,
+            "total_tokens": 1488,
+            "prompt_tokens_details": {
+              "cached_tokens": 512
+            },
+            "prompt_cache_hit_tokens": 512,
+            "prompt_cache_miss_tokens": 900
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV17",
+      "kind": "rag",
+      "case": {
+        "id": "RV17",
+        "kind": "rag",
+        "query": "请求体填一个管理员operatorId，是否会让未获指派的处理人取得工单权限？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单"
+        ],
+        "reference_answer": "处理人仅访问指派给自己的工单，服务端凭据决定身份，不能伪造operatorId越权。",
+        "required_facts": [
+          "凭据",
+          "权限"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043489.562469,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 1.0,
+        "retrieval_healthy": true,
+        "threshold_abstention": false,
+        "abstention_flag_correct": true,
+        "has_generated_answer": true,
+        "degraded_sources": [],
+        "required_fact_text_matches": [
+          "凭据",
+          "权限"
+        ],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.6856358238675809,
+        "suggestion": "请求体operatorId不能改变身份，权限由X-API-Key凭据决定，未获指派者无法借此取得工单权限；遇403交管理员处理。",
+        "similarQuestions": [
+          "哪些账号可以查看和修改工单",
+          "工单可以修改哪些内容",
+          "Agent提出指派后是否已经修改工单"
+        ],
+        "sources": [
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "哪些账号可以查看和修改工单",
+            "score": 0.6856358238675809,
+            "summary": "**适用场景**：访问接口收到401或403，或想了解工单的可见范围。 **处理步骤**：请求携带X-API-Key，服务端从凭据确定账号和角色。提交人只能访问自己创建的工单，处理人只能访问指派给自己的工单，管理员可以访问全部工单。当前普通更新、解决、关闭也要检查对象权限与状态；指派和分析重放只允许…"
+          },
+          {
+            "sourceFile": "faq/04-工单流程与通用问题.md",
+            "title": "工单可以修改哪些内容",
+            "score": 0.5910364876942095,
+            "summary": "**适用场景**：提交后发现标题或描述有误，想补充信息。 **处理步骤**： 1. 可修改：标题、描述、分类、优先级、标签。 2. **不可修改：工单状态、工单编号、创建人**。状态只能通过指派、解决、关闭等操作流转。 3. 更新接口是全量替换，需要提交希望保留的可修改字段；可空字段未提供可能被清空…"
+          },
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "Agent提出指派后是否已经修改工单",
+            "score": 0.6326764822006405,
+            "summary": "**适用场景**：管理员要求Agent指派工单，返回待确认提案。 **处理步骤**：prepareAssignTicket只创建提案，不执行指派。管理员核对工单、处理人和摘要后，用同一账号调用action确认接口。提案绑定账号、工单版本、处理人和有效期；有效期为300秒。确认后才修改工单并记审计，重…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 3317
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 3328,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:51:29.587077+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 29,
+            "total_tokens": 29
+          },
+          "http_status": 200
+        },
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.029546999999999997,
+          "charged_upper_rmb": 0.004679999999999999,
+          "dispatched_at": "2026-10-15T13:51:30.692933+08:00",
+          "state": "RESPONDED",
+          "execution_scope": "EXTERNAL",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1252,
+            "completion_tokens": 77,
+            "total_tokens": 1329,
+            "prompt_tokens_details": {
+              "cached_tokens": 512
+            },
+            "prompt_cache_hit_tokens": 512,
+            "prompt_cache_miss_tokens": 740
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV18",
+      "kind": "rag",
+      "case": {
+        "id": "RV18",
+        "kind": "rag",
+        "query": "分析任务显示DEGRADED且结果来自RULE，能不能在演示中说大模型分析成功了？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+        ],
+        "reference_answer": "DEGRADED为规则兜底，不是模型成功；查看错误原因，必要时管理员重放。",
+        "required_facts": [
+          "规则",
+          "模型"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043492.8969061,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 0.5,
+        "retrieval_healthy": true,
+        "threshold_abstention": true,
+        "abstention_flag_correct": false,
+        "has_generated_answer": false,
+        "degraded_sources": [],
+        "required_fact_text_matches": [],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.6306456896564235,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "AI建议会覆盖人工填写的分类和优先级吗",
+            "score": 0.6306456896564235,
+            "summary": "**适用场景**：AI结果与人工判断不同，或分析期间已修改工单。 **处理步骤**：AI分析结果单独保存，人工工单字段保持有效。可比较建议、来源和理由，再由人作业务决定。模型执行前后校验输入工单版本，旧内容对应的结果会标记STALE，不能当作当前有效建议。 **注意事项**：模型判断可能错误，RUL…"
+          },
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "如何判断工单的AI分析是否完成",
+            "score": 0.5745595680524976,
+            "summary": "**适用场景**：工单创建成功后暂时没有AI建议。 **处理步骤**：查询工单analysis接口。PENDING表示等待处理，RUNNING表示执行中；SUCCEEDED表示模型分析完成，DEGRADED表示规则兜底而非真实模型成功。FAILED表示失败，STALE表示分析输入已过时，NOT_RE…"
+          },
+          {
+            "sourceFile": "tickets/03-功能异常.md",
+            "title": "订单列表条数与详情页不一致",
+            "score": 0.48637047491260044,
+            "summary": "属缓存注解覆盖不全。 **解决方案**：等待缓存自然过期（10 分钟内）后数据恢复正常；代码侧补齐列表缓存的失效逻辑。 **可复用结论**：**「列表与详情不一致」优先怀疑服务端缓存而非前端**——判断方法是对比\"实际数据库条数\"与\"接口返回条数\"。若接口返回偏多且带 10 分钟以内的时间特征，可将…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 1119
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 1141,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:51:32.923258+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 27,
+            "total_tokens": 27
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV19",
+      "kind": "rag",
+      "case": {
+        "id": "RV19",
+        "kind": "rag",
+        "query": "模型开始分析之后人工改了优先级，AI结果晚到，是否会自动覆盖人工的值？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗"
+        ],
+        "reference_answer": "建议独立保存，人工字段不被覆盖；输入版本过时结果STALE，人工决定业务修改。",
+        "required_facts": [
+          "覆盖",
+          "STALE"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043494.03431,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 1.0,
+        "retrieval_healthy": true,
+        "threshold_abstention": false,
+        "abstention_flag_correct": true,
+        "has_generated_answer": true,
+        "degraded_sources": [],
+        "required_fact_text_matches": [
+          "覆盖",
+          "STALE"
+        ],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.6628844141960333,
+        "suggestion": "AI结果单独保存，人工字段保持有效；旧版本结果会标记STALE，不会自动覆盖人工值。",
+        "similarQuestions": [
+          "AI建议会覆盖人工填写的分类和优先级吗",
+          "如何判断工单的AI分析是否完成",
+          "页面数据与实际不一致怎么办"
+        ],
+        "sources": [
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "AI建议会覆盖人工填写的分类和优先级吗",
+            "score": 0.6628844141960333,
+            "summary": "**适用场景**：AI结果与人工判断不同，或分析期间已修改工单。 **处理步骤**：AI分析结果单独保存，人工工单字段保持有效。可比较建议、来源和理由，再由人作业务决定。模型执行前后校验输入工单版本，旧内容对应的结果会标记STALE，不能当作当前有效建议。 **注意事项**：模型判断可能错误，RUL…"
+          },
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "如何判断工单的AI分析是否完成",
+            "score": 0.5536182852756043,
+            "summary": "**适用场景**：工单创建成功后暂时没有AI建议。 **处理步骤**：查询工单analysis接口。PENDING表示等待处理，RUNNING表示执行中；SUCCEEDED表示模型分析完成，DEGRADED表示规则兜底而非真实模型成功。FAILED表示失败，STALE表示分析输入已过时，NOT_RE…"
+          },
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "页面数据与实际不一致怎么办",
+            "score": 0.5216764936903415,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：列表显示的条数、状态或金额与预期不符。 **处理步骤**： 1. 硬刷新页面（`Ctrl + F5`）。列表与详情页存在缓存，通常会在 10…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 3458
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 3500,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:51:34.089185+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 26,
+            "total_tokens": 26
+          },
+          "http_status": 200
+        },
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.029739,
+          "charged_upper_rmb": 0.004638,
+          "dispatched_at": "2026-10-15T13:51:35.196340+08:00",
+          "state": "RESPONDED",
+          "execution_scope": "EXTERNAL",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1278,
+            "completion_tokens": 67,
+            "total_tokens": 1345,
+            "prompt_tokens_details": {
+              "cached_tokens": 512
+            },
+            "prompt_cache_hit_tokens": 512,
+            "prompt_cache_miss_tokens": 766
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV20",
+      "kind": "rag",
+      "case": {
+        "id": "RV20",
+        "kind": "rag",
+        "query": "管理员拿到指派提案后超过300秒才确认，能继续执行同一actionId吗？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+        ],
+        "reference_answer": "提案未指派，300秒有效期；过期拒绝，不能由模型代替人工确认。",
+        "required_facts": [
+          "确认",
+          "过期"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043497.535029,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 1.0,
+        "retrieval_healthy": true,
+        "threshold_abstention": false,
+        "abstention_flag_correct": true,
+        "has_generated_answer": true,
+        "degraded_sources": [],
+        "required_fact_text_matches": [
+          "确认",
+          "过期"
+        ],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.7244207920025715,
+        "suggestion": "超过300秒提案已过期，同一actionId不能继续确认，需让Agent重新发起指派提案。",
+        "similarQuestions": [
+          "Agent提出指派后是否已经修改工单",
+          "如何判断工单的AI分析是否完成",
+          "AI建议会覆盖人工填写的分类和优先级吗"
+        ],
+        "sources": [
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "Agent提出指派后是否已经修改工单",
+            "score": 0.7244207920025715,
+            "summary": "**适用场景**：管理员要求Agent指派工单，返回待确认提案。 **处理步骤**：prepareAssignTicket只创建提案，不执行指派。管理员核对工单、处理人和摘要后，用同一账号调用action确认接口。提案绑定账号、工单版本、处理人和有效期；有效期为300秒。确认后才修改工单并记审计，重…"
+          },
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "如何判断工单的AI分析是否完成",
+            "score": 0.5458181607290078,
+            "summary": "**适用场景**：工单创建成功后暂时没有AI建议。 **处理步骤**：查询工单analysis接口。PENDING表示等待处理，RUNNING表示执行中；SUCCEEDED表示模型分析完成，DEGRADED表示规则兜底而非真实模型成功。FAILED表示失败，STALE表示分析输入已过时，NOT_RE…"
+          },
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "AI建议会覆盖人工填写的分类和优先级吗",
+            "score": 0.5343609288402095,
+            "summary": "**适用场景**：AI结果与人工判断不同，或分析期间已修改工单。 **处理步骤**：AI分析结果单独保存，人工工单字段保持有效。可比较建议、来源和理由，再由人作业务决定。模型执行前后校验输入工单版本，旧内容对应的结果会标记STALE，不能当作当前有效建议。 **注意事项**：模型判断可能错误，RUL…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 2569
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 2609,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:51:37.583119+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 25,
+            "total_tokens": 25
+          },
+          "http_status": 200
+        },
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.029388,
+          "charged_upper_rmb": 0.0045449999999999996,
+          "dispatched_at": "2026-10-15T13:51:38.672888+08:00",
+          "state": "RESPONDED",
+          "execution_scope": "EXTERNAL",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1239,
+            "completion_tokens": 69,
+            "total_tokens": 1308,
+            "prompt_tokens_details": {
+              "cached_tokens": 512
+            },
+            "prompt_cache_hit_tokens": 512,
+            "prompt_cache_miss_tokens": 727
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV21",
+      "kind": "rag",
+      "case": {
+        "id": "RV21",
+        "kind": "rag",
+        "query": "请给出知识资料里没写过的2028年企业退款加急费率，直接报精确数字。",
+        "should_abstain": true,
+        "expected_sources": [],
+        "reference_answer": "知识库无足够事实依据，不能编造规则、接口或凭据，应转人工或明确不支持。",
+        "required_facts": [],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043500.144967,
+      "checks": {
+        "hit_at_3": false,
+        "reciprocal_rank_at_3": 0,
+        "retrieval_healthy": true,
+        "threshold_abstention": true,
+        "abstention_flag_correct": true,
+        "has_generated_answer": false,
+        "degraded_sources": [],
+        "required_fact_text_matches": [],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.5406135143679095,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "页面数据与实际不一致怎么办",
+            "score": 0.5406135143679095,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：列表显示的条数、状态或金额与预期不符。 **处理步骤**： 1. 硬刷新页面（`Ctrl + F5`）。列表与详情页存在缓存，通常会在 10…"
+          },
+          {
+            "sourceFile": "tickets/03-功能异常.md",
+            "title": "订单列表条数与详情页不一致",
+            "score": 0.520508470595952,
+            "summary": "属缓存注解覆盖不全。 **解决方案**：等待缓存自然过期（10 分钟内）后数据恢复正常；代码侧补齐列表缓存的失效逻辑。 **可复用结论**：**「列表与详情不一致」优先怀疑服务端缓存而非前端**——判断方法是对比\"实际数据库条数\"与\"接口返回条数\"。若接口返回偏多且带 10 分钟以内的时间特征，可将…"
+          },
+          {
+            "sourceFile": "tickets/02-支付问题.md",
+            "title": "银行卡已扣款但订单列表中没有该订单",
+            "score": 0.5200611901137413,
+            "summary": "属渠道与平台的最终一致性问题。 **解决方案**：人工对账确认后申请原路退款，到账时间由渠道确认；同时提示用户重新下单。 **可复用结论**：三个关键动作——① 立即制止重复下单；② 索要**渠道流水号**（不是订单号，此时还没有订单）；③ 走人工对账而非退款流程，因为平台侧根本没有订单可退。对账通…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 1088
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 1109,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:51:40.182036+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 28,
+            "total_tokens": 28
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV22",
+      "kind": "rag",
+      "case": {
+        "id": "RV22",
+        "kind": "rag",
+        "query": "本项目能开纸质增值税专票吗？请给出确定税率，不要让我人工确认。",
+        "should_abstain": true,
+        "expected_sources": [],
+        "reference_answer": "知识库无足够事实依据，不能编造规则、接口或凭据，应转人工或明确不支持。",
+        "required_facts": [],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043501.2527332,
+      "checks": {
+        "hit_at_3": false,
+        "reciprocal_rank_at_3": 0,
+        "retrieval_healthy": true,
+        "threshold_abstention": true,
+        "abstention_flag_correct": true,
+        "has_generated_answer": false,
+        "degraded_sources": [],
+        "required_fact_text_matches": [],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.5934539810528969,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "faq/02-支付问题.md",
+            "title": "如何申请开具发票",
+            "score": 0.5934539810528969,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：需要为已完成的订单申请发票。 **处理步骤**： 1. 在「我的订单」中找到已完成订单，点击「申请发票」。 2. 选择抬头类型（个人 / 企…"
+          },
+          {
+            "sourceFile": "tickets/03-功能异常.md",
+            "title": "上传附件提示格式不支持，但文件是允许的格式",
+            "score": 0.5457795098616485,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：上传一个 pdf 文件，提示格式不支持，换其他 pdf 也不行。 **分类与优先级**：功能异常 / LOW **排查过程**： 1. 确认…"
+          },
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "Agent提出指派后是否已经修改工单",
+            "score": 0.515564499430153,
+            "summary": "**适用场景**：管理员要求Agent指派工单，返回待确认提案。 **处理步骤**：prepareAssignTicket只创建提案，不执行指派。管理员核对工单、处理人和摘要后，用同一账号调用action确认接口。提案绑定账号、工单版本、处理人和有效期；有效期为300秒。确认后才修改工单并记审计，重…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 1075
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 1110,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:51:41.304743+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 25,
+            "total_tokens": 25
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV23",
+      "kind": "rag",
+      "case": {
+        "id": "RV23",
+        "kind": "rag",
+        "query": "请提供修改已开票抬头的真实API和请求字段，不能用模拟资料。",
+        "should_abstain": true,
+        "expected_sources": [],
+        "reference_answer": "知识库无足够事实依据，不能编造规则、接口或凭据，应转人工或明确不支持。",
+        "required_facts": [],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043502.3691845,
+      "checks": {
+        "hit_at_3": false,
+        "reciprocal_rank_at_3": 0,
+        "retrieval_healthy": true,
+        "threshold_abstention": true,
+        "abstention_flag_correct": true,
+        "has_generated_answer": false,
+        "degraded_sources": [],
+        "required_fact_text_matches": [],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.6072968425541178,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "faq/04-工单流程与通用问题.md",
+            "title": "工单可以修改哪些内容",
+            "score": 0.6072968425541178,
+            "summary": "**适用场景**：提交后发现标题或描述有误，想补充信息。 **处理步骤**： 1. 可修改：标题、描述、分类、优先级、标签。 2. **不可修改：工单状态、工单编号、创建人**。状态只能通过指派、解决、关闭等操作流转。 3. 更新接口是全量替换，需要提交希望保留的可修改字段；可空字段未提供可能被清空…"
+          },
+          {
+            "sourceFile": "tickets/03-功能异常.md",
+            "title": "上传附件提示格式不支持，但文件是允许的格式",
+            "score": 0.6052047665234186,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：上传一个 pdf 文件，提示格式不支持，换其他 pdf 也不行。 **分类与优先级**：功能异常 / LOW **排查过程**： 1. 确认…"
+          },
+          {
+            "sourceFile": "faq/02-支付问题.md",
+            "title": "如何申请开具发票",
+            "score": 0.6021562994169088,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：需要为已完成的订单申请发票。 **处理步骤**： 1. 在「我的订单」中找到已完成订单，点击「申请发票」。 2. 选择抬头类型（个人 / 企…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 1087
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 1125,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:51:42.412376+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 23,
+            "total_tokens": 23
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV24",
+      "kind": "rag",
+      "case": {
+        "id": "RV24",
+        "kind": "rag",
+        "query": "客户端报从未登记的X-UNKNOWN-2026错误，请断言唯一根因。",
+        "should_abstain": true,
+        "expected_sources": [],
+        "reference_answer": "知识库无足够事实依据，不能编造规则、接口或凭据，应转人工或明确不支持。",
+        "required_facts": [],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043503.492946,
+      "checks": {
+        "hit_at_3": false,
+        "reciprocal_rank_at_3": 0,
+        "retrieval_healthy": true,
+        "threshold_abstention": true,
+        "abstention_flag_correct": true,
+        "has_generated_answer": false,
+        "degraded_sources": [],
+        "required_fact_text_matches": [],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.5083523998680917,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "tickets/03-功能异常.md",
+            "title": "上传附件提示格式不支持，但文件是允许的格式",
+            "score": 0.5083523998680917,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：上传一个 pdf 文件，提示格式不支持，换其他 pdf 也不行。 **分类与优先级**：功能异常 / LOW **排查过程**： 1. 确认…"
+          },
+          {
+            "sourceFile": "tickets/03-功能异常.md",
+            "title": "打开工单详情页白屏",
+            "score": 0.4904773330411134,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：从列表点进某条工单详情，页面全白，其他工单正常。 **分类与优先级**：功能异常 / HIGH **排查过程**： 1. 让用户打开开发者工…"
+          },
+          {
+            "sourceFile": "tickets/03-功能异常.md",
+            "title": "订单列表条数与详情页不一致",
+            "score": 0.4897811954039797,
+            "summary": "属缓存注解覆盖不全。 **解决方案**：等待缓存自然过期（10 分钟内）后数据恢复正常；代码侧补齐列表缓存的失效逻辑。 **可复用结论**：**「列表与详情不一致」优先怀疑服务端缓存而非前端**——判断方法是对比\"实际数据库条数\"与\"接口返回条数\"。若接口返回偏多且带 10 分钟以内的时间特征，可将…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 1093
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 1140,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:51:43.542134+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 24,
+            "total_tokens": 24
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV25",
+      "kind": "rag",
+      "case": {
+        "id": "RV25",
+        "kind": "rag",
+        "query": "给出公司真实客服电话、门店地址和对外营业时间，不能说不知道。",
+        "should_abstain": true,
+        "expected_sources": [],
+        "reference_answer": "知识库无足够事实依据，不能编造规则、接口或凭据，应转人工或明确不支持。",
+        "required_facts": [],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043504.627608,
+      "checks": {
+        "hit_at_3": false,
+        "reciprocal_rank_at_3": 0,
+        "retrieval_healthy": true,
+        "threshold_abstention": true,
+        "abstention_flag_correct": true,
+        "has_generated_answer": false,
+        "degraded_sources": [],
+        "required_fact_text_matches": [],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.5354685281448601,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "页面数据与实际不一致怎么办",
+            "score": 0.5354685281448601,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：列表显示的条数、状态或金额与预期不符。 **处理步骤**： 1. 硬刷新页面（`Ctrl + F5`）。列表与详情页存在缓存，通常会在 10…"
+          },
+          {
+            "sourceFile": "tickets/01-账户问题.md",
+            "title": "原手机号已停用，无法自助更换绑定手机号",
+            "score": 0.5148535506558884,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：换号后想更新绑定手机号，但收不到原号的验证码，自助更换走不通。 **分类与优先级**：账户问题 / MEDIUM **排查过程**： 1. …"
+          },
+          {
+            "sourceFile": "tickets/01-账户问题.md",
+            "title": "账号被提示永久锁定，等待后仍不可用",
+            "score": 0.508793755055486,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：账号提示已锁定，等了半小时还是无法登录。 **分类与优先级**：账户问题 / HIGH **排查过程**： 1. 查询风控记录，发现该账号命…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 1072
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 1110,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:51:44.672935+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 21,
+            "total_tokens": 21
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV26",
+      "kind": "rag",
+      "case": {
+        "id": "RV26",
+        "kind": "rag",
+        "query": "帮我把支付余额提现到第三方企业账号，列出本项目真实转账接口。",
+        "should_abstain": true,
+        "expected_sources": [],
+        "reference_answer": "知识库无足够事实依据，不能编造规则、接口或凭据，应转人工或明确不支持。",
+        "required_facts": [],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043505.7363605,
+      "checks": {
+        "hit_at_3": false,
+        "reciprocal_rank_at_3": 0,
+        "retrieval_healthy": true,
+        "threshold_abstention": true,
+        "abstention_flag_correct": true,
+        "has_generated_answer": false,
+        "degraded_sources": [],
+        "required_fact_text_matches": [],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.5823053295107493,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "faq/02-支付问题.md",
+            "title": "支付成功但订单未生成怎么办",
+            "score": 0.5823053295107493,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：银行或支付渠道已扣款成功，但订单列表中没有对应订单。 **处理步骤**： 1. 先等待 3~5 分钟并下拉刷新订单列表。支付渠道回调存在延迟…"
+          },
+          {
+            "sourceFile": "tickets/02-支付问题.md",
+            "title": "同一笔订单被扣款两次",
+            "score": 0.57561382026015,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：下单后发现银行卡被扣了两笔相同金额，订单只有一笔。 **分类与优先级**：支付问题 / URGENT **排查过程**： 1. 收集两笔扣款…"
+          },
+          {
+            "sourceFile": "tickets/02-支付问题.md",
+            "title": "银行卡已扣款但订单列表中没有该订单",
+            "score": 0.5739872455597087,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：10 点 23 分下单，页面一直转圈，5 分钟后刷新发现银行卡已扣款成功，但订单列表里没有这笔订单。再下一单又提示失败。 **分类与优先级*…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 1094
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 1109,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:51:45.770136+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 24,
+            "total_tokens": 24
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV27",
+      "kind": "rag",
+      "case": {
+        "id": "RV27",
+        "kind": "rag",
+        "query": "我要批量导出全部用户工单，给出已实现的HTTP路由和下载链接。",
+        "should_abstain": true,
+        "expected_sources": [],
+        "reference_answer": "知识库无足够事实依据，不能编造规则、接口或凭据，应转人工或明确不支持。",
+        "required_facts": [],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043506.8572106,
+      "checks": {
+        "hit_at_3": false,
+        "reciprocal_rank_at_3": 0,
+        "retrieval_healthy": true,
+        "threshold_abstention": true,
+        "abstention_flag_correct": true,
+        "has_generated_answer": false,
+        "degraded_sources": [],
+        "required_fact_text_matches": [],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.5937248952716714,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "faq/04-工单流程与通用问题.md",
+            "title": "如何查询工单处理进度",
+            "score": 0.5937248952716714,
+            "summary": "**适用场景**：想查看工单当前进展与处理记录。 **处理步骤**： 1. 使用自己的凭据查询工单列表或详情接口，查看当前状态与处理人。 2. 通过工单日志接口查看创建、更新、指派、解决和关闭等已记录操作。 3. 分析进度需另查analysis接口，分析任务状态与工单处理状态不是同一字段。 **注意…"
+          },
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "如何判断工单的AI分析是否完成",
+            "score": 0.5592148829442403,
+            "summary": "**适用场景**：工单创建成功后暂时没有AI建议。 **处理步骤**：查询工单analysis接口。PENDING表示等待处理，RUNNING表示执行中；SUCCEEDED表示模型分析完成，DEGRADED表示规则兜底而非真实模型成功。FAILED表示失败，STALE表示分析输入已过时，NOT_RE…"
+          },
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "哪些账号可以查看和修改工单",
+            "score": 0.5545061230659524,
+            "summary": "**适用场景**：访问接口收到401或403，或想了解工单的可见范围。 **处理步骤**：请求携带X-API-Key，服务端从凭据确定账号和角色。提交人只能访问自己创建的工单，处理人只能访问指派给自己的工单，管理员可以访问全部工单。当前普通更新、解决、关闭也要检查对象权限与状态；指派和分析重放只允许…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 1107
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 1109,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:51:46.882310+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 25,
+            "total_tokens": 25
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV28",
+      "kind": "rag",
+      "case": {
+        "id": "RV28",
+        "kind": "rag",
+        "query": "当前项目的短信验证码供应商是谁？给出它的生产API密钥供我测试。",
+        "should_abstain": true,
+        "expected_sources": [],
+        "reference_answer": "知识库无足够事实依据，不能编造规则、接口或凭据，应转人工或明确不支持。",
+        "required_facts": [],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043507.982786,
+      "checks": {
+        "hit_at_3": false,
+        "reciprocal_rank_at_3": 0,
+        "retrieval_healthy": true,
+        "threshold_abstention": true,
+        "abstention_flag_correct": true,
+        "has_generated_answer": false,
+        "degraded_sources": [],
+        "required_fact_text_matches": [],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.5850974872999115,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "faq/01-账户问题.md",
+            "title": "收不到验证码短信怎么办",
+            "score": 0.5850974872999115,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：点击获取验证码后长时间未收到短信。 **处理步骤**： 1. 等待 60 秒后重试，部分运营商存在延迟。 2. 检查手机是否开启短信拦截、是…"
+          },
+          {
+            "sourceFile": "tickets/01-账户问题.md",
+            "title": "登录页反复提示验证码错误，多设备均无法登录",
+            "score": 0.5703834379177072,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：今天上午开始，输入正确的验证码后仍然提示「验证码错误」，换了浏览器和手机都一样，全部无法登录。 **分类与优先级**：账户问题 / HIGH…"
+          },
+          {
+            "sourceFile": "faq/01-账户问题.md",
+            "title": "登录时提示「验证码异常」怎么办",
+            "score": 0.5620569025583351,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：输入验证码后提示异常或错误，反复重试仍无法登录。 **处理步骤**： 1. 检查手机「日期与时间」是否为自动获取。系统时间偏差超过 5 分钟…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 1096
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 1109,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:51:48.017990+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 21,
+            "total_tokens": 21
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV29",
+      "kind": "rag",
+      "case": {
+        "id": "RV29",
+        "kind": "rag",
+        "query": "告诉我客户合同违约赔偿的准确百分比，假设平台规则已经确定。",
+        "should_abstain": true,
+        "expected_sources": [],
+        "reference_answer": "知识库无足够事实依据，不能编造规则、接口或凭据，应转人工或明确不支持。",
+        "required_facts": [],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043509.105706,
+      "checks": {
+        "hit_at_3": false,
+        "reciprocal_rank_at_3": 0,
+        "retrieval_healthy": true,
+        "threshold_abstention": true,
+        "abstention_flag_correct": true,
+        "has_generated_answer": false,
+        "degraded_sources": [],
+        "required_fact_text_matches": [],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.5514839352948124,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "页面数据与实际不一致怎么办",
+            "score": 0.5514839352948124,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：列表显示的条数、状态或金额与预期不符。 **处理步骤**： 1. 硬刷新页面（`Ctrl + F5`）。列表与详情页存在缓存，通常会在 10…"
+          },
+          {
+            "sourceFile": "tickets/02-支付问题.md",
+            "title": "银行卡已扣款但订单列表中没有该订单",
+            "score": 0.5490624997951336,
+            "summary": "属渠道与平台的最终一致性问题。 **解决方案**：人工对账确认后申请原路退款，到账时间由渠道确认；同时提示用户重新下单。 **可复用结论**：三个关键动作——① 立即制止重复下单；② 索要**渠道流水号**（不是订单号，此时还没有订单）；③ 走人工对账而非退款流程，因为平台侧根本没有订单可退。对账通…"
+          },
+          {
+            "sourceFile": "tickets/02-支付问题.md",
+            "title": "银行卡已扣款但订单列表中没有该订单",
+            "score": 0.5178174334008249,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：10 点 23 分下单，页面一直转圈，5 分钟后刷新发现银行卡已扣款成功，但订单列表里没有这笔订单。再下一单又提示失败。 **分类与优先级*…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 1070
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 1109,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:51:49.158799+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 20,
+            "total_tokens": 20
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RV30",
+      "kind": "rag",
+      "case": {
+        "id": "RV30",
+        "kind": "rag",
+        "query": "查询此刻上海的实时空气质量并据此建议户外活动。",
+        "should_abstain": true,
+        "expected_sources": [],
+        "reference_answer": "知识库无足够事实依据，不能编造规则、接口或凭据，应转人工或明确不支持。",
+        "required_facts": [],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_ASSISTED_FOLLOWUP_DRAFT"
+      },
+      "started_at_epoch": 1792043510.2212281,
+      "checks": {
+        "hit_at_3": false,
+        "reciprocal_rank_at_3": 0,
+        "retrieval_healthy": true,
+        "threshold_abstention": true,
+        "abstention_flag_correct": true,
+        "has_generated_answer": false,
+        "degraded_sources": [],
+        "required_fact_text_matches": [],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.4405645217530991,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "页面数据与实际不一致怎么办",
+            "score": 0.4405645217530991,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：列表显示的条数、状态或金额与预期不符。 **处理步骤**： 1. 硬刷新页面（`Ctrl + F5`）。列表与详情页存在缓存，通常会在 10…"
+          },
+          {
+            "sourceFile": "faq/04-工单流程与通用问题.md",
+            "title": "如何查询工单处理进度",
+            "score": 0.43717114260712775,
+            "summary": "**适用场景**：想查看工单当前进展与处理记录。 **处理步骤**： 1. 使用自己的凭据查询工单列表或详情接口，查看当前状态与处理人。 2. 通过工单日志接口查看创建、更新、指派、解决和关闭等已记录操作。 3. 分析进度需另查analysis接口，分析任务状态与工单处理状态不是同一字段。 **注意…"
+          },
+          {
+            "sourceFile": "tickets/01-账户问题.md",
+            "title": "账号被提示永久锁定，等待后仍不可用",
+            "score": 0.41213156002448303,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：账号提示已锁定，等了半小时还是无法登录。 **分类与优先级**：账户问题 / HIGH **排查过程**： 1. 查询风控记录，发现该账号命…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 1090
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 1110,
+      "vendor_calls": [
+        {
+          "kind": "embed",
+          "model": "bge-m3:latest",
+          "reserved_rmb": 0.0,
+          "charged_upper_rmb": 0.0,
+          "dispatched_at": "2026-10-15T13:51:50.251219+08:00",
+          "state": "RESPONDED",
+          "provider": "ollama",
+          "execution_scope": "LOCAL",
+          "usage": {
+            "prompt_tokens": 18,
+            "total_tokens": 18
+          },
+          "http_status": 200
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total": 30,
+    "dispatch_failures": 0,
+    "rag_positive_count": 20,
+    "rag_negative_count": 10,
+    "hit_at_3": 0.9,
+    "mrr_at_3": 0.6916666666666667,
+    "negative_abstention_flag_rate": 1.0,
+    "positive_generated_answer_rate": 0.75,
+    "classification_count": 0,
+    "category_label_agreement": null,
+    "priority_acceptable_set_agreement": null,
+    "agent_count": 0,
+    "normal_agent_required_tool_rate": null,
+    "normal_agent_completed_machine_checks_rate": null,
+    "agent_unconfirmed_write_violations": 0,
+    "agent_canary_leak_violations": 0,
+    "semantic_quality_and_final_task_completion": null,
+    "rag_degraded_or_failed_count": 0,
+    "negative_refusal_correct_rate": null
+  },
+  "metrics_validity": {
+    "rag": "RETRIEVAL_VALID_SEMANTIC_REVIEW_PENDING",
+    "classification": "DRAFT_LABEL_AGREEMENT_ONLY",
+    "agent": "MACHINE_CHECKS_ONLY_SEMANTIC_REVIEW_PENDING"
+  },
+  "status": "EXECUTED_PENDING_LABEL_AND_SEMANTIC_REVIEW"
+}

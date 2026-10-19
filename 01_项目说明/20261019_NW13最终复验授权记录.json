@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-19",
+  "authorization": "User explicitly authorized one additional DeepSeek conversation for final NW13 verification",
+  "previous_external_calls": 399,
+  "additional_calls_max": 1,
+  "cumulative_external_call_ceiling": 400,
+  "cumulative_rmb_ceiling": 10,
+  "case_ids": [
+    "NW13"
+  ],
+  "outbound_scope": "NW13 synthetic demo question and previously authorized demo knowledge snippets to DeepSeek; local BGE-M3 embeddings; no automatic retries",
+  "artifact_sha256": "0bf1ebea9260f067963e1fe5146a8f20bc9f35d006540e7ccd6af96122310e28"
+}

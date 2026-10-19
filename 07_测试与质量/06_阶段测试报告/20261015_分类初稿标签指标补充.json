@@ -1,0 +1,101 @@
+{
+  "date": "2026-10-15",
+  "source": "20261014_真实评估_all_80题.json",
+  "vendor_calls": 0,
+  "author_review_status": "PENDING",
+  "interpretation": "Agreement against AI-assisted draft labels, not author-confirmed accuracy. No labels or original reports changed.",
+  "count": 30,
+  "category_label_agreement": 0.8333333333333334,
+  "macro_f1_against_draft": 0.8344537815126051,
+  "priority_acceptable_set_agreement": 1.0,
+  "structure_and_model_success_count": 30,
+  "labels": {
+    "其他": {
+      "reference_count": 6,
+      "precision_against_draft": 0.6666666666666666,
+      "recall_against_draft": 1.0,
+      "f1_against_draft": 0.8
+    },
+    "功能异常": {
+      "reference_count": 8,
+      "precision_against_draft": 0.7777777777777778,
+      "recall_against_draft": 0.875,
+      "f1_against_draft": 0.8235294117647058
+    },
+    "支付问题": {
+      "reference_count": 8,
+      "precision_against_draft": 1.0,
+      "recall_against_draft": 0.75,
+      "f1_against_draft": 0.8571428571428571
+    },
+    "账户问题": {
+      "reference_count": 8,
+      "precision_against_draft": 1.0,
+      "recall_against_draft": 0.75,
+      "f1_against_draft": 0.8571428571428571
+    }
+  },
+  "confusion_matrix": {
+    "其他": {
+      "其他": 6,
+      "功能异常": 0,
+      "支付问题": 0,
+      "账户问题": 0
+    },
+    "功能异常": {
+      "其他": 1,
+      "功能异常": 7,
+      "支付问题": 0,
+      "账户问题": 0
+    },
+    "支付问题": {
+      "其他": 2,
+      "功能异常": 0,
+      "支付问题": 6,
+      "账户问题": 0
+    },
+    "账户问题": {
+      "其他": 0,
+      "功能异常": 2,
+      "支付问题": 0,
+      "账户问题": 6
+    }
+  },
+  "disagreements": [
+    {
+      "id": "CH04",
+      "title": "短信未到",
+      "reference": "账户问题",
+      "observed": "功能异常",
+      "author_review_status": "PENDING"
+    },
+    {
+      "id": "CH06",
+      "title": "大面积登录失败",
+      "reference": "账户问题",
+      "observed": "功能异常",
+      "author_review_status": "PENDING"
+    },
+    {
+      "id": "CH12",
+      "title": "开票咨询",
+      "reference": "支付问题",
+      "observed": "其他",
+      "author_review_status": "PENDING"
+    },
+    {
+      "id": "CH16",
+      "title": "发票金额咨询",
+      "reference": "支付问题",
+      "observed": "其他",
+      "author_review_status": "PENDING"
+    },
+    {
+      "id": "CH22",
+      "title": "界面字体建议",
+      "reference": "功能异常",
+      "observed": "其他",
+      "author_review_status": "PENDING"
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+server:
+  port: 8080
+
+spring:
+  config:
+    import: classpath:phase3.properties,optional:file:./phase3-local.properties
+  application:
+    name: ticket-service
+  profiles:
+    # 本地开发默认激活 local，真实环境相关配置只在 application-local.yml 中维护
+    active: local
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+    default-property-inclusion: non_null
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 库名、时区、字符集必须与第2天建的库保持一致（smartticket / utf8mb4）
+    url: jdbc:mysql://127.0.0.1:3306/smartticket?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    # 本文件会被提交到仓库，密码只留占位：默认读环境变量 MYSQL_PASSWORD，
+    # 本地开发在 application-local.yml（已被 .gitignore 忽略）里覆盖
+    password: ${MYSQL_PASSWORD:}
+    hikari:
+      # 连接获取超时。HikariCP 默认 30 秒：数据库不可用时，每个请求会占住工作线程整整 30 秒，
+      # 约 200 并发即可打满 Tomcat 默认线程池；打满后即使数据库恢复，健康请求也拿不到线程，
+      # 表现为整个服务无响应（故障放大）。下调到 5 秒，让故障快速失败、尽快释放线程。
+      # 依据：缺陷登记表 DEF-002（第13天实测 MySQL 停机时耗时 30077ms）。
+      connection-timeout: 5000
+
+  # Redis（第8天接入）。注意前缀是 spring.data.redis —— Spring Boot 3.x 已废弃 Boot 2 的
+  # spring.redis，写错不会报错，只会静默使用默认值，导致"配置看着生效、实际没生效"。
+  # 容器由 08_部署与环境/01_docker/docker-compose.yml 管理（redis:7-alpine，端口 6379，无密码）。
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      database: 0
+      # 密码只留占位（第10天 C3 决策：Redis 启用 requirepass），
+      # 本地开发在 application-local.yml 覆盖，与 datasource.password 同样处理
+      password: ${REDIS_PASSWORD:}
+      # 连接/读写超时。显式声明为 3s（而非留默认 null），
+      # 便于测试断言"配置确实被加载"，同时避免 Redis 不可达时请求长时间挂住
+      timeout: 3s
+
+  # ============================================================ RabbitMQ（阶段3 第6周接入）
+  #
+  # 位置注意：前缀是 spring.rabbitmq（不是 spring.data.rabbitmq）。这与 Redis 的 spring.data.redis
+  # 不同族，写错不会报错，只会静默套用默认值（127.0.0.1:5672 + guest/guest），
+  # 表现为"配置看着生效、实际连不上"。因此有 RabbitConnectivityTest 断言本段真被加载。
+  #
+  # 姿态：队列不可用**不影响应用启动，也不影响工单创建**——与 AI/RAG 一脉相承的
+  # "可降级、不阻塞主流程"。CachingConnectionFactory 是懒连接的，启动时不建连接；
+    # 创建事务只记录任务与 Outbox；独立投递器等待确认并持久保留失败事件（AsyncAnalysisWorker）。
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    # 与 MySQL/Redis/PostgreSQL 同一套凭据策略：仓库里只留占位，真实值在 application-local.yml（已 gitignore）
+    username: ${RABBITMQ_USER:smartticket}
+    password: ${RABBITMQ_PASSWORD:}
+    # 连接超时显式声明为 3s，而不是留默认。理由与 spring.data.redis.timeout 完全一致：
+    # 队列不可达时让发送快速失败并降级，不要把工作线程挂住（与 DEF-002 同类防护）。
+    # 顺带一个副作用：它是非默认值，可被测试断言，用来发现"前缀写错、配置静默失效"。
+    connection-timeout: 3s
+
+    # 阶段三采用手动 ACK、数据库调度业务重试；phase3.properties 控制监听器，
+    # RabbitMqConfig 声明 DLX/DLQ，prepare-phase3.py 为既有队列配置死信策略。
+
+  # ============================================================ AI 模型（阶段2 第1天接入）
+  #
+  # 走 OpenAI 兼容协议（/v1/chat/completions）：换厂商只改 base-url 与 model 两行，不锁死供应商。
+  #   DeepSeek         https://api.deepseek.com                            deepseek-chat
+  #   阿里云百炼(通义)  https://dashscope.aliyuncs.com/compatible-mode        qwen-plus
+  #   Moonshot(Kimi)   https://api.moonshot.cn                             kimi-latest
+  #   OpenAI           https://api.openai.com                              gpt-4o-mini
+  #
+  # 密钥不入库：默认读环境变量 AI_API_KEY，本地开发也可在 application-local.yml 覆盖。
+  ai:
+    # 关掉 Spring AI 对 embedding 模型的自动装配（阶段2 第5天）。
+    #
+    # 原因：自动装配出的 OpenAiEmbeddingModel 会复用上面 spring.ai.openai.* 的 base-url 与密钥，
+    # 也就是 DeepSeek —— 而 DeepSeek 没有 embeddings 端点（实测 POST /v1/embeddings 返回 404）。
+    # 不关掉就等于装配了一个注定 404 的模型，且它和"真正要用的 DashScope 嵌入模型"会同时存在，
+    # 注入 EmbeddingModel 时变成二选一的不确定状态。
+    # 关掉后由 com.smartticket.rag.config.EmbeddingConfig 提供一个专用于嵌入的 bean。
+    model:
+      embedding: none
+
+    openai:
+      base-url: ${AI_BASE_URL:https://api.deepseek.com}
+      # 占位值刻意不是空串：Spring AI 装配 OpenAiApi 时会 Assert.hasText 校验密钥，
+      # 留空直接导致应用启动失败（不是运行时报错，是起不来）。
+      # 约定 "not-configured" 表示「尚未配置密钥」，AiChatServiceImpl 见到它直接降级、不发网络请求。
+      api-key: ${AI_API_KEY:not-configured}
+      chat:
+        options:
+          # 模型名以官方文档为准（平台在演进，命名会变）：https://api-docs.deepseek.com
+          # 官方文档当前列出 deepseek-flash / deepseek-v4-pro；社区文档仍在用上一代
+          # deepseek-chat / deepseek-reasoner（旧名通常仍可调用，由后端映射到新模型）。
+          # 判据：若日志显示"AI 通道就绪"但调用返回 400 model not found，改这一项即可，无需改代码。
+          model: ${AI_MODEL:deepseek-chat}
+          # 温度调低：分类与优先级判定要求同一输入稳定复现，不是创作类任务
+          temperature: 0.2
+
+    # 重试。Spring AI 默认 max-attempts=10、初始退避 2s、倍数 5（即 2s→10s→50s→…），
+    # 是给"偶发网络抖动"设计的；对本项目是灾难：一次模型故障会把请求线程拖几分钟。
+    # 关成 1 次即不重试——分类失败应当立刻降级，要不要重试由业务层按幂等性决定。
+    retry:
+      max-attempts: 1
+
+  # AI 是"慢依赖"：模型侧排队时单次可能几十秒。不设超时，Tomcat 工作线程会被 AI 拖住，
+  # 与 DEF-002（数据库慢失败打满线程池）是同一类故障，只是触发源换成模型服务。
+  # Spring AI 装配 OpenAiApi 时会注入容器里的 RestClient.Builder，因此这两个 http 超时对它生效。
+  http:
+    client:
+      connect-timeout: 3s
+      read-timeout: 20s
+
+# 项目自有 AI 总开关：与 Spring AI 的框架配置分开，便于"一键关掉 AI"而不动框架配置。
+# 关掉后 AiChatServiceImpl 直接返回「未启用」，不发起任何模型调用。
+smartticket:
+  ai:
+    enabled: true
+
+  # ============================================================ RAG 向量库（阶段2 第5天）
+  #
+  # 与 AI 通道同样遵守"可降级、不阻塞主流程"：这个开关关掉、或 PostgreSQL 连不上、
+  # 或嵌入密钥没配，RAG 检索一律返回"未命中"，工单接口与 AI 分类接口完全不受影响。
+  vector:
+    # 启动时是否把知识库语料向量化并写入 pgvector。
+    # 默认 false，理由与"未配密钥也能启动"一脉相承：这个动作会**调用外部接口且按量计费**，
+    # 并依赖 PostgreSQL 容器——不该成为应用启动的必要条件。
+    # 需要建立/刷新索引时显式打开（已按内容哈希做了幂等，内容没变就不会重复计费）：
+    #   mvn spring-boot:run "-Dspring-boot.run.arguments=--smartticket.vector.index-on-startup=true"
+    index-on-startup: ${VECTOR_INDEX_ON_STARTUP:false}
+
+    # PostgreSQL 连接。注意这是**第二个数据源**，与 spring.datasource（MySQL）并存。
+    # 刻意不使用 Spring 的多数据源自动配置：那需要把 MySQL 数据源也改成手工声明并加 @Primary，
+    # 会改动阶段1 已稳定的连接池配置（含 connection-timeout 那个防雪崩参数）。
+    # 这里的连接池由 KnowledgeVectorRepository 自行持有，不向容器注册 DataSource 类型的 bean，
+    # 因此 Spring Boot 对主数据源的自动配置完全不受影响。
+    datasource:
+      url: jdbc:postgresql://127.0.0.1:5432/smartticket_vector
+      username: postgres
+      # 与 MySQL/Redis 同套路：仓库里只留占位，真实值在 application-local.yml（已 gitignore）
+      password: ${POSTGRES_PASSWORD:}
+      # 连接获取超时（毫秒）。与 MySQL 同理由：库不可用时快速失败，不要把工作线程挂住
+      connection-timeout-ms: 3000
+      maximum-pool-size: 4
+
+    # 嵌入模型（阿里云百炼 text-embedding-v4）。
+    # 走 OpenAI 兼容协议，因此换厂商同样只改 base-url + model 两行，不锁死供应商。
+    # 为什么不用 DeepSeek：它只提供对话模型，没有 embeddings 端点（实测 404）。
+    embedding:
+      # ⚠ base-url 必须是**不带 /v1 的主机根地址**。
+      # Spring AI 的 OpenAiApi.Builder 里写死了默认路径（常量池实证）：
+      #     /v1/chat/completions 与 /v1/embeddings
+      # 它会把这个完整路径拼到 base-url 后面。所以照抄厂商文档里的
+      # "https://dashscope.aliyuncs.com/compatible-mode/v1" 会变成
+      #     .../compatible-mode/v1/v1/embeddings  → 404（实测）
+      # 正确写法是去掉结尾的 /v1；这与上面 chat 的约定一致（DeepSeek 填的也是不带 /v1 的根地址）。
+      base-url: ${EMBEDDING_BASE_URL:https://dashscope.aliyuncs.com/compatible-mode}
+      # 占位值与 chat 保持同一约定："not-configured" 表示未配置，向量化直接降级、不发网络请求
+      api-key: ${EMBEDDING_API_KEY:not-configured}
+      model: ${EMBEDDING_MODEL:text-embedding-v4}
+      # 维度必须与 sql-vector/01_init_pgvector.sql 中 embedding VECTOR(1024) 一致，
+      # 改这里就要改表结构并清表重建（不同维度的向量无法比较）
+      dimensions: 1024
+      # 单次请求最多送几条文本。DashScope 同步接口的上限是 10 行，
+      # 显式钉住而不是"给个大数"：超限会让整批调用失败，而失败的是一整批而不是一条
+      batch-size: 10
+
+    # 检索参数（阶段2 第6天，章程第4周任务 6/7）
+    retrieval:
+      # 每条路各取前多少条。语料目前 26 条切片、融合后取前 3 条给出依据，
+      # 每路取 5 既给了合并层挑选余量，又不会把明显不相关的内容带进来
+      top-k: 5
+      # 关键词检索（word_similarity）的最低门槛。
+      # 取 0.2 是按实测的分数分层标定出来的（第7天）：
+      #    0.36        查询词在正文中**连续出现**（真词命中）        → 保留
+      #    0.18        多个实词零散命中                            → 挡掉
+      #    0.09 ~ 0.14 只命中"的/怎/么/办"这类虚词（与问题无关）    → 挡掉
+      # 实测效果：查询「我的账号登不进去了」从 3 条无关结果降到 0 条；
+      # 而「重复扣款如何申请退款」精确命中的那条（0.3636）不受影响。
+      # 不设门槛（0）时，无关结果会被融合层当作 rank 1 的候选引入，污染最终结果。
+      # 代价：多实词零散命中的 0.18 档也会被挡掉，但那些内容向量路通常也能召回。
+      # 局限：这个值是拿当前 26 条演示语料标定的，语料大改后应重新标定（见决策记录）。
+      keyword-min-score: 0.2
+
+    # 双路融合参数（阶段2 第7天，章程第4周任务 8）
+    fusion:
+      # 融合后保留几条。章程给的 RAG 返回结构里 sourceDocuments 是数组，3 条足够支撑一次回答；
+      # 给太多会把不相关内容也塞进 Prompt 稀释重点。
+      # 注意每路先各自取 retrieval.top-k（5）条再融合，所以候选池比 3 大，融合才有得挑
+      top-n: 3
+      # RRF 的平滑常数 k 没有做成配置项：本项目暂时没有评估集，调它没有依据。
+      # 见 RrfFusion 类注释；等第5周能算出不同 k 下的召回指标，再决定是否外置
+
+    # 2026-10-16 本地重新校准：92道已知题按召回优先F2选择0.63。
+    # 正例放行65/66，负例放行1/26；这是生成放行率，不是回答准确率。
+    # 另30道已知新措辞回归正例放行18/20，负例放行3/10，仍需模型语义拒答。
+    # 作用于向量路最高相似度，不是RRF融合分；来源、格式、权限检查继续生效。
+    # 报告与策略：07_测试与质量/06_阶段测试报告/RAG当前门槛策略.json
+    confidence-threshold: 0.63
+
+mybatis-plus:
+  # 自定义 SQL 的 XML 位置（当前为空目录，第6天写复杂查询时才会用到）
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.smartticket.entity
+  configuration:
+    # 下划线 → 驼峰自动映射：ticket_no → ticketNo
+    map-underscore-to-camel-case: true
+  global-config:
+    banner: false
+    db-config:
+      # 主键策略：交给 MySQL 自增。
+      # 必须显式声明，MyBatis-Plus 默认是雪花算法（ASSIGN_ID），不改就写不进自增主键
+      id-type: auto
+      # 逻辑删除全局配置：查询自动追加 deleted = 0，deleteById 自动转成 UPDATE
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+# 说明：
+# 1. 敏感项（数据库密码）不写在本文件，本地开发在 application-local.yml 覆盖，或通过 MYSQL_PASSWORD 环境变量注入；
+# 2. 开发期 SQL 日志在 application-local.yml 中打开，避免生产环境输出过多。

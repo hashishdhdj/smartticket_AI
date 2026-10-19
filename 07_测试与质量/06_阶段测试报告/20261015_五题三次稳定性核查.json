@@ -1,0 +1,224 @@
+{
+  "date": "2026-10-15",
+  "purpose": "GENERATION_AND_TOOL_CHOICE_REPEATABILITY",
+  "independent_subjects": 5,
+  "observations": 15,
+  "author_semantic_review": "PENDING",
+  "note": "Same frozen cases repeated; not 15 independent test questions. Successful embedding responses may use the evaluation cache.",
+  "subjects": [
+    {
+      "id": "RH01",
+      "kind": "rag",
+      "trials": [
+        {
+          "trial": 1,
+          "report": "20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "dispatch_success": true,
+          "status": null,
+          "needHuman": false,
+          "machine_completed": true,
+          "tools": [],
+          "semantic_goal_grade": null
+        },
+        {
+          "trial": 2,
+          "report": "20261015_真实评估_rag_3题_ollama_stability2.json",
+          "dispatch_success": true,
+          "status": null,
+          "needHuman": false,
+          "machine_completed": true,
+          "tools": [],
+          "semantic_goal_grade": null
+        },
+        {
+          "trial": 3,
+          "report": "20261015_真实评估_rag_3题_ollama_stability3.json",
+          "dispatch_success": true,
+          "status": null,
+          "needHuman": false,
+          "machine_completed": true,
+          "tools": [],
+          "semantic_goal_grade": null
+        }
+      ],
+      "machine_outcome_consistent": true
+    },
+    {
+      "id": "RH02",
+      "kind": "rag",
+      "trials": [
+        {
+          "trial": 1,
+          "report": "20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "dispatch_success": true,
+          "status": null,
+          "needHuman": false,
+          "machine_completed": true,
+          "tools": [],
+          "semantic_goal_grade": null
+        },
+        {
+          "trial": 2,
+          "report": "20261015_真实评估_rag_3题_ollama_stability2.json",
+          "dispatch_success": true,
+          "status": null,
+          "needHuman": false,
+          "machine_completed": true,
+          "tools": [],
+          "semantic_goal_grade": null
+        },
+        {
+          "trial": 3,
+          "report": "20261015_真实评估_rag_3题_ollama_stability3.json",
+          "dispatch_success": true,
+          "status": null,
+          "needHuman": false,
+          "machine_completed": true,
+          "tools": [],
+          "semantic_goal_grade": null
+        }
+      ],
+      "machine_outcome_consistent": true
+    },
+    {
+      "id": "RH03",
+      "kind": "rag",
+      "trials": [
+        {
+          "trial": 1,
+          "report": "20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "dispatch_success": true,
+          "status": null,
+          "needHuman": false,
+          "machine_completed": true,
+          "tools": [],
+          "semantic_goal_grade": null
+        },
+        {
+          "trial": 2,
+          "report": "20261015_真实评估_rag_3题_ollama_stability2.json",
+          "dispatch_success": true,
+          "status": null,
+          "needHuman": false,
+          "machine_completed": true,
+          "tools": [],
+          "semantic_goal_grade": null
+        },
+        {
+          "trial": 3,
+          "report": "20261015_真实评估_rag_3题_ollama_stability3.json",
+          "dispatch_success": true,
+          "status": null,
+          "needHuman": false,
+          "machine_completed": true,
+          "tools": [],
+          "semantic_goal_grade": null
+        }
+      ],
+      "machine_outcome_consistent": true
+    },
+    {
+      "id": "AH01",
+      "kind": "agent",
+      "trials": [
+        {
+          "trial": 1,
+          "report": "20261015_真实评估_agent_20题_ollama_agentv2.json",
+          "dispatch_success": true,
+          "status": "STOPPED",
+          "needHuman": true,
+          "machine_completed": false,
+          "tools": [
+            "getTicketDetail",
+            "searchKnowledge"
+          ],
+          "semantic_goal_grade": null
+        },
+        {
+          "trial": 2,
+          "report": "20261015_真实评估_agent_2题_ollama_stability2.json",
+          "dispatch_success": true,
+          "status": "SUCCEEDED",
+          "needHuman": false,
+          "machine_completed": true,
+          "tools": [
+            "getTicketDetail",
+            "searchKnowledge"
+          ],
+          "semantic_goal_grade": null
+        },
+        {
+          "trial": 3,
+          "report": "20261015_真实评估_agent_2题_ollama_stability3.json",
+          "dispatch_success": true,
+          "status": "SUCCEEDED",
+          "needHuman": false,
+          "machine_completed": true,
+          "tools": [
+            "getTicketDetail",
+            "searchKnowledge"
+          ],
+          "semantic_goal_grade": null
+        }
+      ],
+      "machine_outcome_consistent": false
+    },
+    {
+      "id": "AH02",
+      "kind": "agent",
+      "trials": [
+        {
+          "trial": 1,
+          "report": "20261015_真实评估_agent_20题_ollama_agentv2.json",
+          "dispatch_success": true,
+          "status": "SUCCEEDED",
+          "needHuman": false,
+          "machine_completed": true,
+          "tools": [
+            "getTicketDetail",
+            "searchKnowledge"
+          ],
+          "semantic_goal_grade": null
+        },
+        {
+          "trial": 2,
+          "report": "20261015_真实评估_agent_2题_ollama_stability2.json",
+          "dispatch_success": true,
+          "status": "SUCCEEDED",
+          "needHuman": false,
+          "machine_completed": true,
+          "tools": [
+            "getTicketDetail",
+            "searchKnowledge"
+          ],
+          "semantic_goal_grade": null
+        },
+        {
+          "trial": 3,
+          "report": "20261015_真实评估_agent_2题_ollama_stability3.json",
+          "dispatch_success": true,
+          "status": "SUCCEEDED",
+          "needHuman": false,
+          "machine_completed": true,
+          "tools": [
+            "getTicketDetail",
+            "searchKnowledge"
+          ],
+          "semantic_goal_grade": null
+        }
+      ],
+      "machine_outcome_consistent": true
+    }
+  ],
+  "consistent_machine_subjects": 4,
+  "codex_review_flags": [
+    {
+      "id": "AH01",
+      "note": "First run stopped after a real provider timeout; two repeats completed. All three observations retained."
+    },
+    {
+      "id": "AH02",
+      "note": "First run searched by ticket number and returned unrelated workflow knowledge; repeats used problem keywords. SUCCEEDED is not semantic success."
+    }
+  ]
+}

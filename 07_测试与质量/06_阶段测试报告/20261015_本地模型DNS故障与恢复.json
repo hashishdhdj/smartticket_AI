@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-15",
+  "original_status": "FAILED",
+  "original_stage": "DOWNLOADING_MODEL",
+  "observed_error": "redirect target not allowed: official download CDN resolves to non-public 198.18.0.159",
+  "ollama_version": "0.40.4",
+  "official_image_digest": "sha256:926d40fd6eeeebd346b5c358a63de2a10ec995371cd93dd22f1843200694b1a6",
+  "diagnosis": "System DNS and explicit public UDP DNS returned Fake-IP; HTTPS DNS returned public CDN addresses. Proxy product not identified.",
+  "fix": "Fresh HTTPS DNS result used only for exact official CDN hostname in Ollama container. TLS and public-address checks retained.",
+  "dns_tests_passed": 3,
+  "recovery_observed": "Actual model blob transfer started",
+  "deployment_acceptance": "PENDING_MODEL_DOWNLOAD_AND_REAL_VERIFICATION",
+  "paid_chat_calls": 0
+}

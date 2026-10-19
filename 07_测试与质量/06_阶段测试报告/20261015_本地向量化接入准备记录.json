@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-15",
+  "status": "IN_PROGRESS_DOWNLOAD",
+  "model": "bge-m3:latest",
+  "deployment": "Docker official Ollama; loopback port11434; persistent named volume",
+  "machine_memory_gb_approx": 32,
+  "docker_memory_gb_approx": 16,
+  "current_checks": {
+    "java_unit_passed": 188,
+    "java_unit_failures": 0,
+    "python_proxy_passed": 10,
+    "startup_contract": "PASS",
+    "dataset_integrity_cases": 80,
+    "windows_powershell5_build_environment": "PASS"
+  },
+  "actual_model_preflight": "PENDING_DOWNLOAD",
+  "isolated_vector_rebuild": "PENDING_DOWNLOAD",
+  "development_profile_api": "PENDING_DOWNLOAD",
+  "paid_chat_calls_this_deployment": 0,
+  "live_status_file": ".tmp/phase4-local-deployment-state.json",
+  "background_pid": 22792,
+  "acceptance_note": "Only live status PASS/COMPLETE plus actual model/index/API reports indicate completed local deployment. This dated record is the initial preparation snapshot, not a deployment success claim."
+}

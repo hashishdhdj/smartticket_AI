@@ -1,0 +1,167 @@
+{
+  "date": "2026-10-19",
+  "kind": "REAL_FROZEN_DRAFT_EVALUATION",
+  "threshold": 0.63,
+  "external_call_ceiling": 400,
+  "case_filter": "NW13",
+  "embedding_model": "bge-m3:latest",
+  "embedding_provider": "ollama",
+  "dataset_manifest": {
+    "version": "phase4-v3-newwording",
+    "created_at": "2026-10-15T20:01:47",
+    "purpose": "NEW_WORDING_AFTER_KNOWN_FAILURES_NOT_INDEPENDENT_HUMAN_BLIND_TEST",
+    "author_review_status": "PENDING",
+    "labels_locked_before_first_run": true,
+    "note": "New questions after known failures; AI-assisted source-backed references require author review. Not independent blind acceptance.",
+    "files": {
+      "rag-newwording-v3.jsonl": {
+        "count": 30,
+        "sha256": "3210154b9c1effd3423d31278d288e98b8a9a545575f1bcacb8ad31190d6100d"
+      },
+      "agent-newwording-v3.jsonl": {
+        "count": 8,
+        "sha256": "f1fc19d6d44be94863bfb95fc7c66e64fad4e3ed28b9d3079151605e5a841481"
+      }
+    }
+  },
+  "dataset_directory": "phase4-v3-newwording",
+  "jar_sha256": "0bf1ebea9260f067963e1fe5146a8f20bc9f35d006540e7ccd6af96122310e28",
+  "delivery_artifact_path": "08_部署与环境/04_交付产物/SmartTicket-AI-20261016-0bf1ebea9260.jar",
+  "delivery_source_manifest_sha256": "23c53a323b15c1a3a0cd07076a1650c30aa26e375bb78b13f933e5985e270bbd",
+  "prompt_sha256": {
+    "ai-classification-result.schema.json": "b309fe4315ec477a2e347047324cc9709f9546049f8ef9b110751258d4f6e1ee",
+    "rag-answer-result.schema.json": "847c103e1193218a2a6a74aa6033479cd5aa00724e9f345993785c6a052939cf",
+    "rag-answer-system.md": "698b1eacd86e0e682248c395a18ffb59e9caed72c5827fc3e37f0a9437c759c8",
+    "rag-answer-user.md": "505eb1bc82df41f6a5bd5e5b113f097b51516fcdabdf7746f0dd20e6bec3887a",
+    "ticket-classify-system.md": "fb1225abffda6b39735f0f6422c758160af1bd742a4142e8392fce142452cf06",
+    "ticket-classify-user.md": "1aa831f32b0bb781bf8dd97466d2964e34407800dc03f86e7ce6cda143ca3f83"
+  },
+  "corpus_sha256": "0f9fd38473aca3df7bb5e66e0d5acbd87e2c38e5079aefb177d4cce8c71d54e0",
+  "author_review_status": "PENDING",
+  "semantic_answer_quality": "PENDING_HUMAN_REVIEW",
+  "rows": [
+    {
+      "id": "NW13",
+      "kind": "rag",
+      "case": {
+        "id": "NW13",
+        "kind": "rag",
+        "query": "模拟平台拒绝15MB附件，应怎样依据大小限制处理？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/03-功能异常.md#上传附件失败怎么办"
+        ],
+        "reference_answer": "原文依据，需作者整理核实：**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。\n**适用场景**：上传图片或文档时提示失败，或进度条卡住。\n**处理步骤**：\n1. 检查文件大小：单个附件不得超过 **10 MB**。\n2. 检查文件格式：支持 jpg / png / pdf / docx / xlsx / txt，其他格式会被拒绝。\n3. 检查文件名的特殊字符，建议改为中文或字母数字后重试。\n4. 更换浏览器或关闭广告拦截插件后重试。\n**注意事项**：单个工单最多上传 5 个附件。上传失败时不会占用名额，可直接重试。",
+        "required_facts": [],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_CODEX_DRAFT_AFTER_KNOWN_FAILURES"
+      },
+      "started_at_epoch": 1792386615.0063517,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 1.0,
+        "retrieval_healthy": true,
+        "threshold_abstention": false,
+        "abstention_flag_correct": true,
+        "has_generated_answer": true,
+        "degraded_sources": [],
+        "required_fact_text_matches": [],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.6695433072330458,
+        "suggestion": "演示规则（非本项目实际能力）：模拟平台单附件上限10MB，15MB需先自行处理到10MB以内再上传；该附件能力非当前项目已实现功能。",
+        "similarQuestions": [
+          "上传附件失败怎么办",
+          "上传附件提示格式不支持，但文件是允许的格式",
+          "页面数据与实际不一致怎么办"
+        ],
+        "sources": [
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "上传附件失败怎么办",
+            "score": 0.6695433072330458,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：上传图片或文档时提示失败，或进度条卡住。 **处理步骤**： 1. 检查文件大小：单个附件不得超过 **10 MB**。 2. 检查文件格式…"
+          },
+          {
+            "sourceFile": "tickets/03-功能异常.md",
+            "title": "上传附件提示格式不支持，但文件是允许的格式",
+            "score": 0.6198227548388346,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：上传一个 pdf 文件，提示格式不支持，换其他 pdf 也不行。 **分类与优先级**：功能异常 / LOW **排查过程**： 1. 确认…"
+          },
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "页面数据与实际不一致怎么办",
+            "score": 0.5546608362156331,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：列表显示的条数、状态或金额与预期不符。 **处理步骤**： 1. 硬刷新页面（`Ctrl + F5`）。列表与详情页存在缓存，通常会在 10…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 2313,
+        "statusReason": "ANSWERED"
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 2344,
+      "vendor_calls": [
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.034494,
+          "charged_upper_rmb": 0.00591,
+          "dispatched_at": "2026-10-19T13:10:15.383125+08:00",
+          "state": "RESPONDED",
+          "execution_scope": "EXTERNAL",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1666,
+            "completion_tokens": 76,
+            "total_tokens": 1742,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 1666
+          },
+          "http_status": 200
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total": 1,
+    "dispatch_failures": 0,
+    "rag_positive_count": 1,
+    "rag_negative_count": 0,
+    "hit_at_3": 1.0,
+    "mrr_at_3": 1.0,
+    "negative_abstention_flag_rate": null,
+    "positive_generated_answer_rate": 1.0,
+    "classification_count": 0,
+    "category_label_agreement": null,
+    "priority_acceptable_set_agreement": null,
+    "agent_count": 0,
+    "normal_agent_required_tool_rate": null,
+    "normal_agent_completed_machine_checks_rate": null,
+    "normal_agent_validated_output_or_handoff_rate": null,
+    "agent_invalid_final_output_count": 0,
+    "agent_unconfirmed_write_violations": 0,
+    "agent_canary_leak_violations": 0,
+    "semantic_quality_and_final_task_completion": null,
+    "rag_degraded_or_failed_count": 0,
+    "rag_retrieval_degraded_count": 0,
+    "rag_generation_failure_count": 0,
+    "rag_upstream_failed_case_count": 0,
+    "rag_model_refused_count": 0,
+    "negative_refusal_correct_rate": null
+  },
+  "metrics_validity": {
+    "rag": "RETRIEVAL_VALID_SEMANTIC_REVIEW_PENDING",
+    "classification": "DRAFT_LABEL_AGREEMENT_ONLY",
+    "agent": "MACHINE_CHECKS_ONLY_SEMANTIC_REVIEW_PENDING"
+  },
+  "status": "EXECUTED_PENDING_LABEL_AND_SEMANTIC_REVIEW"
+}

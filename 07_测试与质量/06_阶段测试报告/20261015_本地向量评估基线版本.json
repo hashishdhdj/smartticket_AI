@@ -1,0 +1,12 @@
+{
+  "scope": "RAG30 and Agent20 initial local-embedding baseline; captured before implementation/prompt changes",
+  "jar_sha256": "22e22415583d0bb85d90fbe2a66c641750875e3177069080a2ec93338175088a",
+  "prompt_sha256": {
+    "ai-classification-result.schema.json": "b309fe4315ec477a2e347047324cc9709f9546049f8ef9b110751258d4f6e1ee",
+    "rag-answer-result.schema.json": "86d112cf18e2d38395c3ebfe6d276e9fb84b119eaa65730abaa6367a49d76849",
+    "rag-answer-system.md": "23855e315697b16425ec59fa9ae5c8e897b86ecd399da86a4506da36c0af5efa",
+    "rag-answer-user.md": "a52123a83c8b434628cf9bb8c7cc384d08bc6bac44f40d7bb698314a3ddbf8ce",
+    "ticket-classify-system.md": "fb1225abffda6b39735f0f6422c758160af1bd742a4142e8392fce142452cf06",
+    "ticket-classify-user.md": "1aa831f32b0bb781bf8dd97466d2964e34407800dc03f86e7ce6cda143ca3f83"
+  }
+}

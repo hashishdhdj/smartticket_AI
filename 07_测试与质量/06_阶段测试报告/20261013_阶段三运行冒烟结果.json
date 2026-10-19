@@ -1,0 +1,13 @@
+{
+  "port": 18080,
+  "ticketId": 1314,
+  "unauthenticatedStatus": 401,
+  "crossUserStatus": 403,
+  "analysisStatus": "DEGRADED",
+  "suggestionSource": "RULE",
+  "humanPriorityRetained": "URGENT",
+  "replayIdempotency": "PASS",
+  "disabledAgentStatus": "STOPPED",
+  "metrics": "PASS",
+  "paidVendorCalls": 0
+}

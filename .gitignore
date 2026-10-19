@@ -1,0 +1,87 @@
+# ============================================
+# SmartTicket-AI .gitignore
+# 原则：只提交源码、文档、示例配置；不提交构建产物、真实密钥、大体积二进制
+# ============================================
+
+# ---------- 构建产物 ----------
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# ---------- 日志 ----------
+*.log
+logs/
+
+# ---------- 真实环境变量与密钥（严禁提交） ----------
+# 用通配覆盖所有变体：.env / .env.bak / .env.old / ".env copy" 等。
+# 仅放行 .env.example（示例文件，只有占位值），故必须在通配之后显式反选。
+.env*
+!.env.example
+
+# ---------- 真实配置文件（只提交 .example 示例文件） ----------
+# 用 application-local.* 而不是 application-local.yml：后者挡不住 application-local.yaml、
+# application-local.yml.bak 这类"改个后缀就绕过"的情况。
+# 反选规则必须写在通配规则之后，否则 Git 以最后一条匹配的规则为准，示例文件会被连带忽略。
+application-local.*
+application-dev.*
+application-prod.*
+application-test.*
+!application-local.example.yml
+!application-dev.example.yml
+
+# ---------- 证书与私钥（永远不进仓库） ----------
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore
+id_rsa
+id_ed25519
+
+# ---------- IDE ----------
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.cursor/
+.codegraph/
+*.swp
+*.swo
+
+# ---------- 操作系统 ----------
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# ---------- 项目专属：安装包与便携运行时 ----------
+# 该目录含 JDK 17 运行时、Maven、Postman 安装包等，合计约 850 MB，
+# 属于「可重新下载」的二进制资源，不纳入版本管理。
+# 对应的下载来源与 SHA256 校验值已记录在 02_下载链接与校验/ 下的说明文档中。
+09_项目依赖与资源/02_下载链接与校验/安装包/
+
+# ---------- 项目专属：Postman 本地工作区 ----------
+# Postman Desktop / CLI 在工作区生成的本地目录，属工具临时产物（含 workspace.globals.yaml、
+# resources.yaml 及空的 collections/environments 目录），不含任何交付内容。
+# 真正需要入库的集合导出文件在 07_测试与质量/02_接口测试/Postman集合导出文件/ 下。
+.postman/
+postman/
+
+# ---------- 项目专属：本地运行数据 ----------
+08_部署与环境/01_docker/data/
+08_部署与环境/01_docker/mysql/data/
+08_部署与环境/01_docker/postgres/data/
+08_部署与环境/01_docker/redis/data/
+08_部署与环境/01_docker/rabbitmq/data/
+
+# Local runtime secrets and verification workspace
+.tmp/
+phase3-local.properties
+
+__pycache__/
+*.pyc
+
+# Rebuildable local delivery binaries; public manifests are stored separately.
+08_部署与环境/04_交付产物/

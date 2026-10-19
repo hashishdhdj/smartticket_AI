@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://smartticket.local/schemas/rag-answer-result.schema.json",
+  "title": "RAG 回答结果",
+  "description": "rag-answer-v3：模型必须明确表示资料能否回答；高相似度仍可追加转人工，不能解除服务层低置信度门禁。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "suggestion",
+    "similarQuestions",
+    "needHuman"
+  ],
+  "properties": {
+    "suggestion": {
+      "type": "string",
+      "description": "一句可执行的处理建议，中文。不得照抄资料原文，不得带“建议：”这类前缀。注意：模板里要求不超过 80 字，这里与解析器放宽到 200——超长才说明模型没遵守格式，放宽一点是为了不因个别字超标就把整份响应用不了。",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "similarQuestions": {
+      "type": "array",
+      "description": "知识库里还有的相似问题（章程模块三「返回相似问题」）。每条应紧扣某一条知识库资料，不得引入资料之外的话题。",
+      "minItems": 1,
+      "maxItems": 5,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 40
+      }
+    },
+    "needHuman": {
+      "type": "boolean",
+      "description": "资料不足、问题涉及未知规则/未实现能力或认证凭据时为true。"
+    }
+  }
+}

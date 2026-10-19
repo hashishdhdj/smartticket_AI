@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://smartticket.local/schemas/ai-classification-result.schema.json",
+  "title": "AI 工单分类结果",
+  "description": "模型对单条工单的分类与定级输出。对应 Java 侧 com.smartticket.ai.AiClassificationResult 与 com.smartticket.enums.TicketCategory。字段边界的一致性由 AiClassificationSchemaTest 断言守护，修改本文件必须同步修改 Java 常量。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["category", "priority", "confidence", "keywords", "reason"],
+  "properties": {
+    "category": {
+      "type": "string",
+      "description": "分类标签。枚举值必须与 TicketCategory 一致，顺序也保持一致以便比对。",
+      "enum": ["账户问题", "支付问题", "功能异常", "其他"]
+    },
+    "priority": {
+      "type": "string",
+      "description": "优先级。枚举值必须与 TicketPriority 一致。",
+      "enum": ["LOW", "MEDIUM", "HIGH", "URGENT"]
+    },
+    "confidence": {
+      "type": "number",
+      "description": "判断把握程度，含端点。低于阈值时上层应转为人工处理（阈值在第5周评估后确定）。",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "keywords": {
+      "type": "array",
+      "description": "关键词，取自工单原文。",
+      "minItems": 1,
+      "maxItems": 8,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 30
+      }
+    },
+    "reason": {
+      "type": "string",
+      "description": "判断理由，中文。",
+      "minLength": 1,
+      "maxLength": 200
+    }
+  }
+}

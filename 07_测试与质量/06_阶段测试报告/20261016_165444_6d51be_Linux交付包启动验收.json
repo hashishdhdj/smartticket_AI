@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-16T16:54:44",
+  "status": "PASS",
+  "vendor_calls": 0,
+  "image_digest": "maven@sha256:1a352420f7aba21f5ad08df31bab55f74c013fb491f1ae8ab1dd7ff9ed698584",
+  "jar_sha256": "0bf1ebea9260f067963e1fe5146a8f20bc9f35d006540e7ccd6af96122310e28",
+  "artifact": "08_部署与环境/04_交付产物/SmartTicket-AI-20261016-0bf1ebea9260.jar",
+  "scope": "Linux runtime of the shareable JAR on same Docker host; not remote CI",
+  "private_logs": ".tmp/linux-runtime-20261016_165444_6d51be/out",
+  "container_exit_code": 0,
+  "checks": {
+    "status": "PASS",
+    "synthetic_ticket_id": 1328,
+    "trusted_identity": true,
+    "unauthenticated_status": 401,
+    "foreign_handler_status": 403,
+    "admin_metrics": true,
+    "offline_agent_stopped": true
+  }
+}

@@ -1,0 +1,354 @@
+{
+  "date": "2026-10-15",
+  "kind": "REAL_FROZEN_DRAFT_EVALUATION",
+  "threshold": 0.66,
+  "embedding_model": "bge-m3:latest",
+  "embedding_provider": "ollama",
+  "dataset_manifest": {
+    "version": "phase4-v1",
+    "author_review_status": "PENDING",
+    "labels_locked_before_first_run": true,
+    "independent_wording_note": "新编演示问法，不复制旧32题；小语料、AI协助标注，泛化和答案语义需人工复核。",
+    "files": {
+      "rag-heldout-v1.jsonl": {
+        "count": 30,
+        "sha256": "3cd289664ab4247cae11521cb966d422a856412a5c0374e13b768a3507992cc2"
+      },
+      "classification-heldout-v1.jsonl": {
+        "count": 30,
+        "sha256": "f6d8efe9f05c8bd45e470939ba96a667f27f9af8456d8522aac6bcdfe4f907bb"
+      },
+      "agent-real-v1.jsonl": {
+        "count": 20,
+        "sha256": "1bad407d0d1feda7d5d1af6dc3a749cedf61cd91c16d5df402ad7846eae45c1f"
+      }
+    }
+  },
+  "dataset_directory": "phase4-v1",
+  "jar_sha256": "bbaa1d090dbca89e79971d58ea7387c5eab8fc2cb624d61b8d8911129301d113",
+  "prompt_sha256": {
+    "ai-classification-result.schema.json": "b309fe4315ec477a2e347047324cc9709f9546049f8ef9b110751258d4f6e1ee",
+    "rag-answer-result.schema.json": "847c103e1193218a2a6a74aa6033479cd5aa00724e9f345993785c6a052939cf",
+    "rag-answer-system.md": "2f374c037a2f13525577b233fabfb77b9586594b9ac3548e339b9100777aac7e",
+    "rag-answer-user.md": "75edc57c58f900782dd87830e09f7511c5acd9ca61793d212aca5adbcb077421",
+    "ticket-classify-system.md": "fb1225abffda6b39735f0f6422c758160af1bd742a4142e8392fce142452cf06",
+    "ticket-classify-user.md": "1aa831f32b0bb781bf8dd97466d2964e34407800dc03f86e7ce6cda143ca3f83"
+  },
+  "corpus_sha256": "1651ef1d0917d08c3f0c42e9fa2df9a5d6e70678324c4d4f10a2e3f9b3626d58",
+  "author_review_status": "PENDING",
+  "semantic_answer_quality": "PENDING_HUMAN_REVIEW",
+  "rows": [
+    {
+      "id": "RH01",
+      "kind": "rag",
+      "case": {
+        "id": "RH01",
+        "kind": "rag",
+        "query": "电脑上的时间慢了十来分钟，短信验证码明明没输错却总被拒绝，先检查哪里？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+        ],
+        "reference_answer": "检查设备日期与时间自动获取，重新获取验证码；模拟平台规则，不保证通用适用。",
+        "required_facts": [
+          "时间",
+          "验证码"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_CODEX_DRAFT"
+      },
+      "started_at_epoch": 1792044243.1157308,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 0.3333333333333333,
+        "retrieval_healthy": true,
+        "threshold_abstention": false,
+        "abstention_flag_correct": true,
+        "has_generated_answer": true,
+        "degraded_sources": [],
+        "required_fact_text_matches": [
+          "时间",
+          "验证码"
+        ],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.7486478689556487,
+        "suggestion": "演示规则：先检查电脑「日期与时间」是否自动获取，偏差超5分钟会导致验证码校验失败；该短信场景非当前项目已实现能力。",
+        "similarQuestions": [
+          "登录页反复提示验证码错误，多设备均无法登录",
+          "收不到验证码短信怎么办",
+          "登录时提示「验证码异常」怎么办"
+        ],
+        "sources": [
+          {
+            "sourceFile": "tickets/01-账户问题.md",
+            "title": "登录页反复提示验证码错误，多设备均无法登录",
+            "score": 0.7486478689556487,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：今天上午开始，输入正确的验证码后仍然提示「验证码错误」，换了浏览器和手机都一样，全部无法登录。 **分类与优先级**：账户问题 / HIGH…"
+          },
+          {
+            "sourceFile": "faq/01-账户问题.md",
+            "title": "收不到验证码短信怎么办",
+            "score": 0.73452837857435,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：点击获取验证码后长时间未收到短信。 **处理步骤**： 1. 等待 60 秒后重试，部分运营商存在延迟。 2. 检查手机是否开启短信拦截、是…"
+          },
+          {
+            "sourceFile": "faq/01-账户问题.md",
+            "title": "登录时提示「验证码异常」怎么办",
+            "score": 0.7136459434591748,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：输入验证码后提示异常或错误，反复重试仍无法登录。 **处理步骤**： 1. 检查手机「日期与时间」是否为自动获取。系统时间偏差超过 5 分钟…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 2085
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 2140,
+      "vendor_calls": [
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.032847,
+          "charged_upper_rmb": 0.005618999999999999,
+          "dispatched_at": "2026-10-15T14:04:03.457554+08:00",
+          "state": "RESPONDED",
+          "execution_scope": "EXTERNAL",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1549,
+            "completion_tokens": 81,
+            "total_tokens": 1630,
+            "prompt_tokens_details": {
+              "cached_tokens": 640
+            },
+            "prompt_cache_hit_tokens": 640,
+            "prompt_cache_miss_tokens": 909
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RH02",
+      "kind": "rag",
+      "case": {
+        "id": "RH02",
+        "kind": "rag",
+        "query": "记不起密码但原来注册的手机仍能接短信，我怎样恢复账号登录？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/01-账户问题.md#如何重置登录密码"
+        ],
+        "reference_answer": "模拟平台通过忘记密码、注册手机号验证码设置新密码。",
+        "required_facts": [
+          "手机号",
+          "密码"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_CODEX_DRAFT"
+      },
+      "started_at_epoch": 1792044245.2506073,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 1.0,
+        "retrieval_healthy": true,
+        "threshold_abstention": false,
+        "abstention_flag_correct": true,
+        "has_generated_answer": true,
+        "degraded_sources": [],
+        "required_fact_text_matches": [
+          "手机号",
+          "密码"
+        ],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.7016135182591794,
+        "suggestion": "演示规则：可在登录页点「忘记密码」，用注册手机号收验证码后设8~20位含字母数字的新密码；该短信功能非当前项目已实现能力。",
+        "similarQuestions": [
+          "如何重置登录密码",
+          "登录时提示「验证码异常」怎么办",
+          "登录页反复提示验证码错误，多设备均无法登录"
+        ],
+        "sources": [
+          {
+            "sourceFile": "faq/01-账户问题.md",
+            "title": "如何重置登录密码",
+            "score": 0.7016135182591794,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：忘记密码，或怀疑密码泄露需要更换。 **处理步骤**： 1. 在登录页点击「忘记密码」。 2. 输入注册时使用的手机号，获取短信验证码。 3…"
+          },
+          {
+            "sourceFile": "faq/01-账户问题.md",
+            "title": "登录时提示「验证码异常」怎么办",
+            "score": 0.6836476107064972,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：输入验证码后提示异常或错误，反复重试仍无法登录。 **处理步骤**： 1. 检查手机「日期与时间」是否为自动获取。系统时间偏差超过 5 分钟…"
+          },
+          {
+            "sourceFile": "tickets/01-账户问题.md",
+            "title": "登录页反复提示验证码错误，多设备均无法登录",
+            "score": 0.6623952411677245,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：今天上午开始，输入正确的验证码后仍然提示「验证码错误」，换了浏览器和手机都一样，全部无法登录。 **分类与优先级**：账户问题 / HIGH…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 2256
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 2282,
+      "vendor_calls": [
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.032424,
+          "charged_upper_rmb": 0.005715,
+          "dispatched_at": "2026-10-15T14:04:05.325997+08:00",
+          "state": "RESPONDED",
+          "execution_scope": "EXTERNAL",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1513,
+            "completion_tokens": 98,
+            "total_tokens": 1611,
+            "prompt_tokens_details": {
+              "cached_tokens": 640
+            },
+            "prompt_cache_hit_tokens": 640,
+            "prompt_cache_miss_tokens": 873
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "RH03",
+      "kind": "rag",
+      "case": {
+        "id": "RH03",
+        "kind": "rag",
+        "query": "已经等过半小时，账号仍显示永久锁定，是继续等还是找人工？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/01-账户问题.md#账号被锁定如何解锁"
+        ],
+        "reference_answer": "永久锁定或等待后仍不可用应人工核验，不能承诺自动解锁。",
+        "required_facts": [
+          "人工",
+          "锁定"
+        ],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_CODEX_DRAFT"
+      },
+      "started_at_epoch": 1792044247.5385234,
+      "checks": {
+        "hit_at_3": true,
+        "reciprocal_rank_at_3": 0.5,
+        "retrieval_healthy": true,
+        "threshold_abstention": false,
+        "abstention_flag_correct": true,
+        "has_generated_answer": true,
+        "degraded_sources": [],
+        "required_fact_text_matches": [
+          "人工",
+          "锁定"
+        ],
+        "answer_grade": null,
+        "answer_grade_note": "Keyword matches are hints, not factual correctness or groundedness grades."
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.7469098280991217,
+        "suggestion": "演示规则：永久锁定需人工核验，请提交工单并提供注册手机号、最近成功登录时间、常用设备型号。",
+        "similarQuestions": [
+          "账号被提示永久锁定，等待后仍不可用",
+          "账号被锁定如何解锁",
+          "页面一直转圈或白屏怎么办"
+        ],
+        "sources": [
+          {
+            "sourceFile": "tickets/01-账户问题.md",
+            "title": "账号被提示永久锁定，等待后仍不可用",
+            "score": 0.7469098280991217,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：账号提示已锁定，等了半小时还是无法登录。 **分类与优先级**：账户问题 / HIGH **排查过程**： 1. 查询风控记录，发现该账号命…"
+          },
+          {
+            "sourceFile": "faq/01-账户问题.md",
+            "title": "账号被锁定如何解锁",
+            "score": 0.6954625844955444,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：连续多次输入错误密码后账号被锁定，提示「账号已锁定」。 **处理步骤**： 1. 密码错误导致的锁定为**临时锁定，30 分钟后自动解除**…"
+          },
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "页面一直转圈或白屏怎么办",
+            "score": 0.6279627015524073,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：页面打开后长时间停留在加载状态，或显示空白页。 **处理步骤**： 1. 强制刷新页面：Windows 按 `Ctrl + F5`，macO…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 2138
+      },
+      "dispatch_success": true,
+      "elapsed_ms": 2187,
+      "vendor_calls": [
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.032301,
+          "charged_upper_rmb": 0.005415,
+          "dispatched_at": "2026-10-15T14:04:07.620022+08:00",
+          "state": "RESPONDED",
+          "execution_scope": "EXTERNAL",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1505,
+            "completion_tokens": 75,
+            "total_tokens": 1580,
+            "prompt_tokens_details": {
+              "cached_tokens": 640
+            },
+            "prompt_cache_hit_tokens": 640,
+            "prompt_cache_miss_tokens": 865
+          },
+          "http_status": 200
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total": 3,
+    "dispatch_failures": 0,
+    "rag_positive_count": 3,
+    "rag_negative_count": 0,
+    "hit_at_3": 1.0,
+    "mrr_at_3": 0.611111111111111,
+    "negative_abstention_flag_rate": null,
+    "positive_generated_answer_rate": 1.0,
+    "classification_count": 0,
+    "category_label_agreement": null,
+    "priority_acceptable_set_agreement": null,
+    "agent_count": 0,
+    "normal_agent_required_tool_rate": null,
+    "normal_agent_completed_machine_checks_rate": null,
+    "agent_unconfirmed_write_violations": 0,
+    "agent_canary_leak_violations": 0,
+    "semantic_quality_and_final_task_completion": null,
+    "rag_degraded_or_failed_count": 0,
+    "negative_refusal_correct_rate": null
+  },
+  "metrics_validity": {
+    "rag": "RETRIEVAL_VALID_SEMANTIC_REVIEW_PENDING",
+    "classification": "DRAFT_LABEL_AGREEMENT_ONLY",
+    "agent": "MACHINE_CHECKS_ONLY_SEMANTIC_REVIEW_PENDING"
+  },
+  "status": "EXECUTED_PENDING_LABEL_AND_SEMANTIC_REVIEW"
+}

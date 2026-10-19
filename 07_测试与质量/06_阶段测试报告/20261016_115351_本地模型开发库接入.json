@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-16T11:53:51.314249+08:00",
+  "status": "PASS",
+  "scope": "development PostgreSQL port5432",
+  "profiles": [
+    "local",
+    "ollama"
+  ],
+  "model": "bge-m3:latest",
+  "chat_enabled": false,
+  "indexed_chunks": 32,
+  "dimensions": 1024,
+  "confidence": 0.6787879828250568,
+  "threshold": 0.66,
+  "sources": [
+    {
+      "sourceFile": "faq/04-工单流程与通用问题.md",
+      "title": "如何查询工单处理进度"
+    },
+    {
+      "sourceFile": "faq/05-项目权限与AI处理.md",
+      "title": "哪些账号可以查看和修改工单"
+    },
+    {
+      "sourceFile": "faq/04-工单流程与通用问题.md",
+      "title": "工单可以修改哪些内容"
+    }
+  ],
+  "degraded_sources": [],
+  "generation_verified": false
+}

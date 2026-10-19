@@ -1,0 +1,636 @@
+{
+  "created_at": "2026-10-16T12:14:48.455465+08:00",
+  "scope": "Uncommitted public-source working-tree snapshot",
+  "private_configuration_excluded": true,
+  "files": [
+    {
+      "path": "pom.xml",
+      "sha256": "098e951c45c4b2ad92aba0f4548c821edec8a4240917bc1da2f01381c32aea0a"
+    },
+    {
+      "path": "src/main/java/com/smartticket/agent/AgentAnswer.java",
+      "sha256": "f85f7c1849e5929e6a856981ba297946443e027610231c24c599bdcc2bab4cb2"
+    },
+    {
+      "path": "src/main/java/com/smartticket/agent/AgentController.java",
+      "sha256": "f2bd4846ec09f784545387a688ea83995d9c991621c2437775c618dd9f34b006"
+    },
+    {
+      "path": "src/main/java/com/smartticket/agent/AgentModel.java",
+      "sha256": "6df22f789456fe16a262190017df231735bea4b1870fd50ff9b394a910ebd5db"
+    },
+    {
+      "path": "src/main/java/com/smartticket/agent/AgentService.java",
+      "sha256": "946f0bbba48c6cbe647bc6dad04a8c3dafafb10acd77d7bea57966788f930948"
+    },
+    {
+      "path": "src/main/java/com/smartticket/agent/AgentToolContext.java",
+      "sha256": "7628de692332e498190b64cad6e3f05fcc1ce939a31bf2b846d3e6b39699e779"
+    },
+    {
+      "path": "src/main/java/com/smartticket/agent/AgentTools.java",
+      "sha256": "d8e7a76fd8648fc2d7807e6f866b8d520161ea9b6cae8f1a81aeca6ed8055961"
+    },
+    {
+      "path": "src/main/java/com/smartticket/agent/AssignmentActions.java",
+      "sha256": "5bf3e292f5d7c494002e5a9f638b6c03cb93ccb1bcd42f81836bdb8f82556635"
+    },
+    {
+      "path": "src/main/java/com/smartticket/agent/SpringAgentModel.java",
+      "sha256": "664dbd16254d2ac8d18851157507146ab5f5f1072c0bed6292abf99037c0a38a"
+    },
+    {
+      "path": "src/main/java/com/smartticket/ai/AiCallResult.java",
+      "sha256": "fe9ac0678b81acd477edc4a57b3bc7896c86f15a755122d56c88ae56796201ae"
+    },
+    {
+      "path": "src/main/java/com/smartticket/ai/AiChatService.java",
+      "sha256": "4573e111dfa21757f626eb0063db3c83d9fbc994f0ea689e091e25041fcab659"
+    },
+    {
+      "path": "src/main/java/com/smartticket/ai/AiClassificationParser.java",
+      "sha256": "2f8ff8d76c107e4414c0f4a95afa7eb7d81b7095290032f523a2b8eeb7bfd1df"
+    },
+    {
+      "path": "src/main/java/com/smartticket/ai/AiClassificationResult.java",
+      "sha256": "81b4a561bb6a2dead1ce80a416e2def9a6ead6d4ac54012ae9ba92679a982ef1"
+    },
+    {
+      "path": "src/main/java/com/smartticket/ai/AiPromptFactory.java",
+      "sha256": "2e5a99e0628f22860da7db351b231f0802f8eb32688a719d6b057d1869a6db10"
+    },
+    {
+      "path": "src/main/java/com/smartticket/ai/AiResponseInvalidException.java",
+      "sha256": "2aef809a6f0029de007ec803b38208c334b2d2f7f5feba0234a04939c1876320"
+    },
+    {
+      "path": "src/main/java/com/smartticket/ai/impl/AiChatServiceImpl.java",
+      "sha256": "b6e08fc29eb7d1efb53613d39173a36114f24f64a992e090dac9430edeb9203e"
+    },
+    {
+      "path": "src/main/java/com/smartticket/ai/impl/TicketAnalysisServiceImpl.java",
+      "sha256": "5de752a086b90821bad52f480a8c706b5ad5ac0c0293288e3752dad6abddd08a"
+    },
+    {
+      "path": "src/main/java/com/smartticket/ai/TicketAnalysisService.java",
+      "sha256": "537023be3ad147f48e3bf43cabe99b31c0ee083b56f9a870f04558da0f0cff8b"
+    },
+    {
+      "path": "src/main/java/com/smartticket/common/Result.java",
+      "sha256": "e34ef75349274faea210ba579846d4e20ad43c494e229e9fc1d8545b75cb356d"
+    },
+    {
+      "path": "src/main/java/com/smartticket/config/MybatisPlusConfig.java",
+      "sha256": "b4a4fc88535272b8d62584aa04ad78260cd8d7804bae704adc90ef7fb63f002f"
+    },
+    {
+      "path": "src/main/java/com/smartticket/controller/AiController.java",
+      "sha256": "bb0a41972c762c5d890b7c8235114c6c8e83a93dd8daa329c63f04d1c5953830"
+    },
+    {
+      "path": "src/main/java/com/smartticket/controller/KnowledgeController.java",
+      "sha256": "c77ea85051571fa0010a18fa8f4269845a3395097e3415dcda1f9458d2bd0a7a"
+    },
+    {
+      "path": "src/main/java/com/smartticket/controller/TicketController.java",
+      "sha256": "8a4350df0481c98d344e7b0d6036b849267554fd39c0c9b10e96ec5fddc00970"
+    },
+    {
+      "path": "src/main/java/com/smartticket/dto/KnowledgeQueryDTO.java",
+      "sha256": "8f108498598b1b97320a2b4fe9ee68aff4c72066a603b77024d41245f7429c94"
+    },
+    {
+      "path": "src/main/java/com/smartticket/dto/TicketAnalyzeDTO.java",
+      "sha256": "829607de8bf799182530a8b3c674b766714f1224ab7492883b94dcac596e7420"
+    },
+    {
+      "path": "src/main/java/com/smartticket/dto/TicketAssignDTO.java",
+      "sha256": "b750758c40935615e5b9c80364b9bdbe2826a889bbf957d6f0b82b99c3bd613c"
+    },
+    {
+      "path": "src/main/java/com/smartticket/dto/TicketCloseDTO.java",
+      "sha256": "ed50c95f2680d989690df64d00b48b4c90ff9b068838347fbdae5e898e8f0d84"
+    },
+    {
+      "path": "src/main/java/com/smartticket/dto/TicketCreateDTO.java",
+      "sha256": "ac8b3c66a669107499b09d66dec897a6687f9655847cd3c07f16061a35ff68f4"
+    },
+    {
+      "path": "src/main/java/com/smartticket/dto/TicketResolveDTO.java",
+      "sha256": "533cd208154f9e5b186865acaa3e8284dc7b5e4443b0741ac0373913db2c8b52"
+    },
+    {
+      "path": "src/main/java/com/smartticket/dto/TicketUpdateDTO.java",
+      "sha256": "4ffc2fcedeb5f515f404359d31b2bbc5ceb96814ae6418a0554e0232bf89f65f"
+    },
+    {
+      "path": "src/main/java/com/smartticket/entity/Ticket.java",
+      "sha256": "538aa2a7169cac7faf52dc865dbb10610c9a6c4c49abb2676a0920d3e5f40ab1"
+    },
+    {
+      "path": "src/main/java/com/smartticket/entity/TicketLog.java",
+      "sha256": "8e317977ba7e8463f3c33859f1f8d9bbd5217e55df63d257e0ff2ae9e651e28b"
+    },
+    {
+      "path": "src/main/java/com/smartticket/enums/ErrorCode.java",
+      "sha256": "b1f4343c0bca81367560a54330be6525a9ea0f46a6494fe057badb8efad9b4db"
+    },
+    {
+      "path": "src/main/java/com/smartticket/enums/TicketCategory.java",
+      "sha256": "d1ae1ae147113c95d23582a278743228755acd31d45205ead42fd0143169418f"
+    },
+    {
+      "path": "src/main/java/com/smartticket/enums/TicketPriority.java",
+      "sha256": "bf86e067581d3dee20f013af9679fe9a4ba06bba28e2b447853a16c5b9fb16b8"
+    },
+    {
+      "path": "src/main/java/com/smartticket/enums/TicketStatus.java",
+      "sha256": "890edf97d936e4bd2b293e496ad23c5b9872115f1bd2e81b10ec0bd1fcf645dd"
+    },
+    {
+      "path": "src/main/java/com/smartticket/exception/BusinessException.java",
+      "sha256": "7c2f7b96fcdfacacd450670d8159ac7f450a7b09830e18f83413f3d9265a94d9"
+    },
+    {
+      "path": "src/main/java/com/smartticket/exception/GlobalExceptionHandler.java",
+      "sha256": "05dcb04397d10c51937951fa65287c02f22325c359e42cff57de8a2c540a2626"
+    },
+    {
+      "path": "src/main/java/com/smartticket/mapper/TicketLogMapper.java",
+      "sha256": "9e820a5238dfb9dd7ce0087499256bc549c8884a8f95f226ad40289cf8dd8479"
+    },
+    {
+      "path": "src/main/java/com/smartticket/mapper/TicketMapper.java",
+      "sha256": "770a03d950c3da7b987baea4756dc1786fd9183c0f845179221f69ca30f60ae9"
+    },
+    {
+      "path": "src/main/java/com/smartticket/mq/RabbitMqConfig.java",
+      "sha256": "61c160dd1a870189e7ac789020afa4ba9894d810cee0325c729377b89daa152e"
+    },
+    {
+      "path": "src/main/java/com/smartticket/mq/TicketAnalysisMessage.java",
+      "sha256": "0d8a776c5705fdf563d9633607bc32c863916be9fcc0ef51470b18ffb5af4e3b"
+    },
+    {
+      "path": "src/main/java/com/smartticket/phase3/AccessPolicy.java",
+      "sha256": "4713efb25e0e86d7b4e10aa5b5ba2889c40e1d10f5afd7d17a3cb4eeb8e8c6f8"
+    },
+    {
+      "path": "src/main/java/com/smartticket/phase3/ActorContext.java",
+      "sha256": "4b67103f42928d4b9ac86379023f4e433469c562212ddd03f2a08d6b9e731992"
+    },
+    {
+      "path": "src/main/java/com/smartticket/phase3/AnalysisController.java",
+      "sha256": "c05bab985a1aa72f5eed27a06a741d5a3acfc258bfaa590b7cf0feb87ecab71e"
+    },
+    {
+      "path": "src/main/java/com/smartticket/phase3/ApiFailure.java",
+      "sha256": "dee51f6b2aa1fb47fb09eb81a37121aad4da82ec490bc166a8fc7e202a31a92f"
+    },
+    {
+      "path": "src/main/java/com/smartticket/phase3/ApiFailureHandler.java",
+      "sha256": "ebe9d082bafb5d291adaa5a0b39d67e57501ba96119a18c812f9124dc363b4cc"
+    },
+    {
+      "path": "src/main/java/com/smartticket/phase3/ApiSecurityFilter.java",
+      "sha256": "09edc2e621e5ad60a6fec852ecaaf2f828f97b84c75b9569da772280fc705659"
+    },
+    {
+      "path": "src/main/java/com/smartticket/phase3/AsyncAnalysisWorker.java",
+      "sha256": "83b542ee135fefc23575a5fa3bd8fd1dcb8ebeabd2072a0ace53c031c3382332"
+    },
+    {
+      "path": "src/main/java/com/smartticket/phase3/BudgetLedger.java",
+      "sha256": "5ffd21eeea0782e1fc42c66c478e4289c298861cf0fd6fc7b432ce071838c02a"
+    },
+    {
+      "path": "src/main/java/com/smartticket/phase3/CacheRecovery.java",
+      "sha256": "4a6a270be373ba0f5c11e6a52094338dda69fccfec4ea22913c0636797cbb407"
+    },
+    {
+      "path": "src/main/java/com/smartticket/phase3/Phase3Configuration.java",
+      "sha256": "ca84b00e80d32b7a333aea871fa8ee46316f0a1ce42a6571dd158d61b902227d"
+    },
+    {
+      "path": "src/main/java/com/smartticket/phase3/Phase3Metrics.java",
+      "sha256": "16418c96e14c66f7f983688bc1beb76e17870529a78f8c5a1090b87c96a33bb5"
+    },
+    {
+      "path": "src/main/java/com/smartticket/phase3/Phase3Properties.java",
+      "sha256": "a29af56654ff94438e573b81bb5335a3631e95fb56e0313f547c25f38e8ba13f"
+    },
+    {
+      "path": "src/main/java/com/smartticket/phase3/Phase3Repository.java",
+      "sha256": "45c95d8780bf7e1b019a75c55ed4b5d83cb4da6524088d76a75fe9c5fa3566d7"
+    },
+    {
+      "path": "src/main/java/com/smartticket/phase3/RuleClassifier.java",
+      "sha256": "23bb80a6d3ec180920548e7fb3577d0cbb09d1cc6919db7cadcff2a36be0f181"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/config/EmbeddingConfig.java",
+      "sha256": "dc276c12ea16fe1b59e215855d855fc3a716e9220a255dc747f8d0f7bf65e5db"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/EmbeddingResult.java",
+      "sha256": "c24d650271f6a26328dff980f40328dc2036ad88b85e3139d7f869a06e11cf36"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/EmbeddingService.java",
+      "sha256": "86e80b98c9dfa2a902fbb92c89f04f97177f078fbe5d375faa7aa0abdf803d02"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/FusedHit.java",
+      "sha256": "cd10c507227ce6df73368a99ef06c8c2723fc86bc9632cc5f3e4c17ba2b6a969"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/impl/EmbeddingServiceImpl.java",
+      "sha256": "75da36df6e53739ee71961e41dfcdd0f1998c3ac456fd853ff3243c9810c9050"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/impl/KnowledgeRetrievalServiceImpl.java",
+      "sha256": "da815f63b96bc89e9db0fb07335ff127fde7b1baad4c49417f8d836bf603b26f"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/impl/KnowledgeSearchServiceImpl.java",
+      "sha256": "9dd9cb3ced295c780d61af6d0ad46f4e2f412c5e8df0f610ce87cda72a0aec90"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/impl/RagAnswerServiceImpl.java",
+      "sha256": "69d2f8f51d0040426851b482447e8c9503ac1f112a36e6b792ee934ddcb2d4a9"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/KnowledgeChunk.java",
+      "sha256": "d2f601c844dda30d3bea08cdf8d68918d9e2e34c01d39b9f5fd42ea8a71f2cee"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/KnowledgeChunker.java",
+      "sha256": "0017642a14f9e634edbb5217f391d83a6bb2b6f06f471ffcd4c88b610e1b928c"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/KnowledgeCorpusLoader.java",
+      "sha256": "a34f8c4ebc0eab89bec41c7271ab682cf48ba14ab94e04ccdf3266aae546a6ca"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/KnowledgeIndexingRunner.java",
+      "sha256": "76fb087ff7f451922beed3b7b590a2fd852007611b02bb67dd155111ac9a6bac"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/KnowledgeIndexingService.java",
+      "sha256": "c3aeb4a905a8aef44f941a70bdab46b01bb2c813d8622d82997cc62bf0038b70"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/KnowledgeProvenance.java",
+      "sha256": "2ed2b46810265b1aac1821617261b653ffb424850a8e5570f40b3998e36edd1a"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/KnowledgeRetrievalService.java",
+      "sha256": "7ff64a428b03566f59ff613bc5577846f32f7b4feb4853a6d26f709cfec515c0"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/KnowledgeSearchResult.java",
+      "sha256": "9cac2abe32eb69f4fc7f693c5088d40f22dd6f5b5d1d5001df2cf53b9ca64782"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/KnowledgeSearchService.java",
+      "sha256": "819b77549be1b13c1dbb7726efed6fb13029cdb901ef1cecb812e24c406370ea"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/KnowledgeVectorProperties.java",
+      "sha256": "f22eb673e1977829af9bfa9fea71cd00325d9b6b4c09d731d98ecfdb0c951460"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/KnowledgeVectorRepository.java",
+      "sha256": "d50c73dfef88999199ac4637365f0f6abc9a787289280f0dbd72f35e1a86789c"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/RagAnswer.java",
+      "sha256": "dc348f294676477c886bdae3905ce8751c2e282cab45760b361e623a674090d0"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/RagAnswerParser.java",
+      "sha256": "8846530dcdda9fc5fb11ab86805b06a711d4c323d84cb3f8a490311c8a11d1a7"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/RagAnswerPayload.java",
+      "sha256": "0050708bb7469ecd7b3d3f9e25b2e967c9ff3751963782ea98d0c5b7d7330437"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/RagAnswerPromptFactory.java",
+      "sha256": "f33d6af734308f580d38f6d029d551002c58668d4d751542e6aa30260c19af2d"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/RagAnswerService.java",
+      "sha256": "cab60df4d2b00d657d4e2f5b7caab65a4758b89dada7952f84f2d46da954ca47"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/RagSource.java",
+      "sha256": "d24d40137a9e120ba0e542e5fea18d8b2c4109b6f07049290db700a2dee81513"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/RetrievalHit.java",
+      "sha256": "5f3eb6647e8242433fab0efd516a2498e7eb131ad12d0bf80b8a897bdf3d75ca"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/RetrievalResult.java",
+      "sha256": "5bed3ddbe27dac1c6c6f11e3f6aa3f34d9c0f16b7c0ae41c2d0ac5950e76b7ce"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/RetrievalSource.java",
+      "sha256": "87421e9aed2820e56de11afeaf339a2ed909add1fb76cd66ddf6d5129211e9f9"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/RrfFusion.java",
+      "sha256": "a33f680cf1e036fcd610e47343720bb3a3dab29db5a6104d990d44e60685f341"
+    },
+    {
+      "path": "src/main/java/com/smartticket/service/impl/TicketServiceImpl.java",
+      "sha256": "f715e4d43923ea5bacd809bed9be0feff9970ed9efec249725ec7f1468bf7271"
+    },
+    {
+      "path": "src/main/java/com/smartticket/service/TicketService.java",
+      "sha256": "7e2836fbc159151c53a589f2ed04af961f8e4c9821cb63a71e0f7c2fd2b06f86"
+    },
+    {
+      "path": "src/main/java/com/smartticket/TicketServiceApplication.java",
+      "sha256": "b8bb72b6bd5ba33d02d8708734252303a529765fd44b0ab3c2e15897079b3f83"
+    },
+    {
+      "path": "src/main/java/com/smartticket/vo/KnowledgeAnswerVO.java",
+      "sha256": "5d3d822588a6e4bf159162a384c31054a0f0f62e003627be800682686ef5ceff"
+    },
+    {
+      "path": "src/main/java/com/smartticket/vo/PageVO.java",
+      "sha256": "3b9f0a315b5315a81664b7d376249fe17a8f62f43dedd5efe574d55722d4f19a"
+    },
+    {
+      "path": "src/main/java/com/smartticket/vo/TicketAnalysisVO.java",
+      "sha256": "36a41d93916a2185e20c37b98a9fc77ae0e0b4074717020b9d5506b04b1a93b2"
+    },
+    {
+      "path": "src/main/java/com/smartticket/vo/TicketLogVO.java",
+      "sha256": "7fb04ba5437f8d95dca28ddd328f24c77002c669c11900491085a53d3c752d8e"
+    },
+    {
+      "path": "src/main/java/com/smartticket/vo/TicketVO.java",
+      "sha256": "ec078db957dd4edf3e2f9c081c2de9bb4cb2666018f7b50ebbe31563a8c1891c"
+    },
+    {
+      "path": "src/main/resources/application-ollama.yml",
+      "sha256": "f2ecc2cd0f75b0bc69f4bd2ec5d8a158ec8f2eda164137a8574db7a5f7ea1515"
+    },
+    {
+      "path": "src/main/resources/application-siliconflow.yml",
+      "sha256": "0ca975ccc8f47953f50de9e162c095cc24a4093c18ccdf7d337145c923f90475"
+    },
+    {
+      "path": "src/main/resources/application.yml",
+      "sha256": "05c41e449d2ea3d04685fd6d896a75a5d49786b5fd5238cd8592abd5c0decf60"
+    },
+    {
+      "path": "src/main/resources/knowledge/faq/01-账户问题.md",
+      "sha256": "51c95e9d49adcabf2857fc32d867e8a803c1aa7ca79699de32fe7009e605c7fb"
+    },
+    {
+      "path": "src/main/resources/knowledge/faq/02-支付问题.md",
+      "sha256": "a9e5a9a3c1dc4e0c6e1de4f8c01730e7fa6460ef687d290b479f944e0e0fdf3b"
+    },
+    {
+      "path": "src/main/resources/knowledge/faq/03-功能异常.md",
+      "sha256": "1568a4631eaf4ec4dfe4d5a69703cb5287fff94e598b857b316e598a05ef6107"
+    },
+    {
+      "path": "src/main/resources/knowledge/faq/04-工单流程与通用问题.md",
+      "sha256": "fd5b224d26537a0de153eda924d61ee4cde8758f1594a737afe3261cbaa8b31c"
+    },
+    {
+      "path": "src/main/resources/knowledge/faq/05-项目权限与AI处理.md",
+      "sha256": "f3b63fa76f948d26e8a5ad42a498a3c3493a3bae0fc3019dd1b5e3fd066210dd"
+    },
+    {
+      "path": "src/main/resources/knowledge/README.md",
+      "sha256": "89e6db45ffc33384db7b75d3877a196ebbb6ac29eec4c4a51d32d70b302b9637"
+    },
+    {
+      "path": "src/main/resources/knowledge/tickets/01-账户问题.md",
+      "sha256": "03959f4d66c3417a7eee31bbb789914953c97c0851403b28c9b710fcfc5dac03"
+    },
+    {
+      "path": "src/main/resources/knowledge/tickets/02-支付问题.md",
+      "sha256": "68166988a34aa5ee1344741fe81230843d842532980d5d9b6d44cda0326d3304"
+    },
+    {
+      "path": "src/main/resources/knowledge/tickets/03-功能异常.md",
+      "sha256": "c7e1ee56d9e2645ad9fb3acb2164c8730191d9d6dc235375ca4b53e719d9ea62"
+    },
+    {
+      "path": "src/main/resources/phase3.properties",
+      "sha256": "c6c8f3189081b63b774dc1d6ab8280428c2aede6c7c517a40810ced933f791fc"
+    },
+    {
+      "path": "src/main/resources/prompts/ai-classification-result.schema.json",
+      "sha256": "b309fe4315ec477a2e347047324cc9709f9546049f8ef9b110751258d4f6e1ee"
+    },
+    {
+      "path": "src/main/resources/prompts/rag-answer-result.schema.json",
+      "sha256": "847c103e1193218a2a6a74aa6033479cd5aa00724e9f345993785c6a052939cf"
+    },
+    {
+      "path": "src/main/resources/prompts/rag-answer-system.md",
+      "sha256": "d4abab7e1c65cd615802a6f12829ed08833e69ad62d08c6e275872b6f95441d8"
+    },
+    {
+      "path": "src/main/resources/prompts/rag-answer-user.md",
+      "sha256": "f41b92ec94a0b561efabbde3f0490b96398089a2fa87054ef268da22b186f837"
+    },
+    {
+      "path": "src/main/resources/prompts/ticket-classify-system.md",
+      "sha256": "fb1225abffda6b39735f0f6422c758160af1bd742a4142e8392fce142452cf06"
+    },
+    {
+      "path": "src/main/resources/prompts/ticket-classify-user.md",
+      "sha256": "1aa831f32b0bb781bf8dd97466d2964e34407800dc03f86e7ce6cda143ca3f83"
+    },
+    {
+      "path": "src/test/java/com/smartticket/agent/AgentAnswerTest.java",
+      "sha256": "3ebf72c1dac1b174d91d708db53592859681425793cc4f0997402395091004c8"
+    },
+    {
+      "path": "src/test/java/com/smartticket/agent/AgentToolContextTest.java",
+      "sha256": "adfa7ad95655a4c35d3e1ebe7a9269af6c1762d64d72e6e4aef7149b42fb6468"
+    },
+    {
+      "path": "src/test/java/com/smartticket/agent/AgentToolsTest.java",
+      "sha256": "4ec1bc63c541f1d9374dc68cda0e2c93d016405857a7f2cda4eaad85b4bf6c55"
+    },
+    {
+      "path": "src/test/java/com/smartticket/ai/AiClassificationParserTest.java",
+      "sha256": "7f0baad73d38ea3c49fdd41db771fe0e224c1b46e9604cdcc61787094636c446"
+    },
+    {
+      "path": "src/test/java/com/smartticket/ai/AiClassificationSchemaTest.java",
+      "sha256": "d9b6dded0f57c6a762f8328a3379258432747bd33bcc3e1e84a8cc3ea54f9b1b"
+    },
+    {
+      "path": "src/test/java/com/smartticket/ai/AiConfigurationTest.java",
+      "sha256": "3472e00b7f29b3542ee224264647b7743d58c27f93ad3808e85541d9c650b6da"
+    },
+    {
+      "path": "src/test/java/com/smartticket/ai/AiOpenAiProtocolTest.java",
+      "sha256": "6659dbb22fc4ac0473a231f3bdee22c53c971e74b855d177441686123b0ebf47"
+    },
+    {
+      "path": "src/test/java/com/smartticket/ai/AiPromptFactoryTest.java",
+      "sha256": "1f8205d59d582cbe392e93354f1372c72a7abbdad4acfea5e7570b46ba8b954e"
+    },
+    {
+      "path": "src/test/java/com/smartticket/ai/AiRealVendorSmokeTest.java",
+      "sha256": "c585a020991426f9935df50722a874b6063cad6ff3d89530eee97e07537d1270"
+    },
+    {
+      "path": "src/test/java/com/smartticket/ai/impl/AiChatServiceImplTest.java",
+      "sha256": "0a9010168d8bf9561ea778b10884e17f3a1fcb60ae2c58a201d98276da3aaa15"
+    },
+    {
+      "path": "src/test/java/com/smartticket/ai/impl/TicketAnalysisServiceImplTest.java",
+      "sha256": "c99e4ec3666b59ed44608305e96681e2a0b9377336d4a4c8373f493543f789bc"
+    },
+    {
+      "path": "src/test/java/com/smartticket/controller/AiControllerTest.java",
+      "sha256": "ce464fa1a8d1d0ee717c904c3a78381accee9c7ba40454143038e16da247d36d"
+    },
+    {
+      "path": "src/test/java/com/smartticket/controller/KnowledgeControllerTest.java",
+      "sha256": "ef7c1942bf6e0f038e7a3b1e354c738613ba445cde609837e0c641a808b2e6e6"
+    },
+    {
+      "path": "src/test/java/com/smartticket/controller/TicketApiTest.java",
+      "sha256": "d80bf9819c994f03cf59e67331c182204c76c80ff0ae90966fd0e2cd4491011b"
+    },
+    {
+      "path": "src/test/java/com/smartticket/enums/ErrorCodeTest.java",
+      "sha256": "ac450745cf257c9a75b788d59971c50d4432c5f87111bfe59210b61af0b46870"
+    },
+    {
+      "path": "src/test/java/com/smartticket/enums/TicketPriorityTest.java",
+      "sha256": "861fa38e7cde6aef17ddd3d12f0989d4c9a771ccc75dafe8c3a3cbc0e1d7d802"
+    },
+    {
+      "path": "src/test/java/com/smartticket/enums/TicketStatusTest.java",
+      "sha256": "ddc141bdfb7cd25f8300e4f3a165d9f1b3508085cd32031bdad99540357e2898"
+    },
+    {
+      "path": "src/test/java/com/smartticket/mapper/TicketMapperTest.java",
+      "sha256": "8aa59d75ae7c6a79b3b23d5c96484ca294660329ce9abef385f4b84e713dcbcd"
+    },
+    {
+      "path": "src/test/java/com/smartticket/phase3/AgentOpenAiProtocolTest.java",
+      "sha256": "c6af43ccd87ff487b1d5c70ec6b89adc084536484e11f9c7a8b946f9b7750873"
+    },
+    {
+      "path": "src/test/java/com/smartticket/phase3/Phase3IntegrationTest.java",
+      "sha256": "146cfc7b78752ae81186261f9b82a4b80230b6a5ac733f6f60fa13bab16d9229"
+    },
+    {
+      "path": "src/test/java/com/smartticket/rag/EmbeddingConfigProtocolTest.java",
+      "sha256": "4d0b6334fe0808de6190dff02443e74557d1c931d87ba90d1cf7f2df2e6a15c8"
+    },
+    {
+      "path": "src/test/java/com/smartticket/rag/impl/EmbeddingServiceImplTest.java",
+      "sha256": "c5f6f5889bff536fb315acc35dabc0aebc638f467c2617c11720cf9b36d38144"
+    },
+    {
+      "path": "src/test/java/com/smartticket/rag/impl/KnowledgeRetrievalServiceImplTest.java",
+      "sha256": "8d73aed803748683703dea7252e178f2c0edf4066d55c3adc8a8fd64d60c0724"
+    },
+    {
+      "path": "src/test/java/com/smartticket/rag/impl/KnowledgeSearchServiceImplTest.java",
+      "sha256": "13aa4efd5cd0f13e08799143865132aaf020f537e0c3640a4319e64545d07f94"
+    },
+    {
+      "path": "src/test/java/com/smartticket/rag/impl/RagAnswerServiceImplTest.java",
+      "sha256": "b88a80cf7601885c47d575bfaca58d8f98c78c2fa8e92dd12db986f9a23047e3"
+    },
+    {
+      "path": "src/test/java/com/smartticket/rag/KnowledgeChunkerTest.java",
+      "sha256": "066a0bc0db239257534af44483b752a576e6c0d54a8cf574e89f3114aac58525"
+    },
+    {
+      "path": "src/test/java/com/smartticket/rag/KnowledgeCorpusLoaderTest.java",
+      "sha256": "c48c949de17357eede4be7f9a98291b4f82ae756dab6cff0ac06735a3c5cf429"
+    },
+    {
+      "path": "src/test/java/com/smartticket/rag/KnowledgeIndexingServiceTest.java",
+      "sha256": "34992b298b5f562bdbf3cecf3488ac6a7ba3ce0c5529d18e0996067bc3753b3c"
+    },
+    {
+      "path": "src/test/java/com/smartticket/rag/KnowledgeProvenanceTest.java",
+      "sha256": "c302299e4baf64f02bc9677960cb31cd6247bda16334a14ba8f81222ee62efa9"
+    },
+    {
+      "path": "src/test/java/com/smartticket/rag/KnowledgeRetrievalRealVendorTest.java",
+      "sha256": "1f17461cd084a40d573ccbac6a6f7d1e5466a6825cde84563a5f0bc60e9e9834"
+    },
+    {
+      "path": "src/test/java/com/smartticket/rag/KnowledgeVectorIntegrationTest.java",
+      "sha256": "6c501eb0521d767b38884b762582b62b8b0bd42729428dea14c73fbe149854fe"
+    },
+    {
+      "path": "src/test/java/com/smartticket/rag/RagAnswerParserTest.java",
+      "sha256": "fd84eceaef87056bc73875b2c981606f5462071a267c52dbc8e4569e7c751aab"
+    },
+    {
+      "path": "src/test/java/com/smartticket/rag/RagAnswerPromptFactoryTest.java",
+      "sha256": "ec53ac1c1ba79f8e0f0174beae88c3f31fb0e6aecd4b8c8d58d160119799f1f5"
+    },
+    {
+      "path": "src/test/java/com/smartticket/rag/RagAnswerRealVendorTest.java",
+      "sha256": "7e49658533a1cdf12da81eb046fe3d324d0839ff87fad42c6cf271178a3586b3"
+    },
+    {
+      "path": "src/test/java/com/smartticket/rag/RagAnswerSchemaTest.java",
+      "sha256": "041f0496655dfd5b54621b627b94a0d732b90cf89ff0b20982bf06fd9f8707b9"
+    },
+    {
+      "path": "src/test/java/com/smartticket/rag/RagRetrievalEvaluationTest.java",
+      "sha256": "d09cc48550741395cc7040089f5060f459daa8d6595df9fb67eb25d29993625a"
+    },
+    {
+      "path": "src/test/java/com/smartticket/rag/RrfFusionTest.java",
+      "sha256": "dae6ca7ea186e07861f05b2e667f22d8519d23de75f13b82d25d79fa58ec1a74"
+    },
+    {
+      "path": "src/test/java/com/smartticket/service/impl/TicketServiceImplTest.java",
+      "sha256": "5ad71a2c715f9f97b13b1b0a64a563ba7813380679b57fd8c3b11e5be2706697"
+    },
+    {
+      "path": "src/test/java/com/smartticket/service/TicketCacheTest.java",
+      "sha256": "a033c3947585931ac421524bc5e88814798a60a25b1f736ae6090b186329a05f"
+    },
+    {
+      "path": "src/test/java/com/smartticket/support/ApiContractTest.java",
+      "sha256": "d737d8bc8aaaea3431a6cedc0dac2aeed66af888c5920aed426beae210e7de83"
+    },
+    {
+      "path": "src/test/java/com/smartticket/support/RabbitConnectivityTest.java",
+      "sha256": "1aa29c614f7ffe8841bd9b1a8a94d1fc13319986e3176c5ae8d481ad86c5af20"
+    },
+    {
+      "path": "src/test/java/com/smartticket/support/RabbitJsonMessageTest.java",
+      "sha256": "5bba8ec341f2dacf697e4d277eec4bb5264f06e6b8e3aa214fad239d08c430c8"
+    },
+    {
+      "path": "src/test/java/com/smartticket/support/RedisConnectivityTest.java",
+      "sha256": "4cf2fb27d98a36b97637b33216b4afb2b14bd913273ce1a450853f30054e4fed"
+    },
+    {
+      "path": "src/test/java/com/smartticket/support/TestApiController.java",
+      "sha256": "b6c30f6fd20d28641c5405d8582a0526e5e9438b19d9971ac9e8ed33249ab861"
+    },
+    {
+      "path": "src/test/resources/application.properties",
+      "sha256": "180c661b901292e044c789c15332f69c55e316e17ead9701bae2cfbac3082e29"
+    }
+  ],
+  "source_manifest_sha256": "04e303f6adf7be4e29b45f2f4a072f8554f2e1a7a0f0a8549fbfd7c4462d5263"
+}

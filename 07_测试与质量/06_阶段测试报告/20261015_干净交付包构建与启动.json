@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-15",
+  "status": "PASS",
+  "scope": "Same-machine clean source/build, shared JDK/Maven cache",
+  "vendor_calls": 0,
+  "source_manifest_sha256": "f93cef606be7a163134feadd7f55a060338bbf8c96b4f0d00c7243d9d4a695f1",
+  "jar_path": ".tmp\\delivery-20261015-140650-a9a1f4\\ticket-service\\target\\ticket-service-0.0.1-SNAPSHOT.jar",
+  "private_configuration_entries": 0,
+  "jar_sha256": "7c3dd8eb2633ed57cc2d4c70147d74c9f2523753eb538b138b1129775972b280",
+  "public_classpath_equal_to_development_build": false,
+  "synthetic_ticket_id": 469,
+  "trusted_identity_verified": true,
+  "unauthenticated_http_status": 401,
+  "admin_metrics_verified": true,
+  "delivery_artifact_path": "08_部署与环境/04_交付产物/SmartTicket-AI-20261015-7c3dd8eb2633.jar",
+  "runtime_classes_and_resources_equivalent": true,
+  "non_runtime_packaging_differences": [
+    "BOOT-INF/classes/mapper/.gitkeep"
+  ]
+}

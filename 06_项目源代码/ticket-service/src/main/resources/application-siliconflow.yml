@@ -1,0 +1,14 @@
+# Explicit profile, loaded after local. Uses a separate key; never reuse Alibaba credentials.
+spring:
+  config:
+    import: optional:file:../../.tmp/phase4-embedding-provider.properties
+smartticket:
+  vector:
+    embedding:
+      base-url: https://api.siliconflow.cn
+      api-key: ${SILICONFLOW_API_KEY:${siliconflow.api-key:not-configured}}
+      model: BAAI/bge-m3
+      dimensions: 1024
+      send-dimensions: false
+      batch-size: 10
+    index-on-startup: false

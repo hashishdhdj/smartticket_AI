@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-16T17:00:56+08:00",
+  "status": "ENGINEERING_PASS_SEMANTIC_REVIEW_PENDING",
+  "threshold": 0.63,
+  "prompt_version": "rag-answer-v3.3",
+  "corpus_sha256": "0f9fd38473aca3df7bb5e66e0d5acbd87e2c38e5079aefb177d4cce8c71d54e0",
+  "retrieval_gate_only": {
+    "known_cases": 122,
+    "positive_allowed": 86,
+    "positive_total": 86,
+    "negative_allowed": 4,
+    "negative_total": 36,
+    "independent_blind_evaluation": false,
+    "answer_accuracy": null
+  },
+  "real_recovery": {
+    "NW08": "RESPONDED_WITH_SCOPED_ADVICE_ONE_OBSERVATION_NOT_STABILITY_PROOF",
+    "NW13": "RESPONDED_200_BUT_ADVICE_HIDDEN_HUMAN_REVIEW_REQUIRED_REASON_NOT_EXPOSED_IN_THAT_INTERMEDIATE_VO"
+  },
+  "final_unit": {
+    "tests": 234,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "final_integration": {
+    "tests": 137,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "python_budget_proxy_tests": 14,
+  "api_requests": 15,
+  "api_assertions": 35,
+  "final_jar_sha256": "0bf1ebea9260f067963e1fe5146a8f20bc9f35d006540e7ccd6af96122310e28",
+  "delivery_artifact_path": "08_部署与环境/04_交付产物/SmartTicket-AI-20261016-0bf1ebea9260.jar",
+  "private_configuration_entries": 0,
+  "external_calls_this_iteration": 2,
+  "cumulative_external_calls": 399,
+  "additional_authorized_calls_used": 80,
+  "estimated_upper_rmb": 2.5069610800000004,
+  "evidence": {
+    "delivery": {
+      "path": "07_测试与质量/06_阶段测试报告/20261016_165231_9116d9_干净交付包构建与启动.json",
+      "sha256": "2b20ef713e6c546f6cd99245e48f48b3378362564cc682f2ecff2b5999d1e5b7"
+    },
+    "api_collection": {
+      "path": "07_测试与质量/06_阶段测试报告/20261016_165459_接口集合真实HTTP验收.json",
+      "sha256": "96f2ba4a0f0b0d7de975319ea001b0712252ee8464447bc4c1aa2100935689f9"
+    },
+    "rag_offline_http": {
+      "path": "07_测试与质量/06_阶段测试报告/20261016_165445_RAG修复版离线HTTP验收.json",
+      "sha256": "3ddddc58d43680522948b201d9b50ee024034295e119dce862c2d28ae4f98a1e"
+    },
+    "linux_runtime": {
+      "path": "07_测试与质量/06_阶段测试报告/20261016_165444_6d51be_Linux交付包启动验收.json",
+      "sha256": "592e69ec993f252ebb9841a267248b7d324d76cc988b61c7243e16cde40a5d61"
+    },
+    "development_index": {
+      "path": "07_测试与质量/06_阶段测试报告/20261016_164428_本地模型开发库接入.json",
+      "sha256": "c02358b574ca141bafc286bebe5fd19980084a9f12f89bc9b13b5c22e7eae64e"
+    },
+    "retrieval_remeasurement": {
+      "path": "07_测试与质量/06_阶段测试报告/20261016_164429_RAG召回优先门槛重新校准.json",
+      "sha256": "d235f33f8d918f8a9a721475aeb50bde0afeba6cba35a5607a37e6235469a67d"
+    },
+    "real_two_cases": {
+      "path": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_2题_rag_v33_failure_fixes.json",
+      "sha256": "d44836e5e76524c0be7e0d27d5b02422e017311bb092c9a23918de35ffdc27f2"
+    }
+  },
+  "limits": [
+    "NW13 still lacks a qualified real generated answer; final negative-warning/VO corrections verified locally only",
+    "Finite workaround vocabulary and simple negation checks are not a universal grounding/entailment checker",
+    "15s upstream socket timeout versus 20s application read timeout is not a strict global deadline or proof TLS instability resolved",
+    "Latest Linux runtime tested; previous empty-cache full Linux test belongs to earlier .63 source revision",
+    "148 author reviews pending; remote CI not executed"
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-15",
+  "status": "PASS",
+  "vendor_calls": 0,
+  "scope": "smartticket-stage4 only; ports13306/16379/15673",
+  "model": "local HTTP classification fixture, not a real AI quality evaluation",
+  "test_lease_seconds": 20,
+  "production_lease_seconds_unchanged": 90,
+  "scenarios": [
+    {
+      "name": "redis_actual_outage_compensation",
+      "started_at": "2026-10-15T13:56:54.463018+08:00",
+      "ticketId": 385,
+      "fault_at": "2026-10-15T13:56:56.549592+08:00",
+      "invalidation_pending": 1,
+      "db_read_during_outage_is_current": true,
+      "restored_at": "2026-10-15T13:57:12.163492+08:00",
+      "status": "PASS",
+      "invalidation_remaining": 0,
+      "completed_at": "2026-10-15T13:57:13.887378+08:00"
+    },
+    {
+      "name": "consumer_database_write_outage",
+      "started_at": "2026-10-15T13:57:26.246064+08:00",
+      "ticketId": 386,
+      "before_fault": {
+        "status": "RUNNING",
+        "task_id": "d64999b4-2859-420b-882b-fb6ce520cc85",
+        "attempts": 1,
+        "lease_until": "2026-10-15 13:57:46.708"
+      },
+      "fault_at": "2026-10-15T13:57:29.176129+08:00",
+      "listener_pause_observed": true,
+      "restored_at": "2026-10-15T13:57:40.567074+08:00",
+      "terminal": {
+        "status": "SUCCEEDED",
+        "task_id": "d64999b4-2859-420b-882b-fb6ce520cc85",
+        "attempts": 2,
+        "lease_until": null,
+        "persisted_results": 1,
+        "human_priority": "URGENT"
+      },
+      "completed_at": "2026-10-15T13:58:06.101901+08:00",
+      "status": "PASS"
+    },
+    {
+      "name": "running_application_crash_lease_recovery",
+      "started_at": "2026-10-15T13:58:16.805449+08:00",
+      "ticketId": 387,
+      "before_crash": {
+        "status": "RUNNING",
+        "task_id": "2b1f2cff-7e1b-491d-85fd-35ca651ef2cd",
+        "attempts": 1,
+        "lease_until": "2026-10-15 13:58:37.645"
+      },
+      "crashed_at": "2026-10-15T13:58:18.111088+08:00",
+      "restarted_at": "2026-10-15T13:58:29.345460+08:00",
+      "terminal": {
+        "status": "SUCCEEDED",
+        "task_id": "2b1f2cff-7e1b-491d-85fd-35ca651ef2cd",
+        "attempts": 2,
+        "lease_until": null,
+        "persisted_results": 1,
+        "human_priority": "URGENT"
+      },
+      "completed_at": "2026-10-15T13:58:39.576882+08:00",
+      "status": "PASS"
+    }
+  ],
+  "local_fixture_calls": {
+    "ADV_DB_WRITE": 2,
+    "ADV_RUNNING_CRASH": 2
+  }
+}

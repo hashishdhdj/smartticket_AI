@@ -1,0 +1,189 @@
+{
+  "date": "2026-10-15T19:38:09",
+  "status": "PASS",
+  "vendor_calls": 0,
+  "scope": "isolated stage4, async and model disabled",
+  "postman_desktop_executed": false,
+  "collection_sha256": "bcfd5b11c4e63e6f1fb1036dc05daa8c3d8eaafa96c599aa4326277f306abc7c",
+  "runner": "Node HTTP + limited pm compatibility; not Postman/Newman",
+  "requests": 11,
+  "assertions": 22,
+  "rows": [
+    {
+      "name": "01 创建合成工单（可信身份覆盖creatorId）",
+      "method": "POST",
+      "path": "/api/tickets",
+      "http_status": 200,
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "status": "PASS"
+        },
+        {
+          "name": "business code 0",
+          "status": "PASS"
+        },
+        {
+          "name": "可信创建人",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "02 查询自己的工单",
+      "method": "GET",
+      "path": "/api/tickets/548",
+      "http_status": 200,
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "status": "PASS"
+        },
+        {
+          "name": "business code 0",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "03 查询日志",
+      "method": "GET",
+      "path": "/api/tickets/548/logs",
+      "http_status": 200,
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "status": "PASS"
+        },
+        {
+          "name": "business code 0",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "04 查询分析任务（降级不等于AI成功）",
+      "method": "GET",
+      "path": "/api/tickets/548/analysis",
+      "http_status": 200,
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "status": "PASS"
+        },
+        {
+          "name": "business code 0",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "05 无凭据拒绝401",
+      "method": "GET",
+      "path": "/api/tickets/548",
+      "http_status": 401,
+      "checks": [
+        {
+          "name": "HTTP 401",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "06 未指派处理人拒绝403",
+      "method": "GET",
+      "path": "/api/tickets/548",
+      "http_status": 403,
+      "checks": [
+        {
+          "name": "HTTP 403",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "07 普通账号不能查管理员指标",
+      "method": "GET",
+      "path": "/api/admin/metrics",
+      "http_status": 403,
+      "checks": [
+        {
+          "name": "HTTP 403",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "08 管理员查询指标",
+      "method": "GET",
+      "path": "/api/admin/metrics",
+      "http_status": 200,
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "status": "PASS"
+        },
+        {
+          "name": "business code 0",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "09 管理员首次重放",
+      "method": "POST",
+      "path": "/api/tickets/548/analysis/replay",
+      "http_status": 200,
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "status": "PASS"
+        },
+        {
+          "name": "business code 0",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "10 相同键重放返回同任务",
+      "method": "POST",
+      "path": "/api/tickets/548/analysis/replay",
+      "http_status": 200,
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "status": "PASS"
+        },
+        {
+          "name": "business code 0",
+          "status": "PASS"
+        },
+        {
+          "name": "相同任务ID",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "11 Agent工程入口（离线模式应STOPPED，不冒充真模型）",
+      "method": "POST",
+      "path": "/api/agent/runs",
+      "http_status": 200,
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "status": "PASS"
+        },
+        {
+          "name": "business code 0",
+          "status": "PASS"
+        },
+        {
+          "name": "离线模型明确停止",
+          "status": "PASS"
+        }
+      ]
+    }
+  ]
+}
