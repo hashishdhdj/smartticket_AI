@@ -78,6 +78,7 @@ postman/
 
 # Local runtime secrets and verification workspace
 .tmp/
+.workspaces/
 phase3-local.properties
 
 __pycache__/
