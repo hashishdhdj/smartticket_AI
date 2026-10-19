@@ -37,7 +37,11 @@ public class BudgetLedger {
                 s -> {
                     var date = LocalDate.now();
                     db.update(
-                            "INSERT IGNORE INTO ai_usage_budget(actor_id,usage_date) VALUES(?,?)",
+                            // Acquire the existing row's exclusive lock before the conditional debit.
+                            // INSERT IGNORE can take shared duplicate-key locks and deadlock when
+                            // concurrent requests then all upgrade them during UPDATE.
+                            "INSERT INTO ai_usage_budget(actor_id,usage_date) VALUES(?,?)"
+                                    + " ON DUPLICATE KEY UPDATE actor_id=actor_id",
                             actor,
                             date);
                     int n =

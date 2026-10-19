@@ -100,6 +100,7 @@ class ReliableBackendIntegrationTest {
         config.setMaxToolCalls(6);
         config.setMaxRunTokens(12000);
         config.setDailyTokens(50000);
+        config.setDailyRequests(100);
         config.setDeadlineSeconds(60);
         config.setMaxAttempts(3);
         reset(model, analysis, knowledge);
@@ -1045,4 +1046,162 @@ class ReliableBackendIntegrationTest {
                         .getContentAsString();
         ids.add(json.readTree(response).path("data").path("id").asLong());
     }
+
+    @Test
+    void concurrentBudgetRequestsKeepTheCapAndDoNotDeadlock() throws Exception {
+        config.setDailyRequests(3);
+        long actor = ActorContext.require().id();
+        var pool = Executors.newFixedThreadPool(10);
+        var start = new CountDownLatch(1);
+        try {
+            List<Future<Boolean>> results = new ArrayList<>();
+            for (int index = 0; index < 10; index++) results.add(pool.submit(() -> {
+                assertTrue(start.await(5, TimeUnit.SECONDS));
+                try {
+                    budget.request(actor);
+                    return true;
+                } catch (ApiFailure exhausted) {
+                    assertEquals(429, exhausted.status());
+                    return false;
+                }
+            }));
+            start.countDown();
+            int accepted = 0;
+            for (var result : results) if (result.get(10, TimeUnit.SECONDS)) accepted++;
+            assertEquals(3, accepted);
+            assertEquals(3, db.queryForObject("SELECT requests_used FROM ai_usage_budget WHERE actor_id=? AND usage_date=CURDATE()",
+                    Integer.class, actor));
+        } finally {
+            start.countDown();
+            pool.shutdownNow();
+            assertTrue(pool.awaitTermination(10, TimeUnit.SECONDS));
+        }
+    }
+
+    @Test
+    void securityFilterAndMvcErrorsShareOneEnvelope() throws Exception {
+        var unauthorized = mvc.perform(get("/api/tickets"))
+                .andExpect(status().isUnauthorized()).andReturn();
+        var missing = mvc.perform(get("/api/tickets/{id}", Long.MAX_VALUE)
+                        .header("X-API-Key", "test-admin-key"))
+                .andExpect(status().isNotFound()).andReturn();
+        var validation = mvc.perform(post("/api/tickets").header("X-API-Key", "test-admin-key")
+                        .contentType("application/json").content("{}"))
+                .andExpect(status().isBadRequest()).andReturn();
+        for (var response : List.of(unauthorized, missing, validation)) {
+            var body = json.readTree(response.getResponse().getContentAsString(java.nio.charset.StandardCharsets.UTF_8));
+            Set<String> fields = new HashSet<>();
+            body.fieldNames().forEachRemaining(fields::add);
+            assertEquals(Set.of("code", "message"), fields);
+            assertNotEquals(0, body.get("code").asInt());
+            assertNotNull(response.getResponse().getHeader("X-Trace-Id"));
+        }
+    }
+
+    @Test
+    void concurrentServiceUpdatesRejectOneWriterAndKeepOneAudit() throws Exception {
+        var ticket = create();
+        var actor = ActorContext.require();
+        var barrier = new CyclicBarrier(2);
+        var pool = Executors.newFixedThreadPool(2);
+        try {
+            Callable<Boolean> write = () -> {
+                ActorContext.set(actor);
+                try {
+                    var tx = new TransactionTemplate(tm);
+                    tx.setIsolationLevel(org.springframework.transaction.TransactionDefinition.ISOLATION_REPEATABLE_READ);
+                    return tx.execute(status -> {
+                        var before = service.getById(ticket.getId());
+                        try { barrier.await(10, TimeUnit.SECONDS); }
+                        catch (Exception failure) { throw new IllegalStateException(failure); }
+                        var dto = new TicketUpdateDTO();
+                        dto.setTitle("服务层并发更新");
+                        dto.setPriority("MEDIUM");
+                        dto.setExpectedVersion(before.getVersion());
+                        dto.setOperatorId(actor.id());
+                        service.update(ticket.getId(), dto);
+                        return true;
+                    });
+                } catch (ApiFailure conflict) {
+                    assertEquals(409, conflict.status());
+                    assertEquals(10011, conflict.code());
+                    return false;
+                } finally { ActorContext.clear(); }
+            };
+            var first = pool.submit(write);
+            var second = pool.submit(write);
+            assertNotEquals(first.get(15, TimeUnit.SECONDS), second.get(15, TimeUnit.SECONDS));
+            assertEquals(1L, tickets.selectById(ticket.getId()).getVersion());
+            assertEquals(1, db.queryForObject("SELECT COUNT(*) FROM ticket_log WHERE ticket_id=? AND action='UPDATE'",
+                    Integer.class, ticket.getId()));
+        } finally { pool.shutdownNow(); }
+    }
+
+    @org.junit.jupiter.params.ParameterizedTest
+    @org.junit.jupiter.params.provider.ValueSource(ints = {5, 10, 20})
+    void blockedModelCallsReleaseDatabaseConnections(int concurrency) throws Exception {
+        config.setDailyTokens(2_000_000);
+        config.setDailyRequests(1000);
+        List<TicketAnalysisMessage> messages = new ArrayList<>();
+        for (int index = 0; index < concurrency; index++) messages.add(message(create().getId()));
+        CountDownLatch entered = new CountDownLatch(concurrency), release = new CountDownLatch(1);
+        when(analysis.analyze(any())).thenAnswer(invocation -> {
+            assertFalse(org.springframework.transaction.support.TransactionSynchronizationManager.isActualTransactionActive(),
+                    "Model I/O must run after the task-claim transaction commits");
+            entered.countDown();
+            if (!release.await(15, TimeUnit.SECONDS)) throw new IllegalStateException("Test release deadline");
+            return success();
+        });
+        var pool = Executors.newFixedThreadPool(concurrency);
+        List<Future<Boolean>> running = new ArrayList<>();
+        try {
+            for (var message : messages) running.add(pool.submit(() -> worker.process(message)));
+            boolean allEntered = entered.await(10, TimeUnit.SECONDS);
+            if (!allEntered) {
+                for (var work : running) if (work.isDone()) work.get();
+            }
+            assertTrue(allEntered, "All workers must reach the blocked model; remaining=" + entered.getCount());
+            var dataSource = db.getDataSource();
+            assertNotNull(dataSource);
+            var hikari = dataSource.unwrap(com.zaxxer.hikari.HikariDataSource.class);
+            int active = hikari.getHikariPoolMXBean().getActiveConnections();
+            assertTrue(active < hikari.getMaximumPoolSize(), "Blocked models must not occupy the connection pool");
+            List<Long> writeMs = new ArrayList<>();
+            for (int index = 0; index < 3; index++) {
+                long start = System.nanoTime();
+                var probe = create();
+                var dto = new TicketUpdateDTO();
+                dto.setTitle("模型等待时仍可写入" + index);
+                dto.setPriority("HIGH");
+                dto.setExpectedVersion(probe.getVersion());
+                dto.setOperatorId(ActorContext.require().id());
+                assertEquals(1L, service.update(probe.getId(), dto).getVersion());
+                long elapsed = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - start);
+                assertTrue(elapsed < 5000, "A core write must finish while the model is still blocked");
+                writeMs.add(elapsed);
+            }
+            release.countDown();
+            for (var work : running) assertFalse(work.get(10, TimeUnit.SECONDS));
+            for (var message : messages) assertEquals("SUCCEEDED", repo.analysis(message.ticketId()).get("status"));
+            Collections.sort(writeMs);
+            var result = new LinkedHashMap<String, Object>();
+            result.put("concurrency", concurrency);
+            result.put("model", "blocking test double; no vendor calls");
+            result.put("activeConnectionsDuringModelWait", active);
+            result.put("maximumPoolSize", hikari.getMaximumPoolSize());
+            result.put("coreWrites", 3);
+            result.put("coreWriteMs", writeMs);
+            result.put("p50Ms", writeMs.get(1));
+            result.put("p95NearestRankMs", writeMs.get(2));
+            result.put("errors", 0);
+            result.put("limitations", "Three writes per level on one local host; not a production capacity benchmark or broker throughput test");
+            var report = java.nio.file.Path.of("../../.tmp/review-blocking-load-" + concurrency + ".json");
+            java.nio.file.Files.writeString(report, json.writerWithDefaultPrettyPrinter().writeValueAsString(result));
+        } finally {
+            release.countDown();
+            pool.shutdownNow();
+            assertTrue(pool.awaitTermination(10, TimeUnit.SECONDS));
+        }
+    }
+
 }
