@@ -1,0 +1,30 @@
+{
+  "version": "quality-r06-v1",
+  "created_at": "2026-10-19T10:17:09.506867+00:00",
+  "purpose": "FROZEN_NEW_WORDING_LOCAL_RETRIEVAL_HOLDOUT_AI_AUTHORED_NOT_HUMAN_BLIND_EVALUATION",
+  "labels_locked_before_first_run": true,
+  "label_review": "PENDING",
+  "runtime_model": "bge-m3:latest",
+  "threshold": 0.63,
+  "top_k_reported": 3,
+  "no_exact_known_query_duplicates": true,
+  "known_dataset_manifests": {
+    "phase4-v1": "fe25eb8ef2ea619c3d6a4d691c1554bb2fddf0c40891140bae30ee50fdaff18f",
+    "phase4-v2-regression": "9de36f6748be40974fefa7de673091ddc023088a91a4ceef905a15ee34e08c43",
+    "phase4-v3-newwording": "76f3bbf91f40ee99c71c99d22ed00d2cd9c995620b3f0a21c78ab493b19a31cb"
+  },
+  "files": {
+    "retrieval.jsonl": {
+      "sha256": "39d31adc351572c4dd5dd19c7cda747d7d3e7cda1af4e1059fcd24db0cb01987",
+      "count": 24,
+      "positive": 16,
+      "negative": 8
+    },
+    "dynamic.json": {
+      "sha256": "aa73731982529f4bee9a4cc9cd3997af499516a420a970ee477189ced3cede5c",
+      "positive": 4,
+      "negative": 2,
+      "state_checks": 2
+    }
+  }
+}
