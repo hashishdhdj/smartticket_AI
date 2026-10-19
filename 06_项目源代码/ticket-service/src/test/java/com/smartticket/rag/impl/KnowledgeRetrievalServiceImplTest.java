@@ -1,5 +1,7 @@
 package com.smartticket.rag.impl;
 
+import com.smartticket.knowledge.KnowledgeVisibility;
+
 import com.smartticket.enums.ErrorCode;
 import com.smartticket.rag.EmbeddingResult;
 import com.smartticket.rag.EmbeddingService;
@@ -54,6 +56,7 @@ class KnowledgeRetrievalServiceImplTest {
     private KnowledgeVectorProperties properties;
 
     private KnowledgeRetrievalServiceImpl service;
+    private KnowledgeVisibility visibility;
 
     @BeforeEach
     void setUp() {
@@ -61,7 +64,9 @@ class KnowledgeRetrievalServiceImplTest {
         vectorRepository = mock(KnowledgeVectorRepository.class);
         properties = new KnowledgeVectorProperties();
         properties.getRetrieval().setTopK(5);
-        service = new KnowledgeRetrievalServiceImpl(embeddingService, vectorRepository, properties);
+        visibility = mock(KnowledgeVisibility.class);
+        when(visibility.filter(anyList())).thenAnswer(invocation -> invocation.getArgument(0));
+        service = new KnowledgeRetrievalServiceImpl(embeddingService, vectorRepository, properties, visibility);
 
         when(embeddingService.isAvailable()).thenReturn(true);
         when(embeddingService.modelName()).thenReturn(MODEL);
@@ -204,7 +209,7 @@ class KnowledgeRetrievalServiceImplTest {
     void keywordPathPassesConfiguredThresholds() {
         properties.getRetrieval().setTopK(3);
         properties.getRetrieval().setKeywordMinScore(0.05);
-        service = new KnowledgeRetrievalServiceImpl(embeddingService, vectorRepository, properties);
+        service = new KnowledgeRetrievalServiceImpl(embeddingService, vectorRepository, properties, visibility);
         when(vectorRepository.searchByKeyword(anyString(), anyDouble(), anyInt()))
                 .thenReturn(List.of(hit("tickets/01-账户问题.md", 0, 0.2)));
 

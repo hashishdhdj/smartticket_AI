@@ -30,4 +30,8 @@ public class TicketResolveDTO {
     @Size(max = 500, message = "备注长度不能超过 500")
     private String remark;
 
+    /** 可选结构化解决方案；启用知识工作流时保存快照并异步生成待审候选。 */
+    @Size(min = 10, max = 2000, message = "解决方案须为10到2000个字符")
+    private String solution;
+
 }

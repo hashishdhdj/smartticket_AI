@@ -122,6 +122,14 @@ smartticket:
   ai:
     enabled: true
 
+  # Dynamic knowledge is opt-in. Apply MySQL 05 and PG 02 first; use profile ollama.
+  # solution -> candidate -> administrator review -> incremental index/retraction.
+  knowledge:
+    enabled: ${KNOWLEDGE_ENABLED:false}
+    async-enabled: ${KNOWLEDGE_ASYNC_ENABLED:false}
+    max-attempts: 3
+    lease-seconds: 90
+
   # ============================================================ RAG 向量库（阶段2 第5天）
   #
   # 与 AI 通道同样遵守"可降级、不阻塞主流程"：这个开关关掉、或 PostgreSQL 连不上、
@@ -172,7 +180,7 @@ smartticket:
 
     # 检索参数（阶段2 第6天，章程第4周任务 6/7）
     retrieval:
-      # 每条路各取前多少条。语料目前 26 条切片、融合后取前 3 条给出依据，
+      # 每条路各取前多少条。静态语料 30 条切片；审核发布的动态问答各增加一条。
       # 每路取 5 既给了合并层挑选余量，又不会把明显不相关的内容带进来
       top-k: 5
       # 关键词检索（word_similarity）的最低门槛。

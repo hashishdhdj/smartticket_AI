@@ -198,6 +198,8 @@
                         <include>**/EmbeddingConfigProtocolTest.java</include>
                         <include>**/KnowledgeCorpusLoaderTest.java</include>
                         <include>**/KnowledgeProvenanceTest.java</include>
+                        <include>**/KnowledgeSourceTest.java</include>
+                        <include>**/KnowledgeVisibilityTest.java</include>
                         <include>**/KnowledgeIndexingServiceTest.java</include>
                         <include>**/RagAnswerParserTest.java</include>
                         <include>**/RagAnswerPromptFactoryTest.java</include>
@@ -222,6 +224,7 @@
                         <include>**/TicketMapperTest.java</include>
                         <include>**/AgentOpenAiProtocolTest.java</include>
                         <include>**/ReliableBackendIntegrationTest.java</include>
+                        <include>**/KnowledgeWorkflowIntegrationTest.java</include>
                         <include>**/KnowledgeVectorIntegrationTest.java</include>
                         <include>**/TicketCacheTest.java</include>
                         <include>**/RabbitConnectivityTest.java</include>

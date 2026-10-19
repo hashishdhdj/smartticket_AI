@@ -38,8 +38,14 @@ mysql_env['MYSQL_PWD'] = VALUES['MYSQL_ROOT_PASSWORD']
 for sql in sorted((ROOT / '06_项目源代码/sql').glob('*.sql')):
     run(['docker', 'exec', '-i', '-e', 'MYSQL_PWD', containers['mysql'], 'mysql', '-uroot',
          '--default-character-set=utf8mb4', 'smartticket'], sql.read_bytes(), mysql_env)
-run(['docker', 'exec', containers['rabbitmq'], 'rabbitmqctl', 'add_vhost', 'smartticket-stage3-verify'])
-for vhost in ('/', 'smartticket-stage3-verify'):
+postgres_env = os.environ.copy()
+postgres_env['PGPASSWORD'] = VALUES['POSTGRES_PASSWORD']
+for sql in sorted((ROOT / '06_项目源代码/sql-vector').glob('*.sql')):
+    run(['docker', 'exec', '-i', '-e', 'PGPASSWORD', containers['pgvector'], 'psql', '-v', 'ON_ERROR_STOP=1',
+         '-U', 'postgres', '-d', 'smartticket_vector'], sql.read_bytes(), postgres_env)
+for vhost in ('/', 'smartticket-stage3-verify', 'smartticket-knowledge-verify'):
+    if vhost != '/':
+        run(['docker', 'exec', containers['rabbitmq'], 'rabbitmqctl', 'add_vhost', vhost])
     run(['docker', 'exec', containers['rabbitmq'], 'rabbitmqctl', 'set_permissions', '-p', vhost,
          'smartticket', '.*', '.*', '.*'])
     run(['docker', 'exec', containers['rabbitmq'], 'rabbitmqctl', 'set_policy', '-p', vhost,

@@ -13,6 +13,12 @@ public final class KnowledgeProvenance {
     private KnowledgeProvenance() {}
 
     public static String scope(String sourceFile, String content) {
+        if (sourceFile != null && sourceFile.startsWith("resolved-ticket/")) {
+            try {
+                com.smartticket.knowledge.KnowledgeSource.parse(sourceFile);
+                return "REVIEWED_TICKET_DEMO";
+            } catch (IllegalArgumentException invalid) { return "UNSPECIFIED"; }
+        }
         if (SIMULATED.contains(sourceFile) || (content != null && content.contains("模拟客服平台场景")))
             return "SIMULATED_SCENARIO";
         return PROJECT.contains(sourceFile) ? "PROJECT_REFERENCE" : "UNSPECIFIED";

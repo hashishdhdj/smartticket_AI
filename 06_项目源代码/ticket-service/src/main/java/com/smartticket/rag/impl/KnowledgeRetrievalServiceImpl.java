@@ -1,6 +1,7 @@
 package com.smartticket.rag.impl;
 
 import com.smartticket.enums.ErrorCode;
+import com.smartticket.knowledge.KnowledgeVisibility;
 import com.smartticket.rag.EmbeddingResult;
 import com.smartticket.rag.EmbeddingService;
 import com.smartticket.rag.KnowledgeRetrievalService;
@@ -40,13 +41,15 @@ public class KnowledgeRetrievalServiceImpl implements KnowledgeRetrievalService 
     private final KnowledgeVectorRepository vectorRepository;
 
     private final KnowledgeVectorProperties.Retrieval retrievalProperties;
+    private final KnowledgeVisibility visibility;
 
     public KnowledgeRetrievalServiceImpl(EmbeddingService embeddingService,
                                          KnowledgeVectorRepository vectorRepository,
-                                         KnowledgeVectorProperties properties) {
+                                         KnowledgeVectorProperties properties, KnowledgeVisibility visibility) {
         this.embeddingService = embeddingService;
         this.vectorRepository = vectorRepository;
         this.retrievalProperties = properties.getRetrieval();
+        this.visibility = visibility;
     }
 
     // ------------------------------------------------------------ 向量检索
@@ -86,8 +89,8 @@ public class KnowledgeRetrievalServiceImpl implements KnowledgeRetrievalService 
                         embedding.failureDetail(), elapsedMs(start));
             }
 
-            List<RetrievalHit> hits = vectorRepository.searchByVector(
-                    embedding.embeddings().get(0), retrievalProperties.getTopK());
+            List<RetrievalHit> hits = visibility.filter(vectorRepository.searchByVector(
+                    embedding.embeddings().get(0), retrievalProperties.getTopK()));
 
             long costMs = elapsedMs(start);
             log.info("向量检索完成 | queryChars={} | topK={} | hits={} | topScore={} | model={} | cost={}ms",
@@ -116,8 +119,8 @@ public class KnowledgeRetrievalServiceImpl implements KnowledgeRetrievalService 
         }
 
         try {
-            List<RetrievalHit> hits = vectorRepository.searchByKeyword(query,
-                    retrievalProperties.getKeywordMinScore(), retrievalProperties.getTopK());
+            List<RetrievalHit> hits = visibility.filter(vectorRepository.searchByKeyword(query,
+                    retrievalProperties.getKeywordMinScore(), retrievalProperties.getTopK()));
 
             long costMs = elapsedMs(start);
             log.info("关键词检索完成 | queryChars={} | topK={} | minScore={} | hits={} | topScore={} | cost={}ms",

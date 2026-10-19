@@ -1,6 +1,7 @@
 package com.smartticket.rag;
 
 import jakarta.annotation.PreDestroy;
+import com.smartticket.knowledge.KnowledgeSource;
 import lombok.extern.slf4j.Slf4j;
 import org.postgresql.util.PGobject;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
@@ -52,6 +53,9 @@ public class KnowledgeVectorRepository {
     private final HikariDataSource dataSource;
 
     private final JdbcTemplate jdbcTemplate;
+    private final org.springframework.transaction.support.TransactionTemplate publicationTx;
+    private static final String SEARCHABLE = "(source_file NOT LIKE 'resolved-ticket/%' OR EXISTS ("
+            + "SELECT 1 FROM knowledge_publication p WHERE p.source_file=knowledge_chunk.source_file AND p.state='ACTIVE'))";
 
     public KnowledgeVectorRepository(KnowledgeVectorProperties properties) {
         KnowledgeVectorProperties.Datasource config = properties.getDatasource();
@@ -71,6 +75,8 @@ public class KnowledgeVectorRepository {
 
         this.dataSource = new HikariDataSource(hikariConfig);
         this.jdbcTemplate = new JdbcTemplate(this.dataSource);
+        this.publicationTx = new org.springframework.transaction.support.TransactionTemplate(
+                new org.springframework.jdbc.datasource.DataSourceTransactionManager(this.dataSource));
 
         log.info("向量库连接池已初始化 | pool={} | url={} | maxPoolSize={}",
                 hikariConfig.getPoolName(), config.getUrl(), config.getMaximumPoolSize());
@@ -197,6 +203,44 @@ public class KnowledgeVectorRepository {
         return count == null ? 0 : count;
     }
 
+    /** One bounded QA is one chunk. Catalog fence, replacement and cleanup commit in one PG transaction. */
+    public boolean publish(KnowledgeSource source,String question,String answer,float[] embedding,String model) {
+        String content=KnowledgeSource.content(question,answer);
+        String hash=KnowledgeSource.hash(content);
+        return Boolean.TRUE.equals(publicationTx.execute(status->{
+            if(!publicationFence(source,"ACTIVE",hash)) return false;
+            deleteBySourcePrefix(source.prefix());
+            var chunk=new KnowledgeChunk(source.file(),"已审核演示工单经验",question,0,content);
+            upsert(List.of(new IndexedRow(chunk,hash,embedding)),model);
+            return true;
+        }));
+    }
+
+    public boolean retract(KnowledgeSource source) {
+        return Boolean.TRUE.equals(publicationTx.execute(status->{
+            if(!publicationFence(source,"RETRACTED",null)) return false;
+            deleteBySourcePrefix(source.prefix());
+            return true;
+        }));
+    }
+
+    public boolean publicationMatches(KnowledgeSource source,String hash,String model) {
+        Integer count=jdbcTemplate.queryForObject("SELECT COUNT(*) FROM knowledge_publication p JOIN knowledge_chunk c"
+                + " ON c.source_file=p.source_file WHERE p.candidate_id=CAST(? AS uuid) AND p.revision=? AND p.state='ACTIVE'"
+                + " AND p.content_hash=? AND c.content_hash=? AND c.model=?",Integer.class,
+                source.candidateId(),source.revision(),hash,hash,model);
+        return count!=null&&count==1;
+    }
+
+    private boolean publicationFence(KnowledgeSource source,String state,String hash) {
+        return jdbcTemplate.update("INSERT INTO knowledge_publication(candidate_id,revision,source_file,state,content_hash)"
+                + " VALUES(CAST(? AS uuid),?,?,?,?) ON CONFLICT(candidate_id) DO UPDATE SET revision=EXCLUDED.revision,"
+                + "source_file=EXCLUDED.source_file,state=EXCLUDED.state,content_hash=EXCLUDED.content_hash,updated_at=now()"
+                + " WHERE knowledge_publication.revision<EXCLUDED.revision OR (knowledge_publication.revision=EXCLUDED.revision"
+                + " AND knowledge_publication.state=EXCLUDED.state AND knowledge_publication.content_hash IS NOT DISTINCT FROM EXCLUDED.content_hash)",
+                source.candidateId(),source.revision(),source.file(),state,hash)>0;
+    }
+
     /**
      * 读取某条切片已存向量的维度；不存在返回 0。
      *
@@ -215,7 +259,7 @@ public class KnowledgeVectorRepository {
     /** 读出库里出现过的全部嵌入模型名。用于检索前校验"查询向量与库中向量是否同源" */
     public Set<String> distinctModels() {
         return new LinkedHashSet<>(
-                jdbcTemplate.queryForList("SELECT DISTINCT model FROM knowledge_chunk", String.class));
+                jdbcTemplate.queryForList("SELECT DISTINCT model FROM knowledge_chunk WHERE "+SEARCHABLE, String.class));
     }
 
     /**
@@ -234,9 +278,10 @@ public class KnowledgeVectorRepository {
                 SELECT source_file, source_title, section_title, chunk_index, content,
                        1 - (embedding <=> ?) AS score
                 FROM knowledge_chunk
+                WHERE %s
                 ORDER BY embedding <=> ?
                 LIMIT ?
-                """;
+                """.formatted(SEARCHABLE);
         // 同一个向量要绑两次：一次算分、一次排序。分别构造，避免依赖驱动能否复用同一个 PGobject
         return jdbcTemplate.query(sql,
                 (rs, rowNum) -> toHit(rs),
@@ -277,11 +322,12 @@ public class KnowledgeVectorRepository {
                     SELECT source_file, source_title, section_title, chunk_index, content,
                            word_similarity(?, section_title || ' ' || content) AS score
                     FROM knowledge_chunk
+                    WHERE %s
                 ) candidate
                 WHERE score > ?
                 ORDER BY score DESC, source_file, chunk_index
                 LIMIT ?
-                """;
+                """.formatted(SEARCHABLE);
         return jdbcTemplate.query(sql,
                 (rs, rowNum) -> toHit(rs),
                 query, minScore, normalizeTopK(topK));

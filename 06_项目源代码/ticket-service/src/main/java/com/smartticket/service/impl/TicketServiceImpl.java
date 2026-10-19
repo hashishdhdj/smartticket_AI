@@ -92,6 +92,7 @@ public class TicketServiceImpl implements TicketService {
     @Autowired(required=false) private ApplicationMetrics metrics;
 
     @Autowired(required=false) private CacheInvalidationRepository cacheInvalidations;
+    @Autowired(required=false) private com.smartticket.knowledge.ResolutionRecorder resolutionRecorder;
 
     private final TicketMapper ticketMapper;
 
@@ -315,6 +316,11 @@ public class TicketServiceImpl implements TicketService {
         writeLog(id, operator(dto.getOperatorId()), ACTION_RESOLVE,
                 currentStatus.name(), TicketStatus.RESOLVED.name(),
                 defaultRemark(dto.getRemark(), "处理完毕，已解决"));
+
+        if (dto.getSolution() != null) {
+            if (resolutionRecorder == null) throw new IllegalStateException("Resolution workflow not assembled");
+            resolutionRecorder.record(ticket, dto.getSolution());
+        }
 
         evictDetailCache(id);
 

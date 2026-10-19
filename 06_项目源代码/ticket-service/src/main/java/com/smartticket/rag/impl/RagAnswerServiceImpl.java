@@ -119,7 +119,7 @@ public class RagAnswerServiceImpl implements RagAnswerService {
         // The model has identified a demo answer; make the scope boundary explicit in code.
         // Do not apply this to project-rule answers merely because a noisy demo hit was retrieved.
         if (suggestion != null && suggestion.startsWith("演示规则：")
-                && search.hits().stream().anyMatch(hit -> "SIMULATED_SCENARIO".equals(
+                && search.hits().stream().anyMatch(hit -> java.util.Set.of("SIMULATED_SCENARIO","REVIEWED_TICKET_DEMO").contains(
                         KnowledgeProvenance.scope(hit.chunk().sourceFile(), hit.chunk().content())))) {
             String scoped = "演示规则（非本项目实际能力）：" + suggestion.substring("演示规则：".length());
             if (scoped.length() > 200) {
