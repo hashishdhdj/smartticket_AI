@@ -1,6 +1,6 @@
 # 测试与效果证据
 
-本轮整改见[第一轮工程整改验收](20261019-engineering-review.md)：246 单元 + 143 集成 + 22 Python 全通过，补充预算死锁修复、事务与服务层并发证据。下方记录首次公开版本基线。
+本轮整改见[第一轮工程整改验收](20261019-engineering-review.md)：246 单元 + 144 集成 + 22 Python 全通过，补充预算死锁修复、事务与服务层并发证据。下方记录首次公开版本基线。
 
 基线 main `16068874576370bf72e2241686937f24bff9793a` 的 [GitHub 单元和集成任务](https://github.com/hashishdhdj/smartticket_AI/actions/runs/39204570840)均成功。基线本地为 Java 234 单元、137 集成和 Python 22 项保护测试；后续改动以各自报告为准。
 
