@@ -13,7 +13,7 @@
       "skipped": 0
     },
     "integration": {
-      "tests": 143,
+      "tests": 144,
       "failures": 0,
       "errors": 0,
       "skipped": 0
@@ -31,11 +31,11 @@
       "status": "PASS"
     }
   },
-  "source_manifest_sha256": "cca7aaa994764b8a9b36fab5883ff20b7c9baa1f72b5d0f7c70b3f41877e55c6",
+  "source_manifest_sha256": "937e7349223ae83308fa3973dd92eed8cf6fc035cdc2794c2dfc630929ce7849",
   "source_files": [
     {
       "path": "README.md",
-      "sha256": "6b643eaefe8a5ef2be9aeefe8a47efc28130fd3082f971c4466a61243580f481"
+      "sha256": "2811c8d05f15941dc635162070eba8897387703914b8877cb844876b84cb2827"
     },
     {
       "path": "pom.xml",
@@ -403,7 +403,7 @@
     },
     {
       "path": "src/main/java/com/smartticket/security/ApiSecurityFilter.java",
-      "sha256": "bdee909e59e898ff33289edd2f1a718254b9ce951399d215a4ca6cda5b027442"
+      "sha256": "1adac287abb24d564e612357c6b85fb603293ba885a6766b14af79f1fa58062c"
     },
     {
       "path": "src/main/java/com/smartticket/service/TicketService.java",
@@ -659,7 +659,7 @@
     },
     {
       "path": "src/test/java/com/smartticket/reliability/ReliableBackendIntegrationTest.java",
-      "sha256": "9e624b21fc0b485d813acbb7b9a1d9b63f5289605d1939ba58a0a781f03b787a"
+      "sha256": "bd3712d53f2b069430c7544e41e1b77fa97b2ef0c72eef93575a906883698262"
     },
     {
       "path": "src/test/java/com/smartticket/service/TicketCacheTest.java",
@@ -698,7 +698,7 @@
       "sha256": "969e22c1e9757adae1b5d29abc7e65f7295b28391e24beaaf7201b377a8596c0"
     }
   ],
-  "jar_sha256": "23b5b49de742ae007c8a32bf3950b3df362adb12cf7eb12d55be1d20037106dd",
+  "jar_sha256": "3c269d5a99c153015b694251362291085b7c3ecc52d37a966b755850df77d671",
   "known_credentials_scan": "PASS",
   "private_configuration_in_jar": false,
   "legacy_phase3_package_in_jar": false,
@@ -717,12 +717,12 @@
         "maximumPoolSize": 10,
         "coreWrites": 3,
         "coreWriteMs": [
-          25,
-          25,
-          28
+          26,
+          28,
+          30
         ],
-        "p50Ms": 25,
-        "p95NearestRankMs": 28,
+        "p50Ms": 28,
+        "p95NearestRankMs": 30,
         "errors": 0,
         "limitations": "Three writes per level on one local host; not a production capacity benchmark or broker throughput test"
       },
@@ -734,11 +734,11 @@
         "coreWrites": 3,
         "coreWriteMs": [
           23,
-          24,
-          24
+          25,
+          26
         ],
-        "p50Ms": 24,
-        "p95NearestRankMs": 24,
+        "p50Ms": 25,
+        "p95NearestRankMs": 26,
         "errors": 0,
         "limitations": "Three writes per level on one local host; not a production capacity benchmark or broker throughput test"
       },
@@ -749,12 +749,12 @@
         "maximumPoolSize": 10,
         "coreWrites": 3,
         "coreWriteMs": [
-          25,
-          26,
-          27
+          21,
+          22,
+          23
         ],
-        "p50Ms": 26,
-        "p95NearestRankMs": 27,
+        "p50Ms": 22,
+        "p95NearestRankMs": 23,
         "errors": 0,
         "limitations": "Three writes per level on one local host; not a production capacity benchmark or broker throughput test"
       }
@@ -779,5 +779,24 @@
   "environment_issues": [
     "Windows Unix-domain socket temporary path limit avoided using the existing short-temp-dir configuration",
     "Python loopback tests rerun in an environment allowing local sockets; no vendor calls"
-  ]
+  ],
+  "extra_error_case": "Budget-store failure in the filter returns safe HTTP500/code50000, clears actor context and does not call the model",
+  "knowledge_provenance": {
+    "sections": 30,
+    "corpus_sha256": "0f9fd38473aca3df7bb5e66e0d5acbd87e2c38e5079aefb177d4cce8c71d54e0",
+    "basis_paths_updated": true,
+    "body_changed": false,
+    "vendor_calls": 0
+  },
+  "ci_first_attempt": {
+    "url": "https://github.com/hashishdhdj/smartticket_AI/actions/runs/39208123943",
+    "result": "FAILED_OLD_PROVENANCE_PATHS_FIXED"
+  },
+  "ci_provenance_fix": {
+    "url": "https://github.com/hashishdhdj/smartticket_AI/actions/runs/39208261321",
+    "result": "PASS",
+    "commit": "dd4eb5fd713ae9f8b0fd1e3565cbb7940373260e",
+    "scope": "Before the final filter-infrastructure failure test and handling addition; final branch CI is separate"
+  },
+  "artifact_path": "08_部署与环境/04_交付产物/SmartTicket-AI-review-20261019-3c269d5a99c1.jar"
 }
