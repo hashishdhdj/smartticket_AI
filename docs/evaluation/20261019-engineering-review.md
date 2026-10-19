@@ -18,6 +18,8 @@
 
 HTTP 状态变更需要旧客户端适配，见[错误契约](../api/error-contract.md)。原 API Key、指派确认、版本校验、输入过期判断、预算和重试语义继续保留。原物理目录及 smartticket.phase3.* 配置名暂保留兼容，见[设计决策](../architecture/review-decisions.md)。
 
+首次远程检查发现知识来源登记仍引用旧 phase3 文件路径；现已同步到迁移后的职责路径，并通过全部30节知识来源审查、148题数据集完整性和测试分层检查。知识正文及嵌入配方未变，不因此重新调用向量或生成模型。历史审查报告保留原版本含义。
+
 ## 实际发现的死锁
 
 新增并发探针在 5、10、20 个同账号工作线程下均复现预算账本异常。原逻辑先 INSERT IGNORE，再条件 UPDATE；重复键路径上的共享锁可能在并发更新时发生锁升级冲突。修复为先通过不改变数据的 ON DUPLICATE KEY UPDATE 获取排他锁，再执行原有受额度限制的扣减，没有放宽额度或增加自动重试。[MySQL 官方锁行为说明](https://dev.mysql.com/doc/refman/8.0/en/innodb-locks-set.html)支持该锁行为分析。

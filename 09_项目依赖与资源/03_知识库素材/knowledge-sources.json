@@ -185,8 +185,8 @@
       "review_date": "2026-10-14",
       "scope": "当前项目代码与公开API",
       "basis": [
-        "06_项目源代码/ticket-service/src/main/java/com/smartticket/phase3/AccessPolicy.java",
-        "06_项目源代码/ticket-service/src/main/java/com/smartticket/phase3/AsyncAnalysisWorker.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/security/AccessPolicy.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/analysis/worker/AsyncAnalysisWorker.java",
         "06_项目源代码/ticket-service/src/main/java/com/smartticket/agent/AssignmentActions.java",
         "07_测试与质量/01_接口文档/阶段三接口补充.md"
       ],
@@ -198,11 +198,11 @@
       "review_date": "2026-10-16",
       "scope": "当前项目代码与公开API",
       "basis": [
-        "06_项目源代码/ticket-service/src/main/java/com/smartticket/phase3/AccessPolicy.java",
-        "06_项目源代码/ticket-service/src/main/java/com/smartticket/phase3/AsyncAnalysisWorker.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/security/AccessPolicy.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/analysis/worker/AsyncAnalysisWorker.java",
         "06_项目源代码/ticket-service/src/main/java/com/smartticket/agent/AssignmentActions.java",
         "07_测试与质量/01_接口文档/阶段三接口补充.md",
-        "06_项目源代码/ticket-service/src/main/java/com/smartticket/phase3/RuleClassifier.java"
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/analysis/RuleClassifier.java"
       ],
       "review_status": "CODEX_FACT_CHECK_PENDING_AUTHOR",
       "review_note": "Clarify DEGRADED/RULE as rule fallback, supported by AsyncAnalysisWorker/RuleClassifier and existing FAQ; not model success. Author review pending."
@@ -213,8 +213,8 @@
       "review_date": "2026-10-14",
       "scope": "当前项目代码与公开API",
       "basis": [
-        "06_项目源代码/ticket-service/src/main/java/com/smartticket/phase3/AccessPolicy.java",
-        "06_项目源代码/ticket-service/src/main/java/com/smartticket/phase3/AsyncAnalysisWorker.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/security/AccessPolicy.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/analysis/worker/AsyncAnalysisWorker.java",
         "06_项目源代码/ticket-service/src/main/java/com/smartticket/agent/AssignmentActions.java",
         "07_测试与质量/01_接口文档/阶段三接口补充.md"
       ],
@@ -226,8 +226,8 @@
       "review_date": "2026-10-14",
       "scope": "当前项目代码与公开API",
       "basis": [
-        "06_项目源代码/ticket-service/src/main/java/com/smartticket/phase3/AccessPolicy.java",
-        "06_项目源代码/ticket-service/src/main/java/com/smartticket/phase3/AsyncAnalysisWorker.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/security/AccessPolicy.java",
+        "06_项目源代码/ticket-service/src/main/java/com/smartticket/analysis/worker/AsyncAnalysisWorker.java",
         "06_项目源代码/ticket-service/src/main/java/com/smartticket/agent/AssignmentActions.java",
         "07_测试与质量/01_接口文档/阶段三接口补充.md"
       ],
