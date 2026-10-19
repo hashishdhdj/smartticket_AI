@@ -74,7 +74,7 @@ class ReliableBackendIntegrationTest {
     @Autowired AgentTools agentTools;
     @Autowired RuntimeProperties config;
     @Autowired AccessPolicy policy;
-    @Autowired BudgetLedger budget;
+    @SpyBean BudgetLedger budget;
     @Autowired CacheRecovery recovery;
     @Autowired StringRedisTemplate redis;
     @Autowired MockMvc mvc;
@@ -162,7 +162,7 @@ class ReliableBackendIntegrationTest {
 
     @AfterEach
     void clean() {
-        reset(repo, rabbit);
+        reset(repo, rabbit, budget);
         ActorContext.clear();
         for (long id : ids) {
             redis.delete("ticket:detail:" + id);
@@ -1045,6 +1045,20 @@ class ReliableBackendIntegrationTest {
                         .getResponse()
                         .getContentAsString();
         ids.add(json.readTree(response).path("data").path("id").asLong());
+    }
+
+    @Test
+    void budgetStoreFailureInFilterReturnsSafeUnified500() throws Exception {
+        doThrow(new org.springframework.dao.DataAccessResourceFailureException("private jdbc diagnostic"))
+                .when(budget).request(anyLong());
+        mvc.perform(post("/api/ai/tickets/analyze").header("X-API-Key", "test-handler-key")
+                        .contentType("application/json").content("{\"title\":\"测试\",\"description\":\"测试\"}"))
+                .andExpect(status().isInternalServerError())
+                .andExpect(jsonPath("$.code").value(50000))
+                .andExpect(jsonPath("$.message").value("系统繁忙，请稍后重试"))
+                .andExpect(jsonPath("$.data").doesNotExist());
+        assertNull(ActorContext.current());
+        verifyNoInteractions(analysis);
     }
 
     @Test

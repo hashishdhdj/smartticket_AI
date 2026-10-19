@@ -7,6 +7,7 @@ import com.smartticket.governance.BudgetLedger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.smartticket.common.Result;
+import com.smartticket.enums.ErrorCode;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -92,6 +93,15 @@ public class ApiSecurityFilter extends OncePerRequestFilter {
                     response.getWriter(),
                     Result.fail(failure.code(), failure.getMessage()));
             metrics.count("security", String.valueOf(failure.status()));
+        } catch (Exception unexpected) {
+            // Filter failures happen before MVC advice (for example a budget-store outage).
+            logger.error("API filter infrastructure failure", unexpected);
+            if (response.isCommitted()) throw new ServletException("API request failed after response commit", unexpected);
+            response.resetBuffer();
+            response.setStatus(500);
+            response.setContentType("application/json;charset=UTF-8");
+            json.writeValue(response.getWriter(), Result.fail(ErrorCode.SYSTEM_ERROR));
+            metrics.count("security", "500");
         } finally {
             ActorContext.clear();
             MDC.remove("traceId");
