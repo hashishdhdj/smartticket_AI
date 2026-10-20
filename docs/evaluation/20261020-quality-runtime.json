@@ -1,0 +1,103 @@
+{
+  "client_date": "2026-10-20",
+  "status": "RUNTIME_ENGINEERING_PASS_SEMANTIC_SIGNOFF_PENDING",
+  "vendor_calls": 0,
+  "local_build": {
+    "status": "PASS",
+    "date": "2026-10-20T03:43:04.540551+00:00",
+    "vendor_calls": 0,
+    "jar_sha256": "b2f80974ca59425018709b179f28e8508e494e27d26c402dd0392bcc462451aa",
+    "source_manifest_sha256": "e6f0bb4a52b51537811b3f41e61b32ecdc6cf3e6ef5f5dadc3b3b5a5be1bb034",
+    "profiles": {
+      "unit": {
+        "tests": 252,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "integration": {
+        "tests": 171,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "java_major": 17,
+    "local_build_record_not_signed_attestation": true
+  },
+  "local_rebuilt_jar_http_ollama_smoke": {
+    "date": "2026-10-20T03:43:48.562491+00:00",
+    "status": "PASS",
+    "jar_sha256": "b2f80974ca59425018709b179f28e8508e494e27d26c402dd0392bcc462451aa",
+    "vendor_calls": 0,
+    "embedding": "local Ollama bge-m3:latest",
+    "chat_enabled": false,
+    "checks": [
+      "real HTTP resolve -> committed snapshot/outbox -> RabbitMQ -> DRAFT",
+      "unreviewed source hidden; handler review forbidden",
+      "admin review -> RabbitMQ -> local BGE-M3 -> 1024-dimensional PG -> HTTP RAG source",
+      "chat disabled; no generated answer fabricated",
+      "retraction hidden from new retrieval; PG chunks deleted; revision-2 tombstone/audit retained"
+    ],
+    "vector_score": 0.7376399099159671,
+    "own_records_cleaned": true
+  },
+  "local_artifact_path": "08_部署与环境/04_交付产物/SmartTicket-AI-quality-20261020-b2f80974ca59.jar",
+  "service_source_files_checked": 180,
+  "service_source_manifest_sha256": "e6f0bb4a52b51537811b3f41e61b32ecdc6cf3e6ef5f5dadc3b3b5a5be1bb034",
+  "jar_scans": {
+    "private_config_in_jar": false,
+    "obsolete_phase3_package_in_jar": false,
+    "known_credential_scan": "PASS"
+  },
+  "github_ci": {
+    "conclusion": "success",
+    "headSha": "21a87b78fd73daf034594aadc5ae452e85095578",
+    "jobs": [
+      {
+        "conclusion": "success",
+        "name": "unit",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "integration",
+        "status": "completed"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/hashishdhdj/smartticket_AI/actions/runs/39365080193"
+  },
+  "ci_runtime_build": {
+    "status": "PASS",
+    "date": "2026-10-20T03:37:57.145583+00:00",
+    "vendor_calls": 0,
+    "jar_sha256": "c152b1a180c27c47f9e082c15b56e1bc7ec81643f431130ef35df8e02fba75e3",
+    "source_manifest_sha256": "e6f0bb4a52b51537811b3f41e61b32ecdc6cf3e6ef5f5dadc3b3b5a5be1bb034",
+    "profiles": {
+      "unit": {
+        "tests": 252,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "integration": {
+        "tests": 171,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "java_major": 17,
+    "local_build_record_not_signed_attestation": true
+  },
+  "python_tests": 45,
+  "author_reviewed": 1,
+  "author_pending": 147,
+  "environment": {
+    "docker_recovered_after_user_start": true,
+    "failed_dependency_run_was_not_approved": true,
+    "windows_socket_temp_issue_fixed_by_short_workspace_path": true
+  },
+  "note": "First retrieval evaluation used the recorded R05 JAR; the current local rebuild was separately tested and exercised over actual HTTP and local BGE-M3. Author semantic decisions remain separate."
+}

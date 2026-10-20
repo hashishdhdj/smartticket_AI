@@ -30,5 +30,7 @@
   },
   "current_source_rebuild_entry": "08_部署与环境/03_scripts/build-quality-artifact.py",
   "ci_runtime_record": ".tmp/quality-artifact-build.json (generated only after all current-source checks pass)",
-  "note": "Local Docker stopped across days; restored previously verified artifact after cancelling dependency-failed rebuild. Current rebuild entry is exercised by GitHub integration job; corresponding Actions result is authoritative."
+  "note": "The earlier dependency-failed build was stopped. After user restored Docker, the same-source build passed 252 unit and 171 integration tests, and its new JAR passed the real HTTP/local-BGE-M3 workflow. Original first-evaluation results remain version-bound.",
+  "current_runtime_verification": "docs/evaluation/20261020-quality-runtime.json",
+  "local_docker_recovered": true
 }
