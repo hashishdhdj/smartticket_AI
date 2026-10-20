@@ -25,6 +25,9 @@ jobs:
       - run: python3 '08_部署与环境/03_scripts/test_budget_proxy.py'
       - run: python3 '08_部署与环境/03_scripts/test_ollama_dns.py'
       - run: python3 '08_部署与环境/03_scripts/test_eval_preflight.py'
+      - run: python3 '08_部署与环境/03_scripts/test_quality_review.py'
+      - run: python3 '08_部署与环境/03_scripts/test_quality_checks.py'
+      - run: python3 '08_部署与环境/03_scripts/verify-quality-closure.py' --contracts-only
       - run: mvn -B -Punit test
         working-directory: '06_项目源代码/ticket-service'
       - uses: actions/upload-artifact@v7
@@ -50,11 +53,18 @@ jobs:
           cache: maven
           cache-dependency-path: '06_项目源代码/ticket-service/pom.xml'
       - run: python3 '08_部署与环境/03_scripts/prepare-phase4.py'
-      - run: mvn -B -Pintegration '-Dspring.config.additional-location=file:../../.tmp/phase4-integration.properties' package
-        working-directory: '06_项目源代码/ticket-service'
+      - run: python3 '08_部署与环境/03_scripts/build-quality-artifact.py'
       - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: integration-reports
           path: '06_项目源代码/ticket-service/target/surefire-reports/'
+          retention-days: 7
+      - uses: actions/upload-artifact@v7
+        with:
+          name: verified-runtime
+          path: |
+            06_项目源代码/ticket-service/target/ticket-service-0.0.1-SNAPSHOT.jar
+            .tmp/quality-artifact-build.json
+          include-hidden-files: true
           retention-days: 7

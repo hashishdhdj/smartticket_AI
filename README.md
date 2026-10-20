@@ -6,7 +6,7 @@
 
 当前保留原工程路径以兼容启动、评测和部署脚本；日常阅读从本页与 [docs 导航](docs/README.md)开始。过程记录按日期保留，作为协作与失败追踪资料。
 
-当前状态（2026-10-19）：第一轮工程整改已验收并合入 main；R05 动态知识闭环在 `codex/dynamic-knowledge` 实施并完成本地验证。本人/专家的语义评分与整体签署仍待完成。
+当前状态（2026-10-20）：第一轮工程整改已验收并合入 main，R05动态知识的本地与远程CI均通过；`codex/quality-closure` 继续推进R06。新增新措辞检索实测、版本绑定复核工具和四链演示指南；作者已复核1/148，整体质量签署仍待完成。见[R06进展](docs/evaluation/20261020-quality-closure.md)。
 
 第一轮完成职责拆包、持久化分离、错误契约统一和预算死锁修复，见[工程验收](docs/evaluation/20261019-engineering-review.md)。本批动态知识增加结构化解决记录、人工审核、可靠增量索引和撤回；252 单元 + 171 集成 + 22 Python 通过，实际 JAR/HTTP/RabbitMQ/本地 BGE-M3 闭环通过，见[动态知识验收](docs/evaluation/20261019-dynamic-knowledge.md)与[操作指南](docs/api/dynamic-knowledge.md)。下方 234/137 数字是首次公开基线。
 

@@ -1,0 +1,110 @@
+{
+  "date": "2026-10-19",
+  "scope": "ASSISTANT_TECHNICAL_SOURCE_CHECK_NOT_AUTHOR_OR_EXPERT_SIGNOFF",
+  "sample_count": 8,
+  "historical_cases_total": 148,
+  "rows": [
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RH09",
+      "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_3题_quality_legacy_failures.json",
+      "response_sha256": "3f17cc270320d4a0f2da53e4e65e9626a3d1ec893d722d30a11d51382a21cc3f",
+      "historical_jar_sha256": "816de27fb6fff53be0f1538745e053af2521b3f9929984496f1ff741f460413a",
+      "historical_threshold": 0.66,
+      "actual_response_excerpt": "（无生成回答）",
+      "assistant_recommendation": "FAIL",
+      "assistant_source_check_notes": "最新历史复验在0.66门槛下未生成回答；来源明确按实付开票、不含优惠券抵扣。属于有来源但未作答，不是已经回答了错误金额。当前0.63版本并未因此自动获得新的生成质量评分。",
+      "author_review_status_at_snapshot": "PENDING"
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW02",
+      "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+      "response_sha256": "6f9e9e773f34ef059f5272e9f4cbda05b76d7ac9d9dbe8c0b86c54b4a121f986",
+      "historical_jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+      "historical_threshold": 0.66,
+      "actual_response_excerpt": "（无生成回答）",
+      "assistant_recommendation": "FAIL",
+      "assistant_source_check_notes": "历史结果召回了密码重置来源，但0.5989低于当时0.66及当前0.63门槛，没有生成建议。参考问题具有来源支持，应作为正例漏答复核；不能凭引用存在判为完成。",
+      "author_review_status_at_snapshot": "PENDING"
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW08",
+      "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_2题_rag_v33_failure_fixes.json",
+      "response_sha256": "640acac4063099af124b93b748eccae359583427acaae61b7dbdb3eae98e3e43",
+      "historical_jar_sha256": "848433621533d4275c54952db83fa6571c9d657fda0560f1b564d017b49e5043",
+      "historical_threshold": 0.63,
+      "actual_response_excerpt": "演示规则（非本项目实际能力）：订单失效且确认未扣款时，可回订单列表重新下单；若下单即失效，先检查手机系统时间是否准确。",
+      "assistant_recommendation": "PASS",
+      "assistant_source_check_notes": "最新单题复验保留了未扣款条件，建议回订单列表重下单并核对系统时间；对应订单失效FAQ有据，且明确模拟范围。单次恢复不能证明上游长期稳定。",
+      "author_review_status_at_snapshot": "PENDING"
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW13",
+      "report": "07_测试与质量/06_阶段测试报告/20261019_真实评估_rag_1题_final_nw13_20261019.json",
+      "response_sha256": "73daa861473772110d3826d026b1efb4be62b482e96ea5b404a0c8777534dd52",
+      "historical_jar_sha256": "0bf1ebea9260f067963e1fe5146a8f20bc9f35d006540e7ccd6af96122310e28",
+      "historical_threshold": 0.63,
+      "actual_response_excerpt": "演示规则（非本项目实际能力）：模拟平台单附件上限10MB，15MB需先自行处理到10MB以内再上传；该附件能力非当前项目已实现功能。",
+      "assistant_recommendation": "PARTIAL",
+      "assistant_source_check_notes": "最终回答的10MB限制、15MB超限和模拟范围有据，未推荐具体压缩或拆分；“自行处理到10MB以内”可用性仍需本人判断。建议部分通过，不代替本人评分。",
+      "author_review_status_at_snapshot": "PENDING"
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW17",
+      "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+      "response_sha256": "ed6461ed754a967478ba295a55c3568418b6f553e7b233842c7928a10d6d82ac",
+      "historical_jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+      "historical_threshold": 0.66,
+      "actual_response_excerpt": "（无生成回答）",
+      "assistant_recommendation": "FAIL",
+      "assistant_source_check_notes": "历史结果因0.66门槛未作答，来源明确PUT为全量替换、未传可空字段可能被清空、更新记日志。分数0.6412在当前0.63会放行只是门禁推断，没有新的生成回答证据。",
+      "author_review_status_at_snapshot": "PENDING"
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW18",
+      "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+      "response_sha256": "c1a155be8276387cbfdad9fb5058ccf165f161f194f71dbd50dbbf79665d7595",
+      "historical_jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+      "historical_threshold": 0.66,
+      "actual_response_excerpt": "（无生成回答）",
+      "assistant_recommendation": "FAIL",
+      "assistant_source_check_notes": "历史结果因0.66门槛未作答；权限资料支持处理人仅可访问指派给自己的工单。0.6517高于当前门槛不意味着已经完成真实回答复验。",
+      "author_review_status_at_snapshot": "PENDING"
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW19",
+      "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+      "response_sha256": "7b798032d07fabf813f87034e04f8682a73f770d82775de372df8b2fb3e3ed45",
+      "historical_jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+      "historical_threshold": 0.66,
+      "actual_response_excerpt": "（无生成回答）",
+      "assistant_recommendation": "FAIL",
+      "assistant_source_check_notes": "历史结果无生成建议，DEGRADED/RULE应解释为规则兜底而非模型成功，来源有相应区分。后续语料与已知题门槛改进不回填这次历史漏答。",
+      "author_review_status_at_snapshot": "PENDING"
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NA02",
+      "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_agent_1题_quality_number_order_fixed.json",
+      "response_sha256": "ccf0c09394b4058323e7030364efb2fbc16520fb30dc528bc46b518dba5e617b",
+      "historical_jar_sha256": "816de27fb6fff53be0f1538745e053af2521b3f9929984496f1ff741f460413a",
+      "historical_threshold": 0.66,
+      "actual_response_excerpt": "821号工单当前状态为 PENDING_ASSIGN（待指派），优先级 MEDIUM，标题/描述为「银行已扣款无订单」（合成演示工单）。\n\n处理建议（依据知识库资料，均为演示/项目参考内容，非真实生产结论）：\n1. 先让用户等待 3~5 分钟并下拉刷新订单列表，支付渠道回调存在延迟，属正常现象。\n2. 若仍未生成，引导用户在「我的订单 → 异常订单」中查看是否有待处理记录。\n3. 确认扣款凭据：记录支付渠道的交易流水号（在支付渠道账单详情中可查）。\n4. 提交工单并附上交易流水号、扣款金额、扣款时间，由人工发起对账；对账通常在 1 个工作日内完成，确认后原路退回。\n5. 重要注意事项：不要重复下单，重复支付会产生两笔真实扣款，退款流程更慢。\n\n来源：faq/02-支付问题.md#0（支付成功但订单未生成怎么办，SIMULATED_SCENARIO）；tickets/02-支付问题.md#0（银行卡已扣款但订单列表中没有该订单，SIMULATED_SCENARIO）。\n\n尚未完成/需人工确认的部分：\n- 本次仅查询了工单详情与知识资料，未修改任何内容（按要求未做任何写操作）。\n- 工单仍处于 PENDING_ASSIGN，指派动作仅为提案，需独立确认后才可执行；本回复不代为指派。\n- 上述资料标注为模拟场景与项目参考，其中「如何判断工单的AI分析是否完成」条目内容被截断，未据此扩写；该工单的实际对账结果、真实扣款流水与退款进度均未核实，需人工进一步处理。\n来源：faq/02-支付问题.md#0、tickets/02-支付问题.md#0",
+      "assistant_recommendation": "PARTIAL",
+      "assistant_source_check_notes": "最新历史复验真实执行了getTicketDetail与searchKnowledge，围绕扣款无订单给出来源支持的人工对账步骤且未写工单。PARTIAL不自动等于任务失败，也不自动判通过；应由本人判断交接价值和附加未完成说明是否合适。",
+      "author_review_status_at_snapshot": "PENDING"
+    }
+  ],
+  "snapshot_at": "2026-10-19T10:26:20.756248+00:00",
+  "author_review_counts_at_snapshot": {
+    "reviewed": 0,
+    "pending": 148
+  },
+  "current_author_status_source": "docs/evaluation/quality-review-ledger.json"
+}

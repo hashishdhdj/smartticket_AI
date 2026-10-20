@@ -1,0 +1,34 @@
+{
+  "client_date": "2026-10-20",
+  "stage": "R06_AUTOMATED_PART_COMPLETE_QUALITY_SIGNOFF_PENDING",
+  "vendor_calls": 0,
+  "unit_runtime_baseline": 252,
+  "integration_runtime_baseline": 171,
+  "python_tests": {
+    "budget_proxy": 14,
+    "ollama_dns": 3,
+    "eval_preflight": 5,
+    "human_review_guards": 9,
+    "quality_metric_artifact_guards": 14,
+    "total": 45
+  },
+  "known_local_credentials_scan": {
+    "status": "PASS",
+    "original_values_checked": 16,
+    "isolated_values_checked": 7,
+    "values_printed": false
+  },
+  "service_source_files_verified": 180,
+  "service_source_manifest_sha256": "e6f0bb4a52b51537811b3f41e61b32ecdc6cf3e6ef5f5dadc3b3b5a5be1bb034",
+  "first_local_evaluation_artifact_sha256": "a49c355f59e0c24bb55b8aa996b6cb33be04a2973861cec92f59466a223a04e1",
+  "first_local_evaluation_report": "docs/evaluation/20261019-quality-local.json",
+  "author_reviews": {
+    "reviewed": 1,
+    "pending": 147,
+    "overall_status": "PENDING",
+    "NW13_grade": "PARTIAL"
+  },
+  "current_source_rebuild_entry": "08_部署与环境/03_scripts/build-quality-artifact.py",
+  "ci_runtime_record": ".tmp/quality-artifact-build.json (generated only after all current-source checks pass)",
+  "note": "Local Docker stopped across days; restored previously verified artifact after cancelling dependency-failed rebuild. Current rebuild entry is exercised by GitHub integration job; corresponding Actions result is authoritative."
+}

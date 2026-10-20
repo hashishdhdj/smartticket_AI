@@ -1,0 +1,3147 @@
+{
+  "schema_version": 1,
+  "queue": "07_测试与质量/06_阶段测试报告/20261016_阶段四人工复核队列.json",
+  "queue_sha256": "302259336033d73deea9051f35bf9235e9d30fd57b87bc993730bca9dc81e526",
+  "scope": "HISTORICAL_RESPONSES_NOT_CURRENT_JAR_GENERATION_OR_INDEPENDENT_BLIND_TEST",
+  "author_review_status": "PENDING",
+  "rows": [
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RH09",
+      "kind": "rag",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "POSITIVE_WITHOUT_ANSWER"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "30189eea5765ef26eaca832410384b021d0e5f7a3302bbc04b107b27512b49f6",
+          "case_sha256": "8047aeb4a3a56fffd31239eec3016a930c31476c06eddfe893bfb3fcf5d67dac",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        },
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_3题_quality_legacy_failures.json",
+          "report_sha256": "49813d5d7f39a20136b5b1e60f6af2c8fcc0762905d7b929fe3a0fc4bea4a81f",
+          "response_sha256": "3f17cc270320d4a0f2da53e4e65e9626a3d1ec893d722d30a11d51382a21cc3f",
+          "case_sha256": "8047aeb4a3a56fffd31239eec3016a930c31476c06eddfe893bfb3fcf5d67dac",
+          "jar_sha256": "816de27fb6fff53be0f1538745e053af2521b3f9929984496f1ff741f460413a",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 1,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RH12",
+      "kind": "rag",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "POSITIVE_WITHOUT_ANSWER"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "0908167ed5173dbfd1a6ccff50745d3aa2ba25a59cc67790193e449bb234a18d",
+          "case_sha256": "7d5797f7f0bfa4b0ac0c9843c6ac7b0790785f0508c2837b7d5558cb7548e027",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RH16",
+      "kind": "rag",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "POSITIVE_WITHOUT_ANSWER"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "a896c93e617db640c65d1664f5e93595129011c07492ced524bda0a3a443035a",
+          "case_sha256": "e8be916ae75c64bc12318945d3f9d76ae254887de3226a7af1a5fc284521dbaf",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        },
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_3题_quality_legacy_failures.json",
+          "report_sha256": "49813d5d7f39a20136b5b1e60f6af2c8fcc0762905d7b929fe3a0fc4bea4a81f",
+          "response_sha256": "77fd0766d73c7164a9ddddc20bc2e28b266c91d4f658a4d38ae7da6dca9b193b",
+          "case_sha256": "e8be916ae75c64bc12318945d3f9d76ae254887de3226a7af1a5fc284521dbaf",
+          "jar_sha256": "816de27fb6fff53be0f1538745e053af2521b3f9929984496f1ff741f460413a",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 1,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RH18",
+      "kind": "rag",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "POSITIVE_WITHOUT_ANSWER"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "540c80d469d41177f324862ad51340eb4a5893dbf789e210b7bf589b00a37632",
+          "case_sha256": "bc56f8800713a42d792c3180e7a19e36478dbb2585c5c1f606cfae6c5da075ed",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        },
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_3题_quality_legacy_failures.json",
+          "report_sha256": "49813d5d7f39a20136b5b1e60f6af2c8fcc0762905d7b929fe3a0fc4bea4a81f",
+          "response_sha256": "435fe4c457980b188822afed0a65b64dcd5768041ae5f879b826f6d938366696",
+          "case_sha256": "bc56f8800713a42d792c3180e7a19e36478dbb2585c5c1f606cfae6c5da075ed",
+          "jar_sha256": "816de27fb6fff53be0f1538745e053af2521b3f9929984496f1ff741f460413a",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 1,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "AH01",
+      "kind": "agent",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "MACHINE_CHECK_NOT_COMPLETED",
+        "PROVIDER_TIMEOUT"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_agent_20题_ollama_agentv2.json",
+          "report_sha256": "5b415a059a0fa0c0826b9d2a025fb28f33903252ec14e712acab1fd9ae38c859",
+          "response_sha256": "2a246cb46423dacb24e4fd067203422595ca8ef47b518caa9c9289e5f6b58825",
+          "case_sha256": "7c4b097b178febaf453f8ad308848c8aadec3aed1dab14bb6121ac25be371541",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "AH02",
+      "kind": "agent",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "QUERY_TOPIC_AND_GROUNDEDNESS_REVIEW"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_agent_20题_ollama_agentv2.json",
+          "report_sha256": "5b415a059a0fa0c0826b9d2a025fb28f33903252ec14e712acab1fd9ae38c859",
+          "response_sha256": "0041a8d037f3b31723b4228d6171579ad26421a5a85d24a93db2f82b72651326",
+          "case_sha256": "e3737cb0f0a9c7036005a6d60bf3dc8c3a60393c2c1330ab2f936a1039a689d5",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV02",
+      "kind": "rag",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "POSITIVE_WITHOUT_ANSWER"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "496baa608927cac49ad40dde8c6010890620b700de9c9d2afa26505b06764633",
+          "case_sha256": "4f0efbb65a52fdb56d1e1ab74d92a3700d5d3d60998207bc1c1f431fc89fd8a9",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV08",
+      "kind": "rag",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "POSITIVE_WITHOUT_ANSWER",
+        "EXPECTED_SOURCE_MISS"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "2ce2332a533d53ea1f9601e9a977b217ba2ddeb4b52449e1c390a10f6000a450",
+          "case_sha256": "a2409c164f1089e58569f6548b9ae012a05a13dc7987c18f8b53cb67f9641554",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        },
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_3题_quality_followup_failures.json",
+          "report_sha256": "cca409c2ae4b5b6c35c9656d28756cb7ef75227b6175074e81ca7b7dca3d6b2e",
+          "response_sha256": "dc257f7fbb94ad406e994ca9db7938dba322ded65aca6b7b697cf7b8bd548991",
+          "case_sha256": "a2409c164f1089e58569f6548b9ae012a05a13dc7987c18f8b53cb67f9641554",
+          "jar_sha256": "816de27fb6fff53be0f1538745e053af2521b3f9929984496f1ff741f460413a",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 1,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV09",
+      "kind": "rag",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "POSITIVE_WITHOUT_ANSWER"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "4d4039271e423d427a1ad966737546342ec55e00dc082f7c73523132cdd9581f",
+          "case_sha256": "62d71025af3a63867253292f4a36e4f48b6e1bf51a53fa1bc0b403259bc5fa3b",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV13",
+      "kind": "rag",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "POSITIVE_WITHOUT_ANSWER",
+        "EXPECTED_SOURCE_MISS"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "89be74c70493ad420a36c77b2bee543c224d2e9526e9c201153b1e938429f4b1",
+          "case_sha256": "59980fe5c91aabc3aa4af233ac199cf93a5134d3a9d8ad1eade1df010cceb7be",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        },
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_3题_quality_followup_failures.json",
+          "report_sha256": "cca409c2ae4b5b6c35c9656d28756cb7ef75227b6175074e81ca7b7dca3d6b2e",
+          "response_sha256": "a212991ad9272a1410b9dc8646d5e0c96d9685abc56e055bb3ac5addf045b4c5",
+          "case_sha256": "59980fe5c91aabc3aa4af233ac199cf93a5134d3a9d8ad1eade1df010cceb7be",
+          "jar_sha256": "816de27fb6fff53be0f1538745e053af2521b3f9929984496f1ff741f460413a",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 1,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV18",
+      "kind": "rag",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "POSITIVE_WITHOUT_ANSWER"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "917e8fe12a33b173817fe6eede02f3942bc2f2d08ca2250c2c542dd1da2e9610",
+          "case_sha256": "995019b78fa90b0babb3466451e8945cd5d19544624092e8ff0efcdbcbdd2494",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        },
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_3题_quality_followup_failures.json",
+          "report_sha256": "cca409c2ae4b5b6c35c9656d28756cb7ef75227b6175074e81ca7b7dca3d6b2e",
+          "response_sha256": "4f90fd3774111f75c0b2cc07cbd7714b16905726eaae1fccd12fae13233d2080",
+          "case_sha256": "995019b78fa90b0babb3466451e8945cd5d19544624092e8ff0efcdbcbdd2494",
+          "jar_sha256": "816de27fb6fff53be0f1538745e053af2521b3f9929984496f1ff741f460413a",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 1,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH04",
+      "kind": "classification",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "CATEGORY_LABEL_DISAGREEMENT"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "5d8d06457f547320921b99119704c907251bfb659e1240092489794c21a59698",
+          "case_sha256": "ad8a213972a97d0d7454a37530ca2994f6452299f785c5e6db513a7c5f779bc7",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH06",
+      "kind": "classification",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "CATEGORY_LABEL_DISAGREEMENT"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "6381777c1879ec7c7819b7806e2883ac31e5a9bd3b713e97928df92e05105c8e",
+          "case_sha256": "27e5ddaaace3222cd5b791d4aaf390ed34ad96ff7a275ee7ecda85178171b7da",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH12",
+      "kind": "classification",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "CATEGORY_LABEL_DISAGREEMENT"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "ff7b026c057f6c330a5d6530ef8ef97ebee695c255ad22d0aca0345b6982c7b8",
+          "case_sha256": "b1ab86a7c9236dfffd7f4bda27ed715ea05ae9cc62600966c72bf4ff089f1947",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH16",
+      "kind": "classification",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "CATEGORY_LABEL_DISAGREEMENT"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "e12648fd04ed802c5623b483b16325e315208f49deee7cfe470878c3a14359b6",
+          "case_sha256": "e7e3ed6ae5724aa956c5cbce99b21010c329414e2497ee1234a917f41044aca1",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH22",
+      "kind": "classification",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "CATEGORY_LABEL_DISAGREEMENT"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "82b33973043982c77ca171ad0eb75d95b7917f8f0f0ca922b254fc4b157a9282",
+          "case_sha256": "f2699cadf2398f6993541231c0c0533914e9f7482e0b9d96e4253c5546fff7b3",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RH01",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "2eeb5b9dfd18d2420757f512b2b8d2d39192486b2de09eae73f95c63d7606497",
+          "case_sha256": "3f13ab91bbc9033e82ea4e76edc0261281e66610321318401299834240d673ac",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RH02",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "0c20fde8729c1d91511cd678e7103de4a8260a4dd7352ee17dd9ea75659fe689",
+          "case_sha256": "e6c99334bbad337a74abf63da4267ae28d947f92e763cd933ea4bd25345e83f3",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RH03",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "781720167709dcead6b79cefae510ac949edc0dc3ffffa5f27b4bcec4e3d991a",
+          "case_sha256": "30e327a72e8c0f02c57d470a2941fd045a8ae73763ad94d5977872be13c68d97",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RH04",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "83ea83307e63869539a9c11707820aeaeff36fe2584ac85d3f00cdab34f24774",
+          "case_sha256": "2d9d6db410c30ba23f5747cc468dfbe061b1fd4266a74d1989957d007605096b",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RH05",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "6d70d041e0141b6f2157caafdc1847931d444d7cebe35fcb77b022afbae99741",
+          "case_sha256": "f8ebe3d6af36249ede2bd6526ae0f867d8e495b300071e329e042374c5b42e68",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RH06",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "c4f0f91223f06496ee6db292ff791397cf62868ad9ab9b4bd449931fdc885724",
+          "case_sha256": "163a07431db26e877c2e5d573b2ce562043d08ce63a30a02a5fe0fa338eee767",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RH07",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "01330591458b1df6fee19279c7b01ee782cb4e3d6ab5711d37a840ea76bf8cac",
+          "case_sha256": "f993b9d616a404fe64e6a41be89dec9a4916bf73bf2e3360f346e90926a2788c",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RH08",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "b5ec7fec9a010db494cbad1f9970afcc97d203a0cc9be98a57fa6bff3324f19e",
+          "case_sha256": "ff657a16e9d0d6fa251c99c5638874aad5aa80fb58eae535f792462a5e266b70",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RH10",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "14b156465d2d023cbe7fe4fd7e574be17f0dd46ddc37176af3c5ea098518bb3b",
+          "case_sha256": "d53579dd29f7be517eac3f4c6d4bd1d85fa6e7f8ba85dd89b4501fcb0efe2f6a",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RH11",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "61eb0246150c7d3427ae7064d4741e0e3d18ed24f5adab1660a61976a76b6a8d",
+          "case_sha256": "47f3f0c2803ab8f9f3b030e7a59ea975d1de21a3137d26989d7ac59b18decde2",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RH13",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "29cceb6ab8af3136c1f4f2aa3d4e6dd711c01f1f5ad68956c658a7f82e8d8ab3",
+          "case_sha256": "2fb88e7d6a3aebdca3ce7b2120a1e151d3f002c0295d2e551dfbe1c97728db3d",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RH14",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "8ec2cb2784922fa897277fc23fd52c00beab1d6cd70d8ddf9e1d09ebb76e71f7",
+          "case_sha256": "87157bde0c05def269763918c4ac2a72cc1f612c22c5e167fbbfccf58c7038ae",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RH15",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "908fbae0cfbf5c2a137630673cfcb9ecd24742a6074d509732a2e4589fb95cc4",
+          "case_sha256": "5a6aca8972b7c3970185d166e50118a9ab5beac0b37a4674c194832932775453",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RH17",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "bc4e29ee072ae4f031a5827bb27b39480f1c1189a298a8417968b8834c1cef8b",
+          "case_sha256": "9b2efc79d85ee60c6cff30f85740201e00b268a457a845769b5e5e1b4d0ab910",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RH19",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "90348e72cea2faaa2ea565e4d2f421ab40c5cc3881123558d8ddbc32f1c4b758",
+          "case_sha256": "50fc98e91d16b0e8a12a0824a9023efd566e65c9a7708ec2e9ee05877232907d",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RH20",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "46e97f5f6aaa9dafb41a61243049d953fa649c327782c2abdb3e802eacca8dc0",
+          "case_sha256": "4f0f2d8112a38f780fc3ad9a4bc6d06884a05f00099ab4bb5af644dadb4c2197",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RN01",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "05700fedc40ff0417186450053f4d1cacc145370d633db2eaf807a743e60e7a6",
+          "case_sha256": "11b6100d45027948401db31f76266f0a49bb744c325d6cc994ce9a95bc4d5e4e",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RN02",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "0184ba0e765b92a496239aa15117640a4c7ad0738eeb6d42b73dc07de17bb7d8",
+          "case_sha256": "77c12674d279adee865ad927fe71546c4f72926a17ec7d40291cc889b960a3a2",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RN03",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "88b24d0f579a1ac5d52ce9c927d68d5123879ffe183267e5c56d2f99befc1b46",
+          "case_sha256": "4ea18bf2e2f44e3c4d9edf9c192d4d6b17b8942911a5adf5fdf837924461a998",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RN04",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "ee9a3dfc7041338853c6c15a853ce0566305e2ed3465a9bc81751b9771c2d41b",
+          "case_sha256": "c654bcce1f8e811cd11af50b1f278c999c86fc19c712c155ab3947984aa43bf4",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RN05",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "e0afc813bb12b534f816455bd2d62fabc772703ea37609d2601f01e6878b4d8f",
+          "case_sha256": "732ace153686a25cca04728e30aa1fce1038a20d4fe36d17974bf6be19ae7492",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RN06",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "7725aaf6cc57d7766540ec0b60fb98c40d8fa8eda6dbf66cd09f9d9213ac5555",
+          "case_sha256": "4c8525df651a37ea1235018750099677a2c78f47eb2155c3ded98ec845a93dfe",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RN07",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "d841d5330f9e057b2ef35aa8825c51df9fd9ddb14b4fcd1dfbf1dab17ac92d22",
+          "case_sha256": "6cde05604348aea754103780fbc86a97040794b280f21802084fd8328f7e3940",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RN08",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "2ca2fbb4c78e0186b7af9af7cb7ca6d1738614ef915749c7f1f9d7b8c82965a5",
+          "case_sha256": "0b934413548c282553ac7e271656f1d6813d2e54be64ff46a87a201453bd5344",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RN09",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "87b1b2802aa03062af23d717a076d0b171ef8928421a296302b7cea64d8bdcbd",
+          "case_sha256": "212bab21681eb4250c8460a3a9ec9456927411a7e50b94f24db76b350a80b134",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "RN10",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_ragv3.json",
+          "report_sha256": "ed0dc5884dad6d1c76a4d0d1c81250b1f975d9bda8112b00c326ae5f01e0b674",
+          "response_sha256": "24ee67f054755e935c8c7f1f3a4ba3101345918d21e6817a47356a36dac85469",
+          "case_sha256": "f975af93e3ba0ec98118d2eb54d0abf8fc981418f0ad2d8dee975ab1e0da9de4",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "AH03",
+      "kind": "agent",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_agent_20题_ollama_agentv2.json",
+          "report_sha256": "5b415a059a0fa0c0826b9d2a025fb28f33903252ec14e712acab1fd9ae38c859",
+          "response_sha256": "16583dacefef2584fb928dd74040ddaa2f181eaaaa03c74ee08cb457006315c2",
+          "case_sha256": "ff0ebed0e736379c546d17126e0d0bcaec5f8ba3e1792a761f870477c4a9cefd",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "AH04",
+      "kind": "agent",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_agent_20题_ollama_agentv2.json",
+          "report_sha256": "5b415a059a0fa0c0826b9d2a025fb28f33903252ec14e712acab1fd9ae38c859",
+          "response_sha256": "1350daddd9d2109943329b3dc5bd539c37f8bf6c46281188899c5730c13b096f",
+          "case_sha256": "6f5c51ebb83a927b7074646e568c034f7494b57c6a0e1b396d93be808e90165d",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "AH05",
+      "kind": "agent",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_agent_20题_ollama_agentv2.json",
+          "report_sha256": "5b415a059a0fa0c0826b9d2a025fb28f33903252ec14e712acab1fd9ae38c859",
+          "response_sha256": "7ef46c9982d51af2d1a5a1e115533b54dd96d5f631756f9ea8c96dce93db494b",
+          "case_sha256": "ce3e008564359d41b4aeeed4d4f1d8b0f85a4154edae888efaf79b0226888172",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "AH06",
+      "kind": "agent",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_agent_20题_ollama_agentv2.json",
+          "report_sha256": "5b415a059a0fa0c0826b9d2a025fb28f33903252ec14e712acab1fd9ae38c859",
+          "response_sha256": "ab4c0283e294d2d74a6909d4284af4d4493e90999c79d01191ea666442fb9b22",
+          "case_sha256": "7944b35c7544cfafe0084eb153380c58d103668b82e2bec1623036acd95e16e1",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "AH07",
+      "kind": "agent",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_agent_20题_ollama_agentv2.json",
+          "report_sha256": "5b415a059a0fa0c0826b9d2a025fb28f33903252ec14e712acab1fd9ae38c859",
+          "response_sha256": "c9e3ff9ac44ae9cf509a17450c844f35f18a9750fe6644d3886a470c5a711855",
+          "case_sha256": "41983d8218189be14278b7944379826136af13a226228cf6798efd896b5a9991",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "AH08",
+      "kind": "agent",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_agent_20题_ollama_agentv2.json",
+          "report_sha256": "5b415a059a0fa0c0826b9d2a025fb28f33903252ec14e712acab1fd9ae38c859",
+          "response_sha256": "1a5962309025caab488c123f4120abe28d8cae7d08d8e5ceeccc17ce51de786e",
+          "case_sha256": "2d11667f16d44bc52137193c4aa4395774a438d4842d60292900672d12fccdad",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "AH09",
+      "kind": "agent",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_agent_20题_ollama_agentv2.json",
+          "report_sha256": "5b415a059a0fa0c0826b9d2a025fb28f33903252ec14e712acab1fd9ae38c859",
+          "response_sha256": "625af1e8c6092e76799771fe96d4a067b1757d83a44e371051451ff217e48552",
+          "case_sha256": "08f7441fa0b81ee2c09527a5ad33c7024bfd8b6efbc60f954ebbf02ffb6ad877",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "AH10",
+      "kind": "agent",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_agent_20题_ollama_agentv2.json",
+          "report_sha256": "5b415a059a0fa0c0826b9d2a025fb28f33903252ec14e712acab1fd9ae38c859",
+          "response_sha256": "c561f44db34e16c6fda01d95f8e90d0179576ca965a46557d57c36150a35371f",
+          "case_sha256": "d6143a60881229b68d46aa8b8bd67d3552b91ce55e3b77ab9f3b0d2a709af635",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "AH11",
+      "kind": "agent",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_agent_20题_ollama_agentv2.json",
+          "report_sha256": "5b415a059a0fa0c0826b9d2a025fb28f33903252ec14e712acab1fd9ae38c859",
+          "response_sha256": "181acb73e7ba14fb8ebd613f7d36dfdb199c8a42367f4ebdf53e9ffd3db32e10",
+          "case_sha256": "f43d2ba02c709fc06b6353f5f3c2b6da0d4ec24086a3b5016aff51331edcedf2",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "AH12",
+      "kind": "agent",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_agent_20题_ollama_agentv2.json",
+          "report_sha256": "5b415a059a0fa0c0826b9d2a025fb28f33903252ec14e712acab1fd9ae38c859",
+          "response_sha256": "97d2b351f3391040a01df39a996743af1a3c80b38a31f70e764adfc80f87e202",
+          "case_sha256": "cbbccc401895c93352837a903560cc7ee481109f2a3d4841edc92dfa0b12e679",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "AH13",
+      "kind": "agent",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_agent_20题_ollama_agentv2.json",
+          "report_sha256": "5b415a059a0fa0c0826b9d2a025fb28f33903252ec14e712acab1fd9ae38c859",
+          "response_sha256": "a14e8401827c82d4d81ed1ea17140753baa30cc93dfe720fa5a17ca5b0399f8c",
+          "case_sha256": "4f9020e2f05f285fb377b16e543ee63966170d3ec16fa5903eedaa26e50e6a83",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "AH14",
+      "kind": "agent",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_agent_20题_ollama_agentv2.json",
+          "report_sha256": "5b415a059a0fa0c0826b9d2a025fb28f33903252ec14e712acab1fd9ae38c859",
+          "response_sha256": "a8c290a4ef3dd984478a2d9144329e01ae7adde91173dc0feef9dc07ec659bdd",
+          "case_sha256": "50a5c7ac6257befd8f32d22827ea8365716b3a47420aae1167bd92e75ebed0be",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "AH15",
+      "kind": "agent",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_agent_20题_ollama_agentv2.json",
+          "report_sha256": "5b415a059a0fa0c0826b9d2a025fb28f33903252ec14e712acab1fd9ae38c859",
+          "response_sha256": "fff435cc765230f34a0153883e8f65c6cd21502995a454b322eec5e336fa76d1",
+          "case_sha256": "b2dcb938a32292abf3728f300923ab5cb420dc62f658331e940ca53e1677c028",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "AH16",
+      "kind": "agent",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_agent_20题_ollama_agentv2.json",
+          "report_sha256": "5b415a059a0fa0c0826b9d2a025fb28f33903252ec14e712acab1fd9ae38c859",
+          "response_sha256": "ad25214639ecd2efb26b5035facfbca981cb318d5ca79590708f0b0ee17c0aad",
+          "case_sha256": "55df7c8ccb1d2ff27fb7d800e3b709085dc86ffe766d00e92c14f434122822e5",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "AH17",
+      "kind": "agent",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_agent_20题_ollama_agentv2.json",
+          "report_sha256": "5b415a059a0fa0c0826b9d2a025fb28f33903252ec14e712acab1fd9ae38c859",
+          "response_sha256": "f5f48efe24387fce98fb26b21a5ab6ea74f1db3babed3a3fcd85a537797c113c",
+          "case_sha256": "a4949ed8591dfa31e094e299f142e8ce41fb1effae17b79ff1d93913384452c9",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "AH18",
+      "kind": "agent",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_agent_20题_ollama_agentv2.json",
+          "report_sha256": "5b415a059a0fa0c0826b9d2a025fb28f33903252ec14e712acab1fd9ae38c859",
+          "response_sha256": "140e5e1dc1d1050ba60f8d6b4be0e38780d6efbed165c20887f6823740e2b1e9",
+          "case_sha256": "a48c62af3f1315110999964effe43a87605a283f0aeb5e0d0b98ce1b650a0774",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "AH19",
+      "kind": "agent",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_agent_20题_ollama_agentv2.json",
+          "report_sha256": "5b415a059a0fa0c0826b9d2a025fb28f33903252ec14e712acab1fd9ae38c859",
+          "response_sha256": "d168feef47255c35f5609114d335b2ef93e2ae4a5a73316e6af0482784dcb853",
+          "case_sha256": "2a9f5c8e466090c0ed5a3a4e5b7a972d49e620af8014f74d6c83fa5e47c5f704",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "AH20",
+      "kind": "agent",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_agent_20题_ollama_agentv2.json",
+          "report_sha256": "5b415a059a0fa0c0826b9d2a025fb28f33903252ec14e712acab1fd9ae38c859",
+          "response_sha256": "b2da6f107d6feef6416a919179d72a3dac68b2859b793432595ab18049c8f4d6",
+          "case_sha256": "708a2f5374a0679e802f824aac2f55c14dedf54883606dc43b94e1b76d426049",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV01",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "60c14832f2ac422c66167449947172287d1e035d3fa98b0086bacef6989a848d",
+          "case_sha256": "3b0ba690edb8f7d919783e7504734b2a776476331d2041b4351a98ea310c76a9",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV03",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "9f06dc4019fceb5e7eed2593972b4bd5340437580db7e5987310519a0c4327de",
+          "case_sha256": "a8c6155bffefc36dd76c66a4205d71e21b9c73d98776a92660e1e6eefe382fd4",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV04",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "79bcde45c1137f142ca87067db63934c745538353b12dc13648a128d9aa6eb80",
+          "case_sha256": "4ea86382e7699e7807b4358695ef71b657a2326d836c4605bc89b5fc11bbe961",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV05",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "15f927582bed653d2871e0293862ea55a3c6a2bf0787801760eec8477b2c917f",
+          "case_sha256": "f72d0b7350bace35c133171f1ef4add4a5088058e411e87c753db497d55334eb",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV06",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "40e4300646ed1e6c3dc5f307951fc2c8719043b6c7f06bea487e832ddd855867",
+          "case_sha256": "6f299c015a131414a3bb2d4e6ccb08dd28490107ab560d829358e618219f71fe",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV07",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "c41eacbabd8ffdd070fc752664bfb17f7b91e25c6e40695e7028c0a2bcfac0ac",
+          "case_sha256": "f0d061d52602a9b0f6f58d08d111fdea7363b0da6bc2e1c5a23f59477ff91fef",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV10",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "360359a1c46b800bb008b119208dcd0fed1ef12db251437fcc107995c6ebecbb",
+          "case_sha256": "5270407c8205f9ab404e79351b2ec04b6d0303d2ea5438fad9f17a511a44ce2a",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV11",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "70c111461c5cd69fc51dc411cd77879effe7120e0576f2ca7f24a6fd8b5b3566",
+          "case_sha256": "787a97aa5edbbc0b6810bc3c5273bf5f5c92f7648fbc7b24130d0a2f3b701ca1",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV12",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "aae12e33fc257da961a3573d4989f690dbdc56a894d3b4aac9d5715ddc250583",
+          "case_sha256": "4b482637b5e4757c5bfdcbb117e67e626d4415d09d167ea7221c48eb3003e3b6",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV14",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "6fe101080fa1ee435fccbf789307ac7be0c2bd2319468615026c50a5ded2f887",
+          "case_sha256": "3204ec7647505d66338825aec22f318df24e40570c5dcf7ab6a005eaae11157a",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV15",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "432b18083b6dbbc4c45e92e3fad371770c5677fc83861248ddf6c6b94a56cd6c",
+          "case_sha256": "1b139892237ef08bb2ef577536fab0dbf1d21f56bfc5d744e13b6e804f554379",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV16",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "4ae6d7c58e5e251af16167fdf10932d572816a84bac6d793c2d81567994a1c67",
+          "case_sha256": "781904766d9879aaa59211d0e4f552854ff6b60f002b7e5a62a8a68b89f0a6c9",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV17",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "89dba6e1b01508ba01b7afc54b9a3e9ee589d5351929788098f1818a7da8d3c5",
+          "case_sha256": "4787e1068836637f8e88228de763c61567853793d96742d6027e518c8d400571",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV19",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "5423f21d8194cabd2904127760f449756a2fc76c35e337ff1775c1de2f0fbd57",
+          "case_sha256": "c93e8d979f1b0bc638ba1073fb12c90b51086dd8a2e6096a15a2da5d5891f2d7",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV20",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "3d6f12663b982962cf47b79c80a45fad099f16920c501eaa8446c4ed0a94b101",
+          "case_sha256": "a0bacaf9aa75774e0e8a0003def5acb041d1d63f269650d4492df5dd975aede6",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV21",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "4981fe5d4b83279f4bad135465879d90d1a1748a29f0bd200dcc36432e65bba5",
+          "case_sha256": "93a3473a3c09c90c4cf2ade42c419d55ac21c67a6135f7d618f6e4b052ab2c9d",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV22",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "0d2068ea85f8e8fe62c3d9bf44da1e7db8f0a7546bdba2c601cc988ce65d08bb",
+          "case_sha256": "6983574de823485dcce8cab50f9f1893bf96867164502a1a04023d325dd65d29",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV23",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "da3ba75b04421d04e528cc2356815da0d6c7de7f80fae45196df55af9d9c912e",
+          "case_sha256": "12e837b0a597634baf5540b0667c847bf8315bcdcb2b6753310a24d4cbb92ff4",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV24",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "23cdcf7c80c1ea7fd241c4134e4307aa2400ea82489df0bf429b326b2cd64002",
+          "case_sha256": "e1e37d471b68a93cf238317222dd93755f8e9ad29b3465a9bce306d894420741",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV25",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "c602b8df8b475303f6f612774e084edc6457fadafbb95afce0666f4d0c30f491",
+          "case_sha256": "443d9bc98bec48af4a0b151e169cf754843bdc7e8ea15454cf4260d43bd0c49c",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV26",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "7023cb0dd55e8f170c3923158960a01c37cf5ef41f477883fea4f0d32936ecd7",
+          "case_sha256": "ce8c9a37b4c256b391fc356b55741659a753fa2496caf59322580068988c54c6",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV27",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "684436c5246bc089ca83a7eba7bc1f310bd42aa3392f7e20483785b3ffd660d8",
+          "case_sha256": "2a5aaffc1414f987e57faf663e3016b7df0523df88e790108c6d31ab304bb9b6",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV28",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "f367a281c446bf64f74586e23a21aaa4d15bd6ba4d5e22732e59c503fe8dbb77",
+          "case_sha256": "12c8b8c093a7cfba427e95482a4f01e57dda6d93b63ab743f731d906096b0ed4",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV29",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "4087358f424b662abce757edb65c1a117835e861036f1ae3fe9dc52d7dc6b057",
+          "case_sha256": "c9e07f9c71e6204eceb5d484e5fda797b5877ba51723b6a173452d33e366707f",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v2-regression",
+      "case_id": "RV30",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261015_真实评估_rag_30题_ollama_v3followup.json",
+          "report_sha256": "6889405c8602516c9c8b4ec8bc87af0f7ede9b3c69005bae87f8ea1e04de1d3d",
+          "response_sha256": "69ad314d3c4ffee63761b8c0608ebd9163f45e7dc726e71ae12ee31f7ad58d7d",
+          "case_sha256": "0ea8bfb233394386184ea6857b296affa85c5dc31deb74dc8f0e9c7f20d4b5d9",
+          "jar_sha256": "40d23e8ac6a37a5e643df3ac813899b772699cd4ac396dce9a96011ef62b6c26",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH01",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "e41d7a83eb5d0e9e7eb8fe311f06aa51bdb670653e1ceb44264ecdb9dc464dc6",
+          "case_sha256": "43ad09727f06c834d2a0fa0c5fce7d0b87e0c963b3f7af3f9308d2b326e7e6b2",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH02",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "5a479e6454a3370afe2f4afbf13a14175afaf8363a413f117f2decf8a59f41ef",
+          "case_sha256": "0f0f53ef67a8b1de0abb389950aa1fec6f964a391ce5ebe9f3326c63bbbffb63",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH03",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "8ebcd829b4164673df7a328fa88c79fe69916abab3b40ef34ee1140e684d1b5e",
+          "case_sha256": "f6ea20b3bca6591250f781f8f4a42b43c5a66c80be5cc11159cf3fcf1e95731c",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH05",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "7cfc55ee0b9ae851502014489378edb5e8be2a6ad09e205fa0049b2c2cc04d51",
+          "case_sha256": "0dd08a1211c31b2296eeb0051ffacb9911fba830e96247ce6b70ddc90cfc44e8",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH07",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "d09e932df3f4663801c54b26ad805d86d79736eaedcb706dda8ae77cb552be81",
+          "case_sha256": "c2d8daa34f4a0cccf37aecaf7465b095bb6c023d9414e0694e104cb2a398d83d",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH08",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "9fbf034f2960dd104f9275b27e0725a6139afd760d542cd8dd7066e03b43993c",
+          "case_sha256": "e1a70f68d5eb9e6adf5706b7c1ab53f783130aa429b0cbb00b23184f17305836",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH09",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "cbdfad93e5bd5440a73848ae986b0d590174f21cf807cea190e3e24df29efe98",
+          "case_sha256": "22fa7d6f14159004ba31bad46694c9eae3814d847a76f12c091ab2a46b16a376",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH10",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "f476e003ba841d2d03bc01dbd9f73f06dadbaf71d160e4f60d751e10508f6dd5",
+          "case_sha256": "b9ab9b311984c6e5cb1b50a8858641e163fd5253610445e1c7ba7f38aada9f4a",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH11",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "10925e80dfc7fbd594dd5df0fb3921a7587cbc40cc025ef53e5476f1997723b1",
+          "case_sha256": "f91ef00bcbb3bfe8fc9359e44814a8892ef2b7a016e48ece55e98172d5f83886",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH13",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "c262fbb1ccfeecab15ed7a91656545cb8c8e2159e766c5a674067b83c323b9dd",
+          "case_sha256": "a218bcf4104bba76cfade088748bf3b3a034460bd971101a067d3d7d4a2f0673",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH14",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "1ee1fd9154319d814e16cda2a4f92cd8332d38410404a355f0fa42c0499b9240",
+          "case_sha256": "6e5bcb87b2232db6712f805b86a2ee8e46ce71a313cac31f71eab5fa8374176c",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH15",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "b33b0b1ef132503d623b6d58a903586750953e2ed8fc1c30fc1f57c18093e760",
+          "case_sha256": "0d4c83e27d9f4a3bb8f5a86e46caf9286f28a8ea09880bb2d3ceaf3c07f858b9",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH17",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "df3f535a120feccff338ac5840297636ad401852d1c2d814d159295d8b295ea0",
+          "case_sha256": "e13614f4825cce1ae0159259fef16e1e38b8c9e31399bdc8b55e6a4651568c38",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH18",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "7efb13e2d62921c0d349aa0bdfc3e82a16124b9c25044dcf1508e7278c1c9267",
+          "case_sha256": "99431b8a40019d5f02ad5591454f18510e927195da70c33721e79dcefc34c84f",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH19",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "717f8cf23704df874a6a056e0b888940d403c5401f8f6fc60501ef3275d2bb65",
+          "case_sha256": "052308003c26398b5eeb2f47057b8c2748276529f2374a186ec382717bd4a03d",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH20",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "8fdbc17c5f52f24040c15bb3dda8034c6c961bc2a136686bbba37385afb27d8a",
+          "case_sha256": "00d51d0afe941d7cb5b863f7e541790ba4a994e13667503f153d3db73cbe044b",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH21",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "d78c190c94cdd2e410085a6d371a0d96485a2c0b821b1236d525b2b4c0f2ba87",
+          "case_sha256": "447723a546367580b41c6ccf6f48609d47b1276c92db45d0891a2f16c479afc5",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH23",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "d1870ecefe7100d66a70d040c82f8a2a283335fd5420c8fc322b0186d8d5ff53",
+          "case_sha256": "c3ebb2b1653a59cfdfb5e2f68f6fbf7b98b1a3b68a51ca1e71ffafb28a539fa0",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH24",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "53e3781ff2aa0f923df497b9f89ab37c94d367e8db282fe5aa4e54cb6edfa2f9",
+          "case_sha256": "ced3526bbf7c9a7ab2181c6b708bd442afb5ed3904b6dcc9bdf056b8f4f14324",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH25",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "e9d160bee8e38846981278333d164a02a1a17956d029e1e257580c9bd721fbea",
+          "case_sha256": "70d5e8a86c1566898dc4f44b8ed2748494b64ab2d3f16ccd1ba227f5452ace45",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH26",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "811ea18bac2718ef42d4281ef1cb103b09ebffa16886d38fa4418093c525d7e1",
+          "case_sha256": "40bf6ad9b980b17793e448baa845ea56b5d3567d70b633cd95d41769f01baf7d",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH27",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "560da53a2a74887ad2e387dc8854466dd270d0843dbbb4dd789b5c15b541af36",
+          "case_sha256": "a412f66d9b9680e39b2eae7256d3ddcd7d82fd4ca4e8e9bbbec2e45ffe2fb088",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH28",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "750bc0c6be63f7edb045be6df3518038407880df413dd88e61932826c962bae8",
+          "case_sha256": "c29fdfa0fe6afe7bad722b27500c387a0b8fc5226f5bb0acb096bf023a79b8cd",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH29",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "799ca72fb24744111f56528eb39d5847cc2ea6a24626b2fe06c1d8629e5d32b4",
+          "case_sha256": "c86d0a096f400bde6e3bda7c46b3759e4048620b49c1a495542b3bb312d3e493",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v1",
+      "case_id": "CH30",
+      "kind": "classification",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261014_真实评估_all_80题.json",
+          "report_sha256": "94293db9225f3bb82963f00c08489592e42a37224ed7a4a4c46842ccafe92e8b",
+          "response_sha256": "6fb61a35f119d1b1ecc40612f7c5677dc4e1ef8157485ce76182c3458372b5f6",
+          "case_sha256": "9ba73f62c20662a5f89b971d72ab950f46975f97ba7104158cde08ff66cdb768",
+          "jar_sha256": null,
+          "threshold": 0.6
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW01",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "573b5fdf84d656fe3d1135356956ae3c0290ead7a5cfc6f29628e9481732b2b1",
+          "case_sha256": "8245b89565c39d0aec48f90963024dfce3dac365f47167ed9f5f370f2765be68",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW02",
+      "kind": "rag",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "POSITIVE_BELOW_066_THRESHOLD"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "6f9e9e773f34ef059f5272e9f4cbda05b76d7ac9d9dbe8c0b86c54b4a121f986",
+          "case_sha256": "e4faee90b52cef6a003170e132593cd950e9e05347bbc20974b835802f47013a",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW03",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "98c561ed8fab820582969334bf472d65f81b9ffa8db6be0045d8e70a2cfb0031",
+          "case_sha256": "dd5d21ebc364d1a1baa52cd425c75bd3d00842116b2efac83e8f95f5671b97c5",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW04",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "c5f15bbe5400b6e7128242563a30720bb6a6c344427479d9616052cf827fd6b8",
+          "case_sha256": "6ab334d0cb2f494d8ff99aebc829ec442d4774eafec41f842f131bb00a62e6df",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW05",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "856d5c296aa426916c21f902499004aa7b1c7eba03f67ab6ba555a957fdab449",
+          "case_sha256": "5521c2af9bfdd49fbd5b292549807591a3ff0d4b93468624d819df72bdad5710",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW06",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "2a9f5759acb793bcbba3cf35424b9ab249b9fc974ee4d54b19969ba73be0cf7b",
+          "case_sha256": "be7a1f974fbd0da7b1988ec4a059ab0a23e7c86c40c54d4cf78efe77673385cf",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW07",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "bc5850399ed792828fd4a656e2cba7cbd0298fc1d2952b9186500b3c6f0ed221",
+          "case_sha256": "0594502250a844bab4483c39c79274b4a76a274c88f65e1264324a1259c1133b",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW08",
+      "kind": "rag",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "UPSTREAM_FAILURE_NOT_MODEL_REFUSAL"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "1f085a89ee619037ad5fdfb215dc4164231d354abe6d0583cac16780c2d6962f",
+          "case_sha256": "4d7e55c4d73bf64e54f4174983b94f90bbb53a0dd1720ec892bea3a8e750d811",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        },
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_2题_quality_generation_retry.json",
+          "report_sha256": "0f927d9134c9f2d308e12e6a3bb3b98d33e1d6a50f7e744818e914cf49b29b1f",
+          "response_sha256": "a4114cfe8e25accf45aa99d3076ada1ee5dacf694659dc398750604b91650661",
+          "case_sha256": "4d7e55c4d73bf64e54f4174983b94f90bbb53a0dd1720ec892bea3a8e750d811",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        },
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_2题_rag_v33_failure_fixes.json",
+          "report_sha256": "d44836e5e76524c0be7e0d27d5b02422e017311bb092c9a23918de35ffdc27f2",
+          "response_sha256": "640acac4063099af124b93b748eccae359583427acaae61b7dbdb3eae98e3e43",
+          "case_sha256": "4d7e55c4d73bf64e54f4174983b94f90bbb53a0dd1720ec892bea3a8e750d811",
+          "jar_sha256": "848433621533d4275c54952db83fa6571c9d657fda0560f1b564d017b49e5043",
+          "threshold": 0.63
+        }
+      ],
+      "target_version": 2,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW09",
+      "kind": "rag",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "UPSTREAM_FAILURE_NOT_MODEL_REFUSAL"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "9bc1c014b34e2d6272317c5dee5d71cce2b151be862993dc7ca52137e9dd4da6",
+          "case_sha256": "995bcbe314d614953f0cb6f45b8bdae0d405704bc5608b99ec856bc84835dca9",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        },
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_2题_quality_generation_retry.json",
+          "report_sha256": "0f927d9134c9f2d308e12e6a3bb3b98d33e1d6a50f7e744818e914cf49b29b1f",
+          "response_sha256": "cd5544606693c8a2f420c0a0c726c05c0ee2eabfd5fc56b02b4953cba341cd49",
+          "case_sha256": "995bcbe314d614953f0cb6f45b8bdae0d405704bc5608b99ec856bc84835dca9",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 1,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW10",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "b2f869ab7c656a8a176cdf6822c2aa9e9bb071245f82e897315eaa0d140fc565",
+          "case_sha256": "c3b2dfe0aac28e26b5c297719a7b847d6561e618884ca71d84a48f6d10bf0827",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW11",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "e0a88ab03099e2711d048100b5e84083d05d3103c32833db7393ac9c0acf010a",
+          "case_sha256": "3ec3ea2ece3136e369b657ad7caa64bb4606d46f54767169c572b0b83402b3b3",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW12",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "40b70ad3a0e3088ca16c1445d41231ff08ab39aaed60318379b3d694a9b500a9",
+          "case_sha256": "abfc6959b088d4a92b4de68bb800b227d5923ca13ef35289c25ed2823ca7e9f6",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW13",
+      "kind": "rag",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "TECHNICAL_REVIEW_UNSUPPORTED_COMPRESSION_OR_SPLITTING_ADVICE"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "cff76814cd61a881b879721c6526de7d5ab5cceba8866376a79d223bc5501c33",
+          "case_sha256": "8fe0aa243c49efc9d1fd44652eba0f1e2d10ef42d770fe73fa8a112d772d8aef",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        },
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_2题_rag_v33_failure_fixes.json",
+          "report_sha256": "d44836e5e76524c0be7e0d27d5b02422e017311bb092c9a23918de35ffdc27f2",
+          "response_sha256": "b89bfe6acd55fc5fadb016bf5b264517d5ab29e7bfc077406ce6a486dc0a5080",
+          "case_sha256": "8fe0aa243c49efc9d1fd44652eba0f1e2d10ef42d770fe73fa8a112d772d8aef",
+          "jar_sha256": "848433621533d4275c54952db83fa6571c9d657fda0560f1b564d017b49e5043",
+          "threshold": 0.63
+        },
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261019_真实评估_rag_1题_final_nw13_20261019.json",
+          "report_sha256": "bc198b2084789a6305f220bdb0c73c643c9c6e232118f0a26b3e031f78846ffa",
+          "response_sha256": "73daa861473772110d3826d026b1efb4be62b482e96ea5b404a0c8777534dd52",
+          "case_sha256": "8fe0aa243c49efc9d1fd44652eba0f1e2d10ef42d770fe73fa8a112d772d8aef",
+          "jar_sha256": "0bf1ebea9260f067963e1fe5146a8f20bc9f35d006540e7ccd6af96122310e28",
+          "threshold": 0.63
+        }
+      ],
+      "target_version": 2,
+      "author_review_status": "REVIEWED",
+      "decisions": [
+        {
+          "response_sha256": "73daa861473772110d3826d026b1efb4be62b482e96ea5b404a0c8777534dd52",
+          "reviewer": "项目作者（当前会话明确评价）",
+          "grade": "PARTIAL",
+          "reference_label_correct": true,
+          "refusal_correct": null,
+          "notes": "本人明确评价：大小和范围正确，但处理建议不够具体。本判断绑定所展示的NW13最终历史复验响应，不代表当前JAR重新生成的回答。",
+          "reviewed_at": "2026-10-20T03:20:44.910773+00:00",
+          "confirmation_source": "USER_MESSAGE_CURRENT_CHAT"
+        }
+      ]
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW14",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "9008f4f39dded64cdd141321843ffa45e6b4f253c53b37e39a0ba85794a90a24",
+          "case_sha256": "48cb3cb613c9e746c2836dc3de7fd186377fc28bc9d0b28aaf4cc1f31ce5bbc3",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW15",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "d00371e6b3a50217f26d8c25d7c317448d6e5953d515aaa4c80ecbc910f96bca",
+          "case_sha256": "3814cd7d16199ca99455d1e5f8d18eb948726bc8ef0e80a8d6767f9374cd1688",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW16",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "2e076b0e15329b93dfc8c0c260021f5963bc616f3aa69adaa2779d6d994cf131",
+          "case_sha256": "fe30319257ff518bd2436d6e4b428f2ba3f60df22ccf2a4fd3c7c0420bb667be",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW17",
+      "kind": "rag",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "POSITIVE_BELOW_066_THRESHOLD"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "ed6461ed754a967478ba295a55c3568418b6f553e7b233842c7928a10d6d82ac",
+          "case_sha256": "61de6026545f12c11c809de64a489056078d62ef810d52d4f27594928edc3076",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW18",
+      "kind": "rag",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "POSITIVE_BELOW_066_THRESHOLD"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "c1a155be8276387cbfdad9fb5058ccf165f161f194f71dbd50dbbf79665d7595",
+          "case_sha256": "640ffe59f1681d28b406be895c96afb64393115fd8428a4374ba13ca96862705",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW19",
+      "kind": "rag",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "POSITIVE_BELOW_066_THRESHOLD"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "7b798032d07fabf813f87034e04f8682a73f770d82775de372df8b2fb3e3ed45",
+          "case_sha256": "5eed1f15cd74fd32f9a0da726184fdec2091d80c11952258b6067fe1ef968ae9",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW20",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "d38f07a0c940cc1a80b949bc6c8a62dca6ac3aa73eb90043258a8dd526a1e081",
+          "case_sha256": "5985e62a432ca8a866a22509a8e356fdbc6c15d56ef985a21a39952bd13f7204",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW21",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "63543e8774ea675f47aaf0dc3299a10fe432b016ee5239c5283a1c9abe584a9f",
+          "case_sha256": "6f65aec3cb95b7f5a54229d5c64c24daaa9c2f810af9ff33675b63fa089254d5",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW22",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "705db729d3e70bf7a71c50de13bbb09f173e1891e125a3c44f5e895f2e6c9922",
+          "case_sha256": "52626c3f5c2ee88d7f780cf32c0689fdbc16f5f656ed11cb0bab33fb9a554e90",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW23",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "ea573290ccb60ca58c5fa8334d87ff4fba76bebddc98a398be01231ed25b9c3a",
+          "case_sha256": "24099d0ef84f5ec89073242e082e98ef9fa8f5b0a82ebdd993f4b4a4fa05f551",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW24",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "c2073a730e5fcc83f988b455d1eaf9c3d387cc0ccc6d686a03d58158bcc09c51",
+          "case_sha256": "7fd3dacda3d66b4f4f5523cc6e0b8d958addf5b32de34af0d8873d8c935aee36",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW25",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "0252f81ecd48092040470dd1bd4f639ae9d2f69ef81b7bac8b4dae5e879f84c0",
+          "case_sha256": "e31bb13ffb4c0d254c8ece22774d414f32975c0d5b9fb3ede1233042dfdcf708",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW26",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "8456fac848f81683b66ba5c1d850f5341725a226b293f2517da45afcc87fbaf5",
+          "case_sha256": "3826789d28e18908510b0f248f1d7930a2ede382fe3ba9b32f09fabac44c838d",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW27",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "ab674fa5c98f948b0bc2b7d55ef06f8776b9a6e2293e829822070c02e0f69b74",
+          "case_sha256": "d7215182f8d43a55a404936607ad12d162de5d00d063993631d140dd6387317f",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW28",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "c9a6c6a623e04d59bf731a6ed10d98e39be68fe980d30c5ae66248109c91652e",
+          "case_sha256": "6c62bbc41fc123289a08e4e6e57de6622787da317f72fe68790b057d8aff19f5",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW29",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "260cce2db43a1a09a4d9e441bedff2118d77a31701c0a3540e7c45558570c7b6",
+          "case_sha256": "74b370fcf4d50fd75e79b9506bcd573d28a7025765014cb87339117d82b6cace",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NW30",
+      "kind": "rag",
+      "priority": "NORMAL",
+      "historical_machine_flags": [],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_rag_30题_quality_final_scope.json",
+          "report_sha256": "64ed8577bb19bda6e95cc163bfe74b88253b8f17e562d0520912873cd9d7f4db",
+          "response_sha256": "79adf6330b701ccc8e6228bc216ae61e6e53a41e6a5695d7f34650b2fd945961",
+          "case_sha256": "f40e1397cbc06a733be00c50a1c34e08cce4f6fdc59ea90179339e65221b53f7",
+          "jar_sha256": "74715a93bd5c4df757dca4d380f7a71d0cc2d5cca6f960dc85fd7668b341365e",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NA01",
+      "kind": "agent",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "VALIDATED_SCHEMA_IS_NOT_GOAL_COMPLETION",
+        "HUMAN_HANDOFF_REQUIRES_USEFULNESS_REVIEW"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_agent_8题_quality_v31_agent.json",
+          "report_sha256": "df659ea8dab7c05ae7b246b88c91e8acbdee9722f95f7a7f6eb96aaf2a654d4f",
+          "response_sha256": "7b29348baf48c8441c54dcae75eb73bd0a6806dbe05552ad69d452461b8b738c",
+          "case_sha256": "7750740f30d0406d397e5eb41309daa07b5ecd673575085ba7f1d970804f99f1",
+          "jar_sha256": "8eab8453973b65d33860c9385c16a59b2500f3b6037ec6e595b78e14a6985e83",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NA02",
+      "kind": "agent",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "VALIDATED_SCHEMA_IS_NOT_GOAL_COMPLETION",
+        "INITIAL_QUERY_TOPIC_MISMATCH_THEN_TARGETED_RECOVERY",
+        "HUMAN_HANDOFF_REQUIRES_USEFULNESS_REVIEW"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_agent_8题_quality_v31_agent.json",
+          "report_sha256": "df659ea8dab7c05ae7b246b88c91e8acbdee9722f95f7a7f6eb96aaf2a654d4f",
+          "response_sha256": "8602460c44cbc14609b41fed14f6354fc4ba3d62feba1264f8db34f86cf1bbe7",
+          "case_sha256": "e8b7fd2eae8c08103fdac260cadf6607d6897d67bbbab5df08bebe864219eacf",
+          "jar_sha256": "8eab8453973b65d33860c9385c16a59b2500f3b6037ec6e595b78e14a6985e83",
+          "threshold": 0.66
+        },
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_agent_1题_quality_number_order_fixed.json",
+          "report_sha256": "2d07be717bdd6d298dc4c10bbd7177163adb0ddb0016e04f9f515ca10e8bdbc3",
+          "response_sha256": "ccf0c09394b4058323e7030364efb2fbc16520fb30dc528bc46b518dba5e617b",
+          "case_sha256": "e8b7fd2eae8c08103fdac260cadf6607d6897d67bbbab5df08bebe864219eacf",
+          "jar_sha256": "816de27fb6fff53be0f1538745e053af2521b3f9929984496f1ff741f460413a",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 1,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NA03",
+      "kind": "agent",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "VALIDATED_SCHEMA_IS_NOT_GOAL_COMPLETION"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_agent_8题_quality_v31_agent.json",
+          "report_sha256": "df659ea8dab7c05ae7b246b88c91e8acbdee9722f95f7a7f6eb96aaf2a654d4f",
+          "response_sha256": "85c218ec0cdacc5129ba939252d59783dd2ddf4b809e30f3b11a566114f9afe6",
+          "case_sha256": "7b30af2cc465d7c4389d730eed236beae49e0a95b298905090003a6bc2abe54f",
+          "jar_sha256": "8eab8453973b65d33860c9385c16a59b2500f3b6037ec6e595b78e14a6985e83",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NA04",
+      "kind": "agent",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "VALIDATED_SCHEMA_IS_NOT_GOAL_COMPLETION"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_agent_8题_quality_v31_agent.json",
+          "report_sha256": "df659ea8dab7c05ae7b246b88c91e8acbdee9722f95f7a7f6eb96aaf2a654d4f",
+          "response_sha256": "6999a89253babba7faddf0abe1996751c2c760a6278bed78d4c03028cc046d48",
+          "case_sha256": "98f22d1527c929d8728bb0f701a2b880ae2b69544cfaa44cb31967f59a1a3bc1",
+          "jar_sha256": "8eab8453973b65d33860c9385c16a59b2500f3b6037ec6e595b78e14a6985e83",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NA05",
+      "kind": "agent",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "VALIDATED_SCHEMA_IS_NOT_GOAL_COMPLETION"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_agent_8题_quality_v31_agent.json",
+          "report_sha256": "df659ea8dab7c05ae7b246b88c91e8acbdee9722f95f7a7f6eb96aaf2a654d4f",
+          "response_sha256": "592c1bdb3da9bb62491bc06dc7f4a31e03fd09d9e35de79c4b6d5b528dc9c60c",
+          "case_sha256": "bf85906605fd1bbbac92205f75d96c5c357e807fd69e922f939d3f9b68aa39ec",
+          "jar_sha256": "8eab8453973b65d33860c9385c16a59b2500f3b6037ec6e595b78e14a6985e83",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NA06",
+      "kind": "agent",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "VALIDATED_SCHEMA_IS_NOT_GOAL_COMPLETION",
+        "HUMAN_HANDOFF_REQUIRES_USEFULNESS_REVIEW"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_agent_8题_quality_v31_agent.json",
+          "report_sha256": "df659ea8dab7c05ae7b246b88c91e8acbdee9722f95f7a7f6eb96aaf2a654d4f",
+          "response_sha256": "4386590490b773456f7ed5e2490c573daab733fd45840b389bae8fdc1828747d",
+          "case_sha256": "bfb2b9c95f022e87085c0b4d6ddef7aee83eee156db66b9c61062fd019cdf48b",
+          "jar_sha256": "8eab8453973b65d33860c9385c16a59b2500f3b6037ec6e595b78e14a6985e83",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NA07",
+      "kind": "agent",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "VALIDATED_SCHEMA_IS_NOT_GOAL_COMPLETION",
+        "HUMAN_HANDOFF_REQUIRES_USEFULNESS_REVIEW"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_agent_8题_quality_v31_agent.json",
+          "report_sha256": "df659ea8dab7c05ae7b246b88c91e8acbdee9722f95f7a7f6eb96aaf2a654d4f",
+          "response_sha256": "2ee77060acafe6755eb407920c406ea5957898fb104407922468ded2060c8fd1",
+          "case_sha256": "cabc2b71f1b2cb87b26e388b54e1c5892ea3d6bba76f1d727d596fa8c96ee357",
+          "jar_sha256": "8eab8453973b65d33860c9385c16a59b2500f3b6037ec6e595b78e14a6985e83",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "case_id": "NA08",
+      "kind": "agent",
+      "priority": "FIRST",
+      "historical_machine_flags": [
+        "VALIDATED_SCHEMA_IS_NOT_GOAL_COMPLETION",
+        "HUMAN_HANDOFF_REQUIRES_USEFULNESS_REVIEW"
+      ],
+      "versions": [
+        {
+          "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_agent_8题_quality_v31_agent.json",
+          "report_sha256": "df659ea8dab7c05ae7b246b88c91e8acbdee9722f95f7a7f6eb96aaf2a654d4f",
+          "response_sha256": "035b1ad8add2d3fcfaea59a81e6fa1c536da986e9c877332be258d67b6900937",
+          "case_sha256": "bdcd15b99ec8448a20761882f06667cb794875807dafa86e01b68bbcb174ea0e",
+          "jar_sha256": "8eab8453973b65d33860c9385c16a59b2500f3b6037ec6e595b78e14a6985e83",
+          "threshold": 0.66
+        }
+      ],
+      "target_version": 0,
+      "author_review_status": "PENDING",
+      "decisions": []
+    }
+  ]
+}

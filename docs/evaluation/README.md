@@ -1,5 +1,7 @@
 # 测试与效果证据
 
+R06 自动部分与实测缺口见[质量收口进展](20261020-quality-closure.md)，[操作指南](quality-review-guide.md)支持逐题查看和填写。当前作者已复核1/148（NW13部分通过），147条待复核；这不代表整体语义验收完成。最新本地新题只测检索及门槛，不含付费回答生成。
+
 最新 R05 见[动态知识验收](20261019-dynamic-knowledge.md)：252 单元 + 171 集成 + 22 Python，通过真实本地 BGE-M3/HTTP/MQ 发布与撤回闭环。第一轮见[工程整改验收](20261019-engineering-review.md)：246 单元 + 144 集成 + 22 Python，补充预算死锁修复、事务与并发证据。下方记录首次公开版本基线。
 
 基线 main `16068874576370bf72e2241686937f24bff9793a` 的 [GitHub 单元和集成任务](https://github.com/hashishdhdj/smartticket_AI/actions/runs/39204570840)均成功。基线本地为 Java 234 单元、137 集成和 Python 22 项保护测试；后续改动以各自报告为准。
