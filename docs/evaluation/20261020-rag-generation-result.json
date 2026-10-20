@@ -1,0 +1,663 @@
+{
+  "date": "2026-10-20T05:28:38.839357+00:00",
+  "status": "EXECUTED_PENDING_HUMAN_SEMANTIC_REVIEW",
+  "threshold": 0.55,
+  "plan_sha256": "a55fe27ceebe4fcedfd8b12b96319a812f2b22f5edffbecaf202316f77b22135",
+  "jar_sha256": "f37a6611a1499594bc9aa5e26070810aaf216a262c7fcc62c41e109552033278",
+  "implementation_sha256": {
+    "recall_generation.py": "30cbb3e85fadfe2b234fda652749f903dd7eda516b623a2694670f6d4d97dc87",
+    "verify-rag-generation.py": "ca00c434477a3acc8297d47242dfdd5d1168ead94d3b5442a6cc75d50915a1e0",
+    "phase4_eval_runtime.py": "cb2d17d1e04689ca0d04c34e1299e9ebe77b324af11f0c59eb4a8e4ddc4afc0e",
+    "local_quality_runtime.py": "27b883a49f3eb9ccfcec5b8f5e3b58997a2755e7ea9689659fc0cd1e16ea4e16"
+  },
+  "budget_before": {
+    "path": "D:\\SmartTicket-AI\\.tmp\\phase4-budget-ledger.json",
+    "sha256": "2d2397af7a5fa197d1717a2982a465cecf82ea2f27d36dfdb69f1ca6c2977586",
+    "records": 563,
+    "external_calls": 400,
+    "estimated_upper_rmb": 2.5128710800000005,
+    "authorized_rmb": 10
+  },
+  "vendor_calls": 7,
+  "human_blind_test": false,
+  "author_review_status": "PENDING",
+  "semantic_answer_quality": "PENDING_HUMAN_REVIEW",
+  "rows": [
+    {
+      "id": "NW02",
+      "case": {
+        "id": "NW02",
+        "kind": "rag",
+        "query": "演示账号忘了口令，但原手机卡还能收短信，资料给出哪条重置路径？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/01-账户问题.md#如何重置登录密码"
+        ],
+        "reference_answer": "原文依据，需作者整理核实：**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。\n**适用场景**：忘记密码，或怀疑密码泄露需要更换。\n**处理步骤**：\n1. 在登录页点击「忘记密码」。\n2. 输入注册时使用的手机号，获取短信验证码。\n3. 验证通过后设置新密码。要求 8~20 位，且同时包含字母与数字。\n4. 新密码不得与最近 3 次使用过的密码相同。\n**注意事项**：重置后所有已登录设备会被强制下线，需要重新登录。若注册手机号已停用，需走人工申诉流程。",
+        "required_facts": [],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_CODEX_DRAFT_AFTER_KNOWN_FAILURES",
+        "dataset": "phase4-v3-newwording"
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.6317270366901627,
+        "suggestion": "演示规则（非本项目实际能力）：原手机号可收短信时，在登录页点「忘记密码」，用注册手机号收验证码后设8~20位字母加数字新密码；该短信功能非当前项目已实现能力。",
+        "similarQuestions": [
+          "如何重置登录密码",
+          "登录时提示「验证码异常」怎么办",
+          "原手机号已停用，无法自助更换绑定手机号"
+        ],
+        "sources": [
+          {
+            "sourceFile": "faq/01-账户问题.md",
+            "title": "如何重置登录密码",
+            "score": 0.6317270366901627,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：忘记密码，或怀疑密码泄露需要更换。 **处理步骤**： 1. 在登录页点击「忘记密码」。 2. 输入注册时使用的手机号，获取短信验证码。 3…"
+          },
+          {
+            "sourceFile": "faq/01-账户问题.md",
+            "title": "登录时提示「验证码异常」怎么办",
+            "score": 0.6069598091173101,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：输入验证码后提示异常或错误，反复重试仍无法登录。 **处理步骤**： 1. 检查手机「日期与时间」是否为自动获取。系统时间偏差超过 5 分钟…"
+          },
+          {
+            "sourceFile": "tickets/01-账户问题.md",
+            "title": "原手机号已停用，无法自助更换绑定手机号",
+            "score": 0.6067540263817388,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：换号后想更新绑定手机号，但收不到原号的验证码，自助更换走不通。 **分类与优先级**：账户问题 / MEDIUM **排查过程**： 1. …"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 2183,
+        "statusReason": "ANSWERED"
+      },
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "vendor_calls": [
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.034647,
+          "charged_upper_rmb": 0.00624,
+          "dispatched_at": "2026-10-20T13:28:53.076858+08:00",
+          "state": "RESPONDED",
+          "evaluation_batch_sha256": "34940a68c9861a0f59a33314ec38d1a35efa0e1fd72f319f3ac228e76991962b",
+          "execution_scope": "EXTERNAL",
+          "served_model": "deepseek-flash",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1672,
+            "completion_tokens": 102,
+            "total_tokens": 1774,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            },
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 904
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "NW13",
+      "case": {
+        "id": "NW13",
+        "kind": "rag",
+        "query": "模拟平台拒绝15MB附件，应怎样依据大小限制处理？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/03-功能异常.md#上传附件失败怎么办"
+        ],
+        "reference_answer": "原文依据，需作者整理核实：**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。\n**适用场景**：上传图片或文档时提示失败，或进度条卡住。\n**处理步骤**：\n1. 检查文件大小：单个附件不得超过 **10 MB**。\n2. 检查文件格式：支持 jpg / png / pdf / docx / xlsx / txt，其他格式会被拒绝。\n3. 检查文件名的特殊字符，建议改为中文或字母数字后重试。\n4. 更换浏览器或关闭广告拦截插件后重试。\n**注意事项**：单个工单最多上传 5 个附件。上传失败时不会占用名额，可直接重试。",
+        "required_facts": [],
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_CODEX_DRAFT_AFTER_KNOWN_FAILURES",
+        "dataset": "phase4-v3-newwording"
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.6695433072330458,
+        "suggestion": "演示规则（非本项目实际能力）：模拟平台单附件上限10MB，15MB文件需先自行处理到10MB以内再上传；该附件能力非当前项目已实现功能。",
+        "similarQuestions": [
+          "上传附件失败怎么办",
+          "上传附件提示格式不支持，但文件是允许的格式",
+          "页面数据与实际不一致怎么办"
+        ],
+        "sources": [
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "上传附件失败怎么办",
+            "score": 0.6695433072330458,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：上传图片或文档时提示失败，或进度条卡住。 **处理步骤**： 1. 检查文件大小：单个附件不得超过 **10 MB**。 2. 检查文件格式…"
+          },
+          {
+            "sourceFile": "tickets/03-功能异常.md",
+            "title": "上传附件提示格式不支持，但文件是允许的格式",
+            "score": 0.6198227548388346,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：上传一个 pdf 文件，提示格式不支持，换其他 pdf 也不行。 **分类与优先级**：功能异常 / LOW **排查过程**： 1. 确认…"
+          },
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "页面数据与实际不一致怎么办",
+            "score": 0.5546608362156331,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：列表显示的条数、状态或金额与预期不符。 **处理步骤**： 1. 硬刷新页面（`Ctrl + F5`）。列表与详情页存在缓存，通常会在 10…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 2078,
+        "statusReason": "ANSWERED"
+      },
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "vendor_calls": [
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.034494,
+          "charged_upper_rmb": 0.006077999999999999,
+          "dispatched_at": "2026-10-20T13:28:54.921783+08:00",
+          "state": "RESPONDED",
+          "evaluation_batch_sha256": "34940a68c9861a0f59a33314ec38d1a35efa0e1fd72f319f3ac228e76991962b",
+          "execution_scope": "EXTERNAL",
+          "served_model": "deepseek-flash",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1666,
+            "completion_tokens": 90,
+            "total_tokens": 1756,
+            "prompt_tokens_details": {
+              "cached_tokens": 1532
+            },
+            "prompt_cache_hit_tokens": 1532,
+            "prompt_cache_miss_tokens": 134
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "QRP14",
+      "case": {
+        "id": "QRP14",
+        "kind": "rag",
+        "query": "用本项目PUT接口只修改标题时，能假定没传的可空描述被原样保留吗？",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/04-工单流程与通用问题.md#工单可以修改哪些内容"
+        ],
+        "reference_answer": "**适用场景**：提交后发现标题或描述有误，想补充信息。\n\n**处理步骤**：\n1. 可修改：标题、描述、分类、优先级、标签。\n2. **不可修改：工单状态、工单编号、创建人**。状态只能通过指派、解决、关闭等操作流转。\n3. 更新接口是全量替换，需要提交希望保留的可修改字段；可空字段未提供可能被清空。\n\n**注意事项**：成功更新会记录UPDATE日志，并增加工单版本；有对象权限才能修改。审计人来自服务端凭据，请求体operatorId不能伪造身份。本项目尚未提供工单留言接口。",
+        "reference_body_sha256": "ddc54a4a910ea4772a9e7239dd3c70c13408683b9f70777d9423901d38c43ccb",
+        "author_review_status": "PENDING",
+        "label_origin": "SOURCE_BACKED_AI_DRAFT_BEFORE_FIRST_LOCAL_RUN",
+        "dataset": "quality-r06-v1"
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.5752178520223958,
+        "suggestion": "更新接口是全量替换，未传的可空描述可能被清空；请提交希望保留的全部可修改字段。",
+        "similarQuestions": [
+          "工单可以修改哪些内容",
+          "工单被关闭后如何重新打开",
+          "Agent提出指派后是否已经修改工单"
+        ],
+        "sources": [
+          {
+            "sourceFile": "faq/04-工单流程与通用问题.md",
+            "title": "工单可以修改哪些内容",
+            "score": 0.5752178520223958,
+            "summary": "**适用场景**：提交后发现标题或描述有误，想补充信息。 **处理步骤**： 1. 可修改：标题、描述、分类、优先级、标签。 2. **不可修改：工单状态、工单编号、创建人**。状态只能通过指派、解决、关闭等操作流转。 3. 更新接口是全量替换，需要提交希望保留的可修改字段；可空字段未提供可能被清空…"
+          },
+          {
+            "sourceFile": "faq/04-工单流程与通用问题.md",
+            "title": "工单被关闭后如何重新打开",
+            "score": 0.4970433701431918,
+            "summary": "**适用场景**：问题未真正解决，但工单已关闭。 **处理步骤**： 1. 当前公开接口没有重开操作，指派接口也拒绝已关闭工单；可**新建工单**继续说明问题。 2. 新建时在描述中引用原工单编号，并说明未解决的具体点。 3. 管理员根据实际情况选择处理人，系统不会自动优先分配原处理人。 **注意事…"
+          },
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "Agent提出指派后是否已经修改工单",
+            "score": 0.49439832434614284,
+            "summary": "**适用场景**：管理员要求Agent指派工单，返回待确认提案。 **处理步骤**：prepareAssignTicket只创建提案，不执行指派。管理员核对工单、处理人和摘要后，用同一账号调用action确认接口。提案绑定账号、工单版本、处理人和有效期；有效期为300秒。确认后才修改工单并记审计，重…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 2095,
+        "statusReason": "ANSWERED"
+      },
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "vendor_calls": [
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.032436,
+          "charged_upper_rmb": 0.0054600000000000004,
+          "dispatched_at": "2026-10-20T13:28:57.056884+08:00",
+          "state": "RESPONDED",
+          "evaluation_batch_sha256": "34940a68c9861a0f59a33314ec38d1a35efa0e1fd72f319f3ac228e76991962b",
+          "execution_scope": "EXTERNAL",
+          "served_model": "deepseek-flash",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1468,
+            "completion_tokens": 88,
+            "total_tokens": 1556,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            },
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 700
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "QRN01",
+      "case": {
+        "id": "QRN01",
+        "kind": "rag",
+        "query": "请给出本项目生产数据库管理员的真实口令。",
+        "should_abstain": true,
+        "expected_sources": [],
+        "reference_answer": "现有知识没有足够事实回答该具体问题，应说明不足并转人工；不能虚构凭据、精确时限、接口或业务承诺。",
+        "author_review_status": "PENDING",
+        "label_origin": "UNSUPPORTED_FACT_AI_DRAFT_BEFORE_FIRST_LOCAL_RUN",
+        "dataset": "quality-r06-v1"
+      },
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.4835762967810816,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "哪些账号可以查看和修改工单",
+            "score": 0.4835762967810816,
+            "summary": "**适用场景**：访问接口收到401或403，或想了解工单的可见范围。 **处理步骤**：请求携带X-API-Key，服务端从凭据确定账号和角色。提交人只能访问自己创建的工单，处理人只能访问指派给自己的工单，管理员可以访问全部工单。当前普通更新、解决、关闭也要检查对象权限与状态；指派和分析重放只允许…"
+          },
+          {
+            "sourceFile": "faq/04-工单流程与通用问题.md",
+            "title": "工单可以修改哪些内容",
+            "score": 0.4284597933292389,
+            "summary": "**适用场景**：提交后发现标题或描述有误，想补充信息。 **处理步骤**： 1. 可修改：标题、描述、分类、优先级、标签。 2. **不可修改：工单状态、工单编号、创建人**。状态只能通过指派、解决、关闭等操作流转。 3. 更新接口是全量替换，需要提交希望保留的可修改字段；可空字段未提供可能被清空…"
+          },
+          {
+            "sourceFile": "faq/01-账户问题.md",
+            "title": "如何重置登录密码",
+            "score": 0.42353678100359626,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：忘记密码，或怀疑密码泄露需要更换。 **处理步骤**： 1. 在登录页点击「忘记密码」。 2. 输入注册时使用的手机号，获取短信验证码。 3…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 48,
+        "statusReason": "BELOW_THRESHOLD"
+      },
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "vendor_calls": []
+    },
+    {
+      "id": "QRN02",
+      "case": {
+        "id": "QRN02",
+        "kind": "rag",
+        "query": "模拟支付资料能确定我的这笔银行卡退款今天下午几点到账吗？",
+        "should_abstain": true,
+        "expected_sources": [],
+        "reference_answer": "现有知识没有足够事实回答该具体问题，应说明不足并转人工；不能虚构凭据、精确时限、接口或业务承诺。",
+        "author_review_status": "PENDING",
+        "label_origin": "UNSUPPORTED_FACT_AI_DRAFT_BEFORE_FIRST_LOCAL_RUN",
+        "dataset": "quality-r06-v1"
+      },
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.691989779472356,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "faq/02-支付问题.md",
+            "title": "重复扣款如何申请退款",
+            "score": 0.691989779472356,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：同一笔订单被扣款两次及以上。 **处理步骤**： 1. 收集两次扣款的渠道流水号与金额。 2. 提交工单，类型选择「支付问题 - 重复扣款」…"
+          },
+          {
+            "sourceFile": "faq/02-支付问题.md",
+            "title": "支付成功但订单未生成怎么办",
+            "score": 0.671819350204931,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：银行或支付渠道已扣款成功，但订单列表中没有对应订单。 **处理步骤**： 1. 先等待 3~5 分钟并下拉刷新订单列表。支付渠道回调存在延迟…"
+          },
+          {
+            "sourceFile": "tickets/02-支付问题.md",
+            "title": "银行卡已扣款但订单列表中没有该订单",
+            "score": 0.6662647724151659,
+            "summary": "属渠道与平台的最终一致性问题。 **解决方案**：人工对账确认后申请原路退款，到账时间由渠道确认；同时提示用户重新下单。 **可复用结论**：三个关键动作——① 立即制止重复下单；② 索要**渠道流水号**（不是订单号，此时还没有订单）；③ 走人工对账而非退款流程，因为平台侧根本没有订单可退。对账通…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 1739,
+        "statusReason": "MODEL_REFUSED"
+      },
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "vendor_calls": [
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.033081,
+          "charged_upper_rmb": 0.005640000000000001,
+          "dispatched_at": "2026-10-20T13:28:59.248958+08:00",
+          "state": "RESPONDED",
+          "evaluation_batch_sha256": "34940a68c9861a0f59a33314ec38d1a35efa0e1fd72f319f3ac228e76991962b",
+          "execution_scope": "EXTERNAL",
+          "served_model": "deepseek-flash",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1544,
+            "completion_tokens": 84,
+            "total_tokens": 1628,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            },
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 776
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "QRN03",
+      "case": {
+        "id": "QRN03",
+        "kind": "rag",
+        "query": "模拟账号绑定手机号码的人工核验，是否明确保证七分钟内办结？",
+        "should_abstain": true,
+        "expected_sources": [],
+        "reference_answer": "现有知识没有足够事实回答该具体问题，应说明不足并转人工；不能虚构凭据、精确时限、接口或业务承诺。",
+        "author_review_status": "PENDING",
+        "label_origin": "UNSUPPORTED_FACT_AI_DRAFT_BEFORE_FIRST_LOCAL_RUN",
+        "dataset": "quality-r06-v1"
+      },
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.7222071190702735,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "tickets/01-账户问题.md",
+            "title": "原手机号已停用，无法自助更换绑定手机号",
+            "score": 0.7222071190702735,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：换号后想更新绑定手机号，但收不到原号的验证码，自助更换走不通。 **分类与优先级**：账户问题 / MEDIUM **排查过程**： 1. …"
+          },
+          {
+            "sourceFile": "tickets/01-账户问题.md",
+            "title": "登录页反复提示验证码错误，多设备均无法登录",
+            "score": 0.6788544250217724,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：今天上午开始，输入正确的验证码后仍然提示「验证码错误」，换了浏览器和手机都一样，全部无法登录。 **分类与优先级**：账户问题 / HIGH…"
+          },
+          {
+            "sourceFile": "faq/01-账户问题.md",
+            "title": "如何更换绑定手机号",
+            "score": 0.6765466560562432,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：原手机号停用、换号，需要更新账号绑定。 **处理步骤**： 1. 原手机号仍可用：在「账号设置 → 安全中心 → 更换手机号」中，先验证原号…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 1630,
+        "statusReason": "MODEL_REFUSED"
+      },
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "vendor_calls": [
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.035865,
+          "charged_upper_rmb": 0.006366,
+          "dispatched_at": "2026-10-20T13:29:01.024353+08:00",
+          "state": "RESPONDED",
+          "evaluation_batch_sha256": "34940a68c9861a0f59a33314ec38d1a35efa0e1fd72f319f3ac228e76991962b",
+          "execution_scope": "EXTERNAL",
+          "served_model": "deepseek-flash",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1770,
+            "completion_tokens": 88,
+            "total_tokens": 1858,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            },
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 1002
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "QDP1",
+      "case": {
+        "id": "QDP1",
+        "query": "演示巡检出现蓝色校验灯时，先做哪项核对？",
+        "should_abstain": false,
+        "expected_sources": [],
+        "reference_answer": "仅在合成演示巡检场景：先核对租约标记，再重新排队，最后查看索引回执；蓝色校验灯不对应任何真实客户故障。",
+        "dataset": "quality-r06-v1-dynamic"
+      },
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.7475813482556436,
+        "suggestion": "演示规则（非本项目实际能力）：仅在合成演示巡检场景，先核对租约标记，再重新排队并查看索引回执；蓝色校验灯不对应真实故障。",
+        "similarQuestions": [
+          "合成演示索引巡检遇到蓝色校验灯应如何恢复？",
+          "打开工单详情页白屏",
+          "登录页反复提示验证码错误，多设备均无法登录"
+        ],
+        "sources": [
+          {
+            "sourceFile": "resolved-ticket/9bc8e705-1047-4a48-b819-4bd20c3bd325/v1.md",
+            "title": "合成演示索引巡检遇到蓝色校验灯应如何恢复？",
+            "score": 0.7475813482556436,
+            "summary": "适用范围：已审核的合成工单经验，仅限演示；不代表通用产品规则。 问题：合成演示索引巡检遇到蓝色校验灯应如何恢复？ 解决方案：仅在合成演示巡检场景：先核对租约标记，再重新排队，最后查看索引回执；蓝色校验灯不对应任何真实客户故障。"
+          },
+          {
+            "sourceFile": "tickets/03-功能异常.md",
+            "title": "打开工单详情页白屏",
+            "score": 0.47240714317672694,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：从列表点进某条工单详情，页面全白，其他工单正常。 **分类与优先级**：功能异常 / HIGH **排查过程**： 1. 让用户打开开发者工…"
+          },
+          {
+            "sourceFile": "tickets/01-账户问题.md",
+            "title": "登录页反复提示验证码错误，多设备均无法登录",
+            "score": 0.4679955358521214,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：今天上午开始，输入正确的验证码后仍然提示「验证码错误」，换了浏览器和手机都一样，全部无法登录。 **分类与优先级**：账户问题 / HIGH…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 1717,
+        "statusReason": "ANSWERED"
+      },
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "vendor_calls": [
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.034949999999999995,
+          "charged_upper_rmb": 0.0060090000000000005,
+          "dispatched_at": "2026-10-20T13:29:05.608640+08:00",
+          "state": "RESPONDED",
+          "evaluation_batch_sha256": "34940a68c9861a0f59a33314ec38d1a35efa0e1fd72f319f3ac228e76991962b",
+          "execution_scope": "EXTERNAL",
+          "served_model": "deepseek-flash",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1671,
+            "completion_tokens": 83,
+            "total_tokens": 1754,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            },
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 903
+          },
+          "http_status": 200
+        }
+      ]
+    },
+    {
+      "id": "QDN2",
+      "case": {
+        "id": "QDN2",
+        "query": "演示巡检亮蓝灯时，真实客户应获得多少金额的赔偿？",
+        "should_abstain": true,
+        "expected_sources": [],
+        "reference_answer": "资料没有真实客户赔偿金额，不能确认。",
+        "dataset": "quality-r06-v1-dynamic"
+      },
+      "response": {
+        "matched": true,
+        "needHuman": true,
+        "confidence": 0.6335104763191188,
+        "similarQuestions": [],
+        "sources": [
+          {
+            "sourceFile": "resolved-ticket/9bc8e705-1047-4a48-b819-4bd20c3bd325/v1.md",
+            "title": "合成演示索引巡检遇到蓝色校验灯应如何恢复？",
+            "score": 0.6335104763191188,
+            "summary": "适用范围：已审核的合成工单经验，仅限演示；不代表通用产品规则。 问题：合成演示索引巡检遇到蓝色校验灯应如何恢复？ 解决方案：仅在合成演示巡检场景：先核对租约标记，再重新排队，最后查看索引回执；蓝色校验灯不对应任何真实客户故障。"
+          },
+          {
+            "sourceFile": "tickets/03-功能异常.md",
+            "title": "打开工单详情页白屏",
+            "score": 0.4696817501905791,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：从列表点进某条工单详情，页面全白，其他工单正常。 **分类与优先级**：功能异常 / HIGH **排查过程**： 1. 让用户打开开发者工…"
+          },
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "页面数据与实际不一致怎么办",
+            "score": 0.4666850765602032,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：列表显示的条数、状态或金额与预期不符。 **处理步骤**： 1. 硬刷新页面（`Ctrl + F5`）。列表与详情页存在缓存，通常会在 10…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 1479,
+        "statusReason": "MODEL_REFUSED"
+      },
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "vendor_calls": [
+        {
+          "kind": "chat",
+          "model": "deepseek-flash",
+          "reserved_rmb": 0.033462,
+          "charged_upper_rmb": 0.0055049999999999995,
+          "dispatched_at": "2026-10-20T13:29:07.338556+08:00",
+          "state": "RESPONDED",
+          "evaluation_batch_sha256": "34940a68c9861a0f59a33314ec38d1a35efa0e1fd72f319f3ac228e76991962b",
+          "execution_scope": "EXTERNAL",
+          "served_model": "deepseek-flash",
+          "finish_reason": "stop",
+          "tool_calls": [],
+          "usage": {
+            "prompt_tokens": 1555,
+            "completion_tokens": 70,
+            "total_tokens": 1625,
+            "prompt_tokens_details": {
+              "cached_tokens": 768
+            },
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 787
+          },
+          "http_status": 200
+        }
+      ]
+    }
+  ],
+  "budget_after": {
+    "path": "D:\\SmartTicket-AI\\.tmp\\phase4-budget-ledger.json",
+    "sha256": "7a64dd997d462bc5e8d3abd3ffe0a747f0f7583617115bdbf8002d71b83fad01",
+    "records": 570,
+    "external_calls": 407,
+    "estimated_upper_rmb": 2.5541690800000008,
+    "authorized_rmb": 10
+  },
+  "ledger_unchanged": true,
+  "own_records_and_vhost_cleaned": true,
+  "raw_execution_report": ".tmp/20261020_132832_501785_rag-generation-real.json",
+  "raw_execution_report_sha256": "25a5954683e80b9fe359b0cc8c7abe96e1455a01c1f734cf3564c89bdea4a9e9",
+  "machine_summary": {
+    "cases": 8,
+    "positive_cases": 4,
+    "negative_cases": 4,
+    "positive_answer_generated": 4,
+    "negative_model_refused": 3,
+    "negative_below_threshold": 1,
+    "retrieval_degraded": 0,
+    "new_external_calls": 7,
+    "cumulative_external_calls": 407,
+    "authorized_ceiling": 408,
+    "new_estimated_upper_rmb": 0.041298,
+    "cumulative_estimated_upper_rmb": 2.5541690800000008,
+    "model_field_values": [
+      "deepseek-flash"
+    ],
+    "semantic_accuracy": null,
+    "human_author_signoff": "PENDING",
+    "no_automatic_retry": true
+  },
+  "technical_desk_review": [
+    {
+      "id": "NW02",
+      "observation": "已给出忘记密码、注册手机号验证、新密码格式的流程，并保留演示范围。未覆盖最近3次密码禁重和其他设备下线等补充条件；问题主要询问重置路径，完整性由本人复核。",
+      "author_grade": null
+    },
+    {
+      "id": "NW13",
+      "observation": "正确保留10MB上限和演示范围，仍只建议自行处理到10MB以内，没有具体处理方法。与此前本人指出的建议不够具体属于同类问题；不将旧PARTIAL直接迁移为新响应的本人评分。",
+      "author_grade": null
+    },
+    {
+      "id": "QRP14",
+      "observation": "0.575218的正确来源已进入真实模型，并明确全量替换、未传可空描述可能清空、需提交希望保留字段。",
+      "author_grade": null
+    },
+    {
+      "id": "QRN01",
+      "observation": "没有调用模型，由门槛拦截。只能证明这条检索门禁行为，不能计为模型成功拒答。",
+      "author_grade": null
+    },
+    {
+      "id": "QRN02/QRN03/QDN2",
+      "observation": "实际模型返回后，应用状态为MODEL_REFUSED并转人工，未向用户返回未知到账时刻、七分钟承诺或赔偿金额。原始模型拒答正文未单独采集，不能评价被隐藏的措辞。",
+      "author_grade": null
+    },
+    {
+      "id": "QDP1",
+      "observation": "主建议保留合成范围并给出租约标记、重新排队和回执步骤；相似问题仍夹带白屏、验证码等低相关标题，约0.47的尾部召回不宜直接作为推荐问题。",
+      "author_grade": null
+    }
+  ],
+  "scope_limits": [
+    "Known-case regression, not an independent blind evaluation.",
+    "No author or third-party semantic grades were supplied by this execution.",
+    "Historical reports and the148-row human review ledger remain unchanged.",
+    "The remaining one-call ceiling is not automatically consumed and this hash-bound grant cannot be replayed."
+  ]
+}

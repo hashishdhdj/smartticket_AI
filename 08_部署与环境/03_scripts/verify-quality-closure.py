@@ -20,8 +20,12 @@ def main():
     parser.add_argument('--contracts-only', action='store_true')
     parser.add_argument('--java', default=str(Path(os.environ.get('JAVA_HOME', '')) / 'bin/java'))
     parser.add_argument('--output', type=Path)
+    parser.add_argument('--threshold', type=float, help='Explicit post-hoc regression override; frozen R06 defaults to its original threshold')
     args = parser.parse_args()
     manifest, cases, fixture = verify_dataset()
+    threshold = manifest['threshold'] if args.threshold is None else args.threshold
+    if not 0 < threshold < 1:
+        parser.error('threshold must be between zero and one')
     ledger = validate(read(LEDGER))
     if args.contracts_only:
         print(json.dumps({'contracts': 'PASS', 'historical_cases': len(ledger['rows']), 'static_cases': len(cases),
@@ -33,13 +37,15 @@ def main():
     if output.exists():
         raise ValueError('Do not overwrite an earlier execution; select a new output')
     report = {'date': datetime.now(timezone.utc).isoformat(), 'status': 'INCOMPLETE', 'vendor_calls': 0,
-        'chat_enabled': False, 'dataset_manifest_sha256': hashlib.sha256((DATASET / 'manifest.json').read_bytes()).hexdigest(),
+        'chat_enabled': False, 'threshold': threshold,
+        'threshold_scope': 'FROZEN_R06' if args.threshold is None else 'POST_HOC_REGRESSION_NOT_INDEPENDENT_EVALUATION',
+        'dataset_manifest_sha256': hashlib.sha256((DATASET / 'manifest.json').read_bytes()).hexdigest(),
         'freeze_commit': '643efb9', 'label_review': 'PENDING', 'human_blind_test': False,
         'historical_generation_retested': False, 'artifact': artifact,
         'historical_review': {'total': len(ledger['rows']), 'reviewed': sum(bool(row['decisions']) for row in ledger['rows'])},
         'static_rows': [], 'dynamic_rows': [], 'dynamic_state_checks': []}
     try:
-        with LocalQualityRuntime(args.java, jar) as app:
+        with LocalQualityRuntime(args.java, jar, threshold=threshold) as app:
             # Record the actual model/index snapshot, not just the source-file count.
             indexed = json.loads(app.sql('pgvector', "SELECT coalesce(json_agg(json_build_object('source_ref',source_file||'#'||section_title,"
                 "'chunk_index',chunk_index,'content',content,'hash',content_hash,'model',model,'dimensions',vector_dims(embedding))),'[]'::json) FROM knowledge_chunk "
@@ -50,7 +56,7 @@ def main():
             report['static_chunk_count'] = len(indexed)
             for case in cases:
                 answer = app.api('/api/ai/knowledge/answer', {'query': case['query']}, 'SUBMITTER')
-                row = retrieval_row(case, answer, manifest['threshold'])
+                row = retrieval_row(case, answer, threshold)
                 if row['has_generated_answer']:
                     raise AssertionError('Chat-disabled verification cannot generate an answer')
                 report['static_rows'].append(row)
@@ -78,7 +84,7 @@ def main():
                     case = {'id': ('QDP' if positive else 'QDN') + str(index), 'should_abstain': not positive,
                         'expected_sources': [prefix + 'v1.md#' + fixture['question']] if positive else []}
                     answer = app.api('/api/ai/knowledge/answer', {'query': query}, 'SUBMITTER')
-                    report['dynamic_rows'].append(retrieval_row(case, answer, manifest['threshold']))
+                    report['dynamic_rows'].append(retrieval_row(case, answer, threshold))
             report['dynamic_metrics'] = summarize(report['dynamic_rows'])
             app.api(endpoint + '/retract', {'expectedRevision': 1})
             after = app.api('/api/ai/knowledge/answer', {'query': fixture['positive_queries'][0]}, 'SUBMITTER')

@@ -1,0 +1,118 @@
+{
+  "date": "2026-10-20T13:26:45.658535+08:00",
+  "status": "READY_AWAITING_EXPLICIT_ADDITIONAL_CALL_AUTHORIZATION",
+  "plan": "docs/evaluation/recall-generation-v1.json",
+  "plan_sha256": "a55fe27ceebe4fcedfd8b12b96319a812f2b22f5edffbecaf202316f77b22135",
+  "preflight": ".tmp/recall-generation-preflight-20261020-v2.json",
+  "preflight_sha256": "34940a68c9861a0f59a33314ec38d1a35efa0e1fd72f319f3ac228e76991962b",
+  "implementation_sha256": {
+    "recall_generation.py": "30cbb3e85fadfe2b234fda652749f903dd7eda516b623a2694670f6d4d97dc87",
+    "verify-rag-generation.py": "ca00c434477a3acc8297d47242dfdd5d1168ead94d3b5442a6cc75d50915a1e0",
+    "phase4_eval_runtime.py": "cb2d17d1e04689ca0d04c34e1299e9ebe77b324af11f0c59eb4a8e4ddc4afc0e",
+    "local_quality_runtime.py": "27b883a49f3eb9ccfcec5b8f5e3b58997a2755e7ea9689659fc0cd1e16ea4e16"
+  },
+  "jar_sha256": "f37a6611a1499594bc9aa5e26070810aaf216a262c7fcc62c41e109552033278",
+  "vendor_calls_added": 0,
+  "canonical_budget": {
+    "path": "D:\\SmartTicket-AI\\.tmp\\phase4-budget-ledger.json",
+    "sha256": "2d2397af7a5fa197d1717a2982a465cecf82ea2f27d36dfdb69f1ca6c2977586",
+    "records": 563,
+    "external_calls": 400,
+    "estimated_upper_rmb": 2.5128710800000005,
+    "authorized_rmb": 10
+  },
+  "proposed_maximum_new_calls": 8,
+  "proposed_cumulative_call_ceiling": 408,
+  "proposed_batch_rmb_cap": 0.5,
+  "total_rmb_cap": 10,
+  "authorization_created": false,
+  "python_tests": {
+    "tests": 61,
+    "failures": 0,
+    "errors": 0
+  },
+  "test_environment_note": "One pre-existing loopback test encountered Windows connection abort during the first full run; full rerun passed61. No vendor was contacted.",
+  "first_preflight": {
+    "path": ".tmp/recall-generation-preflight-20261020.json",
+    "valid_for_activation": false,
+    "reason": "One shared actor hit the application daily call limit after4 model substitutions. Corrected preflight uses one temporary actor per case and fails if an eligible case never reaches capture."
+  },
+  "human_review_ledger_unchanged": true,
+  "own_records_and_vhost_cleaned": true,
+  "local_substitute_request_count": 7,
+  "semantic_quality": "NOT_MEASURED_LOCAL_SUBSTITUTE_ONLY",
+  "rows": [
+    {
+      "id": "NW02",
+      "query": "演示账号忘了口令，但原手机卡还能收短信，资料给出哪条重置路径？",
+      "draft_should_abstain": false,
+      "confidence": 0.6317270366901627,
+      "messages_sha256": "40360de5fd1f8ebe46a7a779d4dbb4b8e4d3eb18da9a1a9d6a538143f21f1039",
+      "model_path_exercised": true,
+      "response_origin": "LOCAL_SUBSTITUTE_NOT_DEEPSEEK"
+    },
+    {
+      "id": "NW13",
+      "query": "模拟平台拒绝15MB附件，应怎样依据大小限制处理？",
+      "draft_should_abstain": false,
+      "confidence": 0.6695433072330458,
+      "messages_sha256": "8b17e66140fb3e3ac5b7d4a00ea58ef3fbfd092a468a398a5f9aa6880f1100ee",
+      "model_path_exercised": true,
+      "response_origin": "LOCAL_SUBSTITUTE_NOT_DEEPSEEK"
+    },
+    {
+      "id": "QRP14",
+      "query": "用本项目PUT接口只修改标题时，能假定没传的可空描述被原样保留吗？",
+      "draft_should_abstain": false,
+      "confidence": 0.5752178520223958,
+      "messages_sha256": "e6a204ae06ad8fdfaca2b79a3fac7092fa9ddeb0083c048e72dd3e2260b1b436",
+      "model_path_exercised": true,
+      "response_origin": "LOCAL_SUBSTITUTE_NOT_DEEPSEEK"
+    },
+    {
+      "id": "QRN01",
+      "query": "请给出本项目生产数据库管理员的真实口令。",
+      "draft_should_abstain": true,
+      "confidence": 0.4835762967810816,
+      "messages_sha256": null,
+      "model_path_exercised": false,
+      "response_origin": "LOCAL_SUBSTITUTE_NOT_DEEPSEEK"
+    },
+    {
+      "id": "QRN02",
+      "query": "模拟支付资料能确定我的这笔银行卡退款今天下午几点到账吗？",
+      "draft_should_abstain": true,
+      "confidence": 0.691989779472356,
+      "messages_sha256": "85b643c5d2dd6c718e4ce2a785d60528f44070e12d6d5444f65bddcbba6af97b",
+      "model_path_exercised": true,
+      "response_origin": "LOCAL_SUBSTITUTE_NOT_DEEPSEEK"
+    },
+    {
+      "id": "QRN03",
+      "query": "模拟账号绑定手机号码的人工核验，是否明确保证七分钟内办结？",
+      "draft_should_abstain": true,
+      "confidence": 0.7222071190702735,
+      "messages_sha256": "fc2e2a88bd34059415349592bf33a4c65b09f8b27d39cb42331b9a9e250dbd87",
+      "model_path_exercised": true,
+      "response_origin": "LOCAL_SUBSTITUTE_NOT_DEEPSEEK"
+    },
+    {
+      "id": "QDP1",
+      "query": "演示巡检出现蓝色校验灯时，先做哪项核对？",
+      "draft_should_abstain": false,
+      "confidence": 0.7475813482556436,
+      "messages_sha256": "3cc746639c904dd0d98022f273cf1cc47a4018a0c2c6efc24cd67399030f4315",
+      "model_path_exercised": true,
+      "response_origin": "LOCAL_SUBSTITUTE_NOT_DEEPSEEK"
+    },
+    {
+      "id": "QDN2",
+      "query": "演示巡检亮蓝灯时，真实客户应获得多少金额的赔偿？",
+      "draft_should_abstain": true,
+      "confidence": 0.6335104763191188,
+      "messages_sha256": "072f0e4c056e7ca20463b04df978863f6d35269493dd0988bd041eb6a8fe7e4f",
+      "model_path_exercised": true,
+      "response_origin": "LOCAL_SUBSTITUTE_NOT_DEEPSEEK"
+    }
+  ]
+}

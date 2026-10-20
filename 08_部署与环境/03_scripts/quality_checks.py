@@ -94,8 +94,14 @@ def validate_index(indexed, expected_refs):
     return [{key: value for key, value in row.items() if key != 'content'} for row in indexed]
 
 
+def runtime_baseline(root=ROOT):
+    current = root / 'docs/evaluation/current-runtime-baseline.json'
+    path = current if current.is_file() else root / 'docs/evaluation/20261019-dynamic-knowledge.json'
+    return json.loads(path.read_text(encoding='utf-8'))
+
+
 def verify_artifact(jar, root=ROOT):
-    baseline = json.loads((root / 'docs/evaluation/20261019-dynamic-knowledge.json').read_text(encoding='utf-8'))
+    baseline = runtime_baseline(root)
     audit = baseline['known_credentials_and_jar_audit']
     actual_hash = hashlib.sha256(jar.read_bytes()).hexdigest()
     rebuilt = actual_hash != audit['jar_sha256']
@@ -133,5 +139,6 @@ def verify_artifact(jar, root=ROOT):
                     raise ValueError('Token/private-key pattern in artifact resources')
     return {'jar_sha256': actual_hash, 'source_files_checked': len(sources), 'source_files': sources,
             'private_config_in_jar': False, 'obsolete_package_in_jar': False,
-            'runtime_changed_from_R05': False, 'artifact_reused_after_hash_verification': not rebuilt,
+            'runtime_changed_from_R05': baseline.get('runtime_changed_from_R05', False),
+            'runtime_policy': baseline.get('runtime_policy', 'R05'), 'artifact_reused_after_hash_verification': not rebuilt,
             'current_source_rebuilt_and_tested': rebuilt}

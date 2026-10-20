@@ -181,8 +181,10 @@ def main():
             parser.error('Supply an existing --dataset and --id')
         row = selected[0]
         if args.action == 'show':
+            # Windows PowerShell can decode native stdout using a legacy code page.
+            # JSON escapes preserve Chinese text across that boundary without setup.
             print(json.dumps({'review': row, 'historical_responses': [resolve_version(v, row['case_id']) for v in row['versions']]},
-                             ensure_ascii=False, indent=2))
+                             ensure_ascii=True, indent=2))
             return
         if any(value is None for value in (args.response_sha256, args.reviewer, args.grade, args.label_correct, args.refusal_correct, args.notes)):
             parser.error('record requires response hash, reviewer, grade, label/refusal judgments and notes')

@@ -1,20 +1,30 @@
 {
-  "date": "2026-10-16",
-  "selected_threshold": 0.63,
-  "previous_threshold": 0.66,
-  "report": "07_测试与质量/06_阶段测试报告/20261016_124711_RAG召回优先门槛重新校准.json",
-  "report_sha256": "0b290a62c216ad18acdb8f1cd55c7c5adfdcf7f9453a0bf5308e4084733bbc15",
-  "policy": "Recall-oriented F2; model semantic refusal and all permission/source/schema controls retained",
+  "date": "2026-10-20",
+  "selected_threshold": 0.55,
+  "previous_threshold": 0.63,
+  "report": "07_测试与质量/06_阶段测试报告/20261020_RAG召回优先门槛放宽决策.json",
+  "report_sha256": "fda8d7bdc8d5f422c95847fa48197385292cdd4212061192a9d6e2b5a19c7d6d",
+  "policy": "RECALL_FIRST_MODEL_JUDGES_EVIDENCE_SUFFICIENCY",
   "author_review_status": "PENDING",
-  "revalidation_report": "07_测试与质量/06_阶段测试报告/20261016_164429_RAG召回优先门槛重新校准.json",
-  "revalidation_note": "New training F2 ties at .63/.64; .64 candidate not adopted. Keep deployed .63 and record its current-corpus full regression counts separately.",
-  "current_corpus_sha256": "0f9fd38473aca3df7bb5e66e0d5acbd87e2c38e5079aefb177d4cce8c71d54e0",
-  "revalidation_report_sha256": "d235f33f8d918f8a9a721475aeb50bde0afeba6cba35a5607a37e6235469a67d",
-  "retained_operating_point_metrics": {
-    "threshold": 0.63,
-    "positive_allowed": 86,
-    "positive_total": 86,
-    "negative_allowed": 4,
-    "negative_total": 36
+  "generation_evaluation_status": "PENDING",
+  "previous_policy": {
+    "date": "2026-10-16",
+    "selected_threshold": 0.63,
+    "previous_threshold": 0.66,
+    "report": "07_测试与质量/06_阶段测试报告/20261016_124711_RAG召回优先门槛重新校准.json",
+    "report_sha256": "0b290a62c216ad18acdb8f1cd55c7c5adfdcf7f9453a0bf5308e4084733bbc15",
+    "policy": "Recall-oriented F2; model semantic refusal and all permission/source/schema controls retained",
+    "author_review_status": "PENDING",
+    "revalidation_report": "07_测试与质量/06_阶段测试报告/20261016_164429_RAG召回优先门槛重新校准.json",
+    "revalidation_note": "New training F2 ties at .63/.64; .64 candidate not adopted. Keep deployed .63 and record its current-corpus full regression counts separately.",
+    "current_corpus_sha256": "0f9fd38473aca3df7bb5e66e0d5acbd87e2c38e5079aefb177d4cce8c71d54e0",
+    "revalidation_report_sha256": "d235f33f8d918f8a9a721475aeb50bde0afeba6cba35a5607a37e6235469a67d",
+    "retained_operating_point_metrics": {
+      "threshold": 0.63,
+      "positive_allowed": 86,
+      "positive_total": 86,
+      "negative_allowed": 4,
+      "negative_total": 36
+    }
   }
 }

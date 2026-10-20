@@ -1,6 +1,9 @@
 """Review decisions must stay tied to the actual historical response version."""
 from pathlib import Path
 import json
+import os
+import subprocess
+import sys
 import tempfile
 import unittest
 from quality_review import build, digest, record, resolve_version, validate
@@ -66,6 +69,24 @@ class HumanReviewGuardTest(unittest.TestCase):
     def test_historical_results_cannot_be_claimed_as_new_blind_evaluation(self):
         self.ledger['scope'] = 'CURRENT_BLIND_PASS'
         with self.assertRaises(ValueError): validate(self.ledger, self.root)
+
+
+class PowerShellJsonInteropTest(unittest.TestCase):
+    def test_show_survives_legacy_stdout_decoding_without_losing_chinese(self):
+        script = Path(__file__).with_name('quality_review.py')
+        ledger = script.parents[2] / 'docs/evaluation/quality-review-ledger.json'
+        original = ledger.read_bytes()
+        result = subprocess.run([sys.executable, str(script), 'show',
+            '--dataset', 'phase4-v3-newwording', '--id', 'NW13'],
+            env={**os.environ, 'PYTHONIOENCODING': 'utf-8'}, capture_output=True, check=True)
+        # Reproduce UTF-8 Python output consumed by a Chinese legacy-code-page shell.
+        self.assertTrue(result.stdout.isascii())
+        decoded = json.loads(result.stdout.decode('cp936'))
+        row = decoded['historical_responses'][decoded['review']['target_version']]
+        self.assertIn('模拟平台', row['case']['query'])
+        self.assertIn('15MB', row['case']['query'])
+        self.assertIn('演示规则', row['response']['suggestion'])
+        self.assertEqual(original, ledger.read_bytes())
 
 
 if __name__ == '__main__': unittest.main()

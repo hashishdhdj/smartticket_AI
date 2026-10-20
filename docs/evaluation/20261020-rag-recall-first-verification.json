@@ -1,0 +1,1022 @@
+{
+  "date": "2026-10-20T12:53:30.436769+08:00",
+  "status": "PASS_ENGINEERING_AND_ADMISSION_ONLY",
+  "threshold": 0.55,
+  "vendor_calls": 0,
+  "new_generated_answer_quality": "PENDING",
+  "historical_review_ledger_changed": false,
+  "artifact": {
+    "path": "08_部署与环境/04_交付产物/SmartTicket-AI-recall-20261020-f37a6611a149.jar",
+    "jar_sha256": "f37a6611a1499594bc9aa5e26070810aaf216a262c7fcc62c41e109552033278",
+    "java_major": 17,
+    "source_manifest_sha256": "5c6474608ca1caae14caaad7249568fb1ab96c489ce2b3836965e4930919fa9e",
+    "baseline": "docs/evaluation/current-runtime-baseline.json",
+    "private_config_in_jar": false,
+    "source_files_checked": 180
+  },
+  "java_profiles": {
+    "unit": {
+      "tests": 256,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "integration": {
+      "tests": 171,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "python_tests": {
+    "tests": 48,
+    "failures": 0,
+    "errors": 0,
+    "environment_note": "Loopback proxy tests require local-network access; sandbox run rejected 13 loopback connections, full rerun outside that restriction passed."
+  },
+  "probes": {
+    "status": "PASS_ADMISSION_ONLY",
+    "threshold": 0.55,
+    "jar_sha256": "f37a6611a1499594bc9aa5e26070810aaf216a262c7fcc62c41e109552033278",
+    "vendor_calls": 0,
+    "chat_enabled": false,
+    "ledger_unchanged": true,
+    "rows": [
+      {
+        "id": "NW02",
+        "confidence": 0.6317270366901627,
+        "sources": [
+          "faq/01-账户问题.md#如何重置登录密码",
+          "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+          "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号"
+        ],
+        "allowed_at_previous_threshold": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "admitted_to_generation_path": true,
+        "generation_quality_verified": false
+      },
+      {
+        "id": "QRP14",
+        "confidence": 0.5752178520223958,
+        "sources": [
+          "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+          "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开",
+          "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+        ],
+        "allowed_at_previous_threshold": false,
+        "status_reason": "AI_UNAVAILABLE",
+        "admitted_to_generation_path": true,
+        "generation_quality_verified": false
+      }
+    ]
+  },
+  "probe_interpretation": "NW02 historical score was .598909; current corpus retrieves .631727, so current NW02 also passes .63. QRP14 current .575218 is newly admitted by .55. Do not call old NW02 score a new live retrieval result.",
+  "retrieval_regression": {
+    "threshold": 0.55,
+    "threshold_scope": "POST_HOC_REGRESSION_NOT_INDEPENDENT_EVALUATION",
+    "freeze_commit": "643efb9",
+    "dataset_manifest_sha256": "66f5364bb5c81285028a561e1423ae165451edad79a6f961b81b73eec9bc04ad",
+    "label_review": "PENDING",
+    "human_blind_test": false,
+    "static_rows": [
+      {
+        "id": "QRP01",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/01-账户问题.md#账号被锁定如何解锁"
+        ],
+        "actual_sources": [
+          "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用",
+          "faq/01-账户问题.md#账号被锁定如何解锁",
+          "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录"
+        ],
+        "hit_at_3": true,
+        "recall_at_3": 1.0,
+        "reciprocal_rank_at_3": 0.5,
+        "gate_allowed": true,
+        "confidence": 0.7295583212903459,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRP02",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/01-账户问题.md#如何重置登录密码"
+        ],
+        "actual_sources": [
+          "faq/01-账户问题.md#如何重置登录密码",
+          "faq/01-账户问题.md#账号被锁定如何解锁",
+          "tickets/01-账户问题.md#账号被提示永久锁定，等待后仍不可用"
+        ],
+        "hit_at_3": true,
+        "recall_at_3": 1.0,
+        "reciprocal_rank_at_3": 1.0,
+        "gate_allowed": true,
+        "confidence": 0.6349854791129789,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRP03",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/01-账户问题.md#如何更换绑定手机号"
+        ],
+        "actual_sources": [
+          "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+          "faq/01-账户问题.md#如何更换绑定手机号",
+          "faq/01-账户问题.md#登录时提示「验证码异常」怎么办"
+        ],
+        "hit_at_3": true,
+        "recall_at_3": 1.0,
+        "reciprocal_rank_at_3": 0.5,
+        "gate_allowed": true,
+        "confidence": 0.7269992395044872,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRP04",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/01-账户问题.md#收不到验证码短信怎么办"
+        ],
+        "actual_sources": [
+          "faq/01-账户问题.md#收不到验证码短信怎么办",
+          "faq/01-账户问题.md#登录时提示「验证码异常」怎么办",
+          "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录"
+        ],
+        "hit_at_3": true,
+        "recall_at_3": 1.0,
+        "reciprocal_rank_at_3": 1.0,
+        "gate_allowed": true,
+        "confidence": 0.7469847202301025,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRP05",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/02-支付问题.md#重复扣款如何申请退款"
+        ],
+        "actual_sources": [
+          "faq/02-支付问题.md#重复扣款如何申请退款",
+          "tickets/02-支付问题.md#同一笔订单被扣款两次",
+          "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+        ],
+        "hit_at_3": true,
+        "recall_at_3": 1.0,
+        "reciprocal_rank_at_3": 1.0,
+        "gate_allowed": true,
+        "confidence": 0.7265692187965802,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRP06",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/02-支付问题.md#如何申请开具发票"
+        ],
+        "actual_sources": [
+          "faq/02-支付问题.md#如何申请开具发票",
+          "faq/02-支付问题.md#支付成功但订单未生成怎么办",
+          "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+        ],
+        "hit_at_3": true,
+        "recall_at_3": 1.0,
+        "reciprocal_rank_at_3": 1.0,
+        "gate_allowed": true,
+        "confidence": 0.704802993369408,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRP07",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/02-支付问题.md#支付时提示「订单已失效」怎么办"
+        ],
+        "actual_sources": [
+          "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+          "faq/02-支付问题.md#支付时提示「订单已失效」怎么办",
+          "tickets/02-支付问题.md#同一笔订单被扣款两次"
+        ],
+        "hit_at_3": true,
+        "recall_at_3": 1.0,
+        "reciprocal_rank_at_3": 0.5,
+        "gate_allowed": true,
+        "confidence": 0.6930309994294642,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRP08",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+        ],
+        "actual_sources": [
+          "faq/02-支付问题.md#支付成功但订单未生成怎么办",
+          "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单",
+          "tickets/02-支付问题.md#提示订单已失效，但用户称已收到扣款短信"
+        ],
+        "hit_at_3": true,
+        "recall_at_3": 1.0,
+        "reciprocal_rank_at_3": 1.0,
+        "gate_allowed": true,
+        "confidence": 0.7230534897507545,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRP09",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办"
+        ],
+        "actual_sources": [
+          "faq/03-功能异常.md#提交表单提示「系统繁忙」怎么办",
+          "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+          "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+        ],
+        "hit_at_3": true,
+        "recall_at_3": 1.0,
+        "reciprocal_rank_at_3": 1.0,
+        "gate_allowed": true,
+        "confidence": 0.6893531824700593,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRP10",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/03-功能异常.md#上传附件失败怎么办"
+        ],
+        "actual_sources": [
+          "faq/03-功能异常.md#上传附件失败怎么办",
+          "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+          "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+        ],
+        "hit_at_3": true,
+        "recall_at_3": 1.0,
+        "reciprocal_rank_at_3": 1.0,
+        "gate_allowed": true,
+        "confidence": 0.6426364822442594,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRP11",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/03-功能异常.md#页面一直转圈或白屏怎么办"
+        ],
+        "actual_sources": [
+          "faq/03-功能异常.md#页面一直转圈或白屏怎么办",
+          "tickets/03-功能异常.md#打开工单详情页白屏",
+          "tickets/03-功能异常.md#订单列表条数与详情页不一致"
+        ],
+        "hit_at_3": true,
+        "recall_at_3": 1.0,
+        "reciprocal_rank_at_3": 1.0,
+        "gate_allowed": true,
+        "confidence": 0.6760771895854114,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRP12",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/04-工单流程与通用问题.md#工单的处理流程与时限"
+        ],
+        "actual_sources": [
+          "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+          "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开",
+          "faq/04-工单流程与通用问题.md#工单的处理流程与时限"
+        ],
+        "hit_at_3": true,
+        "recall_at_3": 1.0,
+        "reciprocal_rank_at_3": 0.3333333333333333,
+        "gate_allowed": true,
+        "confidence": 0.6858467681225311,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRP13",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开"
+        ],
+        "actual_sources": [
+          "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开",
+          "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+          "tickets/03-功能异常.md#打开工单详情页白屏"
+        ],
+        "hit_at_3": true,
+        "recall_at_3": 1.0,
+        "reciprocal_rank_at_3": 1.0,
+        "gate_allowed": true,
+        "confidence": 0.7458425073609559,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRP14",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/04-工单流程与通用问题.md#工单可以修改哪些内容"
+        ],
+        "actual_sources": [
+          "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+          "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开",
+          "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+        ],
+        "hit_at_3": true,
+        "recall_at_3": 1.0,
+        "reciprocal_rank_at_3": 1.0,
+        "gate_allowed": true,
+        "confidence": 0.5752178520223958,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRP15",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单"
+        ],
+        "actual_sources": [
+          "faq/05-项目权限与AI处理.md#Agent提出指派后是否已经修改工单",
+          "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单",
+          "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+        ],
+        "hit_at_3": true,
+        "recall_at_3": 1.0,
+        "reciprocal_rank_at_3": 1.0,
+        "gate_allowed": true,
+        "confidence": 0.7095792581753378,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRP16",
+        "should_abstain": false,
+        "expected_sources": [
+          "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗"
+        ],
+        "actual_sources": [
+          "faq/05-项目权限与AI处理.md#AI建议会覆盖人工填写的分类和优先级吗",
+          "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+          "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开"
+        ],
+        "hit_at_3": true,
+        "recall_at_3": 1.0,
+        "reciprocal_rank_at_3": 1.0,
+        "gate_allowed": true,
+        "confidence": 0.63890492916109,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRN01",
+        "should_abstain": true,
+        "expected_sources": [],
+        "actual_sources": [
+          "faq/05-项目权限与AI处理.md#哪些账号可以查看和修改工单",
+          "faq/04-工单流程与通用问题.md#工单可以修改哪些内容",
+          "faq/01-账户问题.md#如何重置登录密码"
+        ],
+        "hit_at_3": null,
+        "recall_at_3": null,
+        "reciprocal_rank_at_3": null,
+        "gate_allowed": false,
+        "confidence": 0.4835762967810816,
+        "retrieval_healthy": true,
+        "status_reason": "BELOW_THRESHOLD",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRN02",
+        "should_abstain": true,
+        "expected_sources": [],
+        "actual_sources": [
+          "faq/02-支付问题.md#重复扣款如何申请退款",
+          "faq/02-支付问题.md#支付成功但订单未生成怎么办",
+          "tickets/02-支付问题.md#银行卡已扣款但订单列表中没有该订单"
+        ],
+        "hit_at_3": null,
+        "recall_at_3": null,
+        "reciprocal_rank_at_3": null,
+        "gate_allowed": true,
+        "confidence": 0.691989779472356,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRN03",
+        "should_abstain": true,
+        "expected_sources": [],
+        "actual_sources": [
+          "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+          "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录",
+          "faq/01-账户问题.md#如何更换绑定手机号"
+        ],
+        "hit_at_3": null,
+        "recall_at_3": null,
+        "reciprocal_rank_at_3": null,
+        "gate_allowed": true,
+        "confidence": 0.7222071190702735,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRN04",
+        "should_abstain": true,
+        "expected_sources": [],
+        "actual_sources": [
+          "faq/03-功能异常.md#上传附件失败怎么办",
+          "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式",
+          "faq/04-工单流程与通用问题.md#工单可以修改哪些内容"
+        ],
+        "hit_at_3": null,
+        "recall_at_3": null,
+        "reciprocal_rank_at_3": null,
+        "gate_allowed": true,
+        "confidence": 0.5954387288135957,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRN05",
+        "should_abstain": true,
+        "expected_sources": [],
+        "actual_sources": [
+          "faq/04-工单流程与通用问题.md#如何查询工单处理进度",
+          "faq/04-工单流程与通用问题.md#工单被关闭后如何重新打开",
+          "tickets/03-功能异常.md#上传附件提示格式不支持，但文件是允许的格式"
+        ],
+        "hit_at_3": null,
+        "recall_at_3": null,
+        "reciprocal_rank_at_3": null,
+        "gate_allowed": true,
+        "confidence": 0.5670925191702005,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRN06",
+        "should_abstain": true,
+        "expected_sources": [],
+        "actual_sources": [
+          "faq/02-支付问题.md#支付时提示「订单已失效」怎么办",
+          "faq/04-工单流程与通用问题.md#工单的处理流程与时限",
+          "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+        ],
+        "hit_at_3": null,
+        "recall_at_3": null,
+        "reciprocal_rank_at_3": null,
+        "gate_allowed": true,
+        "confidence": 0.595750443481081,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRN07",
+        "should_abstain": true,
+        "expected_sources": [],
+        "actual_sources": [
+          "faq/02-支付问题.md#如何申请开具发票",
+          "faq/03-功能异常.md#上传附件失败怎么办",
+          "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+        ],
+        "hit_at_3": null,
+        "recall_at_3": null,
+        "reciprocal_rank_at_3": null,
+        "gate_allowed": true,
+        "confidence": 0.6019286096671261,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QRN08",
+        "should_abstain": true,
+        "expected_sources": [],
+        "actual_sources": [
+          "faq/03-功能异常.md#页面数据与实际不一致怎么办",
+          "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+          "faq/02-支付问题.md#如何申请开具发票"
+        ],
+        "hit_at_3": null,
+        "recall_at_3": null,
+        "reciprocal_rank_at_3": null,
+        "gate_allowed": false,
+        "confidence": 0.4323568698252742,
+        "retrieval_healthy": true,
+        "status_reason": "BELOW_THRESHOLD",
+        "has_generated_answer": false
+      }
+    ],
+    "static_metrics": {
+      "count": 24,
+      "positive_count": 16,
+      "negative_count": 8,
+      "hit_at_3": 1.0,
+      "macro_recall_at_3": 1.0,
+      "mrr_at_3": 0.8645833333333334,
+      "positive_gate_coverage": 1.0,
+      "negative_gate_pass_rate": 0.75,
+      "degraded_count": 0,
+      "generated_answer_count": 0,
+      "semantic_answer_support": null,
+      "agent_goal_completion": null,
+      "tool_violation_rate": null,
+      "metric_limits": "Source-reference retrieval and threshold only; not answer accuracy or Agent capability."
+    },
+    "dynamic_rows": [
+      {
+        "id": "QDP1",
+        "should_abstain": false,
+        "expected_sources": [
+          "resolved-ticket/68c82684-255d-4ba4-b77f-7c22468cd8d4/v1.md#合成演示索引巡检遇到蓝色校验灯应如何恢复？"
+        ],
+        "actual_sources": [
+          "resolved-ticket/68c82684-255d-4ba4-b77f-7c22468cd8d4/v1.md#合成演示索引巡检遇到蓝色校验灯应如何恢复？",
+          "tickets/03-功能异常.md#打开工单详情页白屏",
+          "tickets/01-账户问题.md#登录页反复提示验证码错误，多设备均无法登录"
+        ],
+        "hit_at_3": true,
+        "recall_at_3": 1.0,
+        "reciprocal_rank_at_3": 1.0,
+        "gate_allowed": true,
+        "confidence": 0.7475813482556436,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QDP2",
+        "should_abstain": false,
+        "expected_sources": [
+          "resolved-ticket/68c82684-255d-4ba4-b77f-7c22468cd8d4/v1.md#合成演示索引巡检遇到蓝色校验灯应如何恢复？"
+        ],
+        "actual_sources": [
+          "resolved-ticket/68c82684-255d-4ba4-b77f-7c22468cd8d4/v1.md#合成演示索引巡检遇到蓝色校验灯应如何恢复？",
+          "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成",
+          "faq/02-支付问题.md#支付成功但订单未生成怎么办"
+        ],
+        "hit_at_3": true,
+        "recall_at_3": 1.0,
+        "reciprocal_rank_at_3": 1.0,
+        "gate_allowed": true,
+        "confidence": 0.7652603180769361,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QDP3",
+        "should_abstain": false,
+        "expected_sources": [
+          "resolved-ticket/68c82684-255d-4ba4-b77f-7c22468cd8d4/v1.md#合成演示索引巡检遇到蓝色校验灯应如何恢复？"
+        ],
+        "actual_sources": [
+          "resolved-ticket/68c82684-255d-4ba4-b77f-7c22468cd8d4/v1.md#合成演示索引巡检遇到蓝色校验灯应如何恢复？",
+          "tickets/03-功能异常.md#打开工单详情页白屏",
+          "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+        ],
+        "hit_at_3": true,
+        "recall_at_3": 1.0,
+        "reciprocal_rank_at_3": 1.0,
+        "gate_allowed": true,
+        "confidence": 0.7292545711105602,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QDP4",
+        "should_abstain": false,
+        "expected_sources": [
+          "resolved-ticket/68c82684-255d-4ba4-b77f-7c22468cd8d4/v1.md#合成演示索引巡检遇到蓝色校验灯应如何恢复？"
+        ],
+        "actual_sources": [
+          "resolved-ticket/68c82684-255d-4ba4-b77f-7c22468cd8d4/v1.md#合成演示索引巡检遇到蓝色校验灯应如何恢复？",
+          "tickets/01-账户问题.md#原手机号已停用，无法自助更换绑定手机号",
+          "tickets/03-功能异常.md#打开工单详情页白屏"
+        ],
+        "hit_at_3": true,
+        "recall_at_3": 1.0,
+        "reciprocal_rank_at_3": 1.0,
+        "gate_allowed": true,
+        "confidence": 0.6876091454666701,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QDN1",
+        "should_abstain": true,
+        "expected_sources": [],
+        "actual_sources": [
+          "resolved-ticket/68c82684-255d-4ba4-b77f-7c22468cd8d4/v1.md#合成演示索引巡检遇到蓝色校验灯应如何恢复？",
+          "tickets/03-功能异常.md#订单列表条数与详情页不一致",
+          "faq/05-项目权限与AI处理.md#如何判断工单的AI分析是否完成"
+        ],
+        "hit_at_3": null,
+        "recall_at_3": null,
+        "reciprocal_rank_at_3": null,
+        "gate_allowed": true,
+        "confidence": 0.6156548306204396,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      },
+      {
+        "id": "QDN2",
+        "should_abstain": true,
+        "expected_sources": [],
+        "actual_sources": [
+          "resolved-ticket/68c82684-255d-4ba4-b77f-7c22468cd8d4/v1.md#合成演示索引巡检遇到蓝色校验灯应如何恢复？",
+          "tickets/03-功能异常.md#打开工单详情页白屏",
+          "faq/03-功能异常.md#页面数据与实际不一致怎么办"
+        ],
+        "hit_at_3": null,
+        "recall_at_3": null,
+        "reciprocal_rank_at_3": null,
+        "gate_allowed": true,
+        "confidence": 0.6335104763191188,
+        "retrieval_healthy": true,
+        "status_reason": "AI_UNAVAILABLE",
+        "has_generated_answer": false
+      }
+    ],
+    "dynamic_metrics": {
+      "count": 6,
+      "positive_count": 4,
+      "negative_count": 2,
+      "hit_at_3": 1.0,
+      "macro_recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "positive_gate_coverage": 1.0,
+      "negative_gate_pass_rate": 1.0,
+      "degraded_count": 0,
+      "generated_answer_count": 0,
+      "semantic_answer_support": null,
+      "agent_goal_completion": null,
+      "tool_violation_rate": null,
+      "metric_limits": "Source-reference retrieval and threshold only; not answer accuracy or Agent capability."
+    },
+    "dynamic_state_checks": [
+      {
+        "name": "unreviewed_hidden",
+        "status": "PASS"
+      },
+      {
+        "name": "retracted_hidden",
+        "status": "PASS"
+      }
+    ],
+    "api_collection": {
+      "status": "PASS",
+      "runner": "Node HTTP + limited pm compatibility; not Postman/Newman",
+      "requests": 15,
+      "assertions": 35,
+      "rows": [
+        {
+          "name": "01 创建合成工单（可信身份覆盖creatorId）",
+          "method": "POST",
+          "path": "/api/tickets",
+          "http_status": 200,
+          "checks": [
+            {
+              "name": "HTTP 200",
+              "status": "PASS"
+            },
+            {
+              "name": "business code 0",
+              "status": "PASS"
+            },
+            {
+              "name": "可信创建人",
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "name": "02 查询自己的工单",
+          "method": "GET",
+          "path": "/api/tickets/2771",
+          "http_status": 200,
+          "checks": [
+            {
+              "name": "HTTP 200",
+              "status": "PASS"
+            },
+            {
+              "name": "business code 0",
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "name": "03 查询日志",
+          "method": "GET",
+          "path": "/api/tickets/2771/logs",
+          "http_status": 200,
+          "checks": [
+            {
+              "name": "HTTP 200",
+              "status": "PASS"
+            },
+            {
+              "name": "business code 0",
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "name": "04 查询分析任务（降级不等于AI成功）",
+          "method": "GET",
+          "path": "/api/tickets/2771/analysis",
+          "http_status": 200,
+          "checks": [
+            {
+              "name": "HTTP 200",
+              "status": "PASS"
+            },
+            {
+              "name": "business code 0",
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "name": "05 无凭据拒绝401",
+          "method": "GET",
+          "path": "/api/tickets/2771",
+          "http_status": 401,
+          "checks": [
+            {
+              "name": "HTTP 401",
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "name": "06 未指派处理人拒绝403",
+          "method": "GET",
+          "path": "/api/tickets/2771",
+          "http_status": 403,
+          "checks": [
+            {
+              "name": "HTTP 403",
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "name": "07 普通账号不能查管理员指标",
+          "method": "GET",
+          "path": "/api/admin/metrics",
+          "http_status": 403,
+          "checks": [
+            {
+              "name": "HTTP 403",
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "name": "08 管理员查询指标",
+          "method": "GET",
+          "path": "/api/admin/metrics",
+          "http_status": 200,
+          "checks": [
+            {
+              "name": "HTTP 200",
+              "status": "PASS"
+            },
+            {
+              "name": "business code 0",
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "name": "09 管理员首次重放",
+          "method": "POST",
+          "path": "/api/tickets/2771/analysis/replay",
+          "http_status": 200,
+          "checks": [
+            {
+              "name": "HTTP 200",
+              "status": "PASS"
+            },
+            {
+              "name": "business code 0",
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "name": "10 相同键重放返回同任务",
+          "method": "POST",
+          "path": "/api/tickets/2771/analysis/replay",
+          "http_status": 200,
+          "checks": [
+            {
+              "name": "HTTP 200",
+              "status": "PASS"
+            },
+            {
+              "name": "business code 0",
+              "status": "PASS"
+            },
+            {
+              "name": "相同任务ID",
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "name": "11 Agent工程入口（离线模式应STOPPED，不冒充真模型）",
+          "method": "POST",
+          "path": "/api/agent/runs",
+          "http_status": 200,
+          "checks": [
+            {
+              "name": "HTTP 200",
+              "status": "PASS"
+            },
+            {
+              "name": "business code 0",
+              "status": "PASS"
+            },
+            {
+              "name": "离线模型明确停止",
+              "status": "PASS"
+            },
+            {
+              "name": "离线停止原因明确",
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "name": "12 读取客户端版本快照",
+          "method": "GET",
+          "path": "/api/tickets/2771",
+          "http_status": 200,
+          "checks": [
+            {
+              "name": "HTTP 200",
+              "status": "PASS"
+            },
+            {
+              "name": "business code 0",
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "name": "13 匹配客户端版本更新成功",
+          "method": "PUT",
+          "path": "/api/tickets/2771",
+          "http_status": 200,
+          "checks": [
+            {
+              "name": "HTTP 200",
+              "status": "PASS"
+            },
+            {
+              "name": "business code 0",
+              "status": "PASS"
+            },
+            {
+              "name": "标题已更新",
+              "status": "PASS"
+            },
+            {
+              "name": "版本递增",
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "name": "14 旧页面版本拒绝409",
+          "method": "PUT",
+          "path": "/api/tickets/2771",
+          "http_status": 409,
+          "checks": [
+            {
+              "name": "HTTP 409",
+              "status": "PASS"
+            },
+            {
+              "name": "版本冲突业务码",
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "name": "15 确认冲突未覆盖最新数据",
+          "method": "GET",
+          "path": "/api/tickets/2771",
+          "http_status": 200,
+          "checks": [
+            {
+              "name": "HTTP 200",
+              "status": "PASS"
+            },
+            {
+              "name": "business code 0",
+              "status": "PASS"
+            },
+            {
+              "name": "旧页面没有覆盖",
+              "status": "PASS"
+            },
+            {
+              "name": "冲突不增加版本",
+              "status": "PASS"
+            }
+          ]
+        }
+      ]
+    },
+    "own_records_and_vhost_cleaned": true
+  },
+  "historical_063_comparison": {
+    "scope": "Earlier R06 observation; post-hoc comparison, not an independent experiment",
+    "static_metrics": {
+      "count": 24,
+      "positive_count": 16,
+      "negative_count": 8,
+      "hit_at_3": 1.0,
+      "macro_recall_at_3": 1.0,
+      "mrr_at_3": 0.8645833333333334,
+      "positive_gate_coverage": 0.9375,
+      "negative_gate_pass_rate": 0.25,
+      "degraded_count": 0,
+      "generated_answer_count": 0,
+      "semantic_answer_support": null,
+      "agent_goal_completion": null,
+      "tool_violation_rate": null,
+      "metric_limits": "Source-reference retrieval and threshold only; not answer accuracy or Agent capability."
+    },
+    "dynamic_metrics": {
+      "count": 6,
+      "positive_count": 4,
+      "negative_count": 2,
+      "hit_at_3": 1.0,
+      "macro_recall_at_3": 1.0,
+      "mrr_at_3": 1.0,
+      "positive_gate_coverage": 1.0,
+      "negative_gate_pass_rate": 0.5,
+      "degraded_count": 0,
+      "generated_answer_count": 0,
+      "semantic_answer_support": null,
+      "agent_goal_completion": null,
+      "tool_violation_rate": null,
+      "metric_limits": "Source-reference retrieval and threshold only; not answer accuracy or Agent capability."
+    }
+  },
+  "human_review": {
+    "total": 148,
+    "reviewed": 1,
+    "pending": 147
+  },
+  "limitations": [
+    "No new DeepSeek calls or generated-answer accuracy evidence.",
+    "More negative queries are admitted to model judgment; semantic refusal still needs evaluation.",
+    "Changes are local and not covered by the previous GitHub CI run."
+  ]
+}

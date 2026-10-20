@@ -1,19 +1,19 @@
-"""Coarse development-only policy; avoid fitting the tiny positive/negative score gap."""
+"""Versioned generation admission policy; scores are not answer correctness."""
 
 def active_threshold():
-    """Read the versioned adopted policy; verify the immutable calibration report."""
+    """Read the adopted policy and verify its immutable calibration/decision record."""
     from pathlib import Path
     import json, hashlib
     root=Path(__file__).resolve().parents[2]
     path=root/'07_测试与质量/06_阶段测试报告/RAG当前门槛策略.json'
-    if not path.exists(): return .63
+    if not path.exists(): return .55
     policy=json.loads(path.read_text(encoding='utf-8'))
     report_path=(root/policy['report']).resolve()
     if not report_path.is_relative_to(root.resolve()): raise ValueError('Report outside project')
     raw=report_path.read_bytes();report=json.loads(raw)
     if hashlib.sha256(raw).hexdigest()!=policy['report_sha256']: raise ValueError('Calibration report changed')
     threshold=policy['selected_threshold']
-    if report['status']!='PASS_LOCAL_GATE_CALIBRATION_ONLY' or threshold!=report['selected_threshold'] or not .0<threshold<1:
+    if report['status'] not in ('PASS_LOCAL_GATE_CALIBRATION_ONLY', 'CONFIGURED_RECALL_FIRST_GENERATION_PENDING') or threshold!=report['selected_threshold'] or not .0<threshold<1:
         raise ValueError('Invalid active threshold policy')
     return threshold
 def select_threshold(rows):

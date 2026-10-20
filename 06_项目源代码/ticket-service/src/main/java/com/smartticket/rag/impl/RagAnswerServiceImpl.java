@@ -46,12 +46,10 @@ import java.util.Map;
  * 这是想要的：**嵌入服务不可用时宁可转人工，也不能凭关键词路的低分结果硬答**。
  * （关键词路的分数同样不可用作置信度：实测负样本 N02 得了 0.25，而正样本 Q13 只有 0.20，是反的。）
  *
- * <h3>只在"有把握"时才调模型生成建议与相似问题</h3>
- * {@code needHuman=true} 时**根本不调模型**，而不是"生成了但不返回"。理由有二：
- * <ol>
- *   <li>省一次调用——低置信度的结果是注定不用的；</li>
- *   <li>从根上杜绝"让模型去解释它没把握的内容"——那是幻觉最容易发生的场合。</li>
- * </ol>
+ * <h3>宽松检索门槛，模型判断资料充分性</h3>
+ * 默认0.55仅过滤明显低相关候选，不把相似度当作事实充分性的判定。
+ * 达到门槛后向模型提供完整资料，由模型作答或语义拒答；模型失败时保留来源。
+ * 低于门槛仍不调用模型。既有0.63/0.66评测是历史策略，不能覆盖当前结果。
  * 模型调用失败或返回内容不合规时，建议为空并明确 {@code needHuman=true}。
  * 此时仍保留真实来源供人工使用。相似问题由真实检索小节标题确定，不采用模型发散输出。
  */
@@ -99,7 +97,7 @@ public class RagAnswerServiceImpl implements RagAnswerService {
         boolean matched = !sources.isEmpty();
         boolean needHuman = confidence < confidenceThreshold;
 
-        // 只有"有把握"才生成建议与相似问题。低置信度时不调模型，见类注释
+        // 通过宽松检索门槛后交给模型判断资料是否足够，不把分数解释为答案准确率。
         Generation generated = needHuman ? new Generation(null,
                 search.degradedSources().contains(RetrievalSource.VECTOR) ? "VECTOR_UNAVAILABLE" : "BELOW_THRESHOLD")
                 : generateAnswer(query, search.hits());
@@ -128,7 +126,13 @@ public class RagAnswerServiceImpl implements RagAnswerService {
                 statusReason = "OUTPUT_TOO_LONG";
             } else suggestion = scoped;
         }
+        // Recommend each title only when its own vector score meets the current relevance floor.
+        // Keep all evidence and full model context; do not pad the list with low-score/keyword-only hits.
         List<String> similarQuestions = payload == null ? List.of() : search.hits().stream()
+                .filter(hit -> {
+                    Double score = vectorScores.get(keyOf(hit.chunk()));
+                    return score != null && Double.isFinite(score) && score >= confidenceThreshold;
+                })
                 .map(hit->hit.chunk().sectionTitle()).distinct().limit(4).toList();
         needHuman = needHuman || payload == null;
 

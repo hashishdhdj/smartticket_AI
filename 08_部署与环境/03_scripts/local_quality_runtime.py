@@ -20,14 +20,29 @@ TEMP = ROOT / '.tmp'
 
 
 class LocalQualityRuntime(AbstractContextManager):
-    def __init__(self, java, jar, port=18083):
+    def __init__(self, java, jar, port=18083, threshold=None, chat_gateway=None, extra_submitters=0):
         self.java, self.jar, self.port = str(java), Path(jar), port
+        if threshold is not None and not 0 < threshold < 1:
+            raise ValueError('Threshold must be between zero and one')
+        self.threshold = threshold
+        if chat_gateway is not None and not chat_gateway[0].startswith('http://127.0.0.1:'):
+            raise ValueError('Evaluation chat must use a local metered gateway')
+        self.chat_gateway = chat_gateway
         self.base = f'http://127.0.0.1:{port}'
         self.http = urllib.request.build_opener(urllib.request.ProxyHandler({}))
         self.run_id = uuid.uuid4().hex[:12]
         self.vhost = 'smartticket-quality-' + self.run_id
         self.actors = {role: (2100000000 + secrets.randbelow(10000000) * 4 + index, secrets.token_urlsafe(32))
                        for index, role in enumerate(('SUBMITTER', 'HANDLER', 'ADMIN'))}
+        if type(extra_submitters) is not int or not 0 <= extra_submitters <= 8:
+            raise ValueError('At most eight separate evaluation submitters are supported')
+        used_ids = {actor[0] for actor in self.actors.values()}
+        for index in range(extra_submitters):
+            while True:
+                actor_id = 2100000000 + secrets.randbelow(10000000) * 4
+                if actor_id not in used_ids: break
+            used_ids.add(actor_id)
+            self.actors['CASE_' + str(index)] = (actor_id, secrets.token_urlsafe(32))
         # Keep IDs within signed INT range for compatibility with older probes.
         self.values = dict(line.split('=', 1) for line in (TEMP / 'phase4.env').read_text(encoding='utf-8').splitlines() if '=' in line)
         self.config = TEMP / f'quality-{self.run_id}.properties'
@@ -108,8 +123,17 @@ class LocalQualityRuntime(AbstractContextManager):
                 # Permit a bounded evaluation batch; not a change to the production defaults.
                 'smartticket.phase3.requests-per-minute': 200,
             }
+            if self.threshold is not None:
+                props['smartticket.vector.confidence-threshold'] = self.threshold
+            if self.chat_gateway is not None:
+                props.update({'smartticket.ai.enabled': 'true',
+                              'spring.ai.openai.base-url': self.chat_gateway[0],
+                              'spring.ai.openai.api-key': self.chat_gateway[1],
+                              'spring.ai.openai.chat.options.model': 'deepseek-flash',
+                              'spring.ai.openai.chat.options.max-tokens': 512,
+                              'spring.ai.retry.max-attempts': 1})
             for index, (role, (actor, token)) in enumerate(self.actors.items()):
-                for key, value in (('id', actor), ('role', role), ('token', token)):
+                for key, value in (('id', actor), ('role', 'SUBMITTER' if role.startswith('CASE_') else role), ('token', token)):
                     props[f'smartticket.phase3.users[{index}].{key}'] = value
             self.config.write_text((TEMP / 'phase4-integration.properties').read_text(encoding='utf-8')
                 + '\n' + ''.join(f'{key}={value}\n' for key, value in props.items()), encoding='utf-8')

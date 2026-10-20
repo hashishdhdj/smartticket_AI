@@ -63,7 +63,8 @@ def credential(variable, index):
     return value
 
 class BudgetProxy:
-    def __init__(self, port=19014, report_path=None, external_call_ceiling=320, capture_agent_outputs=False):
+    def __init__(self, port=19014, report_path=None, external_call_ceiling=320, capture_agent_outputs=False,
+                 ledger_path=None, chat_key=None, embedding=None, dispatch_guard=None):
         if type(external_call_ceiling) is not int or not 1 <= external_call_ceiling <= 400:
             raise ValueError('External call ceiling must be an explicit integer within1..400')
         self.external_call_ceiling = external_call_ceiling
@@ -71,14 +72,18 @@ class BudgetProxy:
         self.gateway_key = secrets.token_urlsafe(32)
         run_date = datetime.now(timezone(timedelta(hours=8))).strftime('%Y%m%d')
         self.report_path = report_path or ROOT / f'07_测试与质量/06_阶段测试报告/{run_date}_阶段四调用预算汇总.json'
-        self.embedding = embedding_provider()
-        try:
-            chat_key = credential('AI_API_KEY', 0)
-        except (RuntimeError, FileNotFoundError):
-            if self.embedding['name'] != 'ollama': raise
-            chat_key = ''  # Local-only indexing/calibration needs no chat credential.
-        self.keys = {'chat': chat_key, 'embed': credential('EMBEDDING_API_KEY', 1)}
-        self.path = TEMP / 'phase4-budget-ledger.json'
+        self.embedding = embedding or embedding_provider()
+        if chat_key is None:
+            try:
+                chat_key = credential('AI_API_KEY', 0)
+            except (RuntimeError, FileNotFoundError):
+                if self.embedding['name'] != 'ollama': raise
+                chat_key = ''  # Local-only indexing/calibration needs no chat credential.
+        self.keys = {'chat': chat_key, 'embed': 'ollama-local' if self.embedding['name'] == 'ollama' else credential('EMBEDDING_API_KEY', 1)}
+        self.path = Path(ledger_path) if ledger_path is not None else TEMP / 'phase4-budget-ledger.json'
+        if ledger_path is not None and not self.path.is_file():
+            raise ValueError('An explicitly selected cumulative ledger must already exist; never reset it')
+        self.dispatch_guard = dispatch_guard
         self.lock = threading.Lock()
         self.cache_dir = TEMP / 'phase4-embedding-cache'
         self.cache_dir.mkdir(exist_ok=True)
@@ -170,9 +175,12 @@ class BudgetProxy:
                     external_calls = sum(c.get('provider') != 'ollama' for c in owner.ledger['calls'])
                     if not is_local and (spent + reserve > owner.ledger['authorized_rmb'] or external_calls >= owner.external_call_ceiling):
                         self.send_error(429, 'Evaluation budget/call ceiling exhausted'); return
+                    if owner.dispatch_guard is not None and not owner.dispatch_guard(kind, payload, reserve, owner.ledger):
+                        self.send_error(429, 'Batch authorization or envelope rejected'); return
                     record = {'kind': kind, 'model': model, 'reserved_rmb': reserve, 'charged_upper_rmb': reserve,
                               'dispatched_at': datetime.now(timezone(timedelta(hours=8))).isoformat(), 'state': 'DISPATCHED'}
                     owner.ledger['calls'].append(record)
+                    if getattr(owner, 'batch_tag', None): record['evaluation_batch_sha256'] = owner.batch_tag
                     if kind == 'embed': record['provider'] = owner.embedding['name']
                     record['execution_scope'] = 'LOCAL' if is_local else 'EXTERNAL'
                     owner.save()
@@ -185,6 +193,7 @@ class BudgetProxy:
                         status, body = response.status, response.read()
                     decoded = json.loads(body)
                     if kind == 'chat':
+                        record['served_model'] = decoded.get('model')
                         choice = (decoded.get('choices') or [{}])[0]
                         record['finish_reason'] = choice.get('finish_reason')
                         record['tool_calls'] = choice.get('message', {}).get('tool_calls', [])

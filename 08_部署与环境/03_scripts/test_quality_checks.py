@@ -111,5 +111,23 @@ class ArtifactGuardTest(unittest.TestCase):
         self.write_rebuild_record(failures=1)
         with self.assertRaises(ValueError):verify_artifact(self.jar,self.root)
 
+    def test_new_runtime_baseline_cannot_reuse_the_historical_jar_without_rebuild(self):
+        old=self.root/'docs/evaluation/20261019-dynamic-knowledge.json'
+        current=json.loads(old.read_text(encoding='utf-8'))
+        current['known_credentials_and_jar_audit']['jar_sha256']=None
+        (old.parent/'current-runtime-baseline.json').write_text(json.dumps(current),encoding='utf-8')
+        with self.assertRaises(ValueError):verify_artifact(self.jar,self.root)
+
+    def test_new_baseline_requires_full_build_evidence_and_reports_runtime_change(self):
+        self.write_rebuild_record()
+        old=self.root/'docs/evaluation/20261019-dynamic-knowledge.json'
+        current=json.loads(old.read_text(encoding='utf-8'))
+        current.update(runtime_changed_from_R05=True,runtime_policy='RECALL_FIRST_055')
+        current['known_credentials_and_jar_audit']['jar_sha256']=None
+        (old.parent/'current-runtime-baseline.json').write_text(json.dumps(current),encoding='utf-8')
+        audit=verify_artifact(self.jar,self.root)
+        self.assertTrue(audit['runtime_changed_from_R05'])
+        self.assertTrue(audit['current_source_rebuilt_and_tested'])
+
 
 if __name__ == '__main__':unittest.main()

@@ -2,9 +2,15 @@
 
 用于 Java 后端与 Agent 实习面试的模块化单体：工单业务、可靠异步 AI 分析、本地 RAG 和受限工具调用。
 
+[当前分支GitHub CI](https://github.com/hashishdhdj/smartticket_AI/actions/workflows/verify.yml?query=branch%3Acodex%2Fquality-closure) · [本轮发布前核验](docs/evaluation/20261020-github-delivery.md)
+
 **快速导航：** [后端源码](06_项目源代码/ticket-service/src/main/java/com/smartticket) · [启动与配置](06_项目源代码/ticket-service/README.md) · [架构与设计](docs/architecture/README.md) · [接口与角色](07_测试与质量/02_接口测试/阶段四_角色矩阵与接口说明.md) · [测试与效果边界](docs/evaluation/README.md)
 
 当前保留原工程路径以兼容启动、评测和部署脚本；日常阅读从本页与 [docs 导航](docs/README.md)开始。过程记录按日期保留，作为协作与失败追踪资料。
+
+相似问题筛选更新（2026-10-20）：已按逐条向量分筛掉低分推荐，蓝灯和PUT示例均从3条变为1条；260单元、171集成、62脚本及新包本地检索重放通过，新增付费调用0次。见[修复与复跑命令](docs/evaluation/20261020-rag-recommendations.md)。
+
+真实回答复验更新（2026-10-20）：0.55策略的固定8题已执行，4题生成、3题模型拒答、1题门槛拦截；新增7次、累计407次，作者评分仍待完成。见[实际结果与查看命令](docs/evaluation/20261020-rag-generation-result.md)。
 
 当前状态（2026-10-20）：第一轮工程整改已验收并合入 main，R05动态知识的本地与远程CI均通过；`codex/quality-closure` 继续推进R06。新增新措辞检索实测、版本绑定复核工具和四链演示指南；作者已复核1/148，整体质量签署仍待完成。见[R06进展](docs/evaluation/20261020-quality-closure.md)。
 
@@ -13,7 +19,7 @@
 - 工单：状态机、可信身份与对象权限、事务审计、版本冲突、缓存失效与补偿。
 - 异步：任务表与事务Outbox、RabbitMQ确认、幂等消费、租约恢复、规则兜底与人工重放。
 - Agent：真实业务读工具、知识检索、受约束循环；指派仅生成提案，须原管理员独立确认。
-- RAG：本地Ollama BGE-M3 1024维、向量与关键词融合、0.63生成门槛、来源与模拟范围、失败原因。
+- RAG：本地Ollama BGE-M3 1024维、向量与关键词融合、0.55生成门槛、模型按资料判断可答性、来源与模拟范围、失败原因。
 - 知识回流：解决说明生成候选，管理员审核后发布共享演示知识；双库版本校验、失败重放审计及撤回。默认关闭，需迁移与显式启用。
 
 当前最终源码Linux空Maven缓存234单元＋137集成通过，Python保护测试22项；最终JAR真实启动、接口15请求35断言和本地RAG检查通过。NW13最终版一次真实复验已恢复回答，不据此宣称总体准确率或模型绝不出错。
@@ -43,7 +49,7 @@ mvn -B -Pintegration -Dspring.config.additional-location=file:../../.tmp/phase4-
 & '.\06_项目源代码\ticket-service\start.ps1' -Mode offline-demo -Offline
 ```
 
-首次环境准备、完整测试与配置要求见[服务README](06_项目源代码/ticket-service/README.md)。本地检索不等于真实模型生成；真实调用采用已验证交付JAR及计量代理，累计400次已用满，没有新授权不继续调用。
+首次环境准备、完整测试与配置要求见[服务README](06_项目源代码/ticket-service/README.md)。本地检索不等于真实模型生成；真实调用采用已验证交付JAR及计量代理，当前已按后续授权执行至累计407次；固定8题批次已结束，不自动消费调用差额。
 
 ## Agent 如何使用工具
 

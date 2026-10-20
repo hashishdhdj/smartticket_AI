@@ -13,7 +13,7 @@
 | 异步分析 | 工单/任务/Outbox同事务；发布确认、幂等消费、租约与重试；AI结果独立保存 |
 | Agent | getTicketDetail、getTicketLogs、searchKnowledge、管理员prepareAssignTicket；模型提工具调用，应用校验权限与预算 |
 | 人工确认 | 指派提案不写工单；独立确认绑定原管理员、参数、版本、有效期和幂等 |
-| RAG | 本地BGE-M3/pgvector、关键词与RRF融合；0.63门槛、来源、模拟范围、needHuman和statusReason |
+| RAG | 本地BGE-M3/pgvector、关键词与RRF融合；0.55宽松门槛、模型按资料判断可答性、来源、模拟范围、needHuman和statusReason |
 
 API Key为演示身份方案；短信、订单支付、附件上传等知识是模拟场景，不是项目真实业务。合法JSON与合法引用不保证每句事实正确；有限补救操作词检查也不是通用语义校验器。
 

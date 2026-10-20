@@ -1,0 +1,234 @@
+{
+  "date": "2026-10-20T05:39:27.260712+00:00",
+  "status": "PASS_LOCAL_RETRIEVAL_HTTP_AND_ANSWER_REPLAY",
+  "vendor_calls": 0,
+  "threshold": 0.55,
+  "jar_sha256": "5c5f602bccd1b4ff57da797baaca4f9bdcb42e050dcb7cbebb9217349fec64e4",
+  "source_manifest": "docs/evaluation/current-runtime-baseline.json",
+  "previous_real_report_sha256": "0adbe65a6f2703fa6e8b52bdf0e0a7295833c62f3c565e32296da0caaab5390b",
+  "model_mode": "LOCAL_REPLAY_OF_SAVED_API_ANSWER_TEXT_NOT_NEW_DEEPSEEK_GENERATION",
+  "budget_before": {
+    "path": "D:\\SmartTicket-AI\\.tmp\\phase4-budget-ledger.json",
+    "sha256": "7a64dd997d462bc5e8d3abd3ffe0a747f0f7583617115bdbf8002d71b83fad01",
+    "records": 570,
+    "external_calls": 407,
+    "estimated_upper_rmb": 2.5541690800000008,
+    "authorized_rmb": 10
+  },
+  "new_semantic_accuracy": null,
+  "rows": [
+    {
+      "id": "NW02",
+      "query": "演示账号忘了口令，但原手机卡还能收短信，资料给出哪条重置路径？",
+      "before_similar_questions": [
+        "如何重置登录密码",
+        "登录时提示「验证码异常」怎么办",
+        "原手机号已停用，无法自助更换绑定手机号"
+      ],
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.6317270366901627,
+        "suggestion": "演示规则（非本项目实际能力）：原手机号可收短信时，在登录页点「忘记密码」，用注册手机号收验证码后设8~20位字母加数字新密码；该短信功能非当前项目已实现能力。",
+        "similarQuestions": [
+          "如何重置登录密码",
+          "登录时提示「验证码异常」怎么办",
+          "原手机号已停用，无法自助更换绑定手机号"
+        ],
+        "sources": [
+          {
+            "sourceFile": "faq/01-账户问题.md",
+            "title": "如何重置登录密码",
+            "score": 0.6317270366901627,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：忘记密码，或怀疑密码泄露需要更换。 **处理步骤**： 1. 在登录页点击「忘记密码」。 2. 输入注册时使用的手机号，获取短信验证码。 3…"
+          },
+          {
+            "sourceFile": "faq/01-账户问题.md",
+            "title": "登录时提示「验证码异常」怎么办",
+            "score": 0.6069598091173101,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：输入验证码后提示异常或错误，反复重试仍无法登录。 **处理步骤**： 1. 检查手机「日期与时间」是否为自动获取。系统时间偏差超过 5 分钟…"
+          },
+          {
+            "sourceFile": "tickets/01-账户问题.md",
+            "title": "原手机号已停用，无法自助更换绑定手机号",
+            "score": 0.6067540263817388,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：换号后想更新绑定手机号，但收不到原号的验证码，自助更换走不通。 **分类与优先级**：账户问题 / MEDIUM **排查过程**： 1. …"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 2676,
+        "statusReason": "ANSWERED"
+      },
+      "answer_text_unchanged": true
+    },
+    {
+      "id": "NW13",
+      "query": "模拟平台拒绝15MB附件，应怎样依据大小限制处理？",
+      "before_similar_questions": [
+        "上传附件失败怎么办",
+        "上传附件提示格式不支持，但文件是允许的格式",
+        "页面数据与实际不一致怎么办"
+      ],
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.6695433072330458,
+        "suggestion": "演示规则（非本项目实际能力）：模拟平台单附件上限10MB，15MB文件需先自行处理到10MB以内再上传；该附件能力非当前项目已实现功能。",
+        "similarQuestions": [
+          "上传附件失败怎么办",
+          "上传附件提示格式不支持，但文件是允许的格式",
+          "页面数据与实际不一致怎么办"
+        ],
+        "sources": [
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "上传附件失败怎么办",
+            "score": 0.6695433072330458,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：上传图片或文档时提示失败，或进度条卡住。 **处理步骤**： 1. 检查文件大小：单个附件不得超过 **10 MB**。 2. 检查文件格式…"
+          },
+          {
+            "sourceFile": "tickets/03-功能异常.md",
+            "title": "上传附件提示格式不支持，但文件是允许的格式",
+            "score": 0.6198227548388346,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：上传一个 pdf 文件，提示格式不支持，换其他 pdf 也不行。 **分类与优先级**：功能异常 / LOW **排查过程**： 1. 确认…"
+          },
+          {
+            "sourceFile": "faq/03-功能异常.md",
+            "title": "页面数据与实际不一致怎么办",
+            "score": 0.5546608362156331,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **适用场景**：列表显示的条数、状态或金额与预期不符。 **处理步骤**： 1. 硬刷新页面（`Ctrl + F5`）。列表与详情页存在缓存，通常会在 10…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 78,
+        "statusReason": "ANSWERED"
+      },
+      "answer_text_unchanged": true
+    },
+    {
+      "id": "QRP14",
+      "query": "用本项目PUT接口只修改标题时，能假定没传的可空描述被原样保留吗？",
+      "before_similar_questions": [
+        "工单可以修改哪些内容",
+        "工单被关闭后如何重新打开",
+        "Agent提出指派后是否已经修改工单"
+      ],
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.5752178520223958,
+        "suggestion": "更新接口是全量替换，未传的可空描述可能被清空；请提交希望保留的全部可修改字段。",
+        "similarQuestions": [
+          "工单可以修改哪些内容"
+        ],
+        "sources": [
+          {
+            "sourceFile": "faq/04-工单流程与通用问题.md",
+            "title": "工单可以修改哪些内容",
+            "score": 0.5752178520223958,
+            "summary": "**适用场景**：提交后发现标题或描述有误，想补充信息。 **处理步骤**： 1. 可修改：标题、描述、分类、优先级、标签。 2. **不可修改：工单状态、工单编号、创建人**。状态只能通过指派、解决、关闭等操作流转。 3. 更新接口是全量替换，需要提交希望保留的可修改字段；可空字段未提供可能被清空…"
+          },
+          {
+            "sourceFile": "faq/04-工单流程与通用问题.md",
+            "title": "工单被关闭后如何重新打开",
+            "score": 0.4970433701431918,
+            "summary": "**适用场景**：问题未真正解决，但工单已关闭。 **处理步骤**： 1. 当前公开接口没有重开操作，指派接口也拒绝已关闭工单；可**新建工单**继续说明问题。 2. 新建时在描述中引用原工单编号，并说明未解决的具体点。 3. 管理员根据实际情况选择处理人，系统不会自动优先分配原处理人。 **注意事…"
+          },
+          {
+            "sourceFile": "faq/05-项目权限与AI处理.md",
+            "title": "Agent提出指派后是否已经修改工单",
+            "score": 0.49439832434614284,
+            "summary": "**适用场景**：管理员要求Agent指派工单，返回待确认提案。 **处理步骤**：prepareAssignTicket只创建提案，不执行指派。管理员核对工单、处理人和摘要后，用同一账号调用action确认接口。提案绑定账号、工单版本、处理人和有效期；有效期为300秒。确认后才修改工单并记审计，重…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 114,
+        "statusReason": "ANSWERED"
+      },
+      "answer_text_unchanged": true
+    },
+    {
+      "id": "QDP1",
+      "query": "演示巡检出现蓝色校验灯时，先做哪项核对？",
+      "before_similar_questions": [
+        "合成演示索引巡检遇到蓝色校验灯应如何恢复？",
+        "打开工单详情页白屏",
+        "登录页反复提示验证码错误，多设备均无法登录"
+      ],
+      "response": {
+        "matched": true,
+        "needHuman": false,
+        "confidence": 0.7475813482556436,
+        "suggestion": "演示规则（非本项目实际能力）：仅在合成演示巡检场景，先核对租约标记，再重新排队并查看索引回执；蓝色校验灯不对应真实故障。",
+        "similarQuestions": [
+          "合成演示索引巡检遇到蓝色校验灯应如何恢复？"
+        ],
+        "sources": [
+          {
+            "sourceFile": "resolved-ticket/18872c8c-fb80-42dd-bf88-1195df933edb/v1.md",
+            "title": "合成演示索引巡检遇到蓝色校验灯应如何恢复？",
+            "score": 0.7475813482556436,
+            "summary": "适用范围：已审核的合成工单经验，仅限演示；不代表通用产品规则。 问题：合成演示索引巡检遇到蓝色校验灯应如何恢复？ 解决方案：仅在合成演示巡检场景：先核对租约标记，再重新排队，最后查看索引回执；蓝色校验灯不对应任何真实客户故障。"
+          },
+          {
+            "sourceFile": "tickets/03-功能异常.md",
+            "title": "打开工单详情页白屏",
+            "score": 0.47240714317672694,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：从列表点进某条工单详情，页面全白，其他工单正常。 **分类与优先级**：功能异常 / HIGH **排查过程**： 1. 让用户打开开发者工…"
+          },
+          {
+            "sourceFile": "tickets/01-账户问题.md",
+            "title": "登录页反复提示验证码错误，多设备均无法登录",
+            "score": 0.4679955358521214,
+            "summary": "**适用范围**：模拟客服平台场景，不表示SmartTicket已实现短信、订单、支付、附件或前端页面功能；具体时限和政策须由实际业务核实。 **工单描述**：今天上午开始，输入正确的验证码后仍然提示「验证码错误」，换了浏览器和手机都一样，全部无法登录。 **分类与优先级**：账户问题 / HIGH…"
+          }
+        ],
+        "degradedSources": [],
+        "costMs": 80,
+        "statusReason": "ANSWERED"
+      },
+      "answer_text_unchanged": true
+    }
+  ],
+  "own_records_and_vhost_cleaned": true,
+  "budget_after": {
+    "path": "D:\\SmartTicket-AI\\.tmp\\phase4-budget-ledger.json",
+    "sha256": "7a64dd997d462bc5e8d3abd3ffe0a747f0f7583617115bdbf8002d71b83fad01",
+    "records": 570,
+    "external_calls": 407,
+    "estimated_upper_rmb": 2.5541690800000008,
+    "authorized_rmb": 10
+  },
+  "historical_evaluation_and_reviews_unchanged": true,
+  "local_model_replay_count": 4,
+  "execution_report": ".tmp/rag-recommendations-20261020.json",
+  "execution_report_sha256": "39a3b45b7ccd802f12f237cdd21ae0922db5dec65517369f0d7917ae177bd354",
+  "profiles": {
+    "unit": {
+      "tests": 260,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "integration": {
+      "tests": 171,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "python_tests": {
+    "tests": 62,
+    "failures": 0,
+    "errors": 0
+  },
+  "artifact_path": "08_部署与环境/04_交付产物/SmartTicket-AI-recommendations-20261020-5c5f602bccd1.jar",
+  "source_manifest_sha256": "03a1d9e9610bca508e82caa62eb9774ef208d07b8d07a05bd5b2114a53e23cb6",
+  "runtime_policy": "RECALL_FIRST_055_RELEVANT_RECOMMENDATIONS",
+  "implementation": "Recommendations require their own finite vector score >= current .55 floor. Evidence, full prompts and generated answers stay available.",
+  "attachment_material_status": "DRAFT_NOT_INDEXED_OR_PUBLISHED",
+  "attachment_draft": "09_项目依赖与资源/03_知识库素材/NW13_附件超限处理资料补充草案.md",
+  "semantic_limit": "Score filtering removes the observed low-score tail; it is not a guarantee of semantic relevance. Replay verifies presentation, not a new vendor/model answer.",
+  "author_semantic_grade": null,
+  "remote_ci_covers_change": false
+}

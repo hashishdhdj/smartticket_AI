@@ -27,6 +27,7 @@ jobs:
       - run: python3 '08_部署与环境/03_scripts/test_eval_preflight.py'
       - run: python3 '08_部署与环境/03_scripts/test_quality_review.py'
       - run: python3 '08_部署与环境/03_scripts/test_quality_checks.py'
+      - run: python3 '08_部署与环境/03_scripts/test_recall_generation.py'
       - run: python3 '08_部署与环境/03_scripts/verify-quality-closure.py' --contracts-only
       - run: mvn -B -Punit test
         working-directory: '06_项目源代码/ticket-service'

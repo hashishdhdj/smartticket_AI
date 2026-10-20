@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-20",
+  "status": "CONFIGURED_RECALL_FIRST_GENERATION_PENDING",
+  "selected_threshold": 0.55,
+  "previous_threshold": 0.63,
+  "policy": "RECALL_FIRST_MODEL_JUDGES_EVIDENCE_SUFFICIENCY",
+  "decision_basis": "User requests lower retrieval admission; known correct-source omissions at scores near .599 and .575.",
+  "calibrated_optimum": false,
+  "independent_test": false,
+  "generated_answer_quality_verified": false,
+  "vendor_calls": 0,
+  "paid_call_limit_unchanged": 400,
+  "known_regression_examples": [
+    {
+      "dataset": "phase4-v3-newwording",
+      "id": "NW02",
+      "score": 0.5989091154011912,
+      "allowed_at_previous": false,
+      "allowed_at_selected": true,
+      "scope": "Historical score replay, not a new generated answer"
+    },
+    {
+      "dataset": "quality-r06-v1",
+      "id": "QRP14",
+      "score": 0.575217852,
+      "allowed_at_previous": false,
+      "allowed_at_selected": true,
+      "scope": "Previously observed retrieval score, not a new generated answer"
+    }
+  ],
+  "retained_controls": [
+    "full source evidence in prompt",
+    "model semantic refusal",
+    "source scope boundaries",
+    "schema validation",
+    "authorization",
+    "budget and tool confirmation"
+  ],
+  "limitations": [
+    "Threshold is an admission choice, not factual accuracy.",
+    "Lower threshold can admit unrelated or factually insufficient sources.",
+    "Fresh model generation evaluation still needs remaining/new authorized vendor calls."
+  ],
+  "previous_policy_report": "07_测试与质量/06_阶段测试报告/20261016_124711_RAG召回优先门槛重新校准.json",
+  "previous_policy_report_sha256": "0b290a62c216ad18acdb8f1cd55c7c5adfdcf7f9453a0bf5308e4084733bbc15"
+}

@@ -56,6 +56,25 @@ class ProxyTests(TestCase):
             self.assertEqual(429,self.send({'model':'deepseek-flash','messages':[],'max_tokens':128}))
             upstream.assert_not_called()
 
+    def test_batch_guard_rejects_before_accounting_or_upstream_dispatch(self):
+        self.proxy.dispatch_guard = mock.Mock(return_value=False)
+        with mock.patch.object(runtime.urllib.request, 'urlopen') as upstream:
+            self.assertEqual(429, self.send({'model': 'deepseek-flash', 'messages': [], 'max_tokens': 128}))
+            upstream.assert_not_called()
+        self.proxy.dispatch_guard.assert_called_once()
+        self.assertEqual([], self.proxy.ledger['calls'])
+
+    def test_explicit_cumulative_ledger_retains_the_original_call_count(self):
+        path = self.directory / 'canonical.json'
+        path.write_text(json.dumps({'authorized_rmb': 10, 'prior_batch_reserved_rmb': 1,
+                                   'calls': [{'kind': 'chat', 'charged_upper_rmb': 0}] * 400}), encoding='utf-8')
+        proxy = runtime.BudgetProxy(port=0, ledger_path=path, chat_key='TEST_ONLY_KEY',
+                                    embedding={'name': 'ollama', 'model': 'bge-m3:latest'})
+        try:
+            self.assertEqual(400, len(proxy.ledger['calls']))
+            self.assertEqual(path, proxy.path)
+        finally: proxy.server.server_close()
+
     def test_call_ceiling_requires_bounded_integer(self):
         for value in (0,401,True,'400'):
             with self.assertRaises(ValueError):runtime.BudgetProxy(external_call_ceiling=value)

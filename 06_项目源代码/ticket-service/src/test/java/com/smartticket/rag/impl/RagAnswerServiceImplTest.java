@@ -95,20 +95,23 @@ class RagAnswerServiceImplTest {
 
     // ------------------------------------------------------------ 高置信度：作答并生成内容
 
-    @Test
-    void highSimilarityDoesNotOverrideModelSemanticAbstention() {
+    @ParameterizedTest
+    @ValueSource(doubles = {0.91, 0.5989091154011912})
+    void admittedSimilarityDoesNotOverrideModelSemanticAbstention(double score) {
         KnowledgeChunk target = chunk("faq/05-项目权限与AI处理.md", "哪些账号可以查看和修改工单", 0,
                 "本项目使用API Key鉴权，没有短信登录或验证码供应商配置。");
         givenSearch(new KnowledgeSearchResult(
                 List.of(new FusedHit(target, 0.03, EnumSet.of(RetrievalSource.VECTOR))),
                 List.of(RetrievalResult.ok(RetrievalSource.VECTOR,
-                        List.of(new RetrievalHit(target, 0.91)), 2)), 2));
+                        List.of(new RetrievalHit(target, score)), 2)), 2));
         givenModelReturnsRaw("{\"suggestion\":\"不能提供供应商凭据，请联系授权管理员核实\",\"similarQuestions\":[\"哪些账号可以查看和修改工单\"],\"needHuman\":true}");
         var answer = ragAnswerService.answer("验证码供应商的密钥是什么？");
         assertTrue(answer.matched());
         assertTrue(answer.needHuman());
         assertNull(answer.suggestion());
-        assertEquals(0.91, answer.confidence());
+        assertEquals(score, answer.confidence());
+        assertEquals("MODEL_REFUSED", answer.statusReason());
+        verify(aiChatService).chat(anyString(), anyString());
         assertFalse(answer.sources().isEmpty());
         assertTrue(answer.similarQuestions().isEmpty());
     }
@@ -175,7 +178,7 @@ class RagAnswerServiceImplTest {
     // ------------------------------------------------------------ 低置信度：转人工且不调模型
 
     @ParameterizedTest
-    @ValueSource(doubles = {0.6412421128172787, 0.6517207180621484})
+    @ValueSource(doubles = {0.5752178520, 0.5989091154011912, 0.6412421128172787, 0.6517207180621484})
     void recalibratedDefaultAllowsPreviouslyBlockedQueries(double score) {
         KnowledgeChunk target = chunk("faq/05-项目权限与AI处理.md", "哪些账号可以查看和修改工单", 0,
                 "处理人只能访问指派给自己的工单。");
@@ -184,10 +187,32 @@ class RagAnswerServiceImplTest {
                 List.of(RetrievalResult.ok(RetrievalSource.VECTOR, List.of(new RetrievalHit(target, score)), 1)), 1));
         givenModelReturns("处理人只能访问指派给自己的工单", "哪些账号可以查看工单");
         var answer=ragAnswerService.answer("处理人能读取未指派给自己的工单吗");
-        assertEquals(0.63, new KnowledgeVectorProperties().getConfidenceThreshold());
+        assertEquals(0.55, new KnowledgeVectorProperties().getConfidenceThreshold());
         assertFalse(answer.needHuman());
         assertNotNull(answer.suggestion());
         verify(aiChatService).chat(anyString(), anyString());
+    }
+
+    @Test
+    void nw02PasswordResetReachesModelWithFullEvidenceAtItsHistoricalScore() {
+        String content = "模拟客服平台：点击忘记密码，输入注册手机号获取短信验证码，验证后设置8到20位字母与数字的新密码。";
+        KnowledgeChunk target = chunk("faq/01-账户问题.md", "如何重置登录密码", 0, content);
+        givenSearch(new KnowledgeSearchResult(
+                List.of(new FusedHit(target, 0.0164, EnumSet.of(RetrievalSource.VECTOR))),
+                List.of(RetrievalResult.ok(RetrievalSource.VECTOR,
+                        List.of(new RetrievalHit(target, 0.5989091154011912)), 1)), 1));
+        givenModelReturns("演示规则：通过忘记密码入口，用注册手机号验证码重置密码；当前项目未实现短信功能。",
+                "如何重置登录密码");
+
+        RagAnswer answer = ragAnswerService.answer("演示账号忘了口令，但原手机卡还能收短信，资料给出哪条重置路径？");
+
+        ArgumentCaptor<String> userPrompt = ArgumentCaptor.forClass(String.class);
+        verify(aiChatService).chat(anyString(), userPrompt.capture());
+        assertTrue(userPrompt.getValue().contains(content));
+        assertFalse(answer.needHuman());
+        assertEquals("ANSWERED", answer.statusReason());
+        assertTrue(answer.suggestion().contains("忘记密码"));
+        assertTrue(answer.suggestion().contains("非本项目实际能力"));
     }
 
     @Test
@@ -435,6 +460,83 @@ class RagAnswerServiceImplTest {
         var answer=ragAnswerService.answer("15MB附件能上传吗");
         assertTrue(answer.needHuman());
         assertEquals("UNSUPPORTED_WORKAROUND",answer.statusReason());
+    }
+
+    @Test
+    void lowScoreRecommendationsAreRemovedWithoutChangingModelContextOrSources() {
+        KnowledgeChunk target = chunk("resolved-ticket/demo/v1.md", "合成演示蓝灯巡检如何恢复", 0, "先核对租约标记，再重新排队并查看索引回执。");
+        KnowledgeChunk whiteScreen = chunk("tickets/03-功能异常.md", "打开工单详情页白屏", 1, "记录白屏请求。");
+        KnowledgeChunk captcha = chunk("tickets/01-账户问题.md", "登录验证码错误", 2, "检查验证码。");
+        givenSearch(new KnowledgeSearchResult(
+                List.of(new FusedHit(target, 0.03, EnumSet.of(RetrievalSource.VECTOR)),
+                        new FusedHit(whiteScreen, 0.02, EnumSet.of(RetrievalSource.VECTOR)),
+                        new FusedHit(captcha, 0.01, EnumSet.of(RetrievalSource.VECTOR))),
+                List.of(RetrievalResult.ok(RetrievalSource.VECTOR,
+                        List.of(new RetrievalHit(target, 0.7475813482), new RetrievalHit(whiteScreen, 0.4724071432),
+                                new RetrievalHit(captcha, 0.4679955359)), 1)), 1));
+        givenModelReturns("先核对租约标记，再重新排队并查看索引回执", "打开工单详情页白屏", "登录验证码错误");
+
+        RagAnswer answer = ragAnswerService.answer("演示巡检蓝色校验灯先核对什么");
+
+        assertEquals(List.of(target.sectionTitle()), answer.similarQuestions());
+        assertEquals(3, answer.sources().size());
+        assertFalse(answer.needHuman());
+        assertEquals("ANSWERED", answer.statusReason());
+        ArgumentCaptor<String> prompt = ArgumentCaptor.forClass(String.class);
+        verify(aiChatService).chat(anyString(), prompt.capture());
+        assertTrue(prompt.getValue().contains(whiteScreen.content()));
+        assertTrue(prompt.getValue().contains(captcha.content()));
+    }
+
+    @Test
+    void recommendationFloorIsInclusiveAndTitlesAreDeduplicatedAfterFiltering() {
+        KnowledgeChunk target = chunk("faq/example.md", "相关问题甲", 0, "资料甲");
+        KnowledgeChunk duplicate = chunk("faq/example.md", "相关问题甲", 1, "资料甲续片");
+        KnowledgeChunk boundary = chunk("faq/example.md", "相关问题乙", 2, "资料乙");
+        KnowledgeChunk below = chunk("faq/example.md", "低分问题", 3, "低分资料");
+        givenSearch(new KnowledgeSearchResult(
+                List.of(new FusedHit(target, 0.04, EnumSet.of(RetrievalSource.VECTOR)),
+                        new FusedHit(duplicate, 0.03, EnumSet.of(RetrievalSource.VECTOR)),
+                        new FusedHit(boundary, 0.02, EnumSet.of(RetrievalSource.VECTOR)),
+                        new FusedHit(below, 0.01, EnumSet.of(RetrievalSource.VECTOR))),
+                List.of(RetrievalResult.ok(RetrievalSource.VECTOR,
+                        List.of(new RetrievalHit(target, .8), new RetrievalHit(duplicate, .7),
+                                new RetrievalHit(boundary, THRESHOLD), new RetrievalHit(below, THRESHOLD - .000001)), 1)), 1));
+        givenModelReturns("依照已有资料核对", "模型自行拟定的问题");
+        assertEquals(List.of("相关问题甲", "相关问题乙"), ragAnswerService.answer("核对资料").similarQuestions());
+    }
+
+    @Test
+    void keywordOnlyTitleIsNotRecommendedAsIfItHadVectorEvidence() {
+        KnowledgeChunk target = chunk("faq/example.md", "相关问题", 0, "完整依据");
+        KnowledgeChunk keywordOnly = chunk("faq/keyword.md", "仅关键词命中的标题", 0, "辅助资料");
+        givenSearch(new KnowledgeSearchResult(
+                List.of(new FusedHit(target, .02, EnumSet.of(RetrievalSource.VECTOR)),
+                        new FusedHit(keywordOnly, .01, EnumSet.of(RetrievalSource.KEYWORD))),
+                List.of(RetrievalResult.ok(RetrievalSource.VECTOR, List.of(new RetrievalHit(target, .8)), 1),
+                        RetrievalResult.ok(RetrievalSource.KEYWORD, List.of(new RetrievalHit(keywordOnly, .9)), 1)), 1));
+        givenModelReturns("使用资料中的核对流程", "相关问题");
+        RagAnswer answer = ragAnswerService.answer("核对流程");
+        assertEquals(List.of("相关问题"), answer.similarQuestions());
+        assertEquals(2, answer.sources().size());
+        assertFalse(answer.needHuman());
+    }
+
+    @Test
+    void noEligibleRecommendationDoesNotSuppressAnOtherwiseGeneratedAnswer() {
+        KnowledgeChunk vectorCandidate = chunk("faq/vector.md", "未进入融合结果的候选", 0, "候选资料");
+        KnowledgeChunk selected = chunk("faq/keyword.md", "关键词资料的标题", 0, "可以用于解释的资料");
+        givenSearch(new KnowledgeSearchResult(
+                List.of(new FusedHit(selected, .02, EnumSet.of(RetrievalSource.KEYWORD))),
+                List.of(RetrievalResult.ok(RetrievalSource.VECTOR, List.of(new RetrievalHit(vectorCandidate, .8)), 1),
+                        RetrievalResult.ok(RetrievalSource.KEYWORD, List.of(new RetrievalHit(selected, .9)), 1)), 1));
+        givenModelReturns("按已有资料核对具体条件", "关键词资料的标题");
+        RagAnswer answer = ragAnswerService.answer("核对条件");
+        assertTrue(answer.similarQuestions().isEmpty());
+        assertFalse(answer.needHuman());
+        assertEquals("ANSWERED", answer.statusReason());
+        assertNotNull(answer.suggestion());
+        assertEquals(1, answer.sources().size());
     }
 
     private static KnowledgeSearchResult highConfidenceSearch(KnowledgeChunk target) {

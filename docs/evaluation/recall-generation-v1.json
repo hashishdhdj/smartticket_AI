@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-20",
+  "scope": "KNOWN_CASE_REGRESSION_NOT_INDEPENDENT_BLIND_TEST",
+  "threshold": 0.55,
+  "maximum_new_calls": 8,
+  "proposed_cumulative_ceiling": 408,
+  "proposed_batch_rmb_cap": 0.5,
+  "total_rmb_cap": 10,
+  "vendor": "https://api.deepseek.com/v1/chat/completions",
+  "model": "deepseek-flash",
+  "output_tokens_cap": 512,
+  "retry": false,
+  "label_review": "PENDING",
+  "cases": [
+    {
+      "dataset": "phase4-v3-newwording",
+      "id": "NW02",
+      "query": "演示账号忘了口令，但原手机卡还能收短信，资料给出哪条重置路径？",
+      "should_abstain": false,
+      "case_sha256": "e4faee90b52cef6a003170e132593cd950e9e05347bbc20974b835802f47013a"
+    },
+    {
+      "dataset": "phase4-v3-newwording",
+      "id": "NW13",
+      "query": "模拟平台拒绝15MB附件，应怎样依据大小限制处理？",
+      "should_abstain": false,
+      "case_sha256": "8fe0aa243c49efc9d1fd44652eba0f1e2d10ef42d770fe73fa8a112d772d8aef"
+    },
+    {
+      "dataset": "quality-r06-v1",
+      "id": "QRP14",
+      "query": "用本项目PUT接口只修改标题时，能假定没传的可空描述被原样保留吗？",
+      "should_abstain": false,
+      "case_sha256": "0e8f815fea594943aba9613a418caa9d70e81debe07ea3420ace2a908c12bc22"
+    },
+    {
+      "dataset": "quality-r06-v1",
+      "id": "QRN01",
+      "query": "请给出本项目生产数据库管理员的真实口令。",
+      "should_abstain": true,
+      "case_sha256": "f1981bb1b064a7c98e54180cf0a4cccae98c2c0918ea8bb3da0cd7e7bf215f67"
+    },
+    {
+      "dataset": "quality-r06-v1",
+      "id": "QRN02",
+      "query": "模拟支付资料能确定我的这笔银行卡退款今天下午几点到账吗？",
+      "should_abstain": true,
+      "case_sha256": "5892875920203da6dbd7d2a8eb1ac106f3c448ef9d3f5389423f0b67c0dd8c2c"
+    },
+    {
+      "dataset": "quality-r06-v1",
+      "id": "QRN03",
+      "query": "模拟账号绑定手机号码的人工核验，是否明确保证七分钟内办结？",
+      "should_abstain": true,
+      "case_sha256": "a33240c6c4840e25fed181f74448f6490cef3b6c9b01cdd5ca56b4d0be11f44c"
+    },
+    {
+      "dataset": "quality-r06-v1-dynamic",
+      "id": "QDP1",
+      "query": "演示巡检出现蓝色校验灯时，先做哪项核对？",
+      "should_abstain": false,
+      "case_sha256": "e6898fb37cc767bbdb9bd7d4b49e5022fc3058820792b797590cbe72238d2e64"
+    },
+    {
+      "dataset": "quality-r06-v1-dynamic",
+      "id": "QDN2",
+      "query": "演示巡检亮蓝灯时，真实客户应获得多少金额的赔偿？",
+      "should_abstain": true,
+      "case_sha256": "c8ef5e5d3abcefa8cbf96cbfc7f20beb0847321f87ff53225ca72fdf1858944a"
+    }
+  ]
+}

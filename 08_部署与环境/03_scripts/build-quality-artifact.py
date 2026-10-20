@@ -13,7 +13,7 @@ import re
 import shutil
 import subprocess
 import xml.etree.ElementTree as ET
-from quality_checks import ROOT, verify_artifact
+from quality_checks import ROOT, runtime_baseline, verify_artifact
 
 
 def main():
@@ -39,9 +39,9 @@ def main():
         if health.returncode or health.stdout.strip() != b'healthy':
             raise RuntimeError('Start Docker and run prepare-phase4.py; isolated dependencies must be healthy before building')
     service = ROOT / '06_项目源代码/ticket-service'
-    baseline = json.loads((ROOT / 'docs/evaluation/20261019-dynamic-knowledge.json').read_text(encoding='utf-8'))
+    baseline = runtime_baseline()
     sources = baseline['known_credentials_and_jar_audit']['source_files']
-    # The R06 rebuild supports the same reviewed runtime, not arbitrary code rebasing.
+    # Compare with the explicit current source baseline; never auto-rebase changed files.
     for item in sources:
         path = (service / item['path']).resolve()
         if not path.is_relative_to(service.resolve()) or hashlib.sha256(path.read_bytes()).hexdigest() != item['sha256']:
