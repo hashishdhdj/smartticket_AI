@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "status": "PASS_LOCAL_ENGINEERING",
+  "date": "2026-10-27T09:41:39.032771+00:00",
+  "runtime_policy": "RECALL_FIRST_055_GOVERNED_HANDOFF_V1",
+  "scope": "Post-G5 known-failure engineering regression; no new real-vendor generation or population handoff rate.",
+  "prompt_versions": {
+    "rag": "rag-answer-v4.0",
+    "agent": "agent-v3.3-governed-handoff"
+  },
+  "vendor_calls": 0,
+  "jar_sha256": "5481098881899d934220b9b6eca57d04837f16f68fc31140851faa1527395441",
+  "source_files_checked": 209,
+  "source_manifest_sha256": "5c41fc5b8e2a0a92b360cadfc9df8bb237402207014508176e82bd5755a2b17e",
+  "profiles": {
+    "unit": {
+      "tests": 331,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "integration": {
+      "tests": 270,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "python_tests": {
+    "tests": 97,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "build_record_not_signed_attestation": true,
+  "graph_http_smoke": {
+    "status": "PASS",
+    "date": "2026-10-27T09:35:55.705621+00:00",
+    "offline_protocol_requests": 10,
+    "checks": [
+      "unreviewed graph hidden through real Agent HTTP tool protocol",
+      "real RabbitMQ -> local BGE -> PG nodes/relations/evidence -> read-only graph tool",
+      "same-source facts, complete conditions, ordered steps, scope and current version reach model context",
+      "returned source cited; fabricated node/source ID rejected",
+      "retraction during model response rejected before final output",
+      "new retrieval after retraction returns no withdrawn graph",
+      "shared graph readable; internal admin inspection forbidden; ticket unchanged"
+    ],
+    "own_records_cleaned": true,
+    "embedding": "local Ollama bge-m3:latest"
+  },
+  "graph_smoke_runs": {
+    "before_approval": {
+      "status": "PARTIAL",
+      "needHuman": true,
+      "statusReason": "HUMAN_REVIEW_REQUIRED",
+      "nextAction": "HUMAN_SUPPORT",
+      "modelCalls": 2,
+      "toolCalls": 1
+    },
+    "published": {
+      "status": "SUCCEEDED",
+      "needHuman": false,
+      "statusReason": "VALIDATED_OUTPUT",
+      "nextAction": "ANSWER",
+      "modelCalls": 2,
+      "toolCalls": 1
+    },
+    "unsupported_citation": {
+      "status": "PARTIAL",
+      "needHuman": true,
+      "statusReason": "UNSUPPORTED_SOURCE",
+      "nextAction": "HUMAN_SUPPORT",
+      "modelCalls": 2,
+      "toolCalls": 1
+    },
+    "retracted_during_answer": {
+      "status": "PARTIAL",
+      "needHuman": true,
+      "statusReason": "STALE_GRAPH_SOURCE",
+      "nextAction": "HUMAN_SUPPORT",
+      "modelCalls": 2,
+      "toolCalls": 1
+    },
+    "after_retraction": {
+      "status": "PARTIAL",
+      "needHuman": true,
+      "statusReason": "HUMAN_REVIEW_REQUIRED",
+      "nextAction": "HUMAN_SUPPORT",
+      "modelCalls": 2,
+      "toolCalls": 1
+    }
+  },
+  "ci_offline_comparison": {
+    "status": "PASS",
+    "date": "2026-10-27T09:39:29.769951+00:00",
+    "offline_protocol_requests": 52,
+    "embedding": "OFFLINE_HASHED_BIGRAM_PROTOCOL_FIXTURE_NOT_BGE",
+    "semantic_quality_tested": false,
+    "own_records_cleaned": true,
+    "frozen_inputs_unchanged": true
+  },
+  "budget_after": {
+    "sha256": "fd6ef35767c4a74932146cd2ee6790614840227ce3fd97dba587b9120cb3e744",
+    "records": 606,
+    "external_calls": 443,
+    "estimated_upper_rmb": 2.7374690800000003,
+    "authorized_rmb": 10
+  },
+  "budget_unchanged": true,
+  "checks": [
+    "shared allowlisted handoff states/reasons and concrete blocker; flag consistency",
+    "completed explanation and missing user information are not human work",
+    "one correction only; Agent correction receives no tools and uses unchanged run limits",
+    "invalid repeated escalation waits for clarification and does not claim success",
+    "critical missing real business facts and requested manual operations retain handoff",
+    "actual infrastructure/permission/source failures retain original safeguards",
+    "graph/source withdrawal and same-source evidence survive policy update"
+  ],
+  "first_attempt_findings": [
+    "Legacy integration fixture omitted a concrete handoff reason; migrated to real refund-record gap, retaining incomplete-run assertions.",
+    "Longer prompt exhausted one synthetic user daily reservation across four independent G4 scenarios; acceptance now uses separate random synthetic users without raising/resetting production limits. First-attempt records cleaned.",
+    "Local comparison first command used relative --output; corrected command to absolute output path, reran and verified cleanup. No runtime change for this command error."
+  ],
+  "limits": [
+    "Semantic adequacy still relies on the model; typed fields do not prove factual correctness.",
+    "No real-vendor retest of new prompts, no measured production workload reduction, no independent blind test.",
+    "Existing G5 real responses, prompts, source cases and owner decisions retained; AI-assisted review is separately attributed.",
+    "GitHub CI result belongs to the new commit; consult branch workflow for remote outcome."
+  ]
+}

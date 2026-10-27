@@ -50,6 +50,7 @@ class ExperienceGraphAgentIntegrationTest {
     @Autowired ExperienceCardService cards;
     @Autowired ExperienceCardRepository cardRepo;
     @Autowired ExperienceProperties config;
+    @Autowired com.smartticket.config.RuntimeProperties runtimeConfig;
     @Autowired KnowledgeReviewService review;
     @Autowired KnowledgeWorkflowRepository knowledge;
     @Autowired KnowledgeWorker worker;
@@ -237,6 +238,79 @@ class ExperienceGraphAgentIntegrationTest {
     }
     @Test void toolRejectsScopeEscalationAndSqlArguments()throws Exception {
         assertThrows(ApiFailure.class,()->tools.execute("searchExperienceGraph","{\"query\":\"配置\",\"scope\":\"ALL\",\"sql\":\"SELECT *\"}","run"));verifyNoInteractions(retrieval);
+    }
+
+    private com.smartticket.agent.AgentModel.Reply decision(boolean human,String state,String reason,String detail,List<String> ids)throws Exception {
+        return new com.smartticket.agent.AgentModel.Reply(new org.springframework.ai.chat.messages.AssistantMessage(json.writeValueAsString(
+                Map.of("answer",state.equals("NEEDS_CLARIFICATION")?"请说明目前出现的具体报错是什么？":"请按资料核对适用条件和配置，记录结果；这不保证业务问题已解决。",
+                        "needHuman",human,"sourceIds",ids,"handoff",Map.of("state",state,"reason",reason,"detail",detail)))),50);
+    }
+    @Test void supportedGraphExplanationRepairsUnnecessaryHandoffWithoutAnotherToolCall()throws Exception {
+        String id=published();seed(id);var index=new java.util.concurrent.atomic.AtomicInteger();
+        when(model.call(anyList(),anyList(),anyInt())).thenAnswer(call->switch(index.getAndIncrement()) {
+            case 0->tool("searchExperienceGraph","{\"query\":\"配置\"}");
+            case 1->decision(true,"ANSWERED","NONE","",List.of(sourceId(id)));
+            default->{assertTrue(((List<?>)call.getArgument(1)).isEmpty());yield decision(false,"ANSWERED","NONE","",List.of(sourceId(id)));}
+        });
+        var run=agent.run("请解释已审核经验的适用条件和步骤");
+        assertEquals("SUCCEEDED",run.status());assertFalse(run.needHuman());assertEquals("ANSWER",run.nextAction());
+        assertEquals("NONE",run.handoffReason());assertEquals(3,run.modelCalls());assertEquals(1,run.toolCalls());
+        assertTrue(run.answer().contains(sourceId(id)));
+    }
+    @Test void invalidDemoScopeReasonGetsOneCorrectionAndNoHandoff()throws Exception {
+        var index=new java.util.concurrent.atomic.AtomicInteger();
+        when(model.call(anyList(),anyList(),anyInt())).thenAnswer(call->index.getAndIncrement()==0
+                ?decision(true,"HUMAN_ACTION_REQUIRED","DEMO_SCOPE","只是合成演示需要转人工",List.of())
+                :decision(false,"ANSWERED","NONE","",List.of()));
+        var run=agent.run("什么是合成演示数据？");
+        assertFalse(run.needHuman());assertEquals("SUCCEEDED",run.status());assertEquals(2,run.modelCalls());assertEquals(0,run.toolCalls());
+    }
+    @Test void repeatedUnjustifiedHandoffWaitsForInputRatherThanCreatingHumanWork()throws Exception {
+        when(model.call(anyList(),anyList(),anyInt())).thenAnswer(call->answer(List.of(),true));
+        var run=agent.run("请解释PUT全量更新");
+        assertEquals("WAITING_INPUT",run.status());assertEquals("HANDOFF_REASON_REQUIRED",run.statusReason());
+        assertFalse(run.needHuman());assertEquals("ASK_USER",run.nextAction());assertEquals(2,run.modelCalls());assertEquals(0,run.toolCalls());
+        verifyNoInteractions(retrieval);
+    }
+    @Test void clarifyingQuestionAfterEmptySearchDoesNotPretendToHaveAnAnswerOrEscalate()throws Exception {
+        when(retrieval.search(anyString())).thenReturn(new KnowledgeSearchResult(List.of(),List.of(),0));
+        var index=new java.util.concurrent.atomic.AtomicInteger();when(model.call(anyList(),anyList(),anyInt())).thenAnswer(call->index.getAndIncrement()==0
+                ?tool("searchExperienceGraph","{\"query\":\"账号异常\"}")
+                :decision(false,"NEEDS_CLARIFICATION","USER_CONTEXT_REQUIRED","请补充目前遇到的具体报错信息",List.of()));
+        var run=agent.run("我的账号有问题");
+        assertEquals("WAITING_INPUT",run.status());assertEquals("CLARIFICATION_REQUIRED",run.statusReason());
+        assertFalse(run.needHuman());assertEquals("ASK_USER",run.nextAction());assertEquals(1,run.toolCalls());assertTrue(run.answer().contains("报错"));
+    }
+    @Test void missingRealBusinessRecordRemainsAConcreteHumanBlocker()throws Exception {
+        when(retrieval.search(anyString())).thenReturn(new KnowledgeSearchResult(List.of(),List.of(),0));
+        var index=new java.util.concurrent.atomic.AtomicInteger();when(model.call(anyList(),anyList(),anyInt())).thenAnswer(call->index.getAndIncrement()==0
+                ?tool("searchKnowledge","{\"query\":\"退款到账记录\"}")
+                :decision(true,"INSUFFICIENT_EVIDENCE","CRITICAL_FACTS_MISSING","缺少当前订单的真实退款到账记录",List.of()));
+        var run=agent.run("这笔退款到账了吗？");
+        assertEquals("PARTIAL",run.status());assertTrue(run.needHuman());assertEquals("CRITICAL_FACTS_MISSING",run.handoffReason());
+        assertEquals("缺少当前订单的真实退款到账记录",run.handoffDetail());assertEquals(2,run.modelCalls());
+    }
+    @Test void actualManualOperationIsDifferentFromExplainingItsProcedure()throws Exception {
+        when(model.call(anyList(),anyList(),anyInt())).thenReturn(decision(true,"HUMAN_ACTION_REQUIRED","HUMAN_OPERATION_REQUIRED","用户要求人工核实账号归属并办理申诉",List.of()));
+        var run=agent.run("现在为我办理需要人工核验的账号申诉");
+        assertTrue(run.needHuman());assertEquals("HUMAN_SUPPORT",run.nextAction());assertEquals("HUMAN_OPERATION_REQUIRED",run.handoffReason());
+        assertEquals(1,run.modelCalls());assertEquals(0,run.toolCalls());
+    }
+    @Test void handoffCorrectionCannotObtainAdditionalToolAuthority()throws Exception {
+        var index=new java.util.concurrent.atomic.AtomicInteger();when(model.call(anyList(),anyList(),anyInt())).thenAnswer(call->index.getAndIncrement()==0
+                ?answer(List.of(),true):tool("searchKnowledge","{\"query\":\"越权重试\"}"));
+        var run=agent.run("解释一个简单规则");
+        assertEquals("STOPPED",run.status());assertEquals("EXECUTION_STOPPED",run.statusReason());assertEquals(0,run.toolCalls());verifyNoInteractions(retrieval);
+    }
+    @Test void unavailableRepairCallBudgetDoesNotSilentlyEscalate()throws Exception {
+        int previous=runtimeConfig.getMaxModelCalls();
+        try {
+            runtimeConfig.setMaxModelCalls(1);
+            when(model.call(anyList(),anyList(),anyInt())).thenAnswer(call->answer(List.of(),true));
+            var run=agent.run("解释PUT规则");
+            assertEquals("WAITING_INPUT",run.status());assertFalse(run.needHuman());assertEquals("ASK_USER",run.nextAction());
+            assertEquals(1,run.modelCalls());assertEquals(0,run.toolCalls());
+        } finally {runtimeConfig.setMaxModelCalls(previous);}
     }
 }
 

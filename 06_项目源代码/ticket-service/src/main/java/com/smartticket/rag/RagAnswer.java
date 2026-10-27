@@ -44,7 +44,13 @@ public record RagAnswer(boolean matched,
                         boolean needHuman,
                         List<RetrievalSource> degradedSources,
                         long costMs,
-                        String statusReason) {
+                        String statusReason,
+                        com.smartticket.assistance.HandoffDecision decision) {
+
+    public RagAnswer(boolean matched,double confidence,List<RagSource> sources,String suggestion,
+            List<String> similarQuestions,boolean needHuman,List<RetrievalSource> degradedSources,long costMs,String statusReason) {
+        this(matched,confidence,sources,suggestion,similarQuestions,needHuman,degradedSources,costMs,statusReason,null);
+    }
 
     /** Compatibility constructor for callers that do not yet provide a diagnostic reason. */
     public RagAnswer(boolean matched, double confidence, List<RagSource> sources, String suggestion,

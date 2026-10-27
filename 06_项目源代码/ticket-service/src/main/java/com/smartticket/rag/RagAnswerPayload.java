@@ -14,6 +14,10 @@ import java.util.List;
  * 这与 {@code AiClassificationResult} 的约定一致：把"结构是否完整"的判定集中在一个地方，
  * 才能做到"要么全部通过、要么抛异常"，不存在"部分合法就先用着"的中间态。
  */
-public record RagAnswerPayload(String suggestion, List<String> similarQuestions, Boolean needHuman) {
+public record RagAnswerPayload(String suggestion, List<String> similarQuestions, Boolean needHuman,
+        com.smartticket.assistance.HandoffDecision handoff) {
+    public RagAnswerPayload(String suggestion,List<String> similarQuestions,Boolean needHuman) {
+        this(suggestion,similarQuestions,needHuman,null);
+    }
 
 }

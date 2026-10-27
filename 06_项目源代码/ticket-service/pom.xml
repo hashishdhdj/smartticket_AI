@@ -194,6 +194,7 @@
                         <include>**/AgentToolContextTest.java</include>
                         <include>**/AgentToolsTest.java</include>
                         <include>**/AgentAnswerTest.java</include>
+                        <include>**/HandoffDecisionTest.java</include>
                         <include>**/ExperienceCardCodecTest.java</include>
                         <include>**/ExperienceGraphCompilerTest.java</include>
                         <include>**/ExperienceGraphSearchTest.java</include>

@@ -59,7 +59,9 @@ class ComparisonFixture:
                     else:
                         owner.contexts.append(json.loads(tools[-1]['content']))
                         message = {'role': 'assistant', 'content': json.dumps({'answer': '离线证据采集；未生成业务建议。',
-                                   'needHuman': True, 'sourceIds': []}, ensure_ascii=False)}
+                                   'needHuman': False, 'sourceIds': [],
+                                   'handoff': {'state': 'NEEDS_CLARIFICATION', 'reason': 'USER_CONTEXT_REQUIRED',
+                                               'detail': '仅采集证据，等待另行提供业务回答；本替身不生成建议'}}, ensure_ascii=False)}
                         reason = 'stop'
                     payload = {'id': 'g5-offline', 'object': 'chat.completion', 'created': 1793000000,
                         'model': 'offline-capture-only', 'choices': [{'index': 0, 'message': message, 'finish_reason': reason}],

@@ -77,7 +77,16 @@ class AgentOpenAiProtocolTest {
                                                     "function",
                                                     "function",
                                                     Map.of("name", name, "arguments", args))));
-                        } else message.put("content", JSON.writeValueAsString(Map.of("answer", "工单待分配；请核对支付，来源faq/protocol.md#0", "needHuman", false, "sourceIds", List.of("faq/protocol.md#0"))));
+                        } else {
+                            boolean clarify=mode.equals("clarify");
+                            boolean unnecessary=mode.equals("handoff_repair") && index==3;
+                            message.put("content", JSON.writeValueAsString(Map.of(
+                                    "answer",clarify?"请问要查询哪个支付渠道的错误信息？":"工单待分配；请核对支付，来源faq/protocol.md#0",
+                                    "needHuman",unnecessary,"sourceIds",List.of("faq/protocol.md#0"),
+                                    "handoff",Map.of("state",clarify?"NEEDS_CLARIFICATION":"ANSWERED",
+                                            "reason",clarify?"USER_CONTEXT_REQUIRED":"NONE",
+                                            "detail",clarify?"需要用户提供出现报错的支付渠道":""))));
+                        }
                         var body =
                                 Map.of(
                                         "id",
@@ -210,5 +219,19 @@ class AgentOpenAiProtocolTest {
         var run = agent.run("反复查单");
         assertEquals("STOPPED", run.status());
         assertEquals(2, REQUESTS.size());
+    }
+
+    @Test void realProtocolCorrectsUnnecessaryHandoffWithoutExposingToolsAgain() throws Exception {
+        mode="handoff_repair";var run=agent.run("请解释现有工单的处理规则");
+        assertEquals("SUCCEEDED",run.status());assertFalse(run.needHuman());assertEquals("ANSWER",run.nextAction());
+        assertEquals(4,run.modelCalls());assertEquals(2,run.toolCalls());assertEquals(4,REQUESTS.size());
+        var repair=JSON.readTree(REQUESTS.get(3));
+        assertTrue(!repair.has("tools") || repair.get("tools").isEmpty());
+        assertTrue(repair.get("messages").toString().contains("上一条人工升级判定"));
+    }
+    @Test void realProtocolClarificationDoesNotCreateAHumanHandoff() {
+        mode="clarify";var run=agent.run("支付有问题，先问清我遇到了什么");
+        assertEquals("WAITING_INPUT",run.status());assertEquals("CLARIFICATION_REQUIRED",run.statusReason());
+        assertFalse(run.needHuman());assertEquals("ASK_USER",run.nextAction());assertEquals(3,run.modelCalls());assertEquals(2,run.toolCalls());
     }
 }

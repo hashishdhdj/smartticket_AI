@@ -18,7 +18,7 @@ class AgentAnswerTest {
         assertEquals("核对流水", value.answer());
     }
     @Test void preservesModelNeedForHuman() throws Exception {
-        assertTrue(AgentAnswer.parse("{\"answer\":\"资料不足，人工核实\",\"needHuman\":true,\"sourceIds\":[]}", available, true).needHuman());
+        assertTrue(AgentAnswer.parse("{\"answer\":\"资料不足，人工核实\",\"needHuman\":true,\"sourceIds\":[],\"handoff\":{\"state\":\"INSUFFICIENT_EVIDENCE\",\"reason\":\"CRITICAL_FACTS_MISSING\",\"detail\":\"缺少该笔退款实际到账记录\"}}", available, true).needHuman());
     }
     @Test void missingCitationAfterSearchRequiresHuman() throws Exception {
         assertTrue(AgentAnswer.parse("{\"answer\":\"声称完成\",\"needHuman\":false,\"sourceIds\":[]}", available, true).needHuman());
@@ -47,5 +47,19 @@ class AgentAnswerTest {
         var result=AgentAnswer.parse("{\"answer\":\""+"文".repeat(4000)+"\",\"needHuman\":false,\"sourceIds\":[\"faq/pay#0\"]}",available,true);
         assertEquals(4000,result.render().length());
         assertTrue(result.render().endsWith("来源：faq/pay#0"));
+    }
+    @Test void clarificationCanAskForMissingUserContextWithoutCitationOrHandoff()throws Exception {
+        var a=AgentAnswer.parse("{\"answer\":\"原手机号还能接收短信吗？\",\"needHuman\":false,\"sourceIds\":[],\"handoff\":{\"state\":\"NEEDS_CLARIFICATION\",\"reason\":\"USER_CONTEXT_REQUIRED\",\"detail\":\"原手机号是否仍能接收短信尚未说明\"}}",available,true);
+        assertFalse(a.needHuman());assertTrue(a.handoff().clarification());
+    }
+    @Test void completeExplanationWithHumanFlagIsRejectedForRepair() {
+        assertThrows(com.smartticket.assistance.HandoffDecision.Rejected.class,()->AgentAnswer.parse("{\"answer\":\"SENT只是已投递\",\"needHuman\":true,\"sourceIds\":[\"faq/pay#0\"],\"handoff\":{\"state\":\"ANSWERED\",\"reason\":\"NONE\",\"detail\":\"\"}}",available,true));
+    }
+    @Test void missingHumanReasonCannotPassAsAnUnrestrictedBoolean() {
+        assertThrows(com.smartticket.assistance.HandoffDecision.Rejected.class,()->AgentAnswer.parse("{\"answer\":\"只因演示范围请人工核实\",\"needHuman\":true,\"sourceIds\":[\"faq/pay#0\"]}",available,true));
+    }
+    @Test void missingCriticalFactsKeepSpecificReasonEvenWithoutCitation()throws Exception {
+        var a=AgentAnswer.parse("{\"answer\":\"不能确认到账时刻\",\"needHuman\":true,\"sourceIds\":[],\"handoff\":{\"state\":\"INSUFFICIENT_EVIDENCE\",\"reason\":\"CRITICAL_FACTS_MISSING\",\"detail\":\"缺少该笔退款的银行实际处理记录\"}}",available,true);
+        assertEquals("缺少该笔退款的银行实际处理记录",a.handoff().detail());
     }
 }

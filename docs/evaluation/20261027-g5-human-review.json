@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "PENDING_HUMAN_REVIEW",
+  "status": "DELEGATED_AI_REVIEW_COMPLETED",
   "report": "docs/evaluation/20261027-g5-real-generation.json",
   "report_sha256": "9f0ed0ee96a7aaa31aae4b5dda4daadf148634b2dba650a0b2377972346b1417",
   "independent_blind_test": false,
@@ -226,28 +226,34 @@
       "id": "G509",
       "arm": "A",
       "response_sha256": "08605340f172f14d4245add8a2bb29a5d3132ec05926e9748d0137ac55bbfb4a",
-      "grade": null,
-      "notes": null,
-      "reviewer": null,
-      "reviewed_at": null
+      "grade": "PARTIAL",
+      "notes": "转人工多余",
+      "reviewer": "PROJECT_OWNER_IN_CHAT",
+      "reviewed_at": "2026-10-27T08:29:59.990013+00:00",
+      "decision_origin": "EXPLICIT_OWNER_REPLY",
+      "owner_statement": "A部分通过：转人工多余；B部分通过：同上；C通过。"
     },
     {
       "id": "G509",
       "arm": "B",
       "response_sha256": "7fc032736445cb85ec44668bc072db329c4a02d7c3c2d50659ed0a994878bb18",
-      "grade": null,
-      "notes": null,
-      "reviewer": null,
-      "reviewed_at": null
+      "grade": "PARTIAL",
+      "notes": "转人工多余（作者原话：同上）",
+      "reviewer": "PROJECT_OWNER_IN_CHAT",
+      "reviewed_at": "2026-10-27T08:29:59.990013+00:00",
+      "decision_origin": "EXPLICIT_OWNER_REPLY",
+      "owner_statement": "A部分通过：转人工多余；B部分通过：同上；C通过。"
     },
     {
       "id": "G509",
       "arm": "C",
       "response_sha256": "44552f8c5e8b9a05c09870b92453a68bdc0926d756847d9b71369a0f113b4e18",
-      "grade": null,
+      "grade": "PASS",
       "notes": null,
-      "reviewer": null,
-      "reviewed_at": null
+      "reviewer": "PROJECT_OWNER_IN_CHAT",
+      "reviewed_at": "2026-10-27T08:29:59.990013+00:00",
+      "decision_origin": "EXPLICIT_OWNER_REPLY",
+      "owner_statement": "A部分通过：转人工多余；B部分通过：同上；C通过。"
     },
     {
       "id": "G510",
@@ -330,5 +336,16 @@
       "reviewer": null,
       "reviewed_at": null
     }
-  ]
+  ],
+  "reviewed_count": 3,
+  "pending_count": 33,
+  "last_updated_at": "2026-10-27T08:45:31.240351+00:00",
+  "delegated_ai_review_file": "docs/evaluation/20261027-g5-ai-professional-review.json",
+  "delegated_ai_review_sha256": "b485659b27fce328b1b4a1086f8e6897def1b063be5f76c6b724eb4f7c871f14",
+  "delegated_ai_reviewed_count": 36,
+  "effective_reviewed_count": 36,
+  "pending_owner_reviews_required": 0,
+  "owner_reviewed_count": 3,
+  "independent_human_review_completed": false,
+  "counts_scope": "grade字段仅保留作者亲自给出的3条评分；其余条目按作者明确要求由单独AI复核报告覆盖，不再逐条请求作者评分。"
 }

@@ -49,7 +49,7 @@ public class RagAnswerPromptFactory {
      * 由 {@code RagAnswerPromptFactoryTest} 断言守护（阶段2 约束第 10 条：
      * 每次 Prompt 修改都要记录版本）。</p>
      */
-    public static final String PROMPT_VERSION = "rag-answer-v3.3";
+    public static final String PROMPT_VERSION = "rag-answer-v4.0";
 
     private static final String SYSTEM_TEMPLATE = "prompts/rag-answer-system.md";
 

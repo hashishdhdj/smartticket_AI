@@ -655,12 +655,15 @@ class ReliableBackendIntegrationTest {
     }
 
     @Test
-    void modelHumanFlagCannotBecomeSuccessfulRun() {
-        when(model.call(anyList(), anyList(), anyInt())).thenReturn(text("资料不足，请人工核实", true));
-        var run = agent.run("核实资料");
+    void genuineMissingBusinessFactCannotBecomeSuccessfulRun() throws Exception {
+        when(model.call(anyList(), anyList(), anyInt())).thenReturn(new AgentModel.Reply(new AssistantMessage(
+                json.writeValueAsString(Map.of("answer","缺少这笔订单的退款记录，请人工核实","needHuman",true,"sourceIds",List.of(),
+                        "handoff",Map.of("state","INSUFFICIENT_EVIDENCE","reason","CRITICAL_FACTS_MISSING","detail","缺少用户所查订单的真实退款到账记录")))),20));
+        var run = agent.run("请核实这笔订单是否退款到账");
         assertEquals("PARTIAL", run.status());
         assertTrue(run.needHuman());
         assertEquals("HUMAN_REVIEW_REQUIRED", run.statusReason());
+        assertEquals("CRITICAL_FACTS_MISSING", run.handoffReason());
         assertTrue(run.answer().contains("人工"));
     }
 

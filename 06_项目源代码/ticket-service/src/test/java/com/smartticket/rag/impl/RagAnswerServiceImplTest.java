@@ -40,6 +40,8 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.times;
+import com.smartticket.vo.KnowledgeAnswerVO;
 
 /**
  * {@link RagAnswerServiceImpl} 单元测试（阶段2 第5周任务 3/4/5/6）。
@@ -98,22 +100,77 @@ class RagAnswerServiceImplTest {
     @ParameterizedTest
     @ValueSource(doubles = {0.91, 0.5989091154011912})
     void admittedSimilarityDoesNotOverrideModelSemanticAbstention(double score) {
-        KnowledgeChunk target = chunk("faq/05-项目权限与AI处理.md", "哪些账号可以查看和修改工单", 0,
-                "本项目使用API Key鉴权，没有短信登录或验证码供应商配置。");
+        KnowledgeChunk target = chunk("faq/02-支付问题.md", "如何查询退款", 0,
+                "退款进度需查具体订单的处理记录，知识文档不包含真实订单数据。");
         givenSearch(new KnowledgeSearchResult(
                 List.of(new FusedHit(target, 0.03, EnumSet.of(RetrievalSource.VECTOR))),
                 List.of(RetrievalResult.ok(RetrievalSource.VECTOR,
                         List.of(new RetrievalHit(target, score)), 2)), 2));
-        givenModelReturnsRaw("{\"suggestion\":\"不能提供供应商凭据，请联系授权管理员核实\",\"similarQuestions\":[\"哪些账号可以查看和修改工单\"],\"needHuman\":true}");
-        var answer = ragAnswerService.answer("验证码供应商的密钥是什么？");
+        givenModelReturnsRaw(decision(true,"INSUFFICIENT_EVIDENCE","CRITICAL_FACTS_MISSING","缺少这笔订单的真实退款处理记录"));
+        var answer = ragAnswerService.answer("我的这笔退款到底到账没有？");
         assertTrue(answer.matched());
         assertTrue(answer.needHuman());
         assertNull(answer.suggestion());
         assertEquals(score, answer.confidence());
-        assertEquals("MODEL_REFUSED", answer.statusReason());
+        assertEquals("CRITICAL_FACTS_MISSING", answer.statusReason());
+        assertEquals("缺少这笔订单的真实退款处理记录", KnowledgeAnswerVO.of(answer).handoffDetail());
         verify(aiChatService).chat(anyString(), anyString());
         assertFalse(answer.sources().isEmpty());
         assertTrue(answer.similarQuestions().isEmpty());
+    }
+
+    private String decision(boolean human,String state,String reason,String detail) {
+        try {
+            return MAPPER.writeValueAsString(Map.of("suggestion","请依据当前资料处理；缺少信息时请补充。",
+                    "similarQuestions",List.of("工单处理规则"),"needHuman",human,
+                    "handoff",Map.of("state",state,"reason",reason,"detail",detail)));
+        } catch(JsonProcessingException e) { throw new IllegalStateException(e); }
+    }
+    private void explanationSource() {
+        givenSearch(highConfidenceSearch(chunk("faq/project.md","PUT更新规则",0,"PUT为全量更新，未传可空描述可能被清空。")));
+    }
+
+    @Test void answeredExplanationCannotKeepHumanFlagAndGetsOneRepair() {
+        explanationSource();
+        when(aiChatService.chat(anyString(),anyString())).thenReturn(
+                AiCallResult.ok(decision(true,"ANSWERED","NONE",""),1,"fixture"),
+                AiCallResult.ok(decision(false,"ANSWERED","NONE",""),1,"fixture"));
+        var vo=KnowledgeAnswerVO.of(ragAnswerService.answer("PUT未传描述是否保留？"));
+        assertFalse(vo.needHuman());assertEquals("ANSWER",vo.nextAction());assertEquals("NONE",vo.handoffReason());
+        var prompts=ArgumentCaptor.forClass(String.class);verify(aiChatService,times(2)).chat(prompts.capture(),anyString());
+        assertTrue(prompts.getAllValues().get(1).contains("上一条人工升级判定"));
+    }
+    @Test void repeatedUnjustifiedHandoffAsksForDetailsWithoutEscalating() {
+        explanationSource();givenModelReturnsRaw("{\"suggestion\":\"资料说明了PUT规则，请转人工\",\"similarQuestions\":[\"PUT规则\"],\"needHuman\":true}");
+        var vo=KnowledgeAnswerVO.of(ragAnswerService.answer("PUT规则是什么？"));
+        assertFalse(vo.needHuman());assertEquals("ASK_USER",vo.nextAction());assertEquals("CLARIFICATION_REQUIRED",vo.statusReason());
+        assertFalse(vo.sources().isEmpty());assertNotNull(vo.suggestion());verify(aiChatService,times(2)).chat(anyString(),anyString());
+    }
+    @Test void missingUserContextIsAQuestionRatherThanAHandoff() {
+        explanationSource();givenModelReturnsRaw(decision(false,"NEEDS_CLARIFICATION","USER_CONTEXT_REQUIRED","请说明你需要修改哪张工单的哪个字段"));
+        var vo=KnowledgeAnswerVO.of(ragAnswerService.answer("帮我改一下"));
+        assertFalse(vo.needHuman());assertEquals("ASK_USER",vo.nextAction());assertEquals("CLARIFICATION_REQUIRED",vo.statusReason());
+        verify(aiChatService).chat(anyString(),anyString());
+    }
+    @Test void actualManualOperationRetainsItsConcreteBlocker() {
+        explanationSource();givenModelReturnsRaw(decision(true,"HUMAN_ACTION_REQUIRED","HUMAN_OPERATION_REQUIRED","用户要求立即办理人工账号申诉核验"));
+        var vo=KnowledgeAnswerVO.of(ragAnswerService.answer("请现在替我办理人工申诉核验"));
+        assertTrue(vo.needHuman());assertEquals("HUMAN_SUPPORT",vo.nextAction());assertEquals("HUMAN_OPERATION_REQUIRED",vo.handoffReason());
+        assertEquals("用户要求立即办理人工账号申诉核验",vo.handoffDetail());assertNull(vo.suggestion());
+        verify(aiChatService).chat(anyString(),anyString());
+    }
+    @Test void explainingManualProcedureDoesNotItselfRequireHumanWork() {
+        explanationSource();givenModelReturnsRaw(decision(false,"ANSWERED","NONE",""));
+        var vo=KnowledgeAnswerVO.of(ragAnswerService.answer("管理员审核与索引有什么区别？"));
+        assertFalse(vo.needHuman());assertEquals("ANSWER",vo.nextAction());verify(aiChatService).chat(anyString(),anyString());
+    }
+    @Test void repairTransportFailureIsNotFalselyReportedAsAnswerOrClarification() {
+        explanationSource();when(aiChatService.chat(anyString(),anyString())).thenReturn(
+                AiCallResult.ok(decision(true,"ANSWERED","NONE",""),1,"fixture"),
+                AiCallResult.failed(ErrorCode.AI_CALL_FAILED,"upstream_transport",1));
+        var vo=KnowledgeAnswerVO.of(ragAnswerService.answer("PUT规则"));
+        assertTrue(vo.needHuman());assertEquals("MODEL_TRANSPORT_FAILURE",vo.handoffReason());assertEquals("HUMAN_SUPPORT",vo.nextAction());
+        assertNull(vo.suggestion());verify(aiChatService,times(2)).chat(anyString(),anyString());
     }
 
     @Test

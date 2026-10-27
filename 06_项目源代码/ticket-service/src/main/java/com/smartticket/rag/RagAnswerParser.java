@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.smartticket.ai.AiResponseInvalidException;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
+import com.smartticket.assistance.HandoffDecision;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,8 +55,10 @@ public class RagAnswerParser {
      * AI 输出的解析规则不该被 {@code spring.jackson.*} 或 Web 层的定制被动影响。
      */
     private static final ObjectMapper MAPPER = JsonMapper.builder()
+            .enable(com.fasterxml.jackson.core.StreamReadFeature.STRICT_DUPLICATE_DETECTION)
             .disable(com.fasterxml.jackson.databind.MapperFeature.ALLOW_COERCION_OF_SCALARS)
             .enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+            .enable(DeserializationFeature.FAIL_ON_TRAILING_TOKENS)
             .build();
 
     /**
@@ -81,7 +84,12 @@ public class RagAnswerParser {
         String json = unwrapCodeFence(rawText);
         RagAnswerPayload raw;
         try {
-            raw = MAPPER.readValue(json, RagAnswerPayload.class);
+            var node=MAPPER.readTree(json);
+            if(node==null || !node.isObject())throw new AiResponseInvalidException("回答必须是对象");
+            var handoff=HandoffDecision.parse(node.get("handoff"),node.path("needHuman").isBoolean() && node.get("needHuman").booleanValue());
+            var base=(com.fasterxml.jackson.databind.node.ObjectNode)node.deepCopy();base.remove("handoff");
+            var values=MAPPER.readValue(MAPPER.writeValueAsString(base),RagAnswerPayload.class);
+            raw=new RagAnswerPayload(values.suggestion(),values.similarQuestions(),values.needHuman(),handoff);
         } catch (JsonProcessingException e) {
             throw new AiResponseInvalidException(
                     "返回内容不是合法 JSON 或字段不匹配：" + brief(json) + " | 原因：" + e.getOriginalMessage());
@@ -132,7 +140,8 @@ public class RagAnswerParser {
             normalized.add(collapsed);
         }
 
-        return new RagAnswerPayload(suggestion, List.copyOf(normalized), raw.needHuman());
+        raw.handoff().validateFlag(raw.needHuman());
+        return new RagAnswerPayload(suggestion, List.copyOf(normalized), raw.needHuman(),raw.handoff());
     }
 
     /** 折叠空白成一行并 trim；结果为空时返回 null */

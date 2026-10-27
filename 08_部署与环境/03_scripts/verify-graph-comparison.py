@@ -70,7 +70,7 @@ def collect(app, fixture, query, tool, role):
     start = time.perf_counter()
     run = app.api('/api/agent/runs', {'message': query}, role=role)
     wall = round((time.perf_counter() - start) * 1000, 3)
-    if (run['status'] != 'PARTIAL' or run['statusReason'] != 'HUMAN_REVIEW_REQUIRED'
+    if (run['status'] != 'WAITING_INPUT' or run['statusReason'] != 'CLARIFICATION_REQUIRED' or run['needHuman']
             or run['modelCalls'] != 2 or run['toolCalls'] != 1 or len(fixture.contexts) != prior + 1
             or run['steps'][0]['outcome'] != 'SUCCESS' or run['steps'][0]['tool'] != tool):
         raise RuntimeError('Capture-only protocol did not complete: ' + run['statusReason'])

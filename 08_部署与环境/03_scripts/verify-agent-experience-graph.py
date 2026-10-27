@@ -92,7 +92,10 @@ class OfflineGraphFixture:
                     else:
                         answer = '未找到可验证的已审核图谱经验，请补充资料或转人工。'
                     message = {'role': 'assistant', 'content': json.dumps({'answer': answer,
-                               'needHuman': not rows, 'sourceIds': ids}, ensure_ascii=False)}
+                               'needHuman': not rows, 'sourceIds': ids,
+                               'handoff': {'state': 'ANSWERED' if rows else 'INSUFFICIENT_EVIDENCE',
+                                           'reason': 'NONE' if rows else 'CRITICAL_FACTS_MISSING',
+                                           'detail': '' if rows else '缺少可验证的已审核经验，无法给出当前问题的处理依据'}}, ensure_ascii=False)}
                     finish = 'stop'
                 payload = {'id': 'offline-g4', 'object': 'chat.completion', 'created': 1792700000,
                     'model': 'offline-g4-tool-fixture', 'choices': [{'index': 0, 'message': message, 'finish_reason': finish}],
@@ -147,7 +150,7 @@ def main():
     try:
         with OfflineGraphFixture() as fixture:
             with LocalQualityRuntime(args.java, jar, port=args.port, staff_experience=True, experience_cards=True,
-                                     experience_graph=True, offline_graph_fixture=fixture.base, extra_submitters=1) as app:
+                                     experience_graph=True, offline_graph_fixture=fixture.base, extra_submitters=4) as app:
                 report['actor_ids'] = [v[0] for v in app.actors.values()]
                 c = case['experience_card']
                 ticket = app.api('/api/tickets', {'title': c['problem_type'], 'description': 'G4合成演示，无真实客户数据。',
@@ -182,7 +185,9 @@ def main():
                 assert graph['status'] == 'READY'
                 source_id = f'resolved-ticket/{candidate}/v1.md#0'
                 before_ticket = app.api(path, role='SUBMITTER')
-                published = app.api('/api/agent/runs', {'message': c['problem_type']}, role='SUBMITTER')
+                # Independent synthetic users keep this multi-scenario acceptance run from
+                # exhausting one user's daily reservation. Never raise/reset production limits.
+                published = app.api('/api/agent/runs', {'message': c['problem_type']}, role='CASE_0')
                 report['runs']['published'] = published
                 assert published['status'] == 'SUCCEEDED', published['statusReason']
                 assert published['modelCalls'] == 2 and published['toolCalls'] == 1
@@ -195,18 +200,18 @@ def main():
                 app.api(base + '/graph', role='HANDLER', expected=403)
                 report['runs']['published'] = published
                 fixture.bad_citation = True
-                bad = app.api('/api/agent/runs', {'message': c['problem_type']}, role='SUBMITTER')
+                bad = app.api('/api/agent/runs', {'message': c['problem_type']}, role='CASE_1')
                 report['runs']['unsupported_citation'] = bad
                 assert bad['statusReason'] == 'UNSUPPORTED_SOURCE' and bad['status'] == 'PARTIAL'
                 fixture.bad_citation = False
                 report['runs']['unsupported_citation'] = bad
                 fixture.on_final = lambda: app.api(base + '/retract', {'expectedRevision': 1})
-                during = app.api('/api/agent/runs', {'message': c['problem_type']}, role='SUBMITTER')
+                during = app.api('/api/agent/runs', {'message': c['problem_type']}, role='CASE_2')
                 report['runs']['retracted_during_answer'] = during
                 assert during['statusReason'] == 'STALE_GRAPH_SOURCE' and source_id not in during['answer']
                 report['runs']['retracted_during_answer'] = during
                 # Independent user budget for the last scenario; never raise/reset production limits.
-                after = app.api('/api/agent/runs', {'message': c['problem_type']}, role='CASE_0')
+                after = app.api('/api/agent/runs', {'message': c['problem_type']}, role='CASE_3')
                 report['runs']['after_retraction'] = after
                 assert after['status'] == 'PARTIAL' and not after['evidence'][0]['sources']
                 report['runs']['after_retraction'] = after

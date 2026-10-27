@@ -1,81 +1,121 @@
 {
   "schema_version": 1,
-  "date": "2026-10-23",
-  "runtime_policy": "RECALL_FIRST_055_G4_AGENT_EXPERIENCE_GRAPH",
+  "date": "2026-10-27",
+  "runtime_policy": "RECALL_FIRST_055_GOVERNED_HANDOFF_V1",
   "runtime_changed_from_R05": true,
-  "scope": "Expected G4 source/test baseline, not a completed test report.",
-  "previous_baseline": "docs/evaluation/20261023-g3-runtime-baseline.json",
+  "scope": "Expected source/test baseline for governed handoff. Completed verification is recorded separately.",
+  "previous_baseline": "docs/evaluation/20261027-before-governed-handoff-runtime-baseline.json",
   "reviewed_source_changes": [
     {
       "path": "pom.xml",
-      "sha256": "4f68d391c81ae5db20a8481d846ec776d2f3137b0bd60196723d0c154300c91f",
-      "previous_sha256": "49c1d31d2705bfa9f8fb7e5fa38092839d85a2276daa61212d511d48cd4b5300"
+      "sha256": "89d5ac946075e732492e65d4932e58a731537981b095f2fb2914937920b28400",
+      "previous_sha256": "4f68d391c81ae5db20a8481d846ec776d2f3137b0bd60196723d0c154300c91f"
     },
     {
       "path": "src/main/java/com/smartticket/agent/AgentAnswer.java",
-      "sha256": "c28531a80220f7646fcd1184db9bfe5ba98719e9b18368d3de0adde53e307635",
-      "previous_sha256": "f85f7c1849e5929e6a856981ba297946443e027610231c24c599bdcc2bab4cb2"
+      "sha256": "205f506821c4424c442b4d7177a8ccc16308686e3d555f6b26ef3956a5c6925b",
+      "previous_sha256": "c28531a80220f7646fcd1184db9bfe5ba98719e9b18368d3de0adde53e307635"
     },
     {
       "path": "src/main/java/com/smartticket/agent/AgentService.java",
-      "sha256": "0e3ac591b4d044d903b57243fa692c638a53968ba2e7c49885b85356502fea2f",
-      "previous_sha256": "9d8df953f408e8d13289410d425846705a66eb349b1d73adce57044b7a1e2948"
+      "sha256": "36f2b11f9de5d65a869a0e106a8705cbaecd8841a0b821f877c0ec6d66d60bae",
+      "previous_sha256": "0e3ac591b4d044d903b57243fa692c638a53968ba2e7c49885b85356502fea2f"
     },
     {
-      "path": "src/main/java/com/smartticket/agent/AgentToolContext.java",
-      "sha256": "dca471a053ea1a226a3cd68c6d93d012b9cba273ce2b68c6e1aa970b901d8563",
-      "previous_sha256": "7628de692332e498190b64cad6e3f05fcc1ce939a31bf2b846d3e6b39699e779"
-    },
-    {
-      "path": "src/main/java/com/smartticket/agent/AgentTools.java",
-      "sha256": "a2819c0f7169db0fa2f81b155a1e42b08787303d36b7ff713a362f1ea8706ef7",
-      "previous_sha256": "8690e39d12ce3f47ebe60f6ced53ae29ca65577e3ff4670b43a01b4de2baa2cb"
-    },
-    {
-      "path": "src/main/java/com/smartticket/experience/ExperienceProperties.java",
-      "sha256": "9517cad6b7c970b794f72992aceba0fd2cb00cc32c84ad6a11e5ee1987d1ef2e",
-      "previous_sha256": "f33f2e9b7cc5e3cb41dd1cd844467d334bc8027315e474b51e5be32426ed9bc7"
-    },
-    {
-      "path": "src/main/java/com/smartticket/experience/graph/ExperienceGraphReader.java",
-      "sha256": "3c1885684aa351aeb79aca9e258672bb1c7c531b0c325386f0d6d43aa837f3cc",
+      "path": "src/main/java/com/smartticket/assistance/HandoffDecision.java",
+      "sha256": "f8611c733b0a26824acc19f3009d63eb6052796d595a8c2ffd56221c4d11640e",
       "previous_sha256": null
     },
     {
-      "path": "src/main/java/com/smartticket/experience/graph/ExperienceGraphSearchService.java",
-      "sha256": "8966d5cec0e1faf5d98f94a716079e5ee6cf0e6be1941e73c4d607ea1f437752",
-      "previous_sha256": null
+      "path": "src/main/java/com/smartticket/rag/RagAnswer.java",
+      "sha256": "6b08be519212bb1c0775f567514ae24fcd237425806e7ee7a93c929bbb4eed49",
+      "previous_sha256": "944c07a0b0b259ece95fc689cf161f55ef3feea4a6dd87be8757ad7234f18c09"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/RagAnswerParser.java",
+      "sha256": "7d68bb602eac018f61180900afd5e2da2acb1380e45d165cf08a588ed0589d8b",
+      "previous_sha256": "8846530dcdda9fc5fb11ab86805b06a711d4c323d84cb3f8a490311c8a11d1a7"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/RagAnswerPayload.java",
+      "sha256": "a5a5997aa08f883d2e15b6a3c3fcb955cf09780c6fe8523bd1601e84c834d87d",
+      "previous_sha256": "0050708bb7469ecd7b3d3f9e25b2e967c9ff3751963782ea98d0c5b7d7330437"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/RagAnswerPromptFactory.java",
+      "sha256": "131efaaad136457c78f5f9c1a2d810c34a2c8023df6cb3b22afb138cc26ff177",
+      "previous_sha256": "974cfaf5a6f155fed9431bc9f1ad8287ef10a8e4dd439f94e954ab2b7e5dbbe0"
+    },
+    {
+      "path": "src/main/java/com/smartticket/rag/impl/RagAnswerServiceImpl.java",
+      "sha256": "507581587038a1bb735162c56469f43967be1eb3d13e750974516ebb085c0d41",
+      "previous_sha256": "35b9bd2e5d513ec7b47332cbfdd183d38e0a8a222a1f0e150e82e4f46559bb10"
+    },
+    {
+      "path": "src/main/java/com/smartticket/vo/KnowledgeAnswerVO.java",
+      "sha256": "acc631c53fa68deafa09a26fb211a5300fdfbb9a6b3db34a3c3a1ab297f5a309",
+      "previous_sha256": "9b1aaaec23722033aa68f2822ac9becbaf4cbf5aee107c6c0b842718c8c0a39f"
+    },
+    {
+      "path": "src/main/resources/prompts/rag-answer-result.schema.json",
+      "sha256": "1013f12bba7ec3db541fd03b2e2aa7e6a1cdfdcdf0a46d4487f476f2bbbbe255",
+      "previous_sha256": "847c103e1193218a2a6a74aa6033479cd5aa00724e9f345993785c6a052939cf"
+    },
+    {
+      "path": "src/main/resources/prompts/rag-answer-system.md",
+      "sha256": "2ae2b15c0bd937d98ac5ae854272b00c5971ec4eed2676054fccc2eb13fd2414",
+      "previous_sha256": "698b1eacd86e0e682248c395a18ffb59e9caed72c5827fc3e37f0a9437c759c8"
+    },
+    {
+      "path": "src/main/resources/prompts/rag-answer-user.md",
+      "sha256": "268ce688ceba53c64844c1732ec02679795c981e5edc24de75bf53f603e85311",
+      "previous_sha256": "505eb1bc82df41f6a5bd5e5b113f097b51516fcdabdf7746f0dd20e6bec3887a"
     },
     {
       "path": "src/test/java/com/smartticket/agent/AgentAnswerTest.java",
-      "sha256": "878675e0ccbc677d09ae2385308eae4d695cfd0c84b3e81abf761490014d0006",
-      "previous_sha256": "3ebf72c1dac1b174d91d708db53592859681425793cc4f0997402395091004c8"
+      "sha256": "f6dea011d66454ee912dee6d68a4dc199c3a9eae3c5e8e3016d077d9df50b9d3",
+      "previous_sha256": "878675e0ccbc677d09ae2385308eae4d695cfd0c84b3e81abf761490014d0006"
     },
     {
-      "path": "src/test/java/com/smartticket/agent/AgentToolContextTest.java",
-      "sha256": "d60d5f5fb1bffa6b45fcc5d58e4082d2ddc106e4e289a5c857cc04fb2c189f1e",
-      "previous_sha256": "adfa7ad95655a4c35d3e1ebe7a9269af6c1762d64d72e6e4aef7149b42fb6468"
+      "path": "src/test/java/com/smartticket/agent/AgentOpenAiProtocolTest.java",
+      "sha256": "a0f810597473a872b89fd65434c0e969516a6f63a936e2fd7da2a2f65ae42965",
+      "previous_sha256": "cb6a00137c5c384685c0138c18d1b13bf6c77f6141e16eb2bd4f2f4470f6a1a0"
     },
     {
-      "path": "src/test/java/com/smartticket/agent/AgentToolsTest.java",
-      "sha256": "f11fcb31a41610ae80e0292ae5558622a4a0473b1fcf5a4c0b1faa4d6112e1c2",
-      "previous_sha256": "24337d934a96861907e7d5ae5a76bd5cfac586a013193fa55c2ccd00ee0d2ca7"
+      "path": "src/test/java/com/smartticket/assistance/HandoffDecisionTest.java",
+      "sha256": "323ccf5acb8f66965675ff53a126cadac1b489d09db8c6b2689ef4b954a436d5",
+      "previous_sha256": null
     },
     {
       "path": "src/test/java/com/smartticket/experience/graph/ExperienceGraphAgentIntegrationTest.java",
-      "sha256": "58e90b4d5d190891fb1c8e35d178d1157ca04b45bb22cf053ddbc9165aba87e5",
-      "previous_sha256": null
+      "sha256": "6fcf04a6192edf52fc3065f4b0434d7003cb923df4f1e9b3013b88444e1d9087",
+      "previous_sha256": "58e90b4d5d190891fb1c8e35d178d1157ca04b45bb22cf053ddbc9165aba87e5"
     },
     {
-      "path": "src/test/java/com/smartticket/experience/graph/ExperienceGraphSearchTest.java",
-      "sha256": "e49c4bff5f19c3be1d3b91fc9e5b44fe5d2af593cbd32b26ef0526b87e192a03",
-      "previous_sha256": null
+      "path": "src/test/java/com/smartticket/rag/RagAnswerParserTest.java",
+      "sha256": "f81d551c3290f5adebcd032420e985424b3e1487abf8850527704c64bd618986",
+      "previous_sha256": "fd84eceaef87056bc73875b2c981606f5462071a267c52dbc8e4569e7c751aab"
+    },
+    {
+      "path": "src/test/java/com/smartticket/rag/RagAnswerSchemaTest.java",
+      "sha256": "ed020b6ee80baef150a8c66d101d3f91fdfa09b942ffa97b436eff161c8950c0",
+      "previous_sha256": "041f0496655dfd5b54621b627b94a0d732b90cf89ff0b20982bf06fd9f8707b9"
+    },
+    {
+      "path": "src/test/java/com/smartticket/rag/impl/RagAnswerServiceImplTest.java",
+      "sha256": "42783a2961448263c5a90b3e09dcd2fdbe52207a610f744a017257193cb13558",
+      "previous_sha256": "18311c2c70908b0f1385e44b0d582d171bcf39881b82a9b7134613c16f2aa9af"
+    },
+    {
+      "path": "src/test/java/com/smartticket/reliability/ReliableBackendIntegrationTest.java",
+      "sha256": "d9a885ec08d68d2fd11c3cbc50bcbccceb059570092bb73d00097c3917515911",
+      "previous_sha256": "bd3712d53f2b069430c7544e41e1b77fa97b2ef0c72eef93575a906883698262"
     }
   ],
   "java_profiles": {
     "unit": {
       "totals": {
-        "tests": 307,
+        "tests": 331,
         "failures": 0,
         "errors": 0,
         "skipped": 0
@@ -83,7 +123,7 @@
     },
     "integration": {
       "totals": {
-        "tests": 260,
+        "tests": 270,
         "failures": 0,
         "errors": 0,
         "skipped": 0
@@ -99,7 +139,7 @@
       },
       {
         "path": "pom.xml",
-        "sha256": "4f68d391c81ae5db20a8481d846ec776d2f3137b0bd60196723d0c154300c91f"
+        "sha256": "89d5ac946075e732492e65d4932e58a731537981b095f2fb2914937920b28400"
       },
       {
         "path": "src/main/java/com/smartticket/TicketServiceApplication.java",
@@ -107,7 +147,7 @@
       },
       {
         "path": "src/main/java/com/smartticket/agent/AgentAnswer.java",
-        "sha256": "c28531a80220f7646fcd1184db9bfe5ba98719e9b18368d3de0adde53e307635"
+        "sha256": "205f506821c4424c442b4d7177a8ccc16308686e3d555f6b26ef3956a5c6925b"
       },
       {
         "path": "src/main/java/com/smartticket/agent/AgentController.java",
@@ -119,7 +159,7 @@
       },
       {
         "path": "src/main/java/com/smartticket/agent/AgentService.java",
-        "sha256": "0e3ac591b4d044d903b57243fa692c638a53968ba2e7c49885b85356502fea2f"
+        "sha256": "36f2b11f9de5d65a869a0e106a8705cbaecd8841a0b821f877c0ec6d66d60bae"
       },
       {
         "path": "src/main/java/com/smartticket/agent/AgentToolContext.java",
@@ -196,6 +236,10 @@
       {
         "path": "src/main/java/com/smartticket/analysis/worker/AsyncAnalysisWorker.java",
         "sha256": "13c3aeaf5b6e0bcca3199a6819561dac1cef781b31fd1d897faa9ce45d0f212a"
+      },
+      {
+        "path": "src/main/java/com/smartticket/assistance/HandoffDecision.java",
+        "sha256": "f8611c733b0a26824acc19f3009d63eb6052796d595a8c2ffd56221c4d11640e"
       },
       {
         "path": "src/main/java/com/smartticket/cache/CacheInvalidationRepository.java",
@@ -519,19 +563,19 @@
       },
       {
         "path": "src/main/java/com/smartticket/rag/RagAnswer.java",
-        "sha256": "944c07a0b0b259ece95fc689cf161f55ef3feea4a6dd87be8757ad7234f18c09"
+        "sha256": "6b08be519212bb1c0775f567514ae24fcd237425806e7ee7a93c929bbb4eed49"
       },
       {
         "path": "src/main/java/com/smartticket/rag/RagAnswerParser.java",
-        "sha256": "8846530dcdda9fc5fb11ab86805b06a711d4c323d84cb3f8a490311c8a11d1a7"
+        "sha256": "7d68bb602eac018f61180900afd5e2da2acb1380e45d165cf08a588ed0589d8b"
       },
       {
         "path": "src/main/java/com/smartticket/rag/RagAnswerPayload.java",
-        "sha256": "0050708bb7469ecd7b3d3f9e25b2e967c9ff3751963782ea98d0c5b7d7330437"
+        "sha256": "a5a5997aa08f883d2e15b6a3c3fcb955cf09780c6fe8523bd1601e84c834d87d"
       },
       {
         "path": "src/main/java/com/smartticket/rag/RagAnswerPromptFactory.java",
-        "sha256": "974cfaf5a6f155fed9431bc9f1ad8287ef10a8e4dd439f94e954ab2b7e5dbbe0"
+        "sha256": "131efaaad136457c78f5f9c1a2d810c34a2c8023df6cb3b22afb138cc26ff177"
       },
       {
         "path": "src/main/java/com/smartticket/rag/RagAnswerService.java",
@@ -575,7 +619,7 @@
       },
       {
         "path": "src/main/java/com/smartticket/rag/impl/RagAnswerServiceImpl.java",
-        "sha256": "35b9bd2e5d513ec7b47332cbfdd183d38e0a8a222a1f0e150e82e4f46559bb10"
+        "sha256": "507581587038a1bb735162c56469f43967be1eb3d13e750974516ebb085c0d41"
       },
       {
         "path": "src/main/java/com/smartticket/security/AccessPolicy.java",
@@ -599,7 +643,7 @@
       },
       {
         "path": "src/main/java/com/smartticket/vo/KnowledgeAnswerVO.java",
-        "sha256": "9b1aaaec23722033aa68f2822ac9becbaf4cbf5aee107c6c0b842718c8c0a39f"
+        "sha256": "acc631c53fa68deafa09a26fb211a5300fdfbb9a6b3db34a3c3a1ab297f5a309"
       },
       {
         "path": "src/main/java/com/smartticket/vo/PageVO.java",
@@ -679,15 +723,15 @@
       },
       {
         "path": "src/main/resources/prompts/rag-answer-result.schema.json",
-        "sha256": "847c103e1193218a2a6a74aa6033479cd5aa00724e9f345993785c6a052939cf"
+        "sha256": "1013f12bba7ec3db541fd03b2e2aa7e6a1cdfdcdf0a46d4487f476f2bbbbe255"
       },
       {
         "path": "src/main/resources/prompts/rag-answer-system.md",
-        "sha256": "698b1eacd86e0e682248c395a18ffb59e9caed72c5827fc3e37f0a9437c759c8"
+        "sha256": "2ae2b15c0bd937d98ac5ae854272b00c5971ec4eed2676054fccc2eb13fd2414"
       },
       {
         "path": "src/main/resources/prompts/rag-answer-user.md",
-        "sha256": "505eb1bc82df41f6a5bd5e5b113f097b51516fcdabdf7746f0dd20e6bec3887a"
+        "sha256": "268ce688ceba53c64844c1732ec02679795c981e5edc24de75bf53f603e85311"
       },
       {
         "path": "src/main/resources/prompts/ticket-classify-system.md",
@@ -699,11 +743,11 @@
       },
       {
         "path": "src/test/java/com/smartticket/agent/AgentAnswerTest.java",
-        "sha256": "878675e0ccbc677d09ae2385308eae4d695cfd0c84b3e81abf761490014d0006"
+        "sha256": "f6dea011d66454ee912dee6d68a4dc199c3a9eae3c5e8e3016d077d9df50b9d3"
       },
       {
         "path": "src/test/java/com/smartticket/agent/AgentOpenAiProtocolTest.java",
-        "sha256": "cb6a00137c5c384685c0138c18d1b13bf6c77f6141e16eb2bd4f2f4470f6a1a0"
+        "sha256": "a0f810597473a872b89fd65434c0e969516a6f63a936e2fd7da2a2f65ae42965"
       },
       {
         "path": "src/test/java/com/smartticket/agent/AgentToolContextTest.java",
@@ -746,6 +790,10 @@
         "sha256": "c99e4ec3666b59ed44608305e96681e2a0b9377336d4a4c8373f493543f789bc"
       },
       {
+        "path": "src/test/java/com/smartticket/assistance/HandoffDecisionTest.java",
+        "sha256": "323ccf5acb8f66965675ff53a126cadac1b489d09db8c6b2689ef4b954a436d5"
+      },
+      {
         "path": "src/test/java/com/smartticket/controller/AiControllerTest.java",
         "sha256": "ce464fa1a8d1d0ee717c904c3a78381accee9c7ba40454143038e16da247d36d"
       },
@@ -783,7 +831,7 @@
       },
       {
         "path": "src/test/java/com/smartticket/experience/graph/ExperienceGraphAgentIntegrationTest.java",
-        "sha256": "58e90b4d5d190891fb1c8e35d178d1157ca04b45bb22cf053ddbc9165aba87e5"
+        "sha256": "6fcf04a6192edf52fc3065f4b0434d7003cb923df4f1e9b3013b88444e1d9087"
       },
       {
         "path": "src/test/java/com/smartticket/experience/graph/ExperienceGraphCompilerTest.java",
@@ -843,7 +891,7 @@
       },
       {
         "path": "src/test/java/com/smartticket/rag/RagAnswerParserTest.java",
-        "sha256": "fd84eceaef87056bc73875b2c981606f5462071a267c52dbc8e4569e7c751aab"
+        "sha256": "f81d551c3290f5adebcd032420e985424b3e1487abf8850527704c64bd618986"
       },
       {
         "path": "src/test/java/com/smartticket/rag/RagAnswerPromptFactoryTest.java",
@@ -855,7 +903,7 @@
       },
       {
         "path": "src/test/java/com/smartticket/rag/RagAnswerSchemaTest.java",
-        "sha256": "041f0496655dfd5b54621b627b94a0d732b90cf89ff0b20982bf06fd9f8707b9"
+        "sha256": "ed020b6ee80baef150a8c66d101d3f91fdfa09b942ffa97b436eff161c8950c0"
       },
       {
         "path": "src/test/java/com/smartticket/rag/RagRetrievalEvaluationTest.java",
@@ -879,11 +927,11 @@
       },
       {
         "path": "src/test/java/com/smartticket/rag/impl/RagAnswerServiceImplTest.java",
-        "sha256": "18311c2c70908b0f1385e44b0d582d171bcf39881b82a9b7134613c16f2aa9af"
+        "sha256": "42783a2961448263c5a90b3e09dcd2fdbe52207a610f744a017257193cb13558"
       },
       {
         "path": "src/test/java/com/smartticket/reliability/ReliableBackendIntegrationTest.java",
-        "sha256": "bd3712d53f2b069430c7544e41e1b77fa97b2ef0c72eef93575a906883698262"
+        "sha256": "d9a885ec08d68d2fd11c3cbc50bcbccceb059570092bb73d00097c3917515911"
       },
       {
         "path": "src/test/java/com/smartticket/service/TicketCacheTest.java",

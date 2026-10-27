@@ -51,12 +51,26 @@ class RagAnswerSchemaTest {
     }
 
     @Test
-    @DisplayName("schema 的 required 覆盖全部 3 个字段")
+    @DisplayName("兼容旧成功回答的三个必填字段，转人工另要求handoff")
     void allFieldsAreRequired() {
         List<String> required = stringList(SCHEMA.path("required"));
 
         assertEquals(3, required.size(), "三个字段应全部必填");
         assertTrue(required.containsAll(List.of("suggestion", "similarQuestions", "needHuman")));
+    }
+
+    @Test void handoffSchemaMatchesAllowedStatesAndFlagRelationship() {
+        var decision=SCHEMA.at("/properties/handoff");
+        assertFalse(decision.path("additionalProperties").asBoolean(true));
+        assertEquals(List.of("state","reason","detail"),stringList(decision.path("required")));
+        assertEquals(Arrays.stream(com.smartticket.assistance.HandoffDecision.State.values()).map(Enum::name).toList(),
+                stringList(decision.at("/properties/state/enum")));
+        assertEquals(Arrays.stream(com.smartticket.assistance.HandoffDecision.Reason.values()).map(Enum::name).toList(),
+                stringList(decision.at("/properties/reason/enum")));
+        var conditional=SCHEMA.at("/allOf/0");
+        assertEquals(List.of("handoff"),stringList(conditional.at("/then/required")));
+        assertEquals(List.of("INSUFFICIENT_EVIDENCE","HUMAN_ACTION_REQUIRED"),stringList(conditional.at("/then/properties/handoff/properties/state/enum")));
+        assertEquals(List.of("ANSWERED","NEEDS_CLARIFICATION"),stringList(conditional.at("/else/properties/handoff/properties/state/enum")));
     }
 
     @Test

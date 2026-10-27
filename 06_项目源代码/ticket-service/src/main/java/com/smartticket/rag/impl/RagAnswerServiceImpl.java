@@ -21,6 +21,7 @@ import com.smartticket.rag.RetrievalResult;
 import com.smartticket.rag.RetrievalSource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import com.smartticket.assistance.HandoffDecision;
 
 import java.util.HashMap;
 import java.util.List;
@@ -102,12 +103,14 @@ public class RagAnswerServiceImpl implements RagAnswerService {
                 search.degradedSources().contains(RetrievalSource.VECTOR) ? "VECTOR_UNAVAILABLE" : "BELOW_THRESHOLD")
                 : generateAnswer(query, search.hits());
         RagAnswerPayload payload = generated.payload();
+        HandoffDecision decision=payload==null?null:payload.handoff();
         String statusReason = generated.reason();
         // 相似度高只说明主题接近；模型可以追加拒答，不能解除低置信度门禁。
         if (payload != null && Boolean.TRUE.equals(payload.needHuman())) {
             payload = null;
-            statusReason = "MODEL_REFUSED";
+            statusReason = decision.reason().name();
         }
+        if(payload!=null && decision!=null && decision.clarification())statusReason="CLARIFICATION_REQUIRED";
         String suggestion = payload == null ? null : payload.suggestion();
         if (RagAdviceGrounding.hasUnsupportedWorkaround(suggestion, search.hits().stream().map(FusedHit::chunk).toList())) {
             payload = null;
@@ -135,6 +138,7 @@ public class RagAnswerServiceImpl implements RagAnswerService {
                 })
                 .map(hit->hit.chunk().sectionTitle()).distinct().limit(4).toList();
         needHuman = needHuman || payload == null;
+        if(payload==null && !java.util.Set.of("CRITICAL_FACTS_MISSING","HUMAN_OPERATION_REQUIRED").contains(statusReason))decision=null;
 
         long costMs = System.currentTimeMillis() - start;
 
@@ -155,7 +159,7 @@ public class RagAnswerServiceImpl implements RagAnswerService {
         }
 
         return new RagAnswer(matched, confidence, sources, suggestion, similarQuestions,
-                needHuman, search.degradedSources(), costMs, statusReason);
+                needHuman, search.degradedSources(), costMs, statusReason,decision);
     }
 
     /**
@@ -171,35 +175,51 @@ public class RagAnswerServiceImpl implements RagAnswerService {
         }
         // 用切片的完整正文（不是 RagSource 里给人看的截断摘录）：模型需要原文才能作答
         List<KnowledgeChunk> grounding = hits.stream().map(FusedHit::chunk).toList();
-        AiCallResult result = aiChatService.chat(
-                promptFactory.systemPrompt(),
-                promptFactory.userPrompt(query, grounding));
+        String feedback="";
+        for(int attempt=0;attempt<2;attempt++) {
+            AiCallResult result = aiChatService.chat(
+                    promptFactory.systemPrompt()+(attempt==0?"":"\n"+HandoffDecision.REPAIR_INSTRUCTION+"\n上次校验失败："+feedback),
+                    promptFactory.userPrompt(query, grounding));
 
-        if (!result.success()) {
-            log.warn("RAG 内容生成失败，本次只返回来源 | queryChars={} | promptVersion={} "
-                            + "| reasonCode={} | cost={}ms | detail={}",
-                    lengthOf(query), RagAnswerPromptFactory.PROMPT_VERSION,
-                    result.errorCode().getCode(), result.costMs(), result.failureDetail());
-            String detail = String.valueOf(result.failureDetail()).toLowerCase(java.util.Locale.ROOT);
-            String reason = result.errorCode() == ErrorCode.AI_NOT_CONFIGURED ? "AI_UNAVAILABLE"
-                    : result.errorCode() == ErrorCode.AI_BUDGET_EXHAUSTED ? "BUDGET_EXHAUSTED"
-                    : detail.contains("timeout") || detail.contains("timed out") ? "MODEL_TIMEOUT"
-                    : detail.contains("eof") || detail.contains("ssl") || detail.contains("connect")
-                            || detail.contains("upstream_transport") ? "MODEL_TRANSPORT_FAILURE" : "MODEL_CALL_FAILED";
-            return new Generation(null, reason);
-        }
+            if (!result.success()) {
+                log.warn("RAG 内容生成失败，本次只返回来源 | queryChars={} | promptVersion={} "
+                                + "| reasonCode={} | cost={}ms | detail={}",
+                        lengthOf(query), RagAnswerPromptFactory.PROMPT_VERSION,
+                        result.errorCode().getCode(), result.costMs(), result.failureDetail());
+                String detail = String.valueOf(result.failureDetail()).toLowerCase(java.util.Locale.ROOT);
+                String reason = result.errorCode() == ErrorCode.AI_NOT_CONFIGURED ? "AI_UNAVAILABLE"
+                        : result.errorCode() == ErrorCode.AI_BUDGET_EXHAUSTED ? "BUDGET_EXHAUSTED"
+                        : detail.contains("timeout") || detail.contains("timed out") ? "MODEL_TIMEOUT"
+                        : detail.contains("eof") || detail.contains("ssl") || detail.contains("connect")
+                                || detail.contains("upstream_transport") ? "MODEL_TRANSPORT_FAILURE" : "MODEL_CALL_FAILED";
+                return new Generation(null, reason);
+            }
 
-        try {
-            return new Generation(answerParser.parse(result.content()), "ANSWERED");
-        } catch (AiResponseInvalidException e) {
-            // 模型答了但不守规矩。与"调用失败"分开记原因码，两者的排查方向不同：
-            // 解析失败占比高该改 Prompt，调用失败占比高该查网络与厂商
-            log.warn("RAG 内容生成不合规，本次只返回来源 | queryChars={} | promptVersion={} "
-                            + "| reasonCode={} | cost={}ms | detail={}",
-                    lengthOf(query), RagAnswerPromptFactory.PROMPT_VERSION,
-                    ErrorCode.AI_RESPONSE_UNPARSABLE.getCode(), result.costMs(), e.getMessage());
-            return new Generation(null, "INVALID_MODEL_OUTPUT");
+            try {
+                return new Generation(answerParser.parse(result.content()), "ANSWERED");
+            } catch (HandoffDecision.Rejected unjustified) {
+                if(attempt==0) {
+                    feedback=unjustified.getMessage();
+                    log.info("RAG 人工升级判定需纠正 | promptVersion={}", RagAnswerPromptFactory.PROMPT_VERSION);
+                    continue;
+                }
+                // A rejected escalation is not an automatic request for an operator.
+                String question="请补充仍需确认的具体信息；当前未提供符合条件的人工升级原因。";
+                var titles=hits.stream().map(h->h.chunk().sectionTitle()).filter(java.util.Objects::nonNull)
+                        .map(t->t.substring(0,Math.min(40,t.length()))).filter(t->!t.isBlank()).distinct().limit(1).toList();
+                if(titles.isEmpty())return new Generation(null,"INVALID_MODEL_OUTPUT");
+                return new Generation(new RagAnswerPayload(question,titles,false,HandoffDecision.clarification(question)),"CLARIFICATION_REQUIRED");
+            } catch (AiResponseInvalidException e) {
+                // 模型答了但不守规矩。与"调用失败"分开记原因码，两者的排查方向不同：
+                // 解析失败占比高该改 Prompt，调用失败占比高该查网络与厂商
+                log.warn("RAG 内容生成不合规，本次只返回来源 | queryChars={} | promptVersion={} "
+                                + "| reasonCode={} | cost={}ms | detail={}",
+                        lengthOf(query), RagAnswerPromptFactory.PROMPT_VERSION,
+                        ErrorCode.AI_RESPONSE_UNPARSABLE.getCode(), result.costMs(), e.getMessage());
+                return new Generation(null, "INVALID_MODEL_OUTPUT");
+            }
         }
+        throw new IllegalStateException("Bounded handoff repair exhausted");
     }
 
     /**

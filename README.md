@@ -8,6 +8,8 @@
 
 当前保留原工程路径以兼容启动、评测和部署脚本；日常阅读从本页与 [docs 导航](docs/README.md)开始。过程记录按日期保留，作为协作与失败追踪资料。
 
+简单任务人工升级限制（2026-10-27）：新增共享handoff决策，区分直接回答、向用户澄清与真正人工事项；无原因升级最多纠正一次，纠正期间不开放新工具。331单元、270集成、97脚本检查通过，新增厂商调用0。见[当前契约](docs/api/handoff-policy.md)和[验证指南](01_项目说明/20261027_简单任务转人工限制_完成说明与验证指南.md)。这次是针对已知问题的工程修复，真实模型误转人工率尚未重测。
+
 G5对照与真实生成更新（2026-10-27）：307单元、260集成、97脚本通过；12题A/B/C真实本地BGE对照及CI离线链路各52次协议请求通过。10个正例三组目标来源均命中，本批未显示图谱检索增益。经授权36次真实DeepSeek已执行，累计443次、保守费用上界约¥2.74；36/36格式与引用契约通过，人工语义复核仍待完成。见[结果与复跑指南](01_项目说明/20261027_G5对照验收与真实生成_结果及复跑指南.md)、[工程证据](docs/evaluation/20261027-g5-engineering.json)及[真实回答](docs/evaluation/20261027-g5-real-generation.json)。CI以当前分支Actions为准；B是评估适配器，不能称三个完整Agent实验。
 
 Agent图谱工具更新（2026-10-23）：G4已完成searchExperienceGraph、同来源2跳路径、完整条件/反例上下文、引用与最终版本校验；307单元、260集成、68脚本通过。新JAR真实HTTP/MQ/本地BGE/PG演示5个Agent场景、10次本地协议请求通过，新增厂商调用0。对话使用离线确定性替身，不代表真实生成质量；G5对照与语义评估仍待完成。见[工具契约](docs/api/experience-graph-search.md)、[完成说明](01_项目说明/20261023_G4Agent图谱检索与来源校验_完成说明及操作指南.md)和[本轮证据](docs/evaluation/20261023-g4-agent-experience-graph.json)。本次为本地验收，尚未提交或推送远程CI。
@@ -68,6 +70,7 @@ mvn -B -Pintegration -Dspring.config.additional-location=file:../../.tmp/phase4-
 | getTicketDetail | 查真实工单详情和版本 | 服务端身份、对象权限 |
 | getTicketLogs | 查处理进展 | 服务端身份、对象权限、条数限制 |
 | searchKnowledge | 查知识来源和摘录 | 有限参数和输出，不嵌套一次额外生成 |
+| searchExperienceGraph | 查已审核经验条件、步骤及同来源图路径 | 默认关闭；来源健康、版本与权限校验，只读 |
 | prepareAssignTicket | 生成待确认指派提案 | 管理员可用，模型不能确认执行 |
 
 ```mermaid

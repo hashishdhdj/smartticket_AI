@@ -22,9 +22,14 @@ class RagAnswerParserTest {
 
     private final RagAnswerParser parser = new RagAnswerParser();
 
+    @Test void rejectsDuplicateDecisionAndTrailingJson() {
+        assertThrows(AiResponseInvalidException.class,()->parser.parse("{\"suggestion\":\"建议\",\"similarQuestions\":[\"问题\"],\"needHuman\":false,\"needHuman\":true}"));
+        assertThrows(AiResponseInvalidException.class,()->parser.parse("{\"suggestion\":\"建议\",\"similarQuestions\":[\"问题\"],\"needHuman\":false} {}"));
+    }
+
     @Test
     void preservesSemanticAbstention() {
-        var payload = parser.parse("{\"suggestion\":\"资料不包含该规则，请人工核实\",\"similarQuestions\":[\"如何查询工单\"],\"needHuman\":true}");
+        var payload = parser.parse("{\"suggestion\":\"资料不包含该记录，请人工核实\",\"similarQuestions\":[\"如何查询工单\"],\"needHuman\":true,\"handoff\":{\"state\":\"INSUFFICIENT_EVIDENCE\",\"reason\":\"CRITICAL_FACTS_MISSING\",\"detail\":\"缺少用户要求的真实退款处理记录\"}}");
         assertTrue(payload.needHuman());
     }
 

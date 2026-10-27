@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://smartticket.local/schemas/rag-answer-result.schema.json",
   "title": "RAG 回答结果",
-  "description": "rag-answer-v3：模型必须明确表示资料能否回答；高相似度仍可追加转人工，不能解除服务层低置信度门禁。",
+  "description": "rag-answer-v4.0：已有依据直接答，缺少用户信息先澄清，关键事实缺失或实际人工办理须提供结构化原因。旧三字段成功回答兼容，转人工必须提供handoff。",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -30,7 +30,136 @@
     },
     "needHuman": {
       "type": "boolean",
-      "description": "资料不足、问题涉及未知规则/未实现能力或认证凭据时为true。"
+      "description": "仅关键业务事实缺失或用户明确要求实际人工办理时为true；解释完整或需用户补信息时为false。"
+    },
+    "handoff": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "reason",
+        "detail"
+      ],
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": [
+            "ANSWERED",
+            "NEEDS_CLARIFICATION",
+            "INSUFFICIENT_EVIDENCE",
+            "HUMAN_ACTION_REQUIRED"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "enum": [
+            "NONE",
+            "USER_CONTEXT_REQUIRED",
+            "CRITICAL_FACTS_MISSING",
+            "HUMAN_OPERATION_REQUIRED"
+          ]
+        },
+        "detail": {
+          "type": "string",
+          "maxLength": 200
+        }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "state": {
+              "const": "ANSWERED"
+            },
+            "reason": {
+              "const": "NONE"
+            },
+            "detail": {
+              "maxLength": 0
+            }
+          }
+        },
+        {
+          "properties": {
+            "state": {
+              "const": "NEEDS_CLARIFICATION"
+            },
+            "reason": {
+              "const": "USER_CONTEXT_REQUIRED"
+            },
+            "detail": {
+              "minLength": 5
+            }
+          }
+        },
+        {
+          "properties": {
+            "state": {
+              "const": "INSUFFICIENT_EVIDENCE"
+            },
+            "reason": {
+              "const": "CRITICAL_FACTS_MISSING"
+            },
+            "detail": {
+              "minLength": 5
+            }
+          }
+        },
+        {
+          "properties": {
+            "state": {
+              "const": "HUMAN_ACTION_REQUIRED"
+            },
+            "reason": {
+              "const": "HUMAN_OPERATION_REQUIRED"
+            },
+            "detail": {
+              "minLength": 5
+            }
+          }
+        }
+      ]
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "needHuman": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "handoff"
+        ],
+        "properties": {
+          "handoff": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "INSUFFICIENT_EVIDENCE",
+                  "HUMAN_ACTION_REQUIRED"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "handoff": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "ANSWERED",
+                  "NEEDS_CLARIFICATION"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
 }
