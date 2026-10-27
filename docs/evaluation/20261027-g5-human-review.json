@@ -1,0 +1,334 @@
+{
+  "schema_version": 1,
+  "status": "PENDING_HUMAN_REVIEW",
+  "report": "docs/evaluation/20261027-g5-real-generation.json",
+  "report_sha256": "9f0ed0ee96a7aaa31aae4b5dda4daadf148634b2dba650a0b2377972346b1417",
+  "independent_blind_test": false,
+  "machine_did_not_sign_human_reviews": true,
+  "rows": [
+    {
+      "id": "G501",
+      "arm": "A",
+      "response_sha256": "941f076ee4fc48b3ba86bfddec386250f3c2e1b0dd4303270b2f11baad008643",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G501",
+      "arm": "B",
+      "response_sha256": "2bc9206cfde4db1d7253e1e94820cd3195d1f6da65230d9a3552586491415d00",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G501",
+      "arm": "C",
+      "response_sha256": "8f900c691fb16597d528593633998606ec3d9bb50e9a0413ee8b2347adec2a53",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G502",
+      "arm": "A",
+      "response_sha256": "71526910af96ac68f2eb2d2e4d2a2ad82b496ca2895d5e70dfd8b6c76693d121",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G502",
+      "arm": "B",
+      "response_sha256": "ee2f2a2eab0944df5c2f50b4632fd235b66315ce9ea20b2f81d9ea7afb8e338f",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G502",
+      "arm": "C",
+      "response_sha256": "870e0fb6a40ff8f87f665847f65b090ff216ceeb83608ade2feff48223ab0087",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G503",
+      "arm": "A",
+      "response_sha256": "9e1952d5849e15a5b2c6af0299e07263b34d6d5f3137ae649c2a71be1dc43801",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G503",
+      "arm": "B",
+      "response_sha256": "4ca8e4e64fe85d82e734e32afb987d9bae2b3ee5d8c913517e68a6634e1d845a",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G503",
+      "arm": "C",
+      "response_sha256": "8ccc255a8077ccbf25ca64dd07863173f097d135b870acab16c2f68a22f7b384",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G504",
+      "arm": "A",
+      "response_sha256": "13d8dd9fe2eaaaf246f18b7c0d414ee44de7b729f46f20664805678e11b68376",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G504",
+      "arm": "B",
+      "response_sha256": "7af8035f343fb3d2de2a3e94bea27fca4ba6997400b60a2d0bd072117611326a",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G504",
+      "arm": "C",
+      "response_sha256": "9e552f775398e4c40883c42e13592445f8bf9f5d58df427389e5942e85e9cd31",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G505",
+      "arm": "A",
+      "response_sha256": "0d9329fdf90fcea81e17fef1cf1b1dbc6598f47c8dc772f934f0a84fdbe99eb1",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G505",
+      "arm": "B",
+      "response_sha256": "daf16688afd3b75f7b412dd360f6ffa8e61c19fe1bfd836ad1fdf6e4172af04e",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G505",
+      "arm": "C",
+      "response_sha256": "0fe4dbf12d244331fb5c295b9a3a13baaacd8252c787d9f1e53a81cb12c032af",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G506",
+      "arm": "A",
+      "response_sha256": "7d30a5f464df2126f991efd094009a89c10089da1e9136ae1ee9605e4640ddcc",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G506",
+      "arm": "B",
+      "response_sha256": "c7984127383d4d43ca0a9a7d0d1eb421b606be7f5df68f62b8805c255edd4d80",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G506",
+      "arm": "C",
+      "response_sha256": "eb4a120f24548ed7f1fc4a0a08e9f97c6fbfbd1020f76d54cd9ed3b901f3a3b9",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G507",
+      "arm": "A",
+      "response_sha256": "891f5abe6001c976a85a87e2f38e0a718aa98dc50b1f9782f154d6a06b0d7b23",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G507",
+      "arm": "B",
+      "response_sha256": "324c7022d2b9e6384b0b1eaccf27608d2032f66aa79907fd2caea1b7122201ac",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G507",
+      "arm": "C",
+      "response_sha256": "f69bab08b3eb6df05b208bceb2d1c47d1a324cfebda60b809ba7f86e76fc9f17",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G508",
+      "arm": "A",
+      "response_sha256": "189b2105befb50dd8bbf68c46432d46c8cadbe7f4ffb7a7329c30628d3e70593",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G508",
+      "arm": "B",
+      "response_sha256": "1ad3623b733ce1ac89e5e7c071e0fa51362f0938bf29d5eb36ec9aef0c034928",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G508",
+      "arm": "C",
+      "response_sha256": "abcb63b5cf0bc795c0c79c5c0a9b9a3aa6d0958754d984024bc579a693977edd",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G509",
+      "arm": "A",
+      "response_sha256": "08605340f172f14d4245add8a2bb29a5d3132ec05926e9748d0137ac55bbfb4a",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G509",
+      "arm": "B",
+      "response_sha256": "7fc032736445cb85ec44668bc072db329c4a02d7c3c2d50659ed0a994878bb18",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G509",
+      "arm": "C",
+      "response_sha256": "44552f8c5e8b9a05c09870b92453a68bdc0926d756847d9b71369a0f113b4e18",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G510",
+      "arm": "A",
+      "response_sha256": "55fc6ec954e95dca5cfb8c29f573b196569b20e8f8edf71b20df710deae409c3",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G510",
+      "arm": "B",
+      "response_sha256": "98abc1ef07895e77020f69c24c879bc891d732f423c975ffae5c8cacc60ab91d",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G510",
+      "arm": "C",
+      "response_sha256": "1343e41b5317f33df45e0d872eb218ec057f03c18668a0aa5baeca1d3fe69d80",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G511",
+      "arm": "A",
+      "response_sha256": "5bc3bd631330b85b7269a79ebfaf37a85b82286ae3d002aeffe557bc17466f2d",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G511",
+      "arm": "B",
+      "response_sha256": "27fa7f732134a30a063ad94bc769d8fc9f782d8cc7c81bc1fc8fecee11f9f6f0",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G511",
+      "arm": "C",
+      "response_sha256": "93a476e66fae46b1d53b05db6d0f5e5178af3cb2122085c19d1d374c5b4a0f09",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G512",
+      "arm": "A",
+      "response_sha256": "851c6d4c8b7e7c1003eeb7f0477c1d111c5dffe81017422ee3ce93170512f236",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G512",
+      "arm": "B",
+      "response_sha256": "e9b01798964d1bf74089fb07e63aa879b59b629b94324737dc92e0273a63a765",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    {
+      "id": "G512",
+      "arm": "C",
+      "response_sha256": "5eae680a501e6b3b770875684f6cbeb2fe65012fc2e39325c3dd6ce8eba0a1c4",
+      "grade": null,
+      "notes": null,
+      "reviewer": null,
+      "reviewed_at": null
+    }
+  ]
+}

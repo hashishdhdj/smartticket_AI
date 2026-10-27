@@ -17,6 +17,25 @@ class AgentToolsTest {
     final KnowledgeSearchService knowledge = mock(KnowledgeSearchService.class);
     final ObjectMapper json = new ObjectMapper();
     final AgentTools tools = new AgentTools(tickets, knowledge, mock(AssignmentActions.class), json);
+    @Test void graphFeatureIsAbsentFromDefinitionsAndCannotBeCalledWhenDisabled() {
+        assertFalse(tools.definitions().stream().anyMatch(t->t.getToolDefinition().name().equals("searchExperienceGraph")));
+        assertThrows(ApiFailure.class,()->tools.execute("searchExperienceGraph","{\"query\":\"密码重置\"}","run"));
+    }
+    @Test void graphToolUsesSameAuthorizedTitleAndStrictArguments() throws Exception {
+        var graph=mock(com.smartticket.experience.graph.ExperienceGraphSearchService.class);
+        when(graph.enabled()).thenReturn(true);when(graph.search(anyString())).thenReturn(Map.of("sources",List.of()));
+        var withGraph=new AgentTools(tickets,knowledge,mock(AssignmentActions.class),json,graph);title("密码重置");
+        var result=(Map<?,?>)withGraph.execute("searchExperienceGraph","{\"query\":\"工单123处理建议\"}","run");
+        assertEquals("AUTHORIZED_TICKET_TITLE",result.get("queryOrigin"));verify(graph).search("密码重置");
+        assertThrows(ApiFailure.class,()->withGraph.execute("searchExperienceGraph","{\"query\":\"密码重置\",\"scope\":\"ALL\"}","run"));
+        assertTrue(withGraph.definitions().stream().anyMatch(t->t.getToolDefinition().name().equals("searchExperienceGraph")));
+    }
+    @Test void graphToolCannotUseForeignTicketToEnrichQuery() {
+        var graph=mock(com.smartticket.experience.graph.ExperienceGraphSearchService.class);when(graph.enabled()).thenReturn(true);
+        var withGraph=new AgentTools(tickets,knowledge,mock(AssignmentActions.class),json,graph);
+        when(tickets.getById(123L)).thenThrow(new ApiFailure(403,40300,"无权访问"));
+        assertThrows(ApiFailure.class,()->withGraph.execute("searchExperienceGraph","{\"query\":\"工单123处理建议\"}","run"));verify(graph,never()).search(anyString());
+    }
 
     @BeforeEach void identity() {
         ActorContext.set(new ActorContext.Actor(100, "SUBMITTER"));

@@ -194,6 +194,9 @@
                         <include>**/AgentToolContextTest.java</include>
                         <include>**/AgentToolsTest.java</include>
                         <include>**/AgentAnswerTest.java</include>
+                        <include>**/ExperienceCardCodecTest.java</include>
+                        <include>**/ExperienceGraphCompilerTest.java</include>
+                        <include>**/ExperienceGraphSearchTest.java</include>
                         <include>**/KnowledgeChunkerTest.java</include>
                         <include>**/EmbeddingConfigProtocolTest.java</include>
                         <include>**/KnowledgeCorpusLoaderTest.java</include>
@@ -225,6 +228,10 @@
                         <include>**/AgentOpenAiProtocolTest.java</include>
                         <include>**/ReliableBackendIntegrationTest.java</include>
                         <include>**/KnowledgeWorkflowIntegrationTest.java</include>
+                        <include>**/ExperienceIntegrationTest.java</include>
+                        <include>**/ExperienceCardIntegrationTest.java</include>
+                        <include>**/ExperienceGraphIntegrationTest.java</include>
+                        <include>**/ExperienceGraphAgentIntegrationTest.java</include>
                         <include>**/KnowledgeVectorIntegrationTest.java</include>
                         <include>**/TicketCacheTest.java</include>
                         <include>**/RabbitConnectivityTest.java</include>

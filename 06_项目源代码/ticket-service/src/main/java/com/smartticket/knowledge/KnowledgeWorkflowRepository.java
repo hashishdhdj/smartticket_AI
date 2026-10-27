@@ -26,11 +26,17 @@ public class KnowledgeWorkflowRepository {
     private final JsonCodec json;
     private final KnowledgeOutboxRepository outbox;
     private final KnowledgeWorkflowProperties config;
+    private final com.smartticket.experience.ExperienceKnowledgeBridge experience;
+    private final com.smartticket.experience.graph.ExperienceGraphReceiptRepository graphs;
 
     public KnowledgeWorkflowRepository(JdbcTemplate db, PlatformTransactionManager tm, ObjectMapper mapper,
-            JsonCodec json, KnowledgeOutboxRepository outbox, KnowledgeWorkflowProperties config) {
+            JsonCodec json, KnowledgeOutboxRepository outbox, KnowledgeWorkflowProperties config,
+            com.smartticket.experience.ExperienceKnowledgeBridge experience,
+            com.smartticket.experience.graph.ExperienceGraphReceiptRepository graphs) {
         this.db=db; this.tx=new TransactionTemplate(tm); this.mapper=mapper;
         this.json=json; this.outbox=outbox; this.config=config;
+        this.experience=experience;
+        this.graphs=graphs;
     }
 
     public String recordResolution(Ticket ticket, long author, String solution) {
@@ -79,6 +85,8 @@ public class KnowledgeWorkflowRepository {
     }
 
     public Candidate review(Candidate old, String state, String question, String answer, long actor) {
+        if(!TransactionSynchronizationManager.isActualTransactionActive()) throw new IllegalStateException("Knowledge review requires a transaction");
+        experience.review(old,state,question,answer,actor);
         String hash="APPROVED".equals(state)?KnowledgeSource.hash(KnowledgeSource.content(question,answer)):null;
         int count=db.update("UPDATE knowledge_candidate SET revision=revision+1,state=?,question=?,answer=?,reviewer_id=?,"
                 + "indexed_revision=NULL,content_hash=? WHERE candidate_id=? AND revision=?",state,question,answer,actor,hash,old.id(),old.revision());
@@ -146,6 +154,10 @@ public class KnowledgeWorkflowRepository {
     }
 
     public boolean indexed(Job job) {
+        return indexed(job,null);
+    }
+
+    public boolean indexed(Job job,com.smartticket.experience.graph.ExperienceGraph.Plan graph) {
         return tx.execute(status->{
             Candidate candidate=candidate(job.resolutionId(),true);
             if(!owns(job)) return false;
@@ -153,6 +165,7 @@ public class KnowledgeWorkflowRepository {
                 finish(job,"STALE","INPUT_CHANGED");return false;
             }
             db.update("UPDATE knowledge_candidate SET indexed_revision=? WHERE candidate_id=?",job.revision(),job.resolutionId());
+            if(graph!=null)graphs.record(new KnowledgeSource(job.resolutionId(),job.revision()),graph);
             finish(job,"SUCCEEDED",null);return true;
         });
     }
@@ -205,6 +218,21 @@ public class KnowledgeWorkflowRepository {
     public void replay(String id,long actor) {
         var row=jobRow(id,true);
         if(!"FAILED".equals(row.get("status"))) throw ApiFailure.conflict();
+        replayRow(id,actor,row);
+    }
+
+    /** A successful text INDEX may need graph backfill; ordinary failed-job replay stays strict. */
+    public void rebuildGraphIndex(String id,long revision,long actor) {
+        if(!TransactionSynchronizationManager.isActualTransactionActive())throw new IllegalStateException("Graph rebuild requires a MySQL transaction");
+        var row=jobRow(id,true);
+        if(!"INDEX".equals(row.get("kind"))||((Number)row.get("revision")).longValue()!=revision
+                ||!Set.of("SUCCEEDED","FAILED","STALE").contains(row.get("status")))throw ApiFailure.conflict();
+        var candidate=candidate((String)row.get("resolution_id"),true);
+        if(candidate.revision()!=revision||!"APPROVED".equals(candidate.state())||!Objects.equals(candidate.indexedRevision(),revision))throw ApiFailure.conflict();
+        replayRow(id,actor,row);
+    }
+
+    private void replayRow(String id,long actor,Map<String,Object> row) {
         db.update("INSERT INTO knowledge_job_replay_audit(job_id,replay_no,requester_id,attempts_before,total_attempts_before)"
                 + " VALUES(?,?,?,?,?)",id,((Number)row.get("replays")).intValue()+1,actor,row.get("attempts"),row.get("total_attempts"));
         redispatch(row,true);
@@ -217,7 +245,10 @@ public class KnowledgeWorkflowRepository {
                 + " ON c.resolution_id=r.resolution_id JOIN ticket t ON t.id=r.ticket_id WHERE c.candidate_id IN ("+placeholders+")"
                 + " AND c.state='APPROVED' AND c.revision=c.indexed_revision AND t.deleted=0",candidateIds.toArray());
         Set<String> sources=new HashSet<>();
-        for(var row:rows) sources.add(new KnowledgeSource((String)row.get("candidate_id"),((Number)row.get("revision")).longValue()).file());
+        for(var row:rows) {
+            String id=(String)row.get("candidate_id");long revision=((Number)row.get("revision")).longValue();
+            if(experience.visible(id,revision))sources.add(new KnowledgeSource(id,revision).file());
+        }
         return sources;
     }
 }

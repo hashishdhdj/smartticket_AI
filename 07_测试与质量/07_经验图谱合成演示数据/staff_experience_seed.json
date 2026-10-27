@@ -1,0 +1,763 @@
+{
+  "metadata": {
+    "schema_version": 1,
+    "created_on": "2026-10-22",
+    "data_origin": "CODEX_AI_AUTHORED_SYNTHETIC_DEMO",
+    "contains_real_customer_records": false,
+    "contains_credentials": false,
+    "is_independent_blind_evaluation": false,
+    "runtime_implementation_verified": false,
+    "runtime_imported": false,
+    "production_policy_approved": false,
+    "purpose": "Development fixtures for planned staff-experience graph; not model training, real customer feedback or an execution report."
+  },
+  "staff": [
+    {
+      "ref": "demo_handler_1",
+      "role": "HANDLER",
+      "identity_kind": "LOGICAL_FIXTURE_REFERENCE_NOT_ACTUAL_ACCOUNT"
+    },
+    {
+      "ref": "demo_handler_2",
+      "role": "HANDLER",
+      "identity_kind": "LOGICAL_FIXTURE_REFERENCE_NOT_ACTUAL_ACCOUNT"
+    },
+    {
+      "ref": "demo_handler_3",
+      "role": "HANDLER",
+      "identity_kind": "LOGICAL_FIXTURE_REFERENCE_NOT_ACTUAL_ACCOUNT"
+    }
+  ],
+  "records": [
+    {
+      "id": "EXP01",
+      "origin": "CODEX_AI_AUTHORED_SYNTHETIC_DEMO",
+      "customer_ref": "demo_customer_exp01",
+      "staff_ref": "demo_handler_1",
+      "interactions": [
+        {
+          "role": "CUSTOMER",
+          "text": "演示账号忘了密码，原手机还能收短信，怎么处理？"
+        },
+        {
+          "role": "HANDLER",
+          "text": "按演示规则，可从忘记密码入口验证原手机号，再设置符合长度和字符要求的新密码。不要重复最近三次密码；重置后其他设备需要重新登录。这不是SmartTicket已实现的短信功能。"
+        }
+      ],
+      "simulated_business_feedback": "合成顾客反馈：按演示说明理解了重置路径。此反馈不是实际客户操作证据。",
+      "incorrect_attempts": [],
+      "experience_card": {
+        "problem_type": "演示账号忘记密码",
+        "symptoms": [
+          "忘记登录密码"
+        ],
+        "conditions": [
+          "原注册手机号仍可接收短信",
+          "仅限模拟客服平台规则"
+        ],
+        "steps": [
+          "在演示登录页选择忘记密码",
+          "通过注册手机号验证码验证后设置8至20位字母与数字组合密码",
+          "避免重复最近3次密码；重置后其他设备需重新登录"
+        ],
+        "contraindications": [
+          "原手机号停用时不得继续推荐自助短信重置"
+        ],
+        "evidence_refs": [
+          {
+            "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+            "title": "如何重置登录密码"
+          }
+        ],
+        "fact_scope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+        "publication_scope": "SHARED_DEMO",
+        "hypotheses": []
+      },
+      "expected_behavior": "检索到对应条件和来源后给出说明，保留演示范围",
+      "expected_duplicate_relation": null,
+      "expected_publish_eligibility": true,
+      "actual_runtime": {
+        "verification_status": "NOT_RUN",
+        "ticket_id": null,
+        "candidate_id": null,
+        "indexed_revision": null,
+        "source_ids": [],
+        "tool_calls": [],
+        "answer": null
+      },
+      "experience_content_sha256": "14cb99bc3fe7ac2ab439044c98ece4fdd166e66adc922e3a8c3291852fed2376"
+    },
+    {
+      "id": "EXP02",
+      "origin": "CODEX_AI_AUTHORED_SYNTHETIC_DEMO",
+      "customer_ref": "demo_customer_exp02",
+      "staff_ref": "demo_handler_2",
+      "interactions": [
+        {
+          "role": "CUSTOMER",
+          "text": "旧手机号停用了，想换绑定号码。"
+        },
+        {
+          "role": "HANDLER",
+          "text": "原手机号停用时按演示规则需人工核验；不能承诺七分钟办结，也不能声称本项目已经帮你改号。"
+        }
+      ],
+      "simulated_business_feedback": "合成反馈：已转为等待核验；不能作为核验成功的运行结果。",
+      "incorrect_attempts": [],
+      "experience_card": {
+        "problem_type": "演示账号更换绑定手机号",
+        "symptoms": [
+          "原绑定手机号停用",
+          "无法接收旧号码验证码"
+        ],
+        "conditions": [
+          "目标是更换绑定手机号",
+          "原手机号已停用",
+          "仅限模拟平台规则"
+        ],
+        "steps": [
+          "停止重复尝试原手机号验证",
+          "走人工核验流程，按演示资料准备账号与近期登录信息"
+        ],
+        "contraindications": [
+          "不能保证固定七分钟办结",
+          "不得假称已修改手机号"
+        ],
+        "evidence_refs": [
+          {
+            "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+            "title": "如何更换绑定手机号"
+          }
+        ],
+        "fact_scope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+        "publication_scope": "SHARED_DEMO",
+        "hypotheses": []
+      },
+      "expected_behavior": "识别不同前提并说明人工核验，不沿用可收短信的路径",
+      "expected_duplicate_relation": null,
+      "expected_publish_eligibility": true,
+      "actual_runtime": {
+        "verification_status": "NOT_RUN",
+        "ticket_id": null,
+        "candidate_id": null,
+        "indexed_revision": null,
+        "source_ids": [],
+        "tool_calls": [],
+        "answer": null
+      },
+      "experience_content_sha256": "f512419c02f9263d2a0b3bb513fa0d7840557e8c72b886a069a5eb40e485a0ed"
+    },
+    {
+      "id": "EXP03",
+      "origin": "CODEX_AI_AUTHORED_SYNTHETIC_DEMO",
+      "customer_ref": "demo_customer_exp03",
+      "staff_ref": "demo_handler_3",
+      "interactions": [
+        {
+          "role": "CUSTOMER",
+          "text": "我只提交新标题，原来的工单描述能保留吗？"
+        },
+        {
+          "role": "HANDLER",
+          "text": "当前PUT是全量替换。请一起提交需要保留的可修改字段；未提交的可空描述可能清空，并建议携带读取时的版本。"
+        }
+      ],
+      "simulated_business_feedback": "合成反馈：员工补齐请求字段后完成演示；仍须通过真实接口验证。",
+      "incorrect_attempts": [],
+      "experience_card": {
+        "problem_type": "工单PUT全量更新",
+        "symptoms": [
+          "只想改标题",
+          "希望保留描述"
+        ],
+        "conditions": [
+          "调用当前项目工单PUT更新接口",
+          "有对象修改权限"
+        ],
+        "steps": [
+          "提交希望保留的全部可修改字段",
+          "可空描述未提交可能被清空",
+          "带上读取到的expectedVersion以识别旧版本冲突"
+        ],
+        "contraindications": [
+          "不能把PUT说成只更新传入字段",
+          "不能直接通过普通更新修改工单状态"
+        ],
+        "evidence_refs": [
+          {
+            "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/04-工单流程与通用问题.md",
+            "title": "工单可以修改哪些内容"
+          },
+          {
+            "path": "07_测试与质量/02_接口测试/阶段四_角色矩阵与接口说明.md",
+            "title": "旧客户端版本语义"
+          }
+        ],
+        "fact_scope": "PROJECT_RULE",
+        "publication_scope": "SHARED_DEMO",
+        "hypotheses": []
+      },
+      "expected_behavior": "说明全量更新语义，不直接修改工单",
+      "expected_duplicate_relation": null,
+      "expected_publish_eligibility": true,
+      "actual_runtime": {
+        "verification_status": "NOT_RUN",
+        "ticket_id": null,
+        "candidate_id": null,
+        "indexed_revision": null,
+        "source_ids": [],
+        "tool_calls": [],
+        "answer": null
+      },
+      "experience_content_sha256": "0f5a86e7f6670366907403fa6241534262cd58f0c95e23a8db15a846627f8cb5"
+    },
+    {
+      "id": "EXP04",
+      "origin": "CODEX_AI_AUTHORED_SYNTHETIC_DEMO",
+      "customer_ref": "demo_customer_exp04",
+      "staff_ref": "demo_handler_1",
+      "interactions": [
+        {
+          "role": "CUSTOMER",
+          "text": "更新报409，能直接强制覆盖吗？"
+        },
+        {
+          "role": "HANDLER",
+          "text": "先重新读取并比较最新内容，再确认要提交的修改。旧版本不能直接覆盖其他人的更新。"
+        }
+      ],
+      "simulated_business_feedback": "合成反馈：保留新版本内容，等待人工确认修改。",
+      "incorrect_attempts": [],
+      "experience_card": {
+        "problem_type": "工单旧版本修改冲突",
+        "symptoms": [
+          "更新返回409",
+          "其他人已修改工单"
+        ],
+        "conditions": [
+          "使用旧expectedVersion提交更新"
+        ],
+        "steps": [
+          "重新读取最新工单及版本",
+          "比较并确认需要保留的内容后再提交"
+        ],
+        "contraindications": [
+          "不得自动覆盖其他人的更新",
+          "不得靠伪造身份绕过版本检查"
+        ],
+        "evidence_refs": [
+          {
+            "path": "07_测试与质量/02_接口测试/阶段四_角色矩阵与接口说明.md",
+            "title": "旧客户端版本语义"
+          }
+        ],
+        "fact_scope": "PROJECT_RULE",
+        "publication_scope": "SHARED_DEMO",
+        "hypotheses": []
+      },
+      "expected_behavior": "给出重新读取建议；不得调用写工具强制覆盖",
+      "expected_duplicate_relation": null,
+      "expected_publish_eligibility": true,
+      "actual_runtime": {
+        "verification_status": "NOT_RUN",
+        "ticket_id": null,
+        "candidate_id": null,
+        "indexed_revision": null,
+        "source_ids": [],
+        "tool_calls": [],
+        "answer": null
+      },
+      "experience_content_sha256": "13ac4a6d50a6f49b389e076e2dd2f51bb8a812d9fad2dfe84dee85eb42180132"
+    },
+    {
+      "id": "EXP05",
+      "origin": "CODEX_AI_AUTHORED_SYNTHETIC_DEMO",
+      "customer_ref": "demo_customer_exp05",
+      "staff_ref": "demo_handler_2",
+      "interactions": [
+        {
+          "role": "CUSTOMER",
+          "text": "消息已经发送成功，为什么没有AI建议？"
+        },
+        {
+          "role": "HANDLER",
+          "text": "发送成功只说明任务已投递。还需查分析任务状态和结果，不能据此判断模型已经完成。"
+        }
+      ],
+      "simulated_business_feedback": "合成反馈：发现任务仍等待处理；该状态仅为场景设定。",
+      "incorrect_attempts": [],
+      "experience_card": {
+        "problem_type": "已投递但分析尚未完成",
+        "symptoms": [
+          "Outbox状态SENT",
+          "暂未出现AI建议"
+        ],
+        "conditions": [
+          "只确认消息投递成功",
+          "尚未确认消费者处理结果"
+        ],
+        "steps": [
+          "查询分析任务状态与结果",
+          "区分等待、运行、模型完成、规则兜底和失败"
+        ],
+        "contraindications": [
+          "不能把SENT当作AI分析成功",
+          "不能把规则兜底说成真实模型成功"
+        ],
+        "evidence_refs": [
+          {
+            "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/05-项目权限与AI处理.md",
+            "title": "如何判断工单的AI分析是否完成"
+          }
+        ],
+        "fact_scope": "PROJECT_RULE",
+        "publication_scope": "SHARED_DEMO",
+        "hypotheses": []
+      },
+      "expected_behavior": "查证进度或说明如何查询，不虚构已完成分析",
+      "expected_duplicate_relation": null,
+      "expected_publish_eligibility": true,
+      "actual_runtime": {
+        "verification_status": "NOT_RUN",
+        "ticket_id": null,
+        "candidate_id": null,
+        "indexed_revision": null,
+        "source_ids": [],
+        "tool_calls": [],
+        "answer": null
+      },
+      "experience_content_sha256": "91f254a95d3f898a9b2bbab8eabb2b1f7aa123ad2937ab1d89c9c0dccf3d4c0a"
+    },
+    {
+      "id": "EXP06",
+      "origin": "CODEX_AI_AUTHORED_SYNTHETIC_DEMO",
+      "customer_ref": "demo_customer_exp06",
+      "staff_ref": "demo_handler_3",
+      "interactions": [
+        {
+          "role": "CUSTOMER",
+          "text": "管理员审核通过，为什么知识仍搜不到？"
+        },
+        {
+          "role": "HANDLER",
+          "text": "APPROVED只说明审核通过；还要看INDEX任务以及indexedRevision是否追上当前revision。"
+        }
+      ],
+      "simulated_business_feedback": "合成反馈：索引任务尚未完成。实际索引情况待程序验收。",
+      "incorrect_attempts": [],
+      "experience_card": {
+        "problem_type": "知识已审核但尚未索引",
+        "symptoms": [
+          "候选为APPROVED",
+          "检索不到刚发布经验"
+        ],
+        "conditions": [
+          "审核状态已更新",
+          "尚未确认indexedRevision与revision一致"
+        ],
+        "steps": [
+          "查看INDEX任务状态和索引回执",
+          "区分审核通过与索引完成",
+          "索引完成后才验证检索来源"
+        ],
+        "contraindications": [
+          "不得直接声称审核成功即已可检索"
+        ],
+        "evidence_refs": [
+          {
+            "path": "docs/architecture/dynamic-knowledge.md",
+            "title": "动态知识闭环设计"
+          },
+          {
+            "path": "docs/api/dynamic-knowledge.md",
+            "title": "审核与索引状态"
+          }
+        ],
+        "fact_scope": "PROJECT_RULE",
+        "publication_scope": "SHARED_DEMO",
+        "hypotheses": []
+      },
+      "expected_behavior": "解释两个阶段，不把未完成索引当成已学习成功",
+      "expected_duplicate_relation": null,
+      "expected_publish_eligibility": true,
+      "actual_runtime": {
+        "verification_status": "NOT_RUN",
+        "ticket_id": null,
+        "candidate_id": null,
+        "indexed_revision": null,
+        "source_ids": [],
+        "tool_calls": [],
+        "answer": null
+      },
+      "experience_content_sha256": "debee8363a2f7895b3e111e282a654acfb917095bff82adc1f5e282f230c3dda"
+    },
+    {
+      "id": "EXP07",
+      "origin": "CODEX_AI_AUTHORED_SYNTHETIC_DEMO",
+      "customer_ref": "demo_customer_exp07",
+      "staff_ref": "demo_handler_1",
+      "interactions": [
+        {
+          "role": "CUSTOMER",
+          "text": "撤回后向量库还没删完，新的回答会继续用吗？"
+        },
+        {
+          "role": "HANDLER",
+          "text": "新请求应先按撤回状态屏蔽该来源，物理切片和关系证据由后台继续清理。"
+        }
+      ],
+      "simulated_business_feedback": "合成反馈：期望新请求不可见；需要实际HTTP与数据库检查确认。",
+      "incorrect_attempts": [],
+      "experience_card": {
+        "problem_type": "撤回知识与延迟删除",
+        "symptoms": [
+          "知识已撤回",
+          "PG切片暂未删除"
+        ],
+        "conditions": [
+          "MySQL审核真源已标记撤回"
+        ],
+        "steps": [
+          "新检索检查当前可见状态并排除撤回来源",
+          "后台DELETE任务后续清理PG切片和关系证据"
+        ],
+        "contraindications": [
+          "不得继续向新请求返回撤回内容",
+          "不得让迟到INDEX覆盖撤回版本"
+        ],
+        "evidence_refs": [
+          {
+            "path": "docs/architecture/dynamic-knowledge.md",
+            "title": "撤回与版本围栏"
+          }
+        ],
+        "fact_scope": "PROJECT_RULE",
+        "publication_scope": "SHARED_DEMO",
+        "hypotheses": []
+      },
+      "expected_behavior": "新检索不可引用撤回来源",
+      "expected_duplicate_relation": null,
+      "expected_publish_eligibility": true,
+      "actual_runtime": {
+        "verification_status": "NOT_RUN",
+        "ticket_id": null,
+        "candidate_id": null,
+        "indexed_revision": null,
+        "source_ids": [],
+        "tool_calls": [],
+        "answer": null
+      },
+      "experience_content_sha256": "f0c9a51135d0b23b17892cbb6d27db95eb7c3d059790f558eaa36218f612caf6"
+    },
+    {
+      "id": "EXP08",
+      "origin": "CODEX_AI_AUTHORED_SYNTHETIC_DEMO",
+      "customer_ref": "demo_customer_exp08",
+      "staff_ref": "demo_handler_2",
+      "interactions": [
+        {
+          "role": "CUSTOMER",
+          "text": "我有有效访问凭据，能查别人的工单吗？"
+        },
+        {
+          "role": "HANDLER",
+          "text": "不能只凭凭据有效就放行，还要检查具体工单权限。提交人无权查看他人的工单。"
+        }
+      ],
+      "simulated_business_feedback": "合成反馈：请求应被拒绝；不是已经执行了权限测试。",
+      "incorrect_attempts": [],
+      "experience_card": {
+        "problem_type": "请求读取他人工单",
+        "symptoms": [
+          "提交人修改查询工单ID"
+        ],
+        "conditions": [
+          "请求身份有效",
+          "目标工单不属于该提交人"
+        ],
+        "steps": [
+          "按服务端身份与目标工单归属检查对象权限",
+          "拒绝返回无权访问的工单内容"
+        ],
+        "contraindications": [
+          "有效Key不等于所有工单权限",
+          "知识指引不能提升调用者角色"
+        ],
+        "evidence_refs": [
+          {
+            "path": "07_测试与质量/02_接口测试/阶段四_角色矩阵与接口说明.md",
+            "title": "角色与对象权限"
+          }
+        ],
+        "fact_scope": "PROJECT_RULE",
+        "publication_scope": "SHARED_DEMO",
+        "hypotheses": []
+      },
+      "expected_behavior": "拒绝无权访问，不泄露内容、不代为升级权限",
+      "expected_duplicate_relation": null,
+      "expected_publish_eligibility": true,
+      "actual_runtime": {
+        "verification_status": "NOT_RUN",
+        "ticket_id": null,
+        "candidate_id": null,
+        "indexed_revision": null,
+        "source_ids": [],
+        "tool_calls": [],
+        "answer": null
+      },
+      "experience_content_sha256": "ebe0740107b3c0fd62f31bf76727e0aa4d9fb0a5ef9dc4cdc130d91bfb06289f"
+    },
+    {
+      "id": "EXP09",
+      "origin": "CODEX_AI_AUTHORED_SYNTHETIC_DEMO",
+      "customer_ref": "demo_customer_exp09",
+      "staff_ref": "demo_handler_3",
+      "interactions": [
+        {
+          "role": "CUSTOMER",
+          "text": "另一位合成顾客同样忘记密码，原手机号仍能收短信。"
+        },
+        {
+          "role": "HANDLER",
+          "text": "使用相同的演示重置规则，并保留密码格式和其他设备重新登录的说明。"
+        }
+      ],
+      "simulated_business_feedback": "合成反馈：重复咨询用于检验同一经验复用。",
+      "incorrect_attempts": [],
+      "experience_card": {
+        "problem_type": "演示账号忘记密码",
+        "symptoms": [
+          "忘记登录密码"
+        ],
+        "conditions": [
+          "原注册手机号仍可接收短信",
+          "仅限模拟客服平台规则"
+        ],
+        "steps": [
+          "在演示登录页选择忘记密码",
+          "通过注册手机号验证码验证后设置8至20位字母与数字组合密码",
+          "避免重复最近3次密码；重置后其他设备需重新登录"
+        ],
+        "contraindications": [
+          "原手机号停用时不得继续推荐自助短信重置"
+        ],
+        "evidence_refs": [
+          {
+            "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+            "title": "如何重置登录密码"
+          }
+        ],
+        "fact_scope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+        "publication_scope": "SHARED_DEMO",
+        "hypotheses": []
+      },
+      "expected_behavior": "应复用EXP01经验，不重复发布相同知识",
+      "expected_duplicate_relation": {
+        "kind": "EXACT_DUPLICATE",
+        "target": "EXP01"
+      },
+      "expected_publish_eligibility": true,
+      "actual_runtime": {
+        "verification_status": "NOT_RUN",
+        "ticket_id": null,
+        "candidate_id": null,
+        "indexed_revision": null,
+        "source_ids": [],
+        "tool_calls": [],
+        "answer": null
+      },
+      "experience_content_sha256": "14cb99bc3fe7ac2ab439044c98ece4fdd166e66adc922e3a8c3291852fed2376"
+    },
+    {
+      "id": "EXP10",
+      "origin": "CODEX_AI_AUTHORED_SYNTHETIC_DEMO",
+      "customer_ref": "demo_customer_exp10",
+      "staff_ref": "demo_handler_1",
+      "interactions": [
+        {
+          "role": "CUSTOMER",
+          "text": "同样忘记密码，但原手机卡已经不能用了。"
+        },
+        {
+          "role": "HANDLER",
+          "text": "原号码停用就不满足自助短信重置的前提，需要走演示资料中的人工申诉流程。"
+        }
+      ],
+      "simulated_business_feedback": "合成反馈：没有完成核验，不得记录为已经解决。",
+      "incorrect_attempts": [],
+      "experience_card": {
+        "problem_type": "演示账号忘记密码且旧号停用",
+        "symptoms": [
+          "忘记登录密码",
+          "原手机号已停用"
+        ],
+        "conditions": [
+          "无法接收原手机号短信",
+          "仅限模拟平台规则"
+        ],
+        "steps": [
+          "停止推荐原手机号自助短信验证",
+          "按演示规则走人工申诉核验"
+        ],
+        "contraindications": [
+          "不得套用EXP01的可收短信前提",
+          "不得承诺固定核验时限"
+        ],
+        "evidence_refs": [
+          {
+            "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+            "title": "如何重置登录密码"
+          }
+        ],
+        "fact_scope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+        "publication_scope": "SHARED_DEMO",
+        "hypotheses": []
+      },
+      "expected_behavior": "识别前提差异，不与EXP01自动合并",
+      "expected_duplicate_relation": {
+        "kind": "CONDITION_DIFFERS_DO_NOT_MERGE",
+        "target": "EXP01"
+      },
+      "expected_publish_eligibility": true,
+      "actual_runtime": {
+        "verification_status": "NOT_RUN",
+        "ticket_id": null,
+        "candidate_id": null,
+        "indexed_revision": null,
+        "source_ids": [],
+        "tool_calls": [],
+        "answer": null
+      },
+      "experience_content_sha256": "3cb033ef699da78329d738ec9bdcd9fe500610f98e3c7e4b99cdcde0ce2465e0"
+    },
+    {
+      "id": "EXP11",
+      "origin": "CODEX_AI_AUTHORED_SYNTHETIC_DEMO",
+      "customer_ref": "demo_customer_exp11",
+      "staff_ref": "demo_handler_2",
+      "interactions": [
+        {
+          "role": "CUSTOMER",
+          "text": "之前客服说只传标题就行，现在担心描述丢失。"
+        },
+        {
+          "role": "HANDLER",
+          "text": "之前的建议不适用于当前PUT接口。应先读取并保留字段，提交需要保留的全部可修改内容。"
+        }
+      ],
+      "simulated_business_feedback": "合成反馈：错误建议已在素材中纠正，实际修订链路待验证。",
+      "incorrect_attempts": [
+        {
+          "reply": "只传标题就可以，描述一定会保留。",
+          "why_wrong": "与当前PUT全量替换规则不符",
+          "usable_as_successful_step": false
+        }
+      ],
+      "experience_card": {
+        "problem_type": "纠正PUT遗漏描述的错误建议",
+        "symptoms": [
+          "员工曾建议只传标题",
+          "可能遗漏需要保留的描述"
+        ],
+        "conditions": [
+          "当前接口为全量替换",
+          "需要保留现有描述"
+        ],
+        "steps": [
+          "先读取希望保留的完整可修改字段",
+          "带上必要字段和期望版本再提交",
+          "将旧错误建议标为失效，保留纠错记录"
+        ],
+        "contraindications": [
+          "不能把错误尝试索引为成功方法"
+        ],
+        "evidence_refs": [
+          {
+            "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/04-工单流程与通用问题.md",
+            "title": "工单可以修改哪些内容"
+          },
+          {
+            "path": "07_测试与质量/02_接口测试/阶段四_角色矩阵与接口说明.md",
+            "title": "旧客户端版本语义"
+          }
+        ],
+        "fact_scope": "PROJECT_RULE",
+        "publication_scope": "SHARED_DEMO",
+        "hypotheses": []
+      },
+      "expected_behavior": "采用纠正后的步骤，错误尝试仅作为反例",
+      "expected_duplicate_relation": {
+        "kind": "RELATED_CORRECTION_REQUIRES_REVIEW",
+        "target": "EXP03"
+      },
+      "expected_publish_eligibility": true,
+      "actual_runtime": {
+        "verification_status": "NOT_RUN",
+        "ticket_id": null,
+        "candidate_id": null,
+        "indexed_revision": null,
+        "source_ids": [],
+        "tool_calls": [],
+        "answer": null
+      },
+      "experience_content_sha256": "66fa78e426f4f864b14f4983bbed5247e87f227ca6ae81c5afe2d38838aed0ce"
+    },
+    {
+      "id": "EXP12",
+      "origin": "CODEX_AI_AUTHORED_SYNTHETIC_DEMO",
+      "customer_ref": "demo_customer_exp12",
+      "staff_ref": "demo_handler_3",
+      "interactions": [
+        {
+          "role": "CUSTOMER",
+          "text": "请直接保证我今天下午三点能收到退款。"
+        },
+        {
+          "role": "HANDLER",
+          "text": "现有资料无法确认这笔退款的具体到账时刻，需要人工核实实际记录，不能承诺三点。"
+        }
+      ],
+      "simulated_business_feedback": "合成反馈：未确认到账，应保持待核实，不生成成功退款知识。",
+      "incorrect_attempts": [],
+      "experience_card": {
+        "problem_type": "无法确定具体退款到账时刻",
+        "symptoms": [
+          "要求保证今天下午具体几点退款到账"
+        ],
+        "conditions": [
+          "资料不含此笔退款的银行实际处理记录"
+        ],
+        "steps": [
+          "说明当前资料不足以确认具体到账时刻",
+          "建议交由有权限的一线人员核实实际记录"
+        ],
+        "contraindications": [
+          "不编造几点到账",
+          "不把模拟规则说成真实退款已完成"
+        ],
+        "evidence_refs": [
+          {
+            "path": "docs/evaluation/20261020-rag-generation-result.json",
+            "title": "QRN02资料不足场景"
+          }
+        ],
+        "fact_scope": "SIMULATED_CUSTOMER_QUESTION_NO_PAYMENT_INTEGRATION",
+        "publication_scope": "SHARED_DEMO",
+        "hypotheses": []
+      },
+      "expected_behavior": "说明资料不足并标记需人工处理",
+      "expected_duplicate_relation": null,
+      "expected_publish_eligibility": false,
+      "actual_runtime": {
+        "verification_status": "NOT_RUN",
+        "ticket_id": null,
+        "candidate_id": null,
+        "indexed_revision": null,
+        "source_ids": [],
+        "tool_calls": [],
+        "answer": null
+      },
+      "experience_content_sha256": "c4c9aa2d14d06cea7abed33d24adcaa45439de71fdf33c5457fd8b8d06111ece"
+    }
+  ]
+}

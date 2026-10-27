@@ -54,10 +54,17 @@ public class KnowledgeVectorRepository {
 
     private final JdbcTemplate jdbcTemplate;
     private final org.springframework.transaction.support.TransactionTemplate publicationTx;
+    private final com.smartticket.experience.graph.ExperienceGraphStore graphs;
     private static final String SEARCHABLE = "(source_file NOT LIKE 'resolved-ticket/%' OR EXISTS ("
             + "SELECT 1 FROM knowledge_publication p WHERE p.source_file=knowledge_chunk.source_file AND p.state='ACTIVE'))";
 
     public KnowledgeVectorRepository(KnowledgeVectorProperties properties) {
+        this(properties,new com.smartticket.experience.graph.ExperienceGraphStore(new com.fasterxml.jackson.databind.ObjectMapper()));
+    }
+
+    @org.springframework.beans.factory.annotation.Autowired
+    public KnowledgeVectorRepository(KnowledgeVectorProperties properties,com.smartticket.experience.graph.ExperienceGraphStore graphs) {
+        this.graphs=graphs;
         KnowledgeVectorProperties.Datasource config = properties.getDatasource();
 
         HikariConfig hikariConfig = new HikariConfig();
@@ -205,6 +212,11 @@ public class KnowledgeVectorRepository {
 
     /** One bounded QA is one chunk. Catalog fence, replacement and cleanup commit in one PG transaction. */
     public boolean publish(KnowledgeSource source,String question,String answer,float[] embedding,String model) {
+        return publish(source,question,answer,embedding,model,null);
+    }
+
+    public boolean publish(KnowledgeSource source,String question,String answer,float[] embedding,String model,
+                           com.smartticket.experience.graph.ExperienceGraph.Plan graph) {
         String content=KnowledgeSource.content(question,answer);
         String hash=KnowledgeSource.hash(content);
         return Boolean.TRUE.equals(publicationTx.execute(status->{
@@ -212,6 +224,7 @@ public class KnowledgeVectorRepository {
             deleteBySourcePrefix(source.prefix());
             var chunk=new KnowledgeChunk(source.file(),"已审核演示工单经验",question,0,content);
             upsert(List.of(new IndexedRow(chunk,hash,embedding)),model);
+            graphs.replace(jdbcTemplate,source,hash,graph);
             return true;
         }));
     }
@@ -220,6 +233,7 @@ public class KnowledgeVectorRepository {
         return Boolean.TRUE.equals(publicationTx.execute(status->{
             if(!publicationFence(source,"RETRACTED",null)) return false;
             deleteBySourcePrefix(source.prefix());
+            graphs.retract(jdbcTemplate,source);
             return true;
         }));
     }
@@ -230,6 +244,24 @@ public class KnowledgeVectorRepository {
                 + " AND p.content_hash=? AND c.content_hash=? AND c.model=?",Integer.class,
                 source.candidateId(),source.revision(),hash,hash,model);
         return count!=null&&count==1;
+    }
+
+    public boolean graphMatches(KnowledgeSource source,com.smartticket.experience.graph.ExperienceGraph.Plan graph) {
+        return graphs.matches(jdbcTemplate,source,graph);
+    }
+
+    /** Repair missing graph evidence using the committed text vector; no embedding call. */
+    public boolean repairGraph(KnowledgeSource source,String hash,String model,com.smartticket.experience.graph.ExperienceGraph.Plan graph) {
+        return Boolean.TRUE.equals(publicationTx.execute(status->{
+            var row=jdbcTemplate.queryForList("SELECT revision,state,content_hash FROM knowledge_publication WHERE candidate_id=CAST(? AS uuid) FOR UPDATE",source.candidateId());
+            if(row.size()!=1||((Number)row.get(0).get("revision")).longValue()!=source.revision()||!"ACTIVE".equals(row.get(0).get("state"))
+                    ||!java.util.Objects.equals(hash,row.get(0).get("content_hash"))||!publicationMatches(source,hash,model))return false;
+            graphs.replace(jdbcTemplate,source,hash,graph);return true;
+        }));
+    }
+
+    public com.smartticket.experience.graph.ExperienceGraph.Snapshot graph(KnowledgeSource source) {
+        return graphs.read(jdbcTemplate,source);
     }
 
     private boolean publicationFence(KnowledgeSource source,String state,String hash) {

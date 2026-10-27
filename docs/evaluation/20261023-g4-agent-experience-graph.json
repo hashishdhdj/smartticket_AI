@@ -1,0 +1,1621 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "date": "2026-10-23T03:54:07.395894+00:00",
+  "stage": "G4",
+  "source_base_commit": "b26093b6bb2162257111a8cc068e73f92bf042a1",
+  "feature_work_uncommitted": true,
+  "remote_ci_for_this_feature": "NOT_RUN",
+  "vendor_calls": 0,
+  "paid_budget_ledger_reset": false,
+  "chat_provider": "OFFLINE_DETERMINISTIC_PROTOCOL_FIXTURE_NOT_DEEPSEEK",
+  "embedding": "local Ollama bge-m3:latest; count not separately measured",
+  "build": {
+    "status": "PASS",
+    "date": "2026-10-23T03:44:18.632771+00:00",
+    "vendor_calls": 0,
+    "jar_sha256": "18ebc262b72310d385e89fb70b2b3c134b58232111cae3919a656b4e98af5db9",
+    "source_manifest_sha256": "d22bc8ef4f1779320eacd135c887952f71c826a89d244045f38cc8a687411bb8",
+    "profiles": {
+      "unit": {
+        "tests": 307,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "integration": {
+        "tests": 260,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "java_major": 17,
+    "local_build_record_not_signed_attestation": true
+  },
+  "source_files_checked": 207,
+  "private_config_in_jar": false,
+  "added_java_test_counts": {
+    "unit": 24,
+    "integration": 20
+  },
+  "new_test_classes": [
+    {
+      "class": "com.smartticket.experience.graph.ExperienceGraphSearchTest",
+      "totals": {
+        "tests": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "cases": [
+        "verifiedPgGraphRatherThanHitExcerptSuppliesFacts",
+        "sourcesStaySeparateEvenWithSharedNodes",
+        "disconnectedGraphCannotReturnPartialPrerequisites",
+        "repeatedStepOrderIsRepresentedByOccurrence",
+        "repeatedHitsDoNotDuplicateGraphReads",
+        "disabledFeatureNeverSearches",
+        "sourceRevalidationRequiresExactSourceAndHash",
+        "unauthenticatedCallsNeverReachRetrieval",
+        "validatesQueryBeforeIo",
+        "oversizedGraphIsOmittedRatherThanLosingItsConditions",
+        "prerequisitesNegationStepsCounterexamplesHypothesesAndUnknownOutcomeSurvive",
+        "unapprovedOrUnreadySourcesDoNotSupplyFacts",
+        "ordinaryFaqCannotBeInventedAsGraph",
+        "everyPathHasEvidenceAndTheWholeResponseHasOneSource",
+        "unavailableGraphHasExplicitDegradationAndNoDatabaseDetails"
+      ]
+    },
+    {
+      "class": "com.smartticket.experience.graph.ExperienceGraphAgentIntegrationTest",
+      "totals": {
+        "tests": 20,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "cases": [
+        "sourceNotIndexedYetCannotBeReadEvenIfSeeded",
+        "graphNodeIdCannotMasqueradeAsCitation",
+        "newFailureFeedbackHidesOtherwiseIntactGraph",
+        "retractionDuringModelAnswerRejectsStaleCitation",
+        "emptyGraphSearchStillCountsAsKnowledgeSearchAndRequiresHuman",
+        "missingMysqlReceiptSuppressesFacts",
+        "graphEmptyCanFallBackToExistingTextTool",
+        "foreignTicketQueryCannotReadItsTitleBeforeGraphLookup",
+        "realAgentLoopReceivesGraphEvidenceAndReturnsValidSource",
+        "disabledGraphDuringModelAnswerCannotReturnOldEvidence",
+        "ordinaryUserReadsOnlyReviewedSharedGraphNotEmployeeRecords",
+        "twoDifferentConditionsNeverSharePathsOrPreconditions",
+        "pgReadFailureReturnsDegradedEmptyGraph",
+        "wrongEmbeddingModelIsNotReadyGraph",
+        "graphToolsDoNotChangeTicketOrGrantAssignmentAuthority",
+        "immediateRetractionHidesGraphWhilePgEvidenceStillExists",
+        "graphFeatureOffLeavesOrdinaryKnowledgeToolAvailable",
+        "toolRejectsScopeEscalationAndSqlArguments",
+        "revisionAndGraphHashAreRecheckedBeforeCiting",
+        "alteredPgNodeCannotBeUsedAsEvidence"
+      ]
+    }
+  ],
+  "extended_unit_classes": {
+    "AgentToolContextTest": 5,
+    "AgentToolsTest": 3,
+    "AgentAnswerTest": 1
+  },
+  "python_tests": {
+    "tests": 68,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "log_sha256": "bc44816151ad3582cc3394a898241aacbf4816ba86a04e3920ac2c574c2aec68"
+  },
+  "http_agent_demo": {
+    "status": "PASS",
+    "stage": "G4",
+    "date": "2026-10-23T03:50:55.795226+00:00",
+    "jar_sha256": "18ebc262b72310d385e89fb70b2b3c134b58232111cae3919a656b4e98af5db9",
+    "seed_sha256": "d703824c44637c8d8e7900806fb4ab37baa579121b649cbfb004630258752a00",
+    "vendor_calls": 0,
+    "chat_provider": "OFFLINE_DETERMINISTIC_PROTOCOL_FIXTURE_NOT_DEEPSEEK",
+    "embedding": "local Ollama bge-m3:latest",
+    "embedding_calls": null,
+    "semantic_answer_quality_tested": false,
+    "retrieval_comparison_completed": false,
+    "business_effect_independently_verified": false,
+    "checks": [
+      "unreviewed graph hidden through real Agent HTTP tool protocol",
+      "real RabbitMQ -> local BGE -> PG nodes/relations/evidence -> read-only graph tool",
+      "same-source facts, complete conditions, ordered steps, scope and current version reach model context",
+      "returned source cited; fabricated node/source ID rejected",
+      "retraction during model response rejected before final output",
+      "new retrieval after retraction returns no withdrawn graph",
+      "shared graph readable; internal admin inspection forbidden; ticket unchanged"
+    ],
+    "runs": {
+      "before_approval": {
+        "runId": "0ee215ba-1631-4f15-ba37-0ddb496eff02",
+        "status": "PARTIAL",
+        "answer": "未找到可验证的已审核图谱经验，请补充资料或转人工。",
+        "needHuman": true,
+        "modelCalls": 2,
+        "toolCalls": 1,
+        "tokens": 300,
+        "steps": [
+          {
+            "tool": "searchExperienceGraph",
+            "outcome": "SUCCESS",
+            "costMs": 117
+          }
+        ],
+        "evidence": [
+          {
+            "reason": "NO_VERIFIED_GRAPH_SOURCE",
+            "degraded": [],
+            "fallback": "可使用searchKnowledge查询文本；资料不足或适用前提不符时转人工，不执行业务操作",
+            "maxHops": 2,
+            "sources": [],
+            "requestedQuery": "演示账号忘记密码",
+            "effectiveQuery": "演示账号忘记密码",
+            "queryOrigin": "MODEL_QUERY"
+          }
+        ],
+        "statusReason": "HUMAN_REVIEW_REQUIRED"
+      },
+      "published": {
+        "runId": "546106cf-df0a-4c95-a111-2cb43222e3bc",
+        "status": "SUCCEEDED",
+        "answer": "离线模型替身演示：先核对适用条件：仅限模拟客服平台规则；原注册手机号仍可接收短信。处理步骤：在演示登录页选择忘记密码；通过注册手机号验证码验证后设置8至20位字母与数字组合密码；避免重复最近3次密码；重置后其他设备需重新登录。禁止条件：原手机号停用时不得继续推荐自助短信重置。此处为模拟规则，非本项目已实现短信能力，效果待核实。\n经验范围：已审核合成演示资料；模拟平台规则不代表本项目已实现功能。适用前提仍需核实，业务效果未独立验证。\n来源：resolved-ticket/ae88732e-db5b-4cbf-9fe4-cdc1187f93ee/v1.md#0",
+        "needHuman": false,
+        "modelCalls": 2,
+        "toolCalls": 1,
+        "tokens": 300,
+        "steps": [
+          {
+            "tool": "searchExperienceGraph",
+            "outcome": "SUCCESS",
+            "costMs": 83
+          }
+        ],
+        "evidence": [
+          {
+            "reason": "VERIFIED_GRAPH_EVIDENCE",
+            "degraded": [],
+            "fallback": "可使用searchKnowledge查询文本；资料不足或适用前提不符时转人工，不执行业务操作",
+            "maxHops": 2,
+            "sources": [
+              {
+                "sourceId": "resolved-ticket/ae88732e-db5b-4cbf-9fe4-cdc1187f93ee/v1.md#0",
+                "title": "演示账号忘记密码",
+                "scope": "SHARED_DEMO",
+                "candidateId": "ae88732e-db5b-4cbf-9fe4-cdc1187f93ee",
+                "revision": 1,
+                "cardId": "f7678bc0-f995-4dc5-867a-c251249b5335",
+                "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                "graphHash": "f4ecf950eaa4f547dfef19de7c751a5d83c8d18ad1dfc56e856a4c4631fc88a8",
+                "textHash": "ac0247c7dc12680a44d545318485b18bcbae066fdce1efd3088af5ef805b65e2",
+                "compilerVersion": "experience-graph-v1",
+                "facts": {
+                  "problem": "演示账号忘记密码",
+                  "symptoms": [
+                    "忘记登录密码"
+                  ],
+                  "conditions": [
+                    "仅限模拟客服平台规则",
+                    "原注册手机号仍可接收短信"
+                  ],
+                  "steps": [
+                    "在演示登录页选择忘记密码",
+                    "通过注册手机号验证码验证后设置8至20位字母与数字组合密码",
+                    "避免重复最近3次密码；重置后其他设备需重新登录"
+                  ],
+                  "contraindications": [
+                    "原手机号停用时不得继续推荐自助短信重置"
+                  ],
+                  "counterexamples": [],
+                  "hypotheses": [],
+                  "outcome": [
+                    "业务效果待核实（非独立验证）"
+                  ]
+                },
+                "paths": [
+                  {
+                    "evidenceKeys": [
+                      "steps/0"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "4aee9db46c22574b6c9b680e3fbc8e95d9311f968ee7855db05b94426254effd",
+                    "relation": "ADDRESSED_BY",
+                    "edgeId": "02e1fe79b3d4d1b4a69b0ab7d4b2418440e8a8fd22468e531191d550d1d23ba4"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "conditions/1"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "ce73409b142b8473a936b6abeae129fd38aa3fca693387508ae81a00852b0810",
+                    "relation": "REQUIRES",
+                    "edgeId": "10d04a3869115c7b1b7d9edea188248c195864d64c2e10428c53d9bb416f9cf3"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "stepOrder/1"
+                    ],
+                    "from": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1",
+                    "to": "6773e1507d06a91fcf0d0b5f487981d4497222bf720d8573f171f7a97f66d511",
+                    "relation": "NEXT_STEP",
+                    "edgeId": "1239c11b5e2e4eafc2b60d448c65b8bbaff8792586955d1dc20a850b165d0d00"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "steps/1"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1",
+                    "relation": "ADDRESSED_BY",
+                    "edgeId": "205b1b633170711a19a1f2c35a4c23a8bab589680e2eade9b390bca9b176e7d4"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "stepOrder/0"
+                    ],
+                    "from": "4aee9db46c22574b6c9b680e3fbc8e95d9311f968ee7855db05b94426254effd",
+                    "to": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1",
+                    "relation": "NEXT_STEP",
+                    "edgeId": "2e32ce21c68bfe7a98287f40860061a4e576c4f1a330496617a02b2ef5178caf"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "contraindications/0"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "f14d9d8c56e19ff76ca0324bd81b6f1150797f687690b919825f0d8c47e3df42",
+                    "relation": "CONTRAINDICATED",
+                    "edgeId": "6a8d5657e8bcbacbb38fafb0b33d2dd07a18e84b032a9ada5480a4bb72ffd12f"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "symptoms/0"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "17f526bb132ffcf5ff8c26a26d8423d9c04dd1f14a70645b9526679e0a7fac61",
+                    "relation": "HAS_SYMPTOM",
+                    "edgeId": "7fa6365d36e9f73cf98062911fe96e409265bdacbf5096cc94844b073e2d53a2"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "steps/2"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "6773e1507d06a91fcf0d0b5f487981d4497222bf720d8573f171f7a97f66d511",
+                    "relation": "ADDRESSED_BY",
+                    "edgeId": "e6f08144f53751d2020eddaabe19dcbe9822140df3c5a8df909880264b401e7d"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "conditions/0"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "ff4824ebf98e5ab77353bf65770d9b2cd0a6fe1b314c6b0eaef3a56f6475b88e",
+                    "relation": "REQUIRES",
+                    "edgeId": "f7f75672e3c85cfe51c0e9aa72fac0c1460ef26e91b2467e8ecb92b418a6d731"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "outcome/0"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "ac9f3020ef9b7269fb9c73618609c54d2ba802d88622a8869a4d67c9acfaaee5",
+                    "relation": "HAS_OUTCOME",
+                    "edgeId": "fb2c87de8f2f9e7e4b57d00b3d60474411bf201c802e54968512de77eb9d65ff"
+                  }
+                ],
+                "contextPaths": [
+                  [
+                    "problem",
+                    "ADDRESSED_BY",
+                    "steps/0",
+                    "steps/0"
+                  ],
+                  [
+                    "problem",
+                    "REQUIRES",
+                    "conditions/1",
+                    "conditions/1"
+                  ],
+                  [
+                    "steps/1",
+                    "NEXT_STEP",
+                    "steps/2",
+                    "stepOrder/1"
+                  ],
+                  [
+                    "problem",
+                    "ADDRESSED_BY",
+                    "steps/1",
+                    "steps/1"
+                  ],
+                  [
+                    "steps/0",
+                    "NEXT_STEP",
+                    "steps/1",
+                    "stepOrder/0"
+                  ],
+                  [
+                    "problem",
+                    "CONTRAINDICATED",
+                    "contraindications/0",
+                    "contraindications/0"
+                  ],
+                  [
+                    "problem",
+                    "HAS_SYMPTOM",
+                    "symptoms/0",
+                    "symptoms/0"
+                  ],
+                  [
+                    "problem",
+                    "ADDRESSED_BY",
+                    "steps/2",
+                    "steps/2"
+                  ],
+                  [
+                    "problem",
+                    "REQUIRES",
+                    "conditions/0",
+                    "conditions/0"
+                  ],
+                  [
+                    "problem",
+                    "HAS_OUTCOME",
+                    "outcome/0",
+                    "outcome/0"
+                  ]
+                ],
+                "nodes": [
+                  {
+                    "id": "17f526bb132ffcf5ff8c26a26d8423d9c04dd1f14a70645b9526679e0a7fac61",
+                    "kind": "SYMPTOM",
+                    "key": "忘记登录密码",
+                    "label": "忘记登录密码"
+                  },
+                  {
+                    "id": "4aee9db46c22574b6c9b680e3fbc8e95d9311f968ee7855db05b94426254effd",
+                    "kind": "STEP",
+                    "key": "在演示登录页选择忘记密码",
+                    "label": "在演示登录页选择忘记密码"
+                  },
+                  {
+                    "id": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "kind": "PROBLEM",
+                    "key": "演示账号忘记密码",
+                    "label": "演示账号忘记密码"
+                  },
+                  {
+                    "id": "6773e1507d06a91fcf0d0b5f487981d4497222bf720d8573f171f7a97f66d511",
+                    "kind": "STEP",
+                    "key": "避免重复最近3次密码；重置后其他设备需重新登录",
+                    "label": "避免重复最近3次密码；重置后其他设备需重新登录"
+                  },
+                  {
+                    "id": "ac9f3020ef9b7269fb9c73618609c54d2ba802d88622a8869a4d67c9acfaaee5",
+                    "kind": "OUTCOME",
+                    "key": "业务效果待核实（非独立验证）",
+                    "label": "业务效果待核实（非独立验证）"
+                  },
+                  {
+                    "id": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1",
+                    "kind": "STEP",
+                    "key": "通过注册手机号验证码验证后设置8至20位字母与数字组合密码",
+                    "label": "通过注册手机号验证码验证后设置8至20位字母与数字组合密码"
+                  },
+                  {
+                    "id": "ce73409b142b8473a936b6abeae129fd38aa3fca693387508ae81a00852b0810",
+                    "kind": "CONDITION",
+                    "key": "原注册手机号仍可接收短信",
+                    "label": "原注册手机号仍可接收短信"
+                  },
+                  {
+                    "id": "f14d9d8c56e19ff76ca0324bd81b6f1150797f687690b919825f0d8c47e3df42",
+                    "kind": "CONDITION",
+                    "key": "原手机号停用时不得继续推荐自助短信重置",
+                    "label": "原手机号停用时不得继续推荐自助短信重置"
+                  },
+                  {
+                    "id": "ff4824ebf98e5ab77353bf65770d9b2cd0a6fe1b314c6b0eaef3a56f6475b88e",
+                    "kind": "CONDITION",
+                    "key": "仅限模拟客服平台规则",
+                    "label": "仅限模拟客服平台规则"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "edgeId": "02e1fe79b3d4d1b4a69b0ab7d4b2418440e8a8fd22468e531191d550d1d23ba4",
+                    "key": "steps/0",
+                    "details": {
+                      "field": "steps",
+                      "ordinal": 0,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "10d04a3869115c7b1b7d9edea188248c195864d64c2e10428c53d9bb416f9cf3",
+                    "key": "conditions/1",
+                    "details": {
+                      "field": "conditions",
+                      "ordinal": 1,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "1239c11b5e2e4eafc2b60d448c65b8bbaff8792586955d1dc20a850b165d0d00",
+                    "key": "stepOrder/1",
+                    "details": {
+                      "field": "stepOrder",
+                      "ordinal": 1,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "205b1b633170711a19a1f2c35a4c23a8bab589680e2eade9b390bca9b176e7d4",
+                    "key": "steps/1",
+                    "details": {
+                      "field": "steps",
+                      "ordinal": 1,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "2e32ce21c68bfe7a98287f40860061a4e576c4f1a330496617a02b2ef5178caf",
+                    "key": "stepOrder/0",
+                    "details": {
+                      "field": "stepOrder",
+                      "ordinal": 0,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "6a8d5657e8bcbacbb38fafb0b33d2dd07a18e84b032a9ada5480a4bb72ffd12f",
+                    "key": "contraindications/0",
+                    "details": {
+                      "field": "contraindications",
+                      "ordinal": 0,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "7fa6365d36e9f73cf98062911fe96e409265bdacbf5096cc94844b073e2d53a2",
+                    "key": "symptoms/0",
+                    "details": {
+                      "field": "symptoms",
+                      "ordinal": 0,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "e6f08144f53751d2020eddaabe19dcbe9822140df3c5a8df909880264b401e7d",
+                    "key": "steps/2",
+                    "details": {
+                      "field": "steps",
+                      "ordinal": 2,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "f7f75672e3c85cfe51c0e9aa72fac0c1460ef26e91b2467e8ecb92b418a6d731",
+                    "key": "conditions/0",
+                    "details": {
+                      "field": "conditions",
+                      "ordinal": 0,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "fb2c87de8f2f9e7e4b57d00b3d60474411bf201c802e54968512de77eb9d65ff",
+                    "key": "outcome/0",
+                    "details": {
+                      "field": "outcome",
+                      "ordinal": 0,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "references": [
+                  {
+                    "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                    "title": "如何重置登录密码"
+                  }
+                ],
+                "notice": "已审核合成经验，仅限演示；先核对适用条件与禁止条件。假设未证实，业务效果待核实；不代表执行成功或新增业务能力。"
+              }
+            ],
+            "requestedQuery": "演示账号忘记密码",
+            "effectiveQuery": "演示账号忘记密码",
+            "queryOrigin": "MODEL_QUERY"
+          }
+        ],
+        "statusReason": "VALIDATED_OUTPUT"
+      },
+      "unsupported_citation": {
+        "runId": "38e15292-125b-4276-9f5a-8d63fb24ce8e",
+        "status": "PARTIAL",
+        "answer": "无法验证完整回答，请查看执行步骤和来源并转人工处理",
+        "needHuman": true,
+        "modelCalls": 2,
+        "toolCalls": 1,
+        "tokens": 300,
+        "steps": [
+          {
+            "tool": "searchExperienceGraph",
+            "outcome": "SUCCESS",
+            "costMs": 80
+          }
+        ],
+        "evidence": [
+          {
+            "reason": "VERIFIED_GRAPH_EVIDENCE",
+            "degraded": [],
+            "fallback": "可使用searchKnowledge查询文本；资料不足或适用前提不符时转人工，不执行业务操作",
+            "maxHops": 2,
+            "sources": [
+              {
+                "sourceId": "resolved-ticket/ae88732e-db5b-4cbf-9fe4-cdc1187f93ee/v1.md#0",
+                "title": "演示账号忘记密码",
+                "scope": "SHARED_DEMO",
+                "candidateId": "ae88732e-db5b-4cbf-9fe4-cdc1187f93ee",
+                "revision": 1,
+                "cardId": "f7678bc0-f995-4dc5-867a-c251249b5335",
+                "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                "graphHash": "f4ecf950eaa4f547dfef19de7c751a5d83c8d18ad1dfc56e856a4c4631fc88a8",
+                "textHash": "ac0247c7dc12680a44d545318485b18bcbae066fdce1efd3088af5ef805b65e2",
+                "compilerVersion": "experience-graph-v1",
+                "facts": {
+                  "problem": "演示账号忘记密码",
+                  "symptoms": [
+                    "忘记登录密码"
+                  ],
+                  "conditions": [
+                    "仅限模拟客服平台规则",
+                    "原注册手机号仍可接收短信"
+                  ],
+                  "steps": [
+                    "在演示登录页选择忘记密码",
+                    "通过注册手机号验证码验证后设置8至20位字母与数字组合密码",
+                    "避免重复最近3次密码；重置后其他设备需重新登录"
+                  ],
+                  "contraindications": [
+                    "原手机号停用时不得继续推荐自助短信重置"
+                  ],
+                  "counterexamples": [],
+                  "hypotheses": [],
+                  "outcome": [
+                    "业务效果待核实（非独立验证）"
+                  ]
+                },
+                "paths": [
+                  {
+                    "evidenceKeys": [
+                      "steps/0"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "4aee9db46c22574b6c9b680e3fbc8e95d9311f968ee7855db05b94426254effd",
+                    "relation": "ADDRESSED_BY",
+                    "edgeId": "02e1fe79b3d4d1b4a69b0ab7d4b2418440e8a8fd22468e531191d550d1d23ba4"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "conditions/1"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "ce73409b142b8473a936b6abeae129fd38aa3fca693387508ae81a00852b0810",
+                    "relation": "REQUIRES",
+                    "edgeId": "10d04a3869115c7b1b7d9edea188248c195864d64c2e10428c53d9bb416f9cf3"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "stepOrder/1"
+                    ],
+                    "from": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1",
+                    "to": "6773e1507d06a91fcf0d0b5f487981d4497222bf720d8573f171f7a97f66d511",
+                    "relation": "NEXT_STEP",
+                    "edgeId": "1239c11b5e2e4eafc2b60d448c65b8bbaff8792586955d1dc20a850b165d0d00"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "steps/1"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1",
+                    "relation": "ADDRESSED_BY",
+                    "edgeId": "205b1b633170711a19a1f2c35a4c23a8bab589680e2eade9b390bca9b176e7d4"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "stepOrder/0"
+                    ],
+                    "from": "4aee9db46c22574b6c9b680e3fbc8e95d9311f968ee7855db05b94426254effd",
+                    "to": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1",
+                    "relation": "NEXT_STEP",
+                    "edgeId": "2e32ce21c68bfe7a98287f40860061a4e576c4f1a330496617a02b2ef5178caf"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "contraindications/0"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "f14d9d8c56e19ff76ca0324bd81b6f1150797f687690b919825f0d8c47e3df42",
+                    "relation": "CONTRAINDICATED",
+                    "edgeId": "6a8d5657e8bcbacbb38fafb0b33d2dd07a18e84b032a9ada5480a4bb72ffd12f"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "symptoms/0"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "17f526bb132ffcf5ff8c26a26d8423d9c04dd1f14a70645b9526679e0a7fac61",
+                    "relation": "HAS_SYMPTOM",
+                    "edgeId": "7fa6365d36e9f73cf98062911fe96e409265bdacbf5096cc94844b073e2d53a2"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "steps/2"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "6773e1507d06a91fcf0d0b5f487981d4497222bf720d8573f171f7a97f66d511",
+                    "relation": "ADDRESSED_BY",
+                    "edgeId": "e6f08144f53751d2020eddaabe19dcbe9822140df3c5a8df909880264b401e7d"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "conditions/0"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "ff4824ebf98e5ab77353bf65770d9b2cd0a6fe1b314c6b0eaef3a56f6475b88e",
+                    "relation": "REQUIRES",
+                    "edgeId": "f7f75672e3c85cfe51c0e9aa72fac0c1460ef26e91b2467e8ecb92b418a6d731"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "outcome/0"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "ac9f3020ef9b7269fb9c73618609c54d2ba802d88622a8869a4d67c9acfaaee5",
+                    "relation": "HAS_OUTCOME",
+                    "edgeId": "fb2c87de8f2f9e7e4b57d00b3d60474411bf201c802e54968512de77eb9d65ff"
+                  }
+                ],
+                "contextPaths": [
+                  [
+                    "problem",
+                    "ADDRESSED_BY",
+                    "steps/0",
+                    "steps/0"
+                  ],
+                  [
+                    "problem",
+                    "REQUIRES",
+                    "conditions/1",
+                    "conditions/1"
+                  ],
+                  [
+                    "steps/1",
+                    "NEXT_STEP",
+                    "steps/2",
+                    "stepOrder/1"
+                  ],
+                  [
+                    "problem",
+                    "ADDRESSED_BY",
+                    "steps/1",
+                    "steps/1"
+                  ],
+                  [
+                    "steps/0",
+                    "NEXT_STEP",
+                    "steps/1",
+                    "stepOrder/0"
+                  ],
+                  [
+                    "problem",
+                    "CONTRAINDICATED",
+                    "contraindications/0",
+                    "contraindications/0"
+                  ],
+                  [
+                    "problem",
+                    "HAS_SYMPTOM",
+                    "symptoms/0",
+                    "symptoms/0"
+                  ],
+                  [
+                    "problem",
+                    "ADDRESSED_BY",
+                    "steps/2",
+                    "steps/2"
+                  ],
+                  [
+                    "problem",
+                    "REQUIRES",
+                    "conditions/0",
+                    "conditions/0"
+                  ],
+                  [
+                    "problem",
+                    "HAS_OUTCOME",
+                    "outcome/0",
+                    "outcome/0"
+                  ]
+                ],
+                "nodes": [
+                  {
+                    "id": "17f526bb132ffcf5ff8c26a26d8423d9c04dd1f14a70645b9526679e0a7fac61",
+                    "kind": "SYMPTOM",
+                    "key": "忘记登录密码",
+                    "label": "忘记登录密码"
+                  },
+                  {
+                    "id": "4aee9db46c22574b6c9b680e3fbc8e95d9311f968ee7855db05b94426254effd",
+                    "kind": "STEP",
+                    "key": "在演示登录页选择忘记密码",
+                    "label": "在演示登录页选择忘记密码"
+                  },
+                  {
+                    "id": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "kind": "PROBLEM",
+                    "key": "演示账号忘记密码",
+                    "label": "演示账号忘记密码"
+                  },
+                  {
+                    "id": "6773e1507d06a91fcf0d0b5f487981d4497222bf720d8573f171f7a97f66d511",
+                    "kind": "STEP",
+                    "key": "避免重复最近3次密码；重置后其他设备需重新登录",
+                    "label": "避免重复最近3次密码；重置后其他设备需重新登录"
+                  },
+                  {
+                    "id": "ac9f3020ef9b7269fb9c73618609c54d2ba802d88622a8869a4d67c9acfaaee5",
+                    "kind": "OUTCOME",
+                    "key": "业务效果待核实（非独立验证）",
+                    "label": "业务效果待核实（非独立验证）"
+                  },
+                  {
+                    "id": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1",
+                    "kind": "STEP",
+                    "key": "通过注册手机号验证码验证后设置8至20位字母与数字组合密码",
+                    "label": "通过注册手机号验证码验证后设置8至20位字母与数字组合密码"
+                  },
+                  {
+                    "id": "ce73409b142b8473a936b6abeae129fd38aa3fca693387508ae81a00852b0810",
+                    "kind": "CONDITION",
+                    "key": "原注册手机号仍可接收短信",
+                    "label": "原注册手机号仍可接收短信"
+                  },
+                  {
+                    "id": "f14d9d8c56e19ff76ca0324bd81b6f1150797f687690b919825f0d8c47e3df42",
+                    "kind": "CONDITION",
+                    "key": "原手机号停用时不得继续推荐自助短信重置",
+                    "label": "原手机号停用时不得继续推荐自助短信重置"
+                  },
+                  {
+                    "id": "ff4824ebf98e5ab77353bf65770d9b2cd0a6fe1b314c6b0eaef3a56f6475b88e",
+                    "kind": "CONDITION",
+                    "key": "仅限模拟客服平台规则",
+                    "label": "仅限模拟客服平台规则"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "edgeId": "02e1fe79b3d4d1b4a69b0ab7d4b2418440e8a8fd22468e531191d550d1d23ba4",
+                    "key": "steps/0",
+                    "details": {
+                      "field": "steps",
+                      "ordinal": 0,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "10d04a3869115c7b1b7d9edea188248c195864d64c2e10428c53d9bb416f9cf3",
+                    "key": "conditions/1",
+                    "details": {
+                      "field": "conditions",
+                      "ordinal": 1,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "1239c11b5e2e4eafc2b60d448c65b8bbaff8792586955d1dc20a850b165d0d00",
+                    "key": "stepOrder/1",
+                    "details": {
+                      "field": "stepOrder",
+                      "ordinal": 1,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "205b1b633170711a19a1f2c35a4c23a8bab589680e2eade9b390bca9b176e7d4",
+                    "key": "steps/1",
+                    "details": {
+                      "field": "steps",
+                      "ordinal": 1,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "2e32ce21c68bfe7a98287f40860061a4e576c4f1a330496617a02b2ef5178caf",
+                    "key": "stepOrder/0",
+                    "details": {
+                      "field": "stepOrder",
+                      "ordinal": 0,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "6a8d5657e8bcbacbb38fafb0b33d2dd07a18e84b032a9ada5480a4bb72ffd12f",
+                    "key": "contraindications/0",
+                    "details": {
+                      "field": "contraindications",
+                      "ordinal": 0,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "7fa6365d36e9f73cf98062911fe96e409265bdacbf5096cc94844b073e2d53a2",
+                    "key": "symptoms/0",
+                    "details": {
+                      "field": "symptoms",
+                      "ordinal": 0,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "e6f08144f53751d2020eddaabe19dcbe9822140df3c5a8df909880264b401e7d",
+                    "key": "steps/2",
+                    "details": {
+                      "field": "steps",
+                      "ordinal": 2,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "f7f75672e3c85cfe51c0e9aa72fac0c1460ef26e91b2467e8ecb92b418a6d731",
+                    "key": "conditions/0",
+                    "details": {
+                      "field": "conditions",
+                      "ordinal": 0,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "fb2c87de8f2f9e7e4b57d00b3d60474411bf201c802e54968512de77eb9d65ff",
+                    "key": "outcome/0",
+                    "details": {
+                      "field": "outcome",
+                      "ordinal": 0,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "references": [
+                  {
+                    "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                    "title": "如何重置登录密码"
+                  }
+                ],
+                "notice": "已审核合成经验，仅限演示；先核对适用条件与禁止条件。假设未证实，业务效果待核实；不代表执行成功或新增业务能力。"
+              }
+            ],
+            "requestedQuery": "演示账号忘记密码",
+            "effectiveQuery": "演示账号忘记密码",
+            "queryOrigin": "MODEL_QUERY"
+          }
+        ],
+        "statusReason": "UNSUPPORTED_SOURCE"
+      },
+      "retracted_during_answer": {
+        "runId": "42507ff8-0b0e-4057-820d-34ba2beff759",
+        "status": "PARTIAL",
+        "answer": "无法验证完整回答，请查看执行步骤和来源并转人工处理",
+        "needHuman": true,
+        "modelCalls": 2,
+        "toolCalls": 1,
+        "tokens": 300,
+        "steps": [
+          {
+            "tool": "searchExperienceGraph",
+            "outcome": "SUCCESS",
+            "costMs": 88
+          }
+        ],
+        "evidence": [
+          {
+            "reason": "VERIFIED_GRAPH_EVIDENCE",
+            "degraded": [],
+            "fallback": "可使用searchKnowledge查询文本；资料不足或适用前提不符时转人工，不执行业务操作",
+            "maxHops": 2,
+            "sources": [
+              {
+                "sourceId": "resolved-ticket/ae88732e-db5b-4cbf-9fe4-cdc1187f93ee/v1.md#0",
+                "title": "演示账号忘记密码",
+                "scope": "SHARED_DEMO",
+                "candidateId": "ae88732e-db5b-4cbf-9fe4-cdc1187f93ee",
+                "revision": 1,
+                "cardId": "f7678bc0-f995-4dc5-867a-c251249b5335",
+                "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                "graphHash": "f4ecf950eaa4f547dfef19de7c751a5d83c8d18ad1dfc56e856a4c4631fc88a8",
+                "textHash": "ac0247c7dc12680a44d545318485b18bcbae066fdce1efd3088af5ef805b65e2",
+                "compilerVersion": "experience-graph-v1",
+                "facts": {
+                  "problem": "演示账号忘记密码",
+                  "symptoms": [
+                    "忘记登录密码"
+                  ],
+                  "conditions": [
+                    "仅限模拟客服平台规则",
+                    "原注册手机号仍可接收短信"
+                  ],
+                  "steps": [
+                    "在演示登录页选择忘记密码",
+                    "通过注册手机号验证码验证后设置8至20位字母与数字组合密码",
+                    "避免重复最近3次密码；重置后其他设备需重新登录"
+                  ],
+                  "contraindications": [
+                    "原手机号停用时不得继续推荐自助短信重置"
+                  ],
+                  "counterexamples": [],
+                  "hypotheses": [],
+                  "outcome": [
+                    "业务效果待核实（非独立验证）"
+                  ]
+                },
+                "paths": [
+                  {
+                    "evidenceKeys": [
+                      "steps/0"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "4aee9db46c22574b6c9b680e3fbc8e95d9311f968ee7855db05b94426254effd",
+                    "relation": "ADDRESSED_BY",
+                    "edgeId": "02e1fe79b3d4d1b4a69b0ab7d4b2418440e8a8fd22468e531191d550d1d23ba4"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "conditions/1"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "ce73409b142b8473a936b6abeae129fd38aa3fca693387508ae81a00852b0810",
+                    "relation": "REQUIRES",
+                    "edgeId": "10d04a3869115c7b1b7d9edea188248c195864d64c2e10428c53d9bb416f9cf3"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "stepOrder/1"
+                    ],
+                    "from": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1",
+                    "to": "6773e1507d06a91fcf0d0b5f487981d4497222bf720d8573f171f7a97f66d511",
+                    "relation": "NEXT_STEP",
+                    "edgeId": "1239c11b5e2e4eafc2b60d448c65b8bbaff8792586955d1dc20a850b165d0d00"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "steps/1"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1",
+                    "relation": "ADDRESSED_BY",
+                    "edgeId": "205b1b633170711a19a1f2c35a4c23a8bab589680e2eade9b390bca9b176e7d4"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "stepOrder/0"
+                    ],
+                    "from": "4aee9db46c22574b6c9b680e3fbc8e95d9311f968ee7855db05b94426254effd",
+                    "to": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1",
+                    "relation": "NEXT_STEP",
+                    "edgeId": "2e32ce21c68bfe7a98287f40860061a4e576c4f1a330496617a02b2ef5178caf"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "contraindications/0"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "f14d9d8c56e19ff76ca0324bd81b6f1150797f687690b919825f0d8c47e3df42",
+                    "relation": "CONTRAINDICATED",
+                    "edgeId": "6a8d5657e8bcbacbb38fafb0b33d2dd07a18e84b032a9ada5480a4bb72ffd12f"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "symptoms/0"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "17f526bb132ffcf5ff8c26a26d8423d9c04dd1f14a70645b9526679e0a7fac61",
+                    "relation": "HAS_SYMPTOM",
+                    "edgeId": "7fa6365d36e9f73cf98062911fe96e409265bdacbf5096cc94844b073e2d53a2"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "steps/2"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "6773e1507d06a91fcf0d0b5f487981d4497222bf720d8573f171f7a97f66d511",
+                    "relation": "ADDRESSED_BY",
+                    "edgeId": "e6f08144f53751d2020eddaabe19dcbe9822140df3c5a8df909880264b401e7d"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "conditions/0"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "ff4824ebf98e5ab77353bf65770d9b2cd0a6fe1b314c6b0eaef3a56f6475b88e",
+                    "relation": "REQUIRES",
+                    "edgeId": "f7f75672e3c85cfe51c0e9aa72fac0c1460ef26e91b2467e8ecb92b418a6d731"
+                  },
+                  {
+                    "evidenceKeys": [
+                      "outcome/0"
+                    ],
+                    "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "to": "ac9f3020ef9b7269fb9c73618609c54d2ba802d88622a8869a4d67c9acfaaee5",
+                    "relation": "HAS_OUTCOME",
+                    "edgeId": "fb2c87de8f2f9e7e4b57d00b3d60474411bf201c802e54968512de77eb9d65ff"
+                  }
+                ],
+                "contextPaths": [
+                  [
+                    "problem",
+                    "ADDRESSED_BY",
+                    "steps/0",
+                    "steps/0"
+                  ],
+                  [
+                    "problem",
+                    "REQUIRES",
+                    "conditions/1",
+                    "conditions/1"
+                  ],
+                  [
+                    "steps/1",
+                    "NEXT_STEP",
+                    "steps/2",
+                    "stepOrder/1"
+                  ],
+                  [
+                    "problem",
+                    "ADDRESSED_BY",
+                    "steps/1",
+                    "steps/1"
+                  ],
+                  [
+                    "steps/0",
+                    "NEXT_STEP",
+                    "steps/1",
+                    "stepOrder/0"
+                  ],
+                  [
+                    "problem",
+                    "CONTRAINDICATED",
+                    "contraindications/0",
+                    "contraindications/0"
+                  ],
+                  [
+                    "problem",
+                    "HAS_SYMPTOM",
+                    "symptoms/0",
+                    "symptoms/0"
+                  ],
+                  [
+                    "problem",
+                    "ADDRESSED_BY",
+                    "steps/2",
+                    "steps/2"
+                  ],
+                  [
+                    "problem",
+                    "REQUIRES",
+                    "conditions/0",
+                    "conditions/0"
+                  ],
+                  [
+                    "problem",
+                    "HAS_OUTCOME",
+                    "outcome/0",
+                    "outcome/0"
+                  ]
+                ],
+                "nodes": [
+                  {
+                    "id": "17f526bb132ffcf5ff8c26a26d8423d9c04dd1f14a70645b9526679e0a7fac61",
+                    "kind": "SYMPTOM",
+                    "key": "忘记登录密码",
+                    "label": "忘记登录密码"
+                  },
+                  {
+                    "id": "4aee9db46c22574b6c9b680e3fbc8e95d9311f968ee7855db05b94426254effd",
+                    "kind": "STEP",
+                    "key": "在演示登录页选择忘记密码",
+                    "label": "在演示登录页选择忘记密码"
+                  },
+                  {
+                    "id": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+                    "kind": "PROBLEM",
+                    "key": "演示账号忘记密码",
+                    "label": "演示账号忘记密码"
+                  },
+                  {
+                    "id": "6773e1507d06a91fcf0d0b5f487981d4497222bf720d8573f171f7a97f66d511",
+                    "kind": "STEP",
+                    "key": "避免重复最近3次密码；重置后其他设备需重新登录",
+                    "label": "避免重复最近3次密码；重置后其他设备需重新登录"
+                  },
+                  {
+                    "id": "ac9f3020ef9b7269fb9c73618609c54d2ba802d88622a8869a4d67c9acfaaee5",
+                    "kind": "OUTCOME",
+                    "key": "业务效果待核实（非独立验证）",
+                    "label": "业务效果待核实（非独立验证）"
+                  },
+                  {
+                    "id": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1",
+                    "kind": "STEP",
+                    "key": "通过注册手机号验证码验证后设置8至20位字母与数字组合密码",
+                    "label": "通过注册手机号验证码验证后设置8至20位字母与数字组合密码"
+                  },
+                  {
+                    "id": "ce73409b142b8473a936b6abeae129fd38aa3fca693387508ae81a00852b0810",
+                    "kind": "CONDITION",
+                    "key": "原注册手机号仍可接收短信",
+                    "label": "原注册手机号仍可接收短信"
+                  },
+                  {
+                    "id": "f14d9d8c56e19ff76ca0324bd81b6f1150797f687690b919825f0d8c47e3df42",
+                    "kind": "CONDITION",
+                    "key": "原手机号停用时不得继续推荐自助短信重置",
+                    "label": "原手机号停用时不得继续推荐自助短信重置"
+                  },
+                  {
+                    "id": "ff4824ebf98e5ab77353bf65770d9b2cd0a6fe1b314c6b0eaef3a56f6475b88e",
+                    "kind": "CONDITION",
+                    "key": "仅限模拟客服平台规则",
+                    "label": "仅限模拟客服平台规则"
+                  }
+                ],
+                "evidence": [
+                  {
+                    "edgeId": "02e1fe79b3d4d1b4a69b0ab7d4b2418440e8a8fd22468e531191d550d1d23ba4",
+                    "key": "steps/0",
+                    "details": {
+                      "field": "steps",
+                      "ordinal": 0,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "10d04a3869115c7b1b7d9edea188248c195864d64c2e10428c53d9bb416f9cf3",
+                    "key": "conditions/1",
+                    "details": {
+                      "field": "conditions",
+                      "ordinal": 1,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "1239c11b5e2e4eafc2b60d448c65b8bbaff8792586955d1dc20a850b165d0d00",
+                    "key": "stepOrder/1",
+                    "details": {
+                      "field": "stepOrder",
+                      "ordinal": 1,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "205b1b633170711a19a1f2c35a4c23a8bab589680e2eade9b390bca9b176e7d4",
+                    "key": "steps/1",
+                    "details": {
+                      "field": "steps",
+                      "ordinal": 1,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "2e32ce21c68bfe7a98287f40860061a4e576c4f1a330496617a02b2ef5178caf",
+                    "key": "stepOrder/0",
+                    "details": {
+                      "field": "stepOrder",
+                      "ordinal": 0,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "6a8d5657e8bcbacbb38fafb0b33d2dd07a18e84b032a9ada5480a4bb72ffd12f",
+                    "key": "contraindications/0",
+                    "details": {
+                      "field": "contraindications",
+                      "ordinal": 0,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "7fa6365d36e9f73cf98062911fe96e409265bdacbf5096cc94844b073e2d53a2",
+                    "key": "symptoms/0",
+                    "details": {
+                      "field": "symptoms",
+                      "ordinal": 0,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "e6f08144f53751d2020eddaabe19dcbe9822140df3c5a8df909880264b401e7d",
+                    "key": "steps/2",
+                    "details": {
+                      "field": "steps",
+                      "ordinal": 2,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "f7f75672e3c85cfe51c0e9aa72fac0c1460ef26e91b2467e8ecb92b418a6d731",
+                    "key": "conditions/0",
+                    "details": {
+                      "field": "conditions",
+                      "ordinal": 0,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "edgeId": "fb2c87de8f2f9e7e4b57d00b3d60474411bf201c802e54968512de77eb9d65ff",
+                    "key": "outcome/0",
+                    "details": {
+                      "field": "outcome",
+                      "ordinal": 0,
+                      "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+                      "supportStatus": "REFERENCED_DEMO",
+                      "references": [
+                        {
+                          "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                          "title": "如何重置登录密码"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "references": [
+                  {
+                    "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                    "title": "如何重置登录密码"
+                  }
+                ],
+                "notice": "已审核合成经验，仅限演示；先核对适用条件与禁止条件。假设未证实，业务效果待核实；不代表执行成功或新增业务能力。"
+              }
+            ],
+            "requestedQuery": "演示账号忘记密码",
+            "effectiveQuery": "演示账号忘记密码",
+            "queryOrigin": "MODEL_QUERY"
+          }
+        ],
+        "statusReason": "STALE_GRAPH_SOURCE"
+      },
+      "after_retraction": {
+        "runId": "06e03a18-30e3-47e6-958b-67fadc1ad209",
+        "status": "PARTIAL",
+        "answer": "未找到可验证的已审核图谱经验，请补充资料或转人工。",
+        "needHuman": true,
+        "modelCalls": 2,
+        "toolCalls": 1,
+        "tokens": 300,
+        "steps": [
+          {
+            "tool": "searchExperienceGraph",
+            "outcome": "SUCCESS",
+            "costMs": 51
+          }
+        ],
+        "evidence": [
+          {
+            "reason": "NO_VERIFIED_GRAPH_SOURCE",
+            "degraded": [],
+            "fallback": "可使用searchKnowledge查询文本；资料不足或适用前提不符时转人工，不执行业务操作",
+            "maxHops": 2,
+            "sources": [],
+            "requestedQuery": "演示账号忘记密码",
+            "effectiveQuery": "演示账号忘记密码",
+            "queryOrigin": "MODEL_QUERY"
+          }
+        ],
+        "statusReason": "HUMAN_REVIEW_REQUIRED"
+      }
+    },
+    "actor_ids": [
+      2115819348,
+      2124743965,
+      2103415882,
+      2135888496
+    ],
+    "graph": {
+      "nodes": 9,
+      "edges": 10,
+      "evidence": 10,
+      "graph_hash": "f4ecf950eaa4f547dfef19de7c751a5d83c8d18ad1dfc56e856a4c4631fc88a8",
+      "source_id": "resolved-ticket/ae88732e-db5b-4cbf-9fe4-cdc1187f93ee/v1.md#0"
+    },
+    "offline_protocol_requests": 10,
+    "own_records_cleaned": true,
+    "frozen_input_unchanged": true
+  },
+  "fingerprints": [
+    {
+      "path": "docs/evaluation/current-runtime-baseline.json",
+      "sha256": "d0a1d8d4a003572e976bfe5ec3854c28d4339185898cc3aa1059aff76446c1af"
+    },
+    {
+      "path": "docs/evaluation/20261023-g3-runtime-baseline.json",
+      "sha256": "887388258bc5b6fad40c6ec884e6af6572378eb1bffa4b19e9a7f4b1ab79c958"
+    },
+    {
+      "path": "docs/api/experience-graph-search.md",
+      "sha256": "582d20bf43c6ac735b646fd6eda5de5ca6e56e17a686df3ec75125bb40c627f8"
+    },
+    {
+      "path": "01_项目说明/20261023_G4Agent图谱检索与来源校验_完成说明及操作指南.md",
+      "sha256": "6e3369de48f00fed7cf423ab10b0190383317cce9017229ad0959462faa7aa07"
+    },
+    {
+      "path": "01_项目说明/20261022_一线经验知识图谱与Agent检索增强_实施计划.md",
+      "sha256": "2922afbe175a241c6ba2e46591612a7f16abb55e72d62b8e06a6a348df3c939e"
+    },
+    {
+      "path": "08_部署与环境/03_scripts/verify-agent-experience-graph.py",
+      "sha256": "96481c4d06afedb4942575d78294112b458e04222d2ea718a7c24528cb01e291"
+    },
+    {
+      "path": "08_部署与环境/03_scripts/local_quality_runtime.py",
+      "sha256": "7d3151fed1993059108c894b4dbc1e81098335ee0042689a2c9469270bf7e0de"
+    },
+    {
+      "path": "08_部署与环境/03_scripts/test_graph_fixture.py",
+      "sha256": "24213e6f39b828a361384f306640557993d23188c513c534abfccc31634eb65d"
+    },
+    {
+      "path": "07_测试与质量/07_经验图谱合成演示数据/staff_experience_seed.json",
+      "sha256": "d703824c44637c8d8e7900806fb4ab37baa579121b649cbfb004630258752a00"
+    }
+  ],
+  "limits": {
+    "max_hops": 2,
+    "max_sources": 2,
+    "max_dynamic_seeds": 6,
+    "nodes_per_source": 48,
+    "edges_per_source": 64,
+    "evidence_per_source": 128,
+    "model_graph_source_context_utf8_bytes": 6500
+  },
+  "scope": {
+    "graph_tool_implemented": true,
+    "graph_source_revalidated_before_final_output": true,
+    "new_business_write_tools": false,
+    "foundation_model_trained": false,
+    "semantic_answer_quality_tested": false,
+    "retrieval_A_B_C_comparison_completed": false,
+    "author_or_expert_quality_review_completed": false,
+    "remaining_stage": "G5"
+  },
+  "earlier_attempts": [
+    {
+      "kind": "targeted_integration",
+      "result": "FAIL",
+      "reason": "Test fixtures lacked an actor in two empty-source cases and changed the expected citation to the post-retraction revision; fixtures corrected, all 20 then passed.",
+      "log_sha256": "7f58777b9198706cb6305152afe14ae9028a19dcb11fac33b8647f8ab454a532"
+    },
+    {
+      "kind": "offline_http_fixture_attempt1",
+      "result": "FAIL",
+      "reason": "Offline fixture initially required Content-Length; JDK streamed chunked HTTP. Added bounded chunk parser and six regression tests.",
+      "report_sha256": "9f0b6645f2eba84204253b93962949b7bb5d30030f37dfa16540d03bc693ea7d"
+    },
+    {
+      "kind": "offline_http_fixture_attempt2",
+      "result": "FAIL",
+      "reason": "First four scenarios passed; final scenario failed the expected status assertion in the sequential single-user run. Re-ran final scenario with a separate fresh user budget, without increasing or resetting default limits; complete final run passed.",
+      "report_sha256": "9e14e4984d227328267df5b24cc272342ebb41aad0333d5ebbeebee1df9577c4"
+    }
+  ]
+}

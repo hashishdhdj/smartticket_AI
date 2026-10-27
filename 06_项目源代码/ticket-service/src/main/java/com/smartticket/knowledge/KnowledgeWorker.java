@@ -33,13 +33,16 @@ public class KnowledgeWorker {
     private final RabbitListenerEndpointRegistry listeners;
     private final ApplicationMetrics metrics;
     private final AtomicLong pausedUntil=new AtomicLong();
+    private final com.smartticket.experience.graph.ExperienceGraphSource graphSource;
 
     public KnowledgeWorker(KnowledgeWorkflowRepository repo,KnowledgeOutboxRepository outbox,
             KnowledgeWorkflowProperties config,KnowledgeVectorProperties vectorConfig,
             EmbeddingService embeddings,KnowledgeVectorRepository vectors,RabbitTemplate rabbit,
-            ObjectMapper mapper,RabbitListenerEndpointRegistry listeners,ApplicationMetrics metrics) {
+            ObjectMapper mapper,RabbitListenerEndpointRegistry listeners,ApplicationMetrics metrics,
+            com.smartticket.experience.graph.ExperienceGraphSource graphSource) {
         this.repo=repo;this.outbox=outbox;this.config=config;this.vectorConfig=vectorConfig;
         this.embeddings=embeddings;this.vectors=vectors;this.rabbit=rabbit;this.mapper=mapper;this.listeners=listeners;this.metrics=metrics;
+        this.graphSource=graphSource;
     }
 
     @Scheduled(fixedDelayString="${smartticket.knowledge.scheduler-delay-ms:5000}")
@@ -119,6 +122,7 @@ public class KnowledgeWorker {
         String content=KnowledgeSource.content(input.question(),input.answer());
         if(!KnowledgeSource.hash(content).equals(input.hash())) throw new IllegalStateException("Input hash mismatch");
         var source=new KnowledgeSource(job.resolutionId(),job.revision());
+        var graph=graphSource.plan(source,input.question(),input.answer(),input.hash()).orElse(null);
         requireLocalEmbedding();
         String model=embeddings.modelName();
         if(!vectors.publicationMatches(source,input.hash(),model)) {
@@ -133,11 +137,16 @@ public class KnowledgeWorker {
             double norm=0;
             for(float value:vector) {if(!Float.isFinite(value)) throw new IllegalStateException("Non-finite vector");norm+=value*value;}
             if(norm==0) throw new IllegalStateException("Empty vector");
-            if(!vectors.publish(source,input.question(),input.answer(),vector,model)) {
+            boolean published=graph==null?vectors.publish(source,input.question(),input.answer(),vector,model)
+                    :vectors.publish(source,input.question(),input.answer(),vector,model,graph);
+            if(!published) {
                 repo.finish(job,"STALE","PG_NEWER_REVISION");return;
             }
+        } else if(graph!=null&&!vectors.graphMatches(source,graph)&&!vectors.repairGraph(source,input.hash(),model,graph)) {
+            repo.finish(job,"STALE","PG_NEWER_REVISION");return;
         }
-        repo.indexed(job); // A late old revision can never mark the new revision indexed.
+        if(graph!=null&&!vectors.graphMatches(source,graph))throw new IllegalStateException("Graph publication incomplete");
+        if(graph==null)repo.indexed(job);else repo.indexed(job,graph); // Both receipts commit with the current MySQL version.
     }
 
     private void requireLocalEmbedding() {

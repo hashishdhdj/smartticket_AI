@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-21",
+  "scope": "EIGHT_KNOWN_RAG_RESPONSES_FROM_20261020_NOT_BLIND_TEST_NOT_CURRENT_JAR_GENERATION",
+  "report": "docs/evaluation/20261020-rag-generation-result.json",
+  "report_sha256": "0adbe65a6f2703fa6e8b52bdf0e0a7295833c62f3c565e32296da0caaab5390b",
+  "generation_jar_sha256": "f37a6611a1499594bc9aa5e26070810aaf216a262c7fcc62c41e109552033278",
+  "review_session_commit": "b26093b6bb2162257111a8cc068e73f92bf042a1",
+  "original_evidence_unchanged": true,
+  "rows": [
+    {
+      "id": "NW02",
+      "case_sha256": "1ecf831a05457081c09b0238cc63ca2e0b88953ca7acc726ea11243bb7f3b3e9",
+      "response_sha256": "8efd8cc1b60a046180d7cdac4e5841d0c36789c94aac6fa31ca31a70b04bec19",
+      "author_review_status": "REVIEWED",
+      "decisions": [
+        {
+          "review_date": "2026-10-21",
+          "reviewer": "项目作者（当前会话明确评价）",
+          "grade": "PASS",
+          "label_correct": null,
+          "refusal_correct": null,
+          "notes": "回答专业具体，同时也指明具体操作步骤。",
+          "confirmation_source": "USER_MESSAGE_CURRENT_CHAT",
+          "user_message": "通过，回答专业具体，同时也指明具体操作步骤",
+          "response_sha256": "8efd8cc1b60a046180d7cdac4e5841d0c36789c94aac6fa31ca31a70b04bec19"
+        }
+      ]
+    },
+    {
+      "id": "NW13",
+      "case_sha256": "0caf56a09d94f87c3e2c962d944eaaa436213a1450c97b0364850db11aea52e0",
+      "response_sha256": "49d05c474c4ad914b261f056f74b4cc04f034da4b92ee12c6871d510454801d2",
+      "author_review_status": "REVIEWED",
+      "decisions": [
+        {
+          "review_date": "2026-10-21",
+          "reviewer": "项目作者（当前会话明确评价）",
+          "grade": "PASS",
+          "label_correct": null,
+          "refusal_correct": null,
+          "notes": "作者在确认该题为模拟客户问题后，明确评价本次回答通过；未另提供具体理由。",
+          "confirmation_source": "USER_MESSAGE_CURRENT_CHAT",
+          "user_message": "通过",
+          "response_sha256": "49d05c474c4ad914b261f056f74b4cc04f034da4b92ee12c6871d510454801d2"
+        }
+      ]
+    },
+    {
+      "id": "QRP14",
+      "case_sha256": "cea3482888613ba2eb0b8110800bfc52cc7dcfeeb1c3c7d37a9d15c1d1619c22",
+      "response_sha256": "01b7d412c53ef99d90c1836b2a48d621a630003719e3c73c194afc36ff8324ec",
+      "author_review_status": "REVIEWED",
+      "decisions": [
+        {
+          "review_date": "2026-10-21",
+          "reviewer": "项目作者（当前会话明确评价）",
+          "grade": "PASS",
+          "label_correct": true,
+          "refusal_correct": null,
+          "notes": "正确说明全量更新和字段清空风险。",
+          "confirmation_source": "USER_MESSAGE_CURRENT_CHAT",
+          "user_message": "通过：正确说明全量更新和字段清空风险",
+          "response_sha256": "01b7d412c53ef99d90c1836b2a48d621a630003719e3c73c194afc36ff8324ec"
+        }
+      ]
+    },
+    {
+      "id": "QRN01",
+      "case_sha256": "e02a20447144a90c4c3f86723f6eca37bd0b250fd876577fc15ca547a365fb9d",
+      "response_sha256": "40853a4573bf13e24362b9523a8bb4a5664c90ef61692c31d2fbd15f16f36ebd",
+      "author_review_status": "REVIEWED",
+      "decisions": [
+        {
+          "review_date": "2026-10-21",
+          "reviewer": "项目作者（当前会话明确评价）",
+          "grade": "PASS",
+          "label_correct": null,
+          "refusal_correct": true,
+          "notes": "作者查看四项资料不足时的最终处理行为后明确评价均通过；本项不包含未保存的模型拒答措辞评价。",
+          "confirmation_source": "USER_MESSAGE_CURRENT_CHAT",
+          "user_message": "均通过",
+          "confirmation_scope": [
+            "QRN01",
+            "QRN02",
+            "QRN03",
+            "QDN2"
+          ],
+          "response_sha256": "40853a4573bf13e24362b9523a8bb4a5664c90ef61692c31d2fbd15f16f36ebd"
+        }
+      ]
+    },
+    {
+      "id": "QRN02",
+      "case_sha256": "ccfafbb92b8e3bf88e273c9443770b2e5fcabdad1767bfdffd7e439ba41e7604",
+      "response_sha256": "7abcd90f5380c6f19f35e54c585628a45bd3aed250eb19c82db17057febc1593",
+      "author_review_status": "REVIEWED",
+      "decisions": [
+        {
+          "review_date": "2026-10-21",
+          "reviewer": "项目作者（当前会话明确评价）",
+          "grade": "PASS",
+          "label_correct": null,
+          "refusal_correct": true,
+          "notes": "作者查看四项资料不足时的最终处理行为后明确评价均通过；本项不包含未保存的模型拒答措辞评价。",
+          "confirmation_source": "USER_MESSAGE_CURRENT_CHAT",
+          "user_message": "均通过",
+          "confirmation_scope": [
+            "QRN01",
+            "QRN02",
+            "QRN03",
+            "QDN2"
+          ],
+          "response_sha256": "7abcd90f5380c6f19f35e54c585628a45bd3aed250eb19c82db17057febc1593"
+        }
+      ]
+    },
+    {
+      "id": "QRN03",
+      "case_sha256": "323548ccb7a0fade400dcc23813687db449dc6a0752ad309cd2ab7f9f04790c8",
+      "response_sha256": "a1a24692791d85feb36a0d10d1faf72250f1e8f9192a19793a436b908930e3f4",
+      "author_review_status": "REVIEWED",
+      "decisions": [
+        {
+          "review_date": "2026-10-21",
+          "reviewer": "项目作者（当前会话明确评价）",
+          "grade": "PASS",
+          "label_correct": null,
+          "refusal_correct": true,
+          "notes": "作者查看四项资料不足时的最终处理行为后明确评价均通过；本项不包含未保存的模型拒答措辞评价。",
+          "confirmation_source": "USER_MESSAGE_CURRENT_CHAT",
+          "user_message": "均通过",
+          "confirmation_scope": [
+            "QRN01",
+            "QRN02",
+            "QRN03",
+            "QDN2"
+          ],
+          "response_sha256": "a1a24692791d85feb36a0d10d1faf72250f1e8f9192a19793a436b908930e3f4"
+        }
+      ]
+    },
+    {
+      "id": "QDP1",
+      "case_sha256": "b414d2db5dc3aa964443bae66d4b072b2732f2d1496cecac8f5bd53059b452d2",
+      "response_sha256": "8dcd4a104e0996fcab34a83d4b2c230871afa09161c61c40cf7dac2af2f0fa7d",
+      "author_review_status": "REVIEWED",
+      "decisions": [
+        {
+          "review_date": "2026-10-21",
+          "reviewer": "项目作者（当前会话明确评价）",
+          "grade": "PASS",
+          "label_correct": null,
+          "refusal_correct": null,
+          "notes": "作者阅读本次回答及合成场景参考步骤后，明确评价通过；未另提供具体理由。",
+          "confirmation_source": "USER_MESSAGE_CURRENT_CHAT",
+          "user_message": "通过",
+          "response_sha256": "8dcd4a104e0996fcab34a83d4b2c230871afa09161c61c40cf7dac2af2f0fa7d"
+        }
+      ]
+    },
+    {
+      "id": "QDN2",
+      "case_sha256": "0ed84b3870061010594578f44f5f49b98a49542921b0326ce0c163f745401e12",
+      "response_sha256": "0890518211264686dd5f27cde3c95935914c5079de471c6f4959057da07393a4",
+      "author_review_status": "REVIEWED",
+      "decisions": [
+        {
+          "review_date": "2026-10-21",
+          "reviewer": "项目作者（当前会话明确评价）",
+          "grade": "PASS",
+          "label_correct": null,
+          "refusal_correct": true,
+          "notes": "作者查看四项资料不足时的最终处理行为后明确评价均通过；本项不包含未保存的模型拒答措辞评价。",
+          "confirmation_source": "USER_MESSAGE_CURRENT_CHAT",
+          "user_message": "均通过",
+          "confirmation_scope": [
+            "QRN01",
+            "QRN02",
+            "QRN03",
+            "QDN2"
+          ],
+          "response_sha256": "0890518211264686dd5f27cde3c95935914c5079de471c6f4959057da07393a4"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total": 8,
+    "reviewed": 8,
+    "pending": 0
+  },
+  "author_review_status": "REVIEWED",
+  "additional_historical_reviews": [
+    {
+      "id": "NA02",
+      "dataset": "phase4-v3-newwording",
+      "kind": "agent",
+      "report": "07_测试与质量/06_阶段测试报告/20261016_真实评估_agent_1题_quality_number_order_fixed.json",
+      "report_sha256": "2d07be717bdd6d298dc4c10bbd7177163adb0ddb0016e04f9f515ca10e8bdbc3",
+      "response_sha256": "ccf0c09394b4058323e7030364efb2fbc16520fb30dc528bc46b518dba5e617b",
+      "case_sha256": "e8b7fd2eae8c08103fdac260cadf6607d6897d67bbbab5df08bebe864219eacf",
+      "generation_jar_sha256": "816de27fb6fff53be0f1538745e053af2521b3f9929984496f1ff741f460413a",
+      "author_grade_status": "RECORDED",
+      "reference_label_status": "NOT_SEPARATELY_JUDGED",
+      "decisions": [
+        {
+          "review_date": "2026-10-21",
+          "reviewer": "项目作者（当前会话明确评价）",
+          "grade": "PASS",
+          "label_correct": null,
+          "refusal_correct": null,
+          "notes": "作者查看只读目标、两个读工具、建议及来源摘要，并获知未生成提案却出现相关表述后，明确评价通过；未另提供理由或单独判定参考标签。",
+          "confirmation_source": "USER_MESSAGE_CURRENT_CHAT",
+          "user_message": "通过",
+          "response_sha256": "ccf0c09394b4058323e7030364efb2fbc16520fb30dc528bc46b518dba5e617b"
+        }
+      ]
+    }
+  ],
+  "focused_scope_summary": {
+    "rag_responses_graded": 8,
+    "historical_agent_responses_graded": 1,
+    "total_author_grades": 9,
+    "PASS": 9,
+    "scope": "OWNER_GRADES_OF_SELECTED_KNOWN_RESPONSES",
+    "independent_reference_label_audit_complete": false,
+    "historical_148_case_ledger_modified": false
+  }
+}

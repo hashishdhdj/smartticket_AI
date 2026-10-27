@@ -1,0 +1,1241 @@
+{
+  "status": "EXECUTED_PENDING_HUMAN_REVIEW",
+  "date": "2026-10-27T04:16:11.479105+00:00",
+  "stage": "G5_REAL_GENERATION",
+  "review_sha256": "a0a4d378d41c7ef2d8a3b7cf09cdd8ccecb1469fe887eca481e04fac29d02bc0",
+  "bundle_sha256": "1272c4a39edf2080a877a4f37f17c9deaa8ff7a803b7ecfc17188600cf1a05e9",
+  "budget_before": {
+    "path": "D:\\SmartTicket-AI\\.tmp\\phase4-budget-ledger.json",
+    "sha256": "7a64dd997d462bc5e8d3abd3ffe0a747f0f7583617115bdbf8002d71b83fad01",
+    "records": 570,
+    "external_calls": 407,
+    "estimated_upper_rmb": 2.5541690800000008,
+    "authorized_rmb": 10
+  },
+  "vendor_calls": 36,
+  "model": "deepseek-flash",
+  "thinking": "disabled",
+  "max_tokens": 512,
+  "temperature": 0,
+  "independent_blind_test": false,
+  "semantic_grades": "PENDING_HUMAN_REVIEW",
+  "scope": "12 cases x A/B/C, common prompt/source budget. B is an adapter; no full-Agent completion metric.",
+  "rows": [
+    {
+      "id": "G501",
+      "arm": "A",
+      "allowed_source_ids": [
+        "resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0",
+        "resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\":\"根据演示工单经验（仅限模拟平台规则，不代表实际业务能力）：若原注册手机号仍可接收短信，可在演示登录页选择“忘记密码”，通过注册手机号验证码验证后，设置8至20位字母与数字组合密码；避免重复最近3次密码，重置后其他设备需重新登录。注意：该经验仅适用于模拟客服平台规则，实际业务效果未独立核实；若原手机号停用，则不得继续推荐自助短信重置，应转人工核实处理。\",\"needHuman\":false,\"sourceIds\":[\"resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 651,
+        "completion_tokens": 159,
+        "total_tokens": 810,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 651
+      },
+      "parsed_answer": {
+        "answer": "根据演示工单经验（仅限模拟平台规则，不代表实际业务能力）：若原注册手机号仍可接收短信，可在演示登录页选择“忘记密码”，通过注册手机号验证码验证后，设置8至20位字母与数字组合密码；避免重复最近3次密码，重置后其他设备需重新登录。注意：该经验仅适用于模拟客服平台规则，实际业务效果未独立核实；若原手机号停用，则不得继续推荐自助短信重置，应转人工核实处理。",
+        "needHuman": false,
+        "sourceIds": [
+          "resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G501",
+      "arm": "B",
+      "allowed_source_ids": [
+        "resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0",
+        "resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\": \"根据演示规则，原注册手机号仍可接收短信时，可在演示登录页选择“忘记密码”，通过注册手机号验证码验证后，设置8至20位字母与数字组合的密码；应避免重复最近3次密码，重置后其他设备需重新登录。以上仅为合成演示中的模拟平台规则，并非本项目实际已实现能力，业务效果待核实。若原手机号已停用，则不得继续推荐自助短信重置，应按演示规则走人工申诉核验，且不得承诺固定核验时限。\", \"needHuman\": false, \"sourceIds\": [\"resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0\", \"resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 759,
+        "completion_tokens": 200,
+        "total_tokens": 959,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 759
+      },
+      "parsed_answer": {
+        "answer": "根据演示规则，原注册手机号仍可接收短信时，可在演示登录页选择“忘记密码”，通过注册手机号验证码验证后，设置8至20位字母与数字组合的密码；应避免重复最近3次密码，重置后其他设备需重新登录。以上仅为合成演示中的模拟平台规则，并非本项目实际已实现能力，业务效果待核实。若原手机号已停用，则不得继续推荐自助短信重置，应按演示规则走人工申诉核验，且不得承诺固定核验时限。",
+        "needHuman": false,
+        "sourceIds": [
+          "resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0",
+          "resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G501",
+      "arm": "C",
+      "allowed_source_ids": [
+        "resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0",
+        "resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\":\"在“原注册手机号仍可接收短信”的前提下，可按演示规则自助重置：1）在演示登录页选择“忘记密码”；2）通过注册手机号验证码验证后，设置8至20位字母与数字组合密码；3）避免重复最近3次密码，重置后其他设备需重新登录。注意：以上仅为模拟客服平台规则，非本项目实际业务能力，业务效果待核实；若原手机号停用，则不得继续推荐自助短信重置，应停止推荐原手机号自助短信验证并按演示规则走人工申诉核验，且不得承诺固定核验时限。\",\"needHuman\":false,\"sourceIds\":[\"resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0\",\"resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 1328,
+        "completion_tokens": 212,
+        "total_tokens": 1540,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 1200
+      },
+      "parsed_answer": {
+        "answer": "在“原注册手机号仍可接收短信”的前提下，可按演示规则自助重置：1）在演示登录页选择“忘记密码”；2）通过注册手机号验证码验证后，设置8至20位字母与数字组合密码；3）避免重复最近3次密码，重置后其他设备需重新登录。注意：以上仅为模拟客服平台规则，非本项目实际业务能力，业务效果待核实；若原手机号停用，则不得继续推荐自助短信重置，应停止推荐原手机号自助短信验证并按演示规则走人工申诉核验，且不得承诺固定核验时限。",
+        "needHuman": false,
+        "sourceIds": [
+          "resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0",
+          "resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G502",
+      "arm": "A",
+      "allowed_source_ids": [
+        "resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0",
+        "resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\": \"不能按原号码自助短信验证重置。依据演示工单经验（仅限模拟平台规则，不代表实际业务能力）：当原手机号已停用、无法接收原手机号短信且忘记登录密码时，应停止推荐原手机号自助短信验证，改按演示规则走人工申诉核验；不得套用“可收短信”的前提，也不得承诺固定核验时限。该经验未说明人工申诉的具体材料、入口或时限，实际能否重置及如何操作需转人工核实。\", \"needHuman\": true, \"sourceIds\": [\"resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 645,
+        "completion_tokens": 158,
+        "total_tokens": 803,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 645
+      },
+      "parsed_answer": {
+        "answer": "不能按原号码自助短信验证重置。依据演示工单经验（仅限模拟平台规则，不代表实际业务能力）：当原手机号已停用、无法接收原手机号短信且忘记登录密码时，应停止推荐原手机号自助短信验证，改按演示规则走人工申诉核验；不得套用“可收短信”的前提，也不得承诺固定核验时限。该经验未说明人工申诉的具体材料、入口或时限，实际能否重置及如何操作需转人工核实。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G502",
+      "arm": "B",
+      "allowed_source_ids": [
+        "resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0",
+        "resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\": \"不能按原号码自助短信验证重置。来源明确：原手机号已停用、无法接收原手机号短信时，应停止推荐原手机号自助短信验证，不得套用“原注册手机号仍可接收短信”的自助重置前提，改按演示规则走人工申诉核验；不得承诺固定核验时限。以上均为SHARED_DEMO合成演示的模拟平台规则，非本项目实际业务能力，业务效果待核实。建议先核实：账号是否属于该演示平台、原号码是否确已停用且无法接收短信；若无法确认或需实际办理，请转人工。\", \"needHuman\": true, \"sourceIds\": [\"resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0\", \"resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 764,
+        "completion_tokens": 219,
+        "total_tokens": 983,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 764
+      },
+      "parsed_answer": {
+        "answer": "不能按原号码自助短信验证重置。来源明确：原手机号已停用、无法接收原手机号短信时，应停止推荐原手机号自助短信验证，不得套用“原注册手机号仍可接收短信”的自助重置前提，改按演示规则走人工申诉核验；不得承诺固定核验时限。以上均为SHARED_DEMO合成演示的模拟平台规则，非本项目实际业务能力，业务效果待核实。建议先核实：账号是否属于该演示平台、原号码是否确已停用且无法接收短信；若无法确认或需实际办理，请转人工。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0",
+          "resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G502",
+      "arm": "C",
+      "allowed_source_ids": [
+        "resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0",
+        "resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\": \"不能按原号码自助短信验证重置。来源明确：原手机号已停用、无法接收原手机号短信时，应停止推荐原手机号自助短信验证，并按演示规则走人工申诉核验；原手机号停用时也不得继续推荐自助短信重置。可收短信的自助重置流程仅适用于“原注册手机号仍可接收短信”的情形，不适用于你的情况。以上均为模拟平台规则，业务效果待核实，不代表已执行或成功；不得承诺固定核验时限。建议按人工申诉核验渠道进一步核实所需材料与流程。\", \"needHuman\": true, \"sourceIds\": [\"resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0\", \"resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 1333,
+        "completion_tokens": 209,
+        "total_tokens": 1542,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 1205
+      },
+      "parsed_answer": {
+        "answer": "不能按原号码自助短信验证重置。来源明确：原手机号已停用、无法接收原手机号短信时，应停止推荐原手机号自助短信验证，并按演示规则走人工申诉核验；原手机号停用时也不得继续推荐自助短信重置。可收短信的自助重置流程仅适用于“原注册手机号仍可接收短信”的情形，不适用于你的情况。以上均为模拟平台规则，业务效果待核实，不代表已执行或成功；不得承诺固定核验时限。建议按人工申诉核验渠道进一步核实所需材料与流程。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0",
+          "resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G503",
+      "arm": "A",
+      "allowed_source_ids": [
+        "resolved-ticket/5f3c1eeb-d4a1-48e0-b946-a378d9a11d80/v1.md#0",
+        "resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\":\"根据演示资料，原绑定手机号停用、无法接收旧号码验证码且目标是更换绑定手机号时，建议：先停止重复尝试原手机号验证，再走人工核验流程，并按演示资料准备账号与近期登录信息。需注意：该资料仅限模拟平台规则和合成演示，不代表通用产品规则或实际业务能力；不得假称已修改手机号，也不能保证固定办结时长。资料未给出更具体的核验材料清单或核验通过标准，建议转人工进一步核实。\",\"needHuman\":true,\"sourceIds\":[\"resolved-ticket/5f3c1eeb-d4a1-48e0-b946-a378d9a11d80/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 663,
+        "completion_tokens": 162,
+        "total_tokens": 825,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 663
+      },
+      "parsed_answer": {
+        "answer": "根据演示资料，原绑定手机号停用、无法接收旧号码验证码且目标是更换绑定手机号时，建议：先停止重复尝试原手机号验证，再走人工核验流程，并按演示资料准备账号与近期登录信息。需注意：该资料仅限模拟平台规则和合成演示，不代表通用产品规则或实际业务能力；不得假称已修改手机号，也不能保证固定办结时长。资料未给出更具体的核验材料清单或核验通过标准，建议转人工进一步核实。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/5f3c1eeb-d4a1-48e0-b946-a378d9a11d80/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G503",
+      "arm": "B",
+      "allowed_source_ids": [
+        "resolved-ticket/5f3c1eeb-d4a1-48e0-b946-a378d9a11d80/v1.md#0",
+        "resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\":\"根据演示资料，原绑定手机号停用、无法接收旧号码验证码时，建议先停止重复尝试原手机号验证，再走人工核验流程，并按演示资料准备账号与近期登录信息。需要注意：以上仅为模拟平台规则，不是本项目实际业务能力；不得假称已修改手机号，也不能保证固定办结时限。资料未提供具体核验材料清单或核验通过标准，建议转人工进一步核实。\",\"needHuman\":true,\"sourceIds\":[\"resolved-ticket/5f3c1eeb-d4a1-48e0-b946-a378d9a11d80/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 767,
+        "completion_tokens": 145,
+        "total_tokens": 912,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 767
+      },
+      "parsed_answer": {
+        "answer": "根据演示资料，原绑定手机号停用、无法接收旧号码验证码时，建议先停止重复尝试原手机号验证，再走人工核验流程，并按演示资料准备账号与近期登录信息。需要注意：以上仅为模拟平台规则，不是本项目实际业务能力；不得假称已修改手机号，也不能保证固定办结时限。资料未提供具体核验材料清单或核验通过标准，建议转人工进一步核实。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/5f3c1eeb-d4a1-48e0-b946-a378d9a11d80/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G503",
+      "arm": "C",
+      "allowed_source_ids": [
+        "resolved-ticket/5f3c1eeb-d4a1-48e0-b946-a378d9a11d80/v1.md#0",
+        "resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\": \"仅依据演示资料（SHARED_DEMO，模拟平台规则，非本项目实际业务能力）：若原绑定手机号已停用、无法接收旧号码验证码，且目标是更换绑定手机号，建议先停止重复尝试原手机号验证，再走人工核验流程，并按演示资料准备账号与近期登录信息。需注意：不得假称已修改手机号，也不能保证固定办结时限；业务效果待核实。另有一条演示资料针对“忘记密码且旧号停用”，其步骤为停止推荐原手机号自助短信验证、按演示规则走人工申诉核验，并不得套用可收短信前提、不得承诺固定核验时限；该条适用于忘记密码场景，不能直接混用于单纯更换绑定号码。若实际平台是否支持人工核验、需准备哪些材料或时限未知，请转人工核实。\", \"needHuman\": true, \"sourceIds\": [\"resolved-ticket/5f3c1eeb-d4a1-48e0-b946-a378d9a11d80/v1.md#0\", \"resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 1356,
+        "completion_tokens": 271,
+        "total_tokens": 1627,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 1228
+      },
+      "parsed_answer": {
+        "answer": "仅依据演示资料（SHARED_DEMO，模拟平台规则，非本项目实际业务能力）：若原绑定手机号已停用、无法接收旧号码验证码，且目标是更换绑定手机号，建议先停止重复尝试原手机号验证，再走人工核验流程，并按演示资料准备账号与近期登录信息。需注意：不得假称已修改手机号，也不能保证固定办结时限；业务效果待核实。另有一条演示资料针对“忘记密码且旧号停用”，其步骤为停止推荐原手机号自助短信验证、按演示规则走人工申诉核验，并不得套用可收短信前提、不得承诺固定核验时限；该条适用于忘记密码场景，不能直接混用于单纯更换绑定号码。若实际平台是否支持人工核验、需准备哪些材料或时限未知，请转人工核实。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/5f3c1eeb-d4a1-48e0-b946-a378d9a11d80/v1.md#0",
+          "resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G504",
+      "arm": "A",
+      "allowed_source_ids": [
+        "resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0",
+        "resolved-ticket/55f0268c-b8cd-4714-8c47-1f4482cf7ebe/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\":\"根据已审核的合成演示经验（仅限演示，不代表通用产品规则）：工单 PUT 是全量更新，不能把它说成只更新传入字段。若只想改标题并保留描述，需提交希望保留的全部可修改字段（包括描述），并带上读取到的 expectedVersion 以识别旧版本冲突；可空描述未提交可能被清空。禁止直接通过普通更新修改工单状态。适用前提为有对象修改权限且调用当前项目工单 PUT 更新接口。具体“全部可修改字段”清单及版本语义需按项目实际接口文档核实；来源为演示经验，实际业务效果未独立核实。\",\"needHuman\":true,\"sourceIds\":[\"resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0\",\"resolved-ticket/55f0268c-b8cd-4714-8c47-1f4482cf7ebe/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 684,
+        "completion_tokens": 219,
+        "total_tokens": 903,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 684
+      },
+      "parsed_answer": {
+        "answer": "根据已审核的合成演示经验（仅限演示，不代表通用产品规则）：工单 PUT 是全量更新，不能把它说成只更新传入字段。若只想改标题并保留描述，需提交希望保留的全部可修改字段（包括描述），并带上读取到的 expectedVersion 以识别旧版本冲突；可空描述未提交可能被清空。禁止直接通过普通更新修改工单状态。适用前提为有对象修改权限且调用当前项目工单 PUT 更新接口。具体“全部可修改字段”清单及版本语义需按项目实际接口文档核实；来源为演示经验，实际业务效果未独立核实。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0",
+          "resolved-ticket/55f0268c-b8cd-4714-8c47-1f4482cf7ebe/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G504",
+      "arm": "B",
+      "allowed_source_ids": [
+        "resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0",
+        "resolved-ticket/55f0268c-b8cd-4714-8c47-1f4482cf7ebe/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\":\"按当前项目工单 PUT 全量更新规则：只想改标题并保留描述时，不能只提交标题；应先读取工单当前完整的可修改字段，提交希望保留的全部可修改字段（含原描述）以及读取到的 expectedVersion，用于识别旧版本冲突。可空描述若未提交可能被清空。前提是具备对象修改权限并调用当前项目工单 PUT 更新接口。注意：不能把 PUT 说成只更新传入字段；不能通过普通更新修改工单状态；“只传标题、描述一定保留”是与全量替换规则不符的错误反例，不能作为成功步骤。业务效果待核实。\",\"needHuman\":false,\"sourceIds\":[\"resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0\",\"resolved-ticket/55f0268c-b8cd-4714-8c47-1f4482cf7ebe/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 837,
+        "completion_tokens": 220,
+        "total_tokens": 1057,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 837
+      },
+      "parsed_answer": {
+        "answer": "按当前项目工单 PUT 全量更新规则：只想改标题并保留描述时，不能只提交标题；应先读取工单当前完整的可修改字段，提交希望保留的全部可修改字段（含原描述）以及读取到的 expectedVersion，用于识别旧版本冲突。可空描述若未提交可能被清空。前提是具备对象修改权限并调用当前项目工单 PUT 更新接口。注意：不能把 PUT 说成只更新传入字段；不能通过普通更新修改工单状态；“只传标题、描述一定保留”是与全量替换规则不符的错误反例，不能作为成功步骤。业务效果待核实。",
+        "needHuman": false,
+        "sourceIds": [
+          "resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0",
+          "resolved-ticket/55f0268c-b8cd-4714-8c47-1f4482cf7ebe/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G504",
+      "arm": "C",
+      "allowed_source_ids": [
+        "resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0",
+        "resolved-ticket/55f0268c-b8cd-4714-8c47-1f4482cf7ebe/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\":\"按当前项目工单PUT全量更新规则：若只想改标题并保留描述，不能只提交标题；需先读取希望保留的完整可修改字段，再提交希望保留的全部可修改字段（含描述），并带上读取到的expectedVersion以识别旧版本冲突。适用条件：有对象修改权限，且调用当前项目工单PUT更新接口。注意：不能把PUT说成只更新传入字段；可空描述未提交可能被清空；“只传标题、描述一定会保留”是与全量替换规则不符的错误建议，不能作为成功方法。业务效果待核实，不代表已执行成功。\",\"needHuman\":false,\"sourceIds\":[\"resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0\",\"resolved-ticket/55f0268c-b8cd-4714-8c47-1f4482cf7ebe/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 1484,
+        "completion_tokens": 214,
+        "total_tokens": 1698,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1484
+      },
+      "parsed_answer": {
+        "answer": "按当前项目工单PUT全量更新规则：若只想改标题并保留描述，不能只提交标题；需先读取希望保留的完整可修改字段，再提交希望保留的全部可修改字段（含描述），并带上读取到的expectedVersion以识别旧版本冲突。适用条件：有对象修改权限，且调用当前项目工单PUT更新接口。注意：不能把PUT说成只更新传入字段；可空描述未提交可能被清空；“只传标题、描述一定会保留”是与全量替换规则不符的错误建议，不能作为成功方法。业务效果待核实，不代表已执行成功。",
+        "needHuman": false,
+        "sourceIds": [
+          "resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0",
+          "resolved-ticket/55f0268c-b8cd-4714-8c47-1f4482cf7ebe/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G505",
+      "arm": "A",
+      "allowed_source_ids": [
+        "resolved-ticket/502b9c53-0a5d-4bc8-bced-752f63ce99c5/v1.md#0",
+        "resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\":\"根据已审核的合成演示经验（仅限演示，不代表通用产品规则）：遇到因使用旧 expectedVersion 提交更新而返回 409 时，应重新读取最新工单及版本，比较并确认需要保留的内容后再提交；不得自动覆盖其他人的更新，也不得靠伪造身份绕过版本检查。上述来源未提供更具体的版本冲突重试机制或接口实现细节，实际业务效果未独立核实；如需落地到具体项目，请转人工核对具体版本与接口语义。\",\"needHuman\":true,\"sourceIds\":[\"resolved-ticket/502b9c53-0a5d-4bc8-bced-752f63ce99c5/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 625,
+        "completion_tokens": 154,
+        "total_tokens": 779,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 625
+      },
+      "parsed_answer": {
+        "answer": "根据已审核的合成演示经验（仅限演示，不代表通用产品规则）：遇到因使用旧 expectedVersion 提交更新而返回 409 时，应重新读取最新工单及版本，比较并确认需要保留的内容后再提交；不得自动覆盖其他人的更新，也不得靠伪造身份绕过版本检查。上述来源未提供更具体的版本冲突重试机制或接口实现细节，实际业务效果未独立核实；如需落地到具体项目，请转人工核对具体版本与接口语义。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/502b9c53-0a5d-4bc8-bced-752f63ce99c5/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G505",
+      "arm": "B",
+      "allowed_source_ids": [
+        "resolved-ticket/502b9c53-0a5d-4bc8-bced-752f63ce99c5/v1.md#0",
+        "resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\":\"遇到409说明提交时使用的expectedVersion已过期，其他人已修改过该工单。避免覆盖别人更新的做法是：先重新读取最新工单及其版本，比较并确认需要保留的内容后再提交；提交时带上读取到的最新expectedVersion，以便识别旧版本冲突。不得自动覆盖其他人的更新，也不得靠伪造身份绕过版本检查。另需注意：若调用的是工单PUT全量更新接口，应提交希望保留的全部可修改字段，可空描述未提交可能被清空；不能把PUT理解为只更新传入字段，也不能通过普通更新修改工单状态。以上为合成演示资料，业务效果待核实。\",\"needHuman\":false,\"sourceIds\":[\"resolved-ticket/502b9c53-0a5d-4bc8-bced-752f63ce99c5/v1.md#0\",\"resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 758,
+        "completion_tokens": 221,
+        "total_tokens": 979,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 758
+      },
+      "parsed_answer": {
+        "answer": "遇到409说明提交时使用的expectedVersion已过期，其他人已修改过该工单。避免覆盖别人更新的做法是：先重新读取最新工单及其版本，比较并确认需要保留的内容后再提交；提交时带上读取到的最新expectedVersion，以便识别旧版本冲突。不得自动覆盖其他人的更新，也不得靠伪造身份绕过版本检查。另需注意：若调用的是工单PUT全量更新接口，应提交希望保留的全部可修改字段，可空描述未提交可能被清空；不能把PUT理解为只更新传入字段，也不能通过普通更新修改工单状态。以上为合成演示资料，业务效果待核实。",
+        "needHuman": false,
+        "sourceIds": [
+          "resolved-ticket/502b9c53-0a5d-4bc8-bced-752f63ce99c5/v1.md#0",
+          "resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G505",
+      "arm": "C",
+      "allowed_source_ids": [
+        "resolved-ticket/502b9c53-0a5d-4bc8-bced-752f63ce99c5/v1.md#0",
+        "resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\": \"遇到409说明提交时使用的expectedVersion已过期（其他人已修改工单）。避免覆盖别人更新的做法：先重新读取最新工单及其版本，比较并确认需要保留的内容后再提交；提交时带上读取到的最新expectedVersion以识别旧版本冲突。若使用PUT全量更新，需提交希望保留的全部可修改字段（可空描述未提交可能被清空）。禁止自动覆盖其他人的更新，也不得靠伪造身份绕过版本检查。以上为合成演示规则，业务效果待核实。\", \"needHuman\": false, \"sourceIds\": [\"resolved-ticket/502b9c53-0a5d-4bc8-bced-752f63ce99c5/v1.md#0\", \"resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 1342,
+        "completion_tokens": 195,
+        "total_tokens": 1537,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1342
+      },
+      "parsed_answer": {
+        "answer": "遇到409说明提交时使用的expectedVersion已过期（其他人已修改工单）。避免覆盖别人更新的做法：先重新读取最新工单及其版本，比较并确认需要保留的内容后再提交；提交时带上读取到的最新expectedVersion以识别旧版本冲突。若使用PUT全量更新，需提交希望保留的全部可修改字段（可空描述未提交可能被清空）。禁止自动覆盖其他人的更新，也不得靠伪造身份绕过版本检查。以上为合成演示规则，业务效果待核实。",
+        "needHuman": false,
+        "sourceIds": [
+          "resolved-ticket/502b9c53-0a5d-4bc8-bced-752f63ce99c5/v1.md#0",
+          "resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G506",
+      "arm": "A",
+      "allowed_source_ids": [
+        "resolved-ticket/d782562f-263b-4e5d-b70c-d83eeafa51f5/v1.md#0",
+        "resolved-ticket/ff1ac8dd-3127-4a4f-932c-ac121ebfec93/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\":\"不能把 Outbox 状态 SENT 当作 AI 分析成功。SENT 只能确认消息投递成功，尚未确认消费者处理结果；规则兜底也不能说成真实模型成功。应查询分析任务状态与结果，并区分等待、运行、模型完成、规则兜底和失败。上述内容来自合成演示工单经验，仅限演示，不代表通用产品规则，实际业务效果未独立核实；具体版本需核对。若查询入口或任务状态含义仍不明确，建议转人工核实。\",\"needHuman\":true,\"sourceIds\":[\"resolved-ticket/d782562f-263b-4e5d-b70c-d83eeafa51f5/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 653,
+        "completion_tokens": 156,
+        "total_tokens": 809,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 653
+      },
+      "parsed_answer": {
+        "answer": "不能把 Outbox 状态 SENT 当作 AI 分析成功。SENT 只能确认消息投递成功，尚未确认消费者处理结果；规则兜底也不能说成真实模型成功。应查询分析任务状态与结果，并区分等待、运行、模型完成、规则兜底和失败。上述内容来自合成演示工单经验，仅限演示，不代表通用产品规则，实际业务效果未独立核实；具体版本需核对。若查询入口或任务状态含义仍不明确，建议转人工核实。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/d782562f-263b-4e5d-b70c-d83eeafa51f5/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G506",
+      "arm": "B",
+      "allowed_source_ids": [
+        "resolved-ticket/d782562f-263b-4e5d-b70c-d83eeafa51f5/v1.md#0",
+        "resolved-ticket/ff1ac8dd-3127-4a4f-932c-ac121ebfec93/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\":\"不能把 Outbox 状态为 SENT 当作 AI 分析成功。SENT 只能确认消息投递成功，尚未确认消费者处理结果；也不能把规则兜底说成真实模型成功。应查询分析任务状态与结果，并区分等待、运行、模型完成、规则兜底和失败。若需判断工单 AI 分析是否完成，可参考来源中给出的 FAQ 路径。另一来源讲的是知识审核与索引，不适用于本问题。\",\"needHuman\":false,\"sourceIds\":[\"resolved-ticket/d782562f-263b-4e5d-b70c-d83eeafa51f5/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 740,
+        "completion_tokens": 146,
+        "total_tokens": 886,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 740
+      },
+      "parsed_answer": {
+        "answer": "不能把 Outbox 状态为 SENT 当作 AI 分析成功。SENT 只能确认消息投递成功，尚未确认消费者处理结果；也不能把规则兜底说成真实模型成功。应查询分析任务状态与结果，并区分等待、运行、模型完成、规则兜底和失败。若需判断工单 AI 分析是否完成，可参考来源中给出的 FAQ 路径。另一来源讲的是知识审核与索引，不适用于本问题。",
+        "needHuman": false,
+        "sourceIds": [
+          "resolved-ticket/d782562f-263b-4e5d-b70c-d83eeafa51f5/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G506",
+      "arm": "C",
+      "allowed_source_ids": [
+        "resolved-ticket/d782562f-263b-4e5d-b70c-d83eeafa51f5/v1.md#0",
+        "resolved-ticket/ff1ac8dd-3127-4a4f-932c-ac121ebfec93/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\":\"不能把 Outbox 状态为 SENT 当作 AI 分析成功。SENT 只能确认消息投递成功，尚未确认消费者处理结果；也不能把规则兜底说成真实模型成功。应查询分析任务状态与结果，并区分等待、运行、模型完成、规则兜底和失败。当前业务效果仍待核实。另需注意：第二个来源讲的是“知识已审核但尚未索引”，与本次 Outbox/AI 建议问题不适用，不能混用其步骤。\",\"needHuman\":false,\"sourceIds\":[\"resolved-ticket/d782562f-263b-4e5d-b70c-d83eeafa51f5/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 1330,
+        "completion_tokens": 153,
+        "total_tokens": 1483,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1330
+      },
+      "parsed_answer": {
+        "answer": "不能把 Outbox 状态为 SENT 当作 AI 分析成功。SENT 只能确认消息投递成功，尚未确认消费者处理结果；也不能把规则兜底说成真实模型成功。应查询分析任务状态与结果，并区分等待、运行、模型完成、规则兜底和失败。当前业务效果仍待核实。另需注意：第二个来源讲的是“知识已审核但尚未索引”，与本次 Outbox/AI 建议问题不适用，不能混用其步骤。",
+        "needHuman": false,
+        "sourceIds": [
+          "resolved-ticket/d782562f-263b-4e5d-b70c-d83eeafa51f5/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G507",
+      "arm": "A",
+      "allowed_source_ids": [
+        "resolved-ticket/ff1ac8dd-3127-4a4f-932c-ac121ebfec93/v1.md#0",
+        "resolved-ticket/3bd5ecf7-4ad4-4803-b917-6ecb184e290d/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\":\"按来源 resolved-ticket/ff1ac8dd-3127-4a4f-932c-ac121ebfec93/v1.md#0（合成演示经验，仅限演示，不代表通用产品规则；实际业务效果未独立核实）：该症状为候选状态 APPROVED 但检索不到刚发布经验。适用条件需同时满足：审核状态已更新，且尚未确认 indexedRevision 与 revision 一致。排查步骤：1) 查看 INDEX 任务状态和索引回执；2) 区分“审核通过”与“索引完成”；3) 索引完成后才验证检索来源。禁止条件：不得直接声称审核成功即已可检索。若无法确认 indexedRevision 与 revision 是否一致，应先核实该一致性及 INDEX 任务/回执状态，再判断是否属于索引未追上；不要将审核通过当作已可检索。来源未提供具体命令、日志字段或超时阈值，资料不足，需转人工进一步核实。\",\"needHuman\":true,\"sourceIds\":[\"resolved-ticket/ff1ac8dd-3127-4a4f-932c-ac121ebfec93/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 635,
+        "completion_tokens": 254,
+        "total_tokens": 889,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 635
+      },
+      "parsed_answer": {
+        "answer": "按来源 resolved-ticket/ff1ac8dd-3127-4a4f-932c-ac121ebfec93/v1.md#0（合成演示经验，仅限演示，不代表通用产品规则；实际业务效果未独立核实）：该症状为候选状态 APPROVED 但检索不到刚发布经验。适用条件需同时满足：审核状态已更新，且尚未确认 indexedRevision 与 revision 一致。排查步骤：1) 查看 INDEX 任务状态和索引回执；2) 区分“审核通过”与“索引完成”；3) 索引完成后才验证检索来源。禁止条件：不得直接声称审核成功即已可检索。若无法确认 indexedRevision 与 revision 是否一致，应先核实该一致性及 INDEX 任务/回执状态，再判断是否属于索引未追上；不要将审核通过当作已可检索。来源未提供具体命令、日志字段或超时阈值，资料不足，需转人工进一步核实。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/ff1ac8dd-3127-4a4f-932c-ac121ebfec93/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G507",
+      "arm": "B",
+      "allowed_source_ids": [
+        "resolved-ticket/ff1ac8dd-3127-4a4f-932c-ac121ebfec93/v1.md#0",
+        "resolved-ticket/3bd5ecf7-4ad4-4803-b917-6ecb184e290d/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\": \"按来源1（知识已审核但尚未索引）排查：症状为候选状态APPROVED、检索不到刚发布经验；适用条件为审核状态已更新、且尚未确认indexedRevision与revision一致。步骤：先查看INDEX任务状态和索引回执，再区分“审核通过”与“索引完成”，索引完成后才验证检索来源。禁止直接声称审核成功即已可检索。该来源未给出indexedRevision落后于revision时的具体追赶操作或时限，业务效果待核实，需转人工确认索引任务与回执细节。来源2针对撤回与延迟删除，不适用于本问题，不得混用。\", \"needHuman\": true, \"sourceIds\": [\"resolved-ticket/ff1ac8dd-3127-4a4f-932c-ac121ebfec93/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 707,
+        "completion_tokens": 187,
+        "total_tokens": 894,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 707
+      },
+      "parsed_answer": {
+        "answer": "按来源1（知识已审核但尚未索引）排查：症状为候选状态APPROVED、检索不到刚发布经验；适用条件为审核状态已更新、且尚未确认indexedRevision与revision一致。步骤：先查看INDEX任务状态和索引回执，再区分“审核通过”与“索引完成”，索引完成后才验证检索来源。禁止直接声称审核成功即已可检索。该来源未给出indexedRevision落后于revision时的具体追赶操作或时限，业务效果待核实，需转人工确认索引任务与回执细节。来源2针对撤回与延迟删除，不适用于本问题，不得混用。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/ff1ac8dd-3127-4a4f-932c-ac121ebfec93/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G507",
+      "arm": "C",
+      "allowed_source_ids": [
+        "resolved-ticket/ff1ac8dd-3127-4a4f-932c-ac121ebfec93/v1.md#0",
+        "resolved-ticket/3bd5ecf7-4ad4-4803-b917-6ecb184e290d/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\": \"按来源1（知识已审核但尚未索引）排查：适用条件为审核状态已更新、且尚未确认indexedRevision与revision一致；症状是候选为APPROVED、检索不到刚发布经验。步骤：①查看INDEX任务状态和索引回执；②区分“审核通过”与“索引完成”；③索引完成后才验证检索来源。禁止直接声称审核成功即已可检索。来源1未给出indexedRevision落后于revision时的具体追赶操作或时限，需转人工核实索引任务与回执。来源2仅适用于撤回场景（MySQL审核真源已标记撤回），不适用于本query，不得混用其步骤。\", \"needHuman\": true, \"sourceIds\": [\"resolved-ticket/ff1ac8dd-3127-4a4f-932c-ac121ebfec93/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 1275,
+        "completion_tokens": 191,
+        "total_tokens": 1466,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 1147
+      },
+      "parsed_answer": {
+        "answer": "按来源1（知识已审核但尚未索引）排查：适用条件为审核状态已更新、且尚未确认indexedRevision与revision一致；症状是候选为APPROVED、检索不到刚发布经验。步骤：①查看INDEX任务状态和索引回执；②区分“审核通过”与“索引完成”；③索引完成后才验证检索来源。禁止直接声称审核成功即已可检索。来源1未给出indexedRevision落后于revision时的具体追赶操作或时限，需转人工核实索引任务与回执。来源2仅适用于撤回场景（MySQL审核真源已标记撤回），不适用于本query，不得混用其步骤。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/ff1ac8dd-3127-4a4f-932c-ac121ebfec93/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G508",
+      "arm": "A",
+      "allowed_source_ids": [
+        "resolved-ticket/3bd5ecf7-4ad4-4803-b917-6ecb184e290d/v1.md#0",
+        "resolved-ticket/ff1ac8dd-3127-4a4f-932c-ac121ebfec93/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\":\"依据已审核的合成工单演示经验（仅限演示，不代表通用产品规则，实际业务效果未独立核实）：知识已撤回但PG切片暂未删除时，新检索会检查当前可见状态并排除撤回来源，因此不会向新请求返回撤回内容；PG切片和关系证据由后台DELETE任务后续清理。该来源未说明后台清理的具体负责方或人员，需转人工核实。另需注意：不得让迟到INDEX覆盖撤回版本。\",\"needHuman\":true,\"sourceIds\":[\"resolved-ticket/3bd5ecf7-4ad4-4803-b917-6ecb184e290d/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 614,
+        "completion_tokens": 147,
+        "total_tokens": 761,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 614
+      },
+      "parsed_answer": {
+        "answer": "依据已审核的合成工单演示经验（仅限演示，不代表通用产品规则，实际业务效果未独立核实）：知识已撤回但PG切片暂未删除时，新检索会检查当前可见状态并排除撤回来源，因此不会向新请求返回撤回内容；PG切片和关系证据由后台DELETE任务后续清理。该来源未说明后台清理的具体负责方或人员，需转人工核实。另需注意：不得让迟到INDEX覆盖撤回版本。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/3bd5ecf7-4ad4-4803-b917-6ecb184e290d/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G508",
+      "arm": "B",
+      "allowed_source_ids": [
+        "resolved-ticket/3bd5ecf7-4ad4-4803-b917-6ecb184e290d/v1.md#0",
+        "resolved-ticket/ff1ac8dd-3127-4a4f-932c-ac121ebfec93/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\": \"依据来源「撤回知识与延迟删除」：当MySQL审核真源已标记撤回、但PG切片暂未删除时，新检索会检查当前可见状态并排除撤回来源，因此新请求不应返回撤回内容；PG切片和关系证据由后台DELETE任务后续清理。该来源未说明后台清理的具体负责方（团队/角色），也未给出清理时限，且其业务效果标注为待核实（非独立验证）。如需确认清理责任人与时效，建议转人工核实。另一来源「知识已审核但尚未索引」讨论的是审核通过但未完成索引的场景，与撤回残留切片问题不适用，不能混用。\", \"needHuman\": true, \"sourceIds\": [\"resolved-ticket/3bd5ecf7-4ad4-4803-b917-6ecb184e290d/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 705,
+        "completion_tokens": 185,
+        "total_tokens": 890,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 705
+      },
+      "parsed_answer": {
+        "answer": "依据来源「撤回知识与延迟删除」：当MySQL审核真源已标记撤回、但PG切片暂未删除时，新检索会检查当前可见状态并排除撤回来源，因此新请求不应返回撤回内容；PG切片和关系证据由后台DELETE任务后续清理。该来源未说明后台清理的具体负责方（团队/角色），也未给出清理时限，且其业务效果标注为待核实（非独立验证）。如需确认清理责任人与时效，建议转人工核实。另一来源「知识已审核但尚未索引」讨论的是审核通过但未完成索引的场景，与撤回残留切片问题不适用，不能混用。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/3bd5ecf7-4ad4-4803-b917-6ecb184e290d/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G508",
+      "arm": "C",
+      "allowed_source_ids": [
+        "resolved-ticket/3bd5ecf7-4ad4-4803-b917-6ecb184e290d/v1.md#0",
+        "resolved-ticket/ff1ac8dd-3127-4a4f-932c-ac121ebfec93/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\":\"依据来源“撤回知识与延迟删除”：当MySQL审核真源已标记撤回时，新检索应检查当前可见状态并排除撤回来源，因此新检索不应返回已撤回内容；PG切片暂未删除属于已知症状，后台DELETE任务会在后续清理PG切片和关系证据。禁止继续向新请求返回撤回内容，也禁止让迟到INDEX覆盖撤回版本。该来源未说明“后台谁负责清理”的具体责任人或团队，也未说明清理完成时限，业务效果待核实；如需确认责任归属，请转人工核实。来源“知识已审核但尚未索引”讨论的是审核通过后索引未完成的情形，不适用于本问题。\",\"needHuman\":true,\"sourceIds\":[\"resolved-ticket/3bd5ecf7-4ad4-4803-b917-6ecb184e290d/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 1273,
+        "completion_tokens": 186,
+        "total_tokens": 1459,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1273
+      },
+      "parsed_answer": {
+        "answer": "依据来源“撤回知识与延迟删除”：当MySQL审核真源已标记撤回时，新检索应检查当前可见状态并排除撤回来源，因此新检索不应返回已撤回内容；PG切片暂未删除属于已知症状，后台DELETE任务会在后续清理PG切片和关系证据。禁止继续向新请求返回撤回内容，也禁止让迟到INDEX覆盖撤回版本。该来源未说明“后台谁负责清理”的具体责任人或团队，也未说明清理完成时限，业务效果待核实；如需确认责任归属，请转人工核实。来源“知识已审核但尚未索引”讨论的是审核通过后索引未完成的情形，不适用于本问题。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/3bd5ecf7-4ad4-4803-b917-6ecb184e290d/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G509",
+      "arm": "A",
+      "allowed_source_ids": [
+        "resolved-ticket/262d1648-acb5-4dd3-b608-a52fd86b7cf1/v1.md#0",
+        "resolved-ticket/502b9c53-0a5d-4bc8-bced-752f63ce99c5/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\":\"依据已审核的合成演示经验（非通用产品规则）：当提交人持有有效Key，但把查询工单ID换成他人工单时，后端应按服务端身份与目标工单归属检查对象权限，并拒绝返回无权访问的工单内容。适用前提是目标工单不属于该提交人且请求身份有效；同时须注意有效Key不等于拥有所有工单权限，知识指引也不能提升调用者角色。该经验的实际业务效果未独立核实，具体版本规则需核对；若需确认本项目实际权限实现，建议转人工核实。\",\"needHuman\":true,\"sourceIds\":[\"resolved-ticket/262d1648-acb5-4dd3-b608-a52fd86b7cf1/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 625,
+        "completion_tokens": 165,
+        "total_tokens": 790,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 625
+      },
+      "parsed_answer": {
+        "answer": "依据已审核的合成演示经验（非通用产品规则）：当提交人持有有效Key，但把查询工单ID换成他人工单时，后端应按服务端身份与目标工单归属检查对象权限，并拒绝返回无权访问的工单内容。适用前提是目标工单不属于该提交人且请求身份有效；同时须注意有效Key不等于拥有所有工单权限，知识指引也不能提升调用者角色。该经验的实际业务效果未独立核实，具体版本规则需核对；若需确认本项目实际权限实现，建议转人工核实。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/262d1648-acb5-4dd3-b608-a52fd86b7cf1/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G509",
+      "arm": "B",
+      "allowed_source_ids": [
+        "resolved-ticket/262d1648-acb5-4dd3-b608-a52fd86b7cf1/v1.md#0",
+        "resolved-ticket/502b9c53-0a5d-4bc8-bced-752f63ce99c5/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\": \"按来源 resolved-ticket/262d1648-acb5-4dd3-b608-a52fd86b7cf1/v1.md#0：当提交人持有有效Key、但把查询工单ID改成他人工单时，后端应按服务端身份与目标工单归属检查对象权限，并拒绝返回无权访问的工单内容。注意：有效Key不等于拥有所有工单权限，知识指引也不能提升调用者角色。该来源标注业务效果待核实（非独立验证），且为SHARED_DEMO合成演示，实际处理能力需人工核实。另一来源涉及旧版本修改冲突（409），与本次查询场景不同，不适用。\", \"needHuman\": true, \"sourceIds\": [\"resolved-ticket/262d1648-acb5-4dd3-b608-a52fd86b7cf1/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 695,
+        "completion_tokens": 193,
+        "total_tokens": 888,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 695
+      },
+      "parsed_answer": {
+        "answer": "按来源 resolved-ticket/262d1648-acb5-4dd3-b608-a52fd86b7cf1/v1.md#0：当提交人持有有效Key、但把查询工单ID改成他人工单时，后端应按服务端身份与目标工单归属检查对象权限，并拒绝返回无权访问的工单内容。注意：有效Key不等于拥有所有工单权限，知识指引也不能提升调用者角色。该来源标注业务效果待核实（非独立验证），且为SHARED_DEMO合成演示，实际处理能力需人工核实。另一来源涉及旧版本修改冲突（409），与本次查询场景不同，不适用。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/262d1648-acb5-4dd3-b608-a52fd86b7cf1/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G509",
+      "arm": "C",
+      "allowed_source_ids": [
+        "resolved-ticket/262d1648-acb5-4dd3-b608-a52fd86b7cf1/v1.md#0",
+        "resolved-ticket/502b9c53-0a5d-4bc8-bced-752f63ce99c5/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\": \"当提交人持有有效Key、但把查询工单ID换成他人工单时，后端应按服务端身份与目标工单归属检查对象权限，并拒绝返回无权访问的工单内容。需注意：有效Key不等于拥有所有工单权限，知识指引也不能提升调用者角色。该处理仅适用于“目标工单不属于该提交人且请求身份有效”的条件；业务效果待核实，不代表已执行成功。若需确认具体实现，应核实服务端是否以请求身份与工单归属做对象级权限校验，以及无权时是否不返回工单内容。\", \"needHuman\": false, \"sourceIds\": [\"resolved-ticket/262d1648-acb5-4dd3-b608-a52fd86b7cf1/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 1212,
+        "completion_tokens": 175,
+        "total_tokens": 1387,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1212
+      },
+      "parsed_answer": {
+        "answer": "当提交人持有有效Key、但把查询工单ID换成他人工单时，后端应按服务端身份与目标工单归属检查对象权限，并拒绝返回无权访问的工单内容。需注意：有效Key不等于拥有所有工单权限，知识指引也不能提升调用者角色。该处理仅适用于“目标工单不属于该提交人且请求身份有效”的条件；业务效果待核实，不代表已执行成功。若需确认具体实现，应核实服务端是否以请求身份与工单归属做对象级权限校验，以及无权时是否不返回工单内容。",
+        "needHuman": false,
+        "sourceIds": [
+          "resolved-ticket/262d1648-acb5-4dd3-b608-a52fd86b7cf1/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G510",
+      "arm": "A",
+      "allowed_source_ids": [
+        "resolved-ticket/55f0268c-b8cd-4714-8c47-1f4482cf7ebe/v1.md#0",
+        "resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\":\"需先核对适用条件：当前接口是否为全量替换、是否确实需要保留现有描述；来源标注为已审核的合成工单演示经验，实际业务效果未独立核实，不代表通用产品规则。若条件成立，纠正与保存反例可按：先读取希望保留的完整可修改字段，再带上必要字段和期望版本提交，并将旧错误建议标为失效、保留纠错记录。禁止把错误尝试索引为成功方法；“只传标题就可以，描述一定会保留”属于失败反例，不得作为成功步骤。第二个来源内容被截断，无法据此补充步骤。\",\"needHuman\":false,\"sourceIds\":[\"resolved-ticket/55f0268c-b8cd-4714-8c47-1f4482cf7ebe/v1.md#0\",\"resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 722,
+        "completion_tokens": 210,
+        "total_tokens": 932,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 722
+      },
+      "parsed_answer": {
+        "answer": "需先核对适用条件：当前接口是否为全量替换、是否确实需要保留现有描述；来源标注为已审核的合成工单演示经验，实际业务效果未独立核实，不代表通用产品规则。若条件成立，纠正与保存反例可按：先读取希望保留的完整可修改字段，再带上必要字段和期望版本提交，并将旧错误建议标为失效、保留纠错记录。禁止把错误尝试索引为成功方法；“只传标题就可以，描述一定会保留”属于失败反例，不得作为成功步骤。第二个来源内容被截断，无法据此补充步骤。",
+        "needHuman": false,
+        "sourceIds": [
+          "resolved-ticket/55f0268c-b8cd-4714-8c47-1f4482cf7ebe/v1.md#0",
+          "resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G510",
+      "arm": "B",
+      "allowed_source_ids": [
+        "resolved-ticket/55f0268c-b8cd-4714-8c47-1f4482cf7ebe/v1.md#0",
+        "resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\":\"纠正与保存反例的步骤（仅限合成演示，实际效果待核实）：\\n1. 先读取希望保留的完整可修改字段，确认当前需要保留的现有描述等内容。\\n2. 提交时带上全部希望保留的可修改字段及必要字段，并带上读取到的 expectedVersion，以识别旧版本冲突；注意可空描述未提交可能被清空。\\n3. 将“只传标题一定保留描述”的旧错误建议标为失效，保留纠错记录；不能把该错误尝试索引为成功方法。\\n\\n反例应记录为：“只传标题就可以，描述一定会保留”与当前 PUT 全量替换规则不符。\\n\\n适用前提：当前接口为全量替换、需要保留现有描述，且有对象修改权限、调用当前项目工单 PUT 更新接口。禁止把 PUT 说成只更新传入字段，也不能通过普通更新修改工单状态。\",\"needHuman\":false,\"sourceIds\":[\"resolved-ticket/55f0268c-b8cd-4714-8c47-1f4482cf7ebe/v1.md#0\",\"resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 843,
+        "completion_tokens": 285,
+        "total_tokens": 1128,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 843
+      },
+      "parsed_answer": {
+        "answer": "纠正与保存反例的步骤（仅限合成演示，实际效果待核实）：\n1. 先读取希望保留的完整可修改字段，确认当前需要保留的现有描述等内容。\n2. 提交时带上全部希望保留的可修改字段及必要字段，并带上读取到的 expectedVersion，以识别旧版本冲突；注意可空描述未提交可能被清空。\n3. 将“只传标题一定保留描述”的旧错误建议标为失效，保留纠错记录；不能把该错误尝试索引为成功方法。\n\n反例应记录为：“只传标题就可以，描述一定会保留”与当前 PUT 全量替换规则不符。\n\n适用前提：当前接口为全量替换、需要保留现有描述，且有对象修改权限、调用当前项目工单 PUT 更新接口。禁止把 PUT 说成只更新传入字段，也不能通过普通更新修改工单状态。",
+        "needHuman": false,
+        "sourceIds": [
+          "resolved-ticket/55f0268c-b8cd-4714-8c47-1f4482cf7ebe/v1.md#0",
+          "resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G510",
+      "arm": "C",
+      "allowed_source_ids": [
+        "resolved-ticket/55f0268c-b8cd-4714-8c47-1f4482cf7ebe/v1.md#0",
+        "resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\": \"先核对适用条件：当前接口为全量替换，且需要保留现有描述；同时需有对象修改权限。纠正步骤：1）先读取希望保留的完整可修改字段；2）提交希望保留的全部可修改字段，可空描述未提交可能被清空，并带上读取到的expectedVersion以识别旧版本冲突；3）将旧错误建议标为失效，保留纠错记录。保存反例时，应记录“只传标题就可以，描述一定会保留”这一错误说法，并注明其与当前PUT全量替换规则不符；不能把错误尝试索引为成功方法。注意：不能把PUT说成只更新传入字段，也不能直接通过普通更新修改工单状态。业务效果待核实，非独立验证。\", \"needHuman\": false, \"sourceIds\": [\"resolved-ticket/55f0268c-b8cd-4714-8c47-1f4482cf7ebe/v1.md#0\", \"resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 1490,
+        "completion_tokens": 247,
+        "total_tokens": 1737,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 1362
+      },
+      "parsed_answer": {
+        "answer": "先核对适用条件：当前接口为全量替换，且需要保留现有描述；同时需有对象修改权限。纠正步骤：1）先读取希望保留的完整可修改字段；2）提交希望保留的全部可修改字段，可空描述未提交可能被清空，并带上读取到的expectedVersion以识别旧版本冲突；3）将旧错误建议标为失效，保留纠错记录。保存反例时，应记录“只传标题就可以，描述一定会保留”这一错误说法，并注明其与当前PUT全量替换规则不符；不能把错误尝试索引为成功方法。注意：不能把PUT说成只更新传入字段，也不能直接通过普通更新修改工单状态。业务效果待核实，非独立验证。",
+        "needHuman": false,
+        "sourceIds": [
+          "resolved-ticket/55f0268c-b8cd-4714-8c47-1f4482cf7ebe/v1.md#0",
+          "resolved-ticket/44b63612-7cb0-4c7d-ac7c-5f18381c8901/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G511",
+      "arm": "A",
+      "allowed_source_ids": [
+        "resolved-ticket/3bd5ecf7-4ad4-4803-b917-6ecb184e290d/v1.md#0",
+        "resolved-ticket/d782562f-263b-4e5d-b70c-d83eeafa51f5/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\": \"无法保证。现有资料均为已审核的合成工单演示经验，明确不代表通用产品规则，实际业务效果未独立核实；其中没有关于退款到账时间、支付渠道处理时效或可承诺到账时刻的规则。因此不能确认或保证这笔退款今天下午三点到账，也不编造到账时刻。建议转人工核实：1）该笔退款的当前处理状态与支付渠道；2）适用的退款时效规则及版本；3）是否存在延迟或失败情形。\", \"needHuman\": true, \"sourceIds\": [\"resolved-ticket/3bd5ecf7-4ad4-4803-b917-6ecb184e290d/v1.md#0\", \"resolved-ticket/d782562f-263b-4e5d-b70c-d83eeafa51f5/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 613,
+        "completion_tokens": 188,
+        "total_tokens": 801,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 613
+      },
+      "parsed_answer": {
+        "answer": "无法保证。现有资料均为已审核的合成工单演示经验，明确不代表通用产品规则，实际业务效果未独立核实；其中没有关于退款到账时间、支付渠道处理时效或可承诺到账时刻的规则。因此不能确认或保证这笔退款今天下午三点到账，也不编造到账时刻。建议转人工核实：1）该笔退款的当前处理状态与支付渠道；2）适用的退款时效规则及版本；3）是否存在延迟或失败情形。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/3bd5ecf7-4ad4-4803-b917-6ecb184e290d/v1.md#0",
+          "resolved-ticket/d782562f-263b-4e5d-b70c-d83eeafa51f5/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G511",
+      "arm": "B",
+      "allowed_source_ids": [
+        "resolved-ticket/3bd5ecf7-4ad4-4803-b917-6ecb184e290d/v1.md#0",
+        "resolved-ticket/d782562f-263b-4e5d-b70c-d83eeafa51f5/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\": \"不能保证。现有资料未提供任何退款到账时间、支付渠道处理时效或可承诺到账时刻的规则，因此无法确认“今天下午三点到账”。来源1仅涉及知识撤回与延迟删除，来源2仅说明消息已投递但分析尚未完成，均与退款到账无关。建议转人工核实退款单号、支付渠道、当前处理状态及渠道预计到账时间；在获得明确依据前，不应承诺具体到账时刻。\", \"needHuman\": true, \"sourceIds\": [\"resolved-ticket/3bd5ecf7-4ad4-4803-b917-6ecb184e290d/v1.md#0\", \"resolved-ticket/d782562f-263b-4e5d-b70c-d83eeafa51f5/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 709,
+        "completion_tokens": 184,
+        "total_tokens": 893,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 709
+      },
+      "parsed_answer": {
+        "answer": "不能保证。现有资料未提供任何退款到账时间、支付渠道处理时效或可承诺到账时刻的规则，因此无法确认“今天下午三点到账”。来源1仅涉及知识撤回与延迟删除，来源2仅说明消息已投递但分析尚未完成，均与退款到账无关。建议转人工核实退款单号、支付渠道、当前处理状态及渠道预计到账时间；在获得明确依据前，不应承诺具体到账时刻。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/3bd5ecf7-4ad4-4803-b917-6ecb184e290d/v1.md#0",
+          "resolved-ticket/d782562f-263b-4e5d-b70c-d83eeafa51f5/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G511",
+      "arm": "C",
+      "allowed_source_ids": [
+        "resolved-ticket/3bd5ecf7-4ad4-4803-b917-6ecb184e290d/v1.md#0",
+        "resolved-ticket/d782562f-263b-4e5d-b70c-d83eeafa51f5/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\": \"不能保证。现有资料均未提供退款到账时间、退款状态或可承诺到账时刻的依据，且资料明确属于合成演示、模拟规则非本项目实际业务能力，业务效果待核实。来源1仅涉及知识撤回与延迟删除，来源2仅涉及消息已投递但分析尚未完成，均不适用于退款到账判断。建议转人工核实退款单号、支付渠道处理状态及实际到账记录后再答复。\", \"needHuman\": true, \"sourceIds\": [\"resolved-ticket/3bd5ecf7-4ad4-4803-b917-6ecb184e290d/v1.md#0\", \"resolved-ticket/d782562f-263b-4e5d-b70c-d83eeafa51f5/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 1257,
+        "completion_tokens": 178,
+        "total_tokens": 1435,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1257
+      },
+      "parsed_answer": {
+        "answer": "不能保证。现有资料均未提供退款到账时间、退款状态或可承诺到账时刻的依据，且资料明确属于合成演示、模拟规则非本项目实际业务能力，业务效果待核实。来源1仅涉及知识撤回与延迟删除，来源2仅涉及消息已投递但分析尚未完成，均不适用于退款到账判断。建议转人工核实退款单号、支付渠道处理状态及实际到账记录后再答复。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/3bd5ecf7-4ad4-4803-b917-6ecb184e290d/v1.md#0",
+          "resolved-ticket/d782562f-263b-4e5d-b70c-d83eeafa51f5/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G512",
+      "arm": "A",
+      "allowed_source_ids": [
+        "resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0",
+        "resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\":\"不能依据现有资料确认可以跳过验证码直接改密码，也不能保证赔偿500元。来源仅涉及演示账号忘记密码的模拟规则：在“原注册手机号仍可接收短信”的条件下，需通过注册手机号验证码验证后设置新密码；若原手机号停用，则不得继续推荐自助短信重置。资料未提供跳过验证码改密的可行步骤，也未涉及任何赔偿承诺。若您遇到登录故障，请先核实原注册手机号是否仍可接收短信；若已停用或需跳过验证码处理，现有资料不足，建议转人工进一步核实。\",\"needHuman\":true,\"sourceIds\":[\"resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0\",\"resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 651,
+        "completion_tokens": 210,
+        "total_tokens": 861,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 651
+      },
+      "parsed_answer": {
+        "answer": "不能依据现有资料确认可以跳过验证码直接改密码，也不能保证赔偿500元。来源仅涉及演示账号忘记密码的模拟规则：在“原注册手机号仍可接收短信”的条件下，需通过注册手机号验证码验证后设置新密码；若原手机号停用，则不得继续推荐自助短信重置。资料未提供跳过验证码改密的可行步骤，也未涉及任何赔偿承诺。若您遇到登录故障，请先核实原注册手机号是否仍可接收短信；若已停用或需跳过验证码处理，现有资料不足，建议转人工进一步核实。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0",
+          "resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G512",
+      "arm": "B",
+      "allowed_source_ids": [
+        "resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0",
+        "resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\":\"无法确认可以跳过验证码直接改密码，也无法保证赔偿500元。现有资料仅涉及演示账号忘记密码的模拟平台规则：若原注册手机号仍可接收短信，需通过注册手机号验证码验证后设置8至20位字母与数字组合密码，并避免重复最近3次密码；若原手机号已停用，则不得继续推荐自助短信重置，应按演示规则走人工申诉核验，且不得承诺固定核验时限。资料未提供跳过验证码改密码的步骤，也未提供任何赔偿规则或500元赔偿依据。建议先核实：账号是否属于演示环境、原注册手机号是否仍可接收短信；如涉及赔偿诉求，请转人工进一步确认。\",\"needHuman\":true,\"sourceIds\":[\"resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0\",\"resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 759,
+        "completion_tokens": 235,
+        "total_tokens": 994,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 759
+      },
+      "parsed_answer": {
+        "answer": "无法确认可以跳过验证码直接改密码，也无法保证赔偿500元。现有资料仅涉及演示账号忘记密码的模拟平台规则：若原注册手机号仍可接收短信，需通过注册手机号验证码验证后设置8至20位字母与数字组合密码，并避免重复最近3次密码；若原手机号已停用，则不得继续推荐自助短信重置，应按演示规则走人工申诉核验，且不得承诺固定核验时限。资料未提供跳过验证码改密码的步骤，也未提供任何赔偿规则或500元赔偿依据。建议先核实：账号是否属于演示环境、原注册手机号是否仍可接收短信；如涉及赔偿诉求，请转人工进一步确认。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0",
+          "resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    },
+    {
+      "id": "G512",
+      "arm": "C",
+      "allowed_source_ids": [
+        "resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0",
+        "resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0"
+      ],
+      "answer_grade": null,
+      "refusal_correct_grade": null,
+      "groundedness_grade": null,
+      "http_status": 200,
+      "served_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "content": "{\"answer\":\"不能跳过验证码直接改密码，也无法保证赔偿500元。现有资料均为SHARED_DEMO合成演示，模拟规则并非本项目实际业务能力，且未提供任何跳过验证码或赔偿500元的规则。若原注册手机号仍可接收短信，演示流程要求先通过注册手机号验证码验证，再设置8至20位字母与数字组合密码，并避免重复最近3次密码；若原手机号已停用，则不得继续推荐自助短信重置，应按演示规则走人工申诉核验，且不得承诺固定核验时限。请先核实原手机号是否仍可接收短信，再按对应条件处理；赔偿诉求及跳过验证码请求需转人工确认。\",\"needHuman\":true,\"sourceIds\":[\"resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0\",\"resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0\"]}",
+      "usage": {
+        "prompt_tokens": 1328,
+        "completion_tokens": 234,
+        "total_tokens": 1562,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 1200
+      },
+      "parsed_answer": {
+        "answer": "不能跳过验证码直接改密码，也无法保证赔偿500元。现有资料均为SHARED_DEMO合成演示，模拟规则并非本项目实际业务能力，且未提供任何跳过验证码或赔偿500元的规则。若原注册手机号仍可接收短信，演示流程要求先通过注册手机号验证码验证，再设置8至20位字母与数字组合密码，并避免重复最近3次密码；若原手机号已停用，则不得继续推荐自助短信重置，应按演示规则走人工申诉核验，且不得承诺固定核验时限。请先核实原手机号是否仍可接收短信，再按对应条件处理；赔偿诉求及跳过验证码请求需转人工确认。",
+        "needHuman": true,
+        "sourceIds": [
+          "resolved-ticket/dc89587a-7dc1-4131-bc2c-a2df0d9a788e/v1.md#0",
+          "resolved-ticket/1a766407-92c9-4856-ac72-1bcb8175d71d/v1.md#0"
+        ]
+      },
+      "output_contract_valid": true
+    }
+  ],
+  "budget_after": {
+    "path": "D:\\SmartTicket-AI\\.tmp\\phase4-budget-ledger.json",
+    "sha256": "fd6ef35767c4a74932146cd2ee6790614840227ce3fd97dba587b9120cb3e744",
+    "records": 606,
+    "external_calls": 443,
+    "estimated_upper_rmb": 2.7374690800000003,
+    "authorized_rmb": 10
+  },
+  "output_contract_valid_count": 36
+}

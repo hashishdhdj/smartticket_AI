@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "status": "ENGINEERING_PASS_REAL_BATCH_EXECUTED_REVIEW_PENDING",
+  "date": "2026-10-27T04:23:01.557641+00:00",
+  "stage": "G5",
+  "runtime_unchanged_from_G4": true,
+  "source_base_commit": "b26093b6bb2162257111a8cc068e73f92bf042a1",
+  "source_files_checked": 207,
+  "build": {
+    "status": "PASS",
+    "date": "2026-10-27T04:00:33.846238+00:00",
+    "vendor_calls": 0,
+    "jar_sha256": "49e9c1c8274ebdfcc1dc63870df9abbec92989a12fe2368e12628dcc2563898b",
+    "source_manifest_sha256": "d22bc8ef4f1779320eacd135c887952f71c826a89d244045f38cc8a687411bb8",
+    "profiles": {
+      "unit": {
+        "tests": 307,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "integration": {
+        "tests": 260,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "java_major": 17,
+    "local_build_record_not_signed_attestation": true
+  },
+  "python_tests": {
+    "tests": 97,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "log_sha256": "9064bdc2dfe6f8f7c7ebae97d7407679b4e0621a7dba608c006a2a9c1294500c"
+  },
+  "local_comparison": {
+    "report": "docs/evaluation/20261027-g5-local-comparison.json",
+    "sha256": "ca9855b1c762f29165b5e832c3a154c2f4320378a3074d9e6f712cddeb81f5c9",
+    "status": "PASS",
+    "protocol_requests": 52,
+    "own_data_cleaned": true,
+    "summary": {
+      "A": {
+        "count": 12,
+        "positive_count": 10,
+        "source_hit_rate": 1,
+        "mrr": 1.0,
+        "micro_literal_retention": 1.0,
+        "median_retrieval_ms": 70.0,
+        "median_representation_bytes": 2161.0,
+        "semantic_answer_accuracy": null,
+        "refusal_accuracy": null,
+        "negative_evidence_count": 2
+      },
+      "B": {
+        "count": 12,
+        "positive_count": 10,
+        "source_hit_rate": 1,
+        "mrr": 1.0,
+        "micro_literal_retention": 1.0,
+        "median_retrieval_ms": 155.94299999999998,
+        "median_representation_bytes": 2002.0,
+        "semantic_answer_accuracy": null,
+        "refusal_accuracy": null,
+        "negative_evidence_count": 2
+      },
+      "C": {
+        "count": 12,
+        "positive_count": 10,
+        "source_hit_rate": 1,
+        "mrr": 1.0,
+        "micro_literal_retention": 1.0,
+        "median_retrieval_ms": 119.5,
+        "median_representation_bytes": 3403.0,
+        "semantic_answer_accuracy": null,
+        "refusal_accuracy": null,
+        "negative_evidence_count": 2
+      }
+    }
+  },
+  "ci_fixture_comparison": {
+    "report": "docs/evaluation/20261027-g5-ci-offline-comparison.json",
+    "sha256": "36a309da474c4d766f82f0f59bbd15ce12b4b4ebc6ae4e2cddc292308ee1d208",
+    "status": "PASS",
+    "protocol_requests": 52,
+    "own_data_cleaned": true,
+    "real_BGE": false
+  },
+  "real_generation": {
+    "report": "docs/evaluation/20261027-g5-real-generation.json",
+    "sha256": "9f0ed0ee96a7aaa31aae4b5dda4daadf148634b2dba650a0b2377972346b1417",
+    "vendor_calls": 36,
+    "output_contract_valid": 36,
+    "human_semantic_grades": "PENDING",
+    "positive_need_human_counts": {
+      "A": 8,
+      "B": 5,
+      "C": 4
+    }
+  },
+  "budget": {
+    "canonical_ledger_reused": true,
+    "reset": false,
+    "external_before": 407,
+    "external_after": 443,
+    "new_calls": 36,
+    "authorized_total_rmb": 10,
+    "estimated_upper_rmb_before": 2.5541690800000008,
+    "estimated_upper_rmb_after": 2.7374690800000003,
+    "billing_note": "Conservative envelope, not actual vendor CNY bill",
+    "pricing_source": "https://api-docs.deepseek.com/quick_start/pricing/",
+    "pricing_checked_on": "2026-10-27"
+  },
+  "authorization": "Explicit user reply: 授权最多36次，累计费用仍不超过¥10; review and private grant hashes remain in local execution evidence",
+  "fingerprints": [
+    {
+      "path": "08_部署与环境/03_scripts/graph_comparison.py",
+      "sha256": "cf50b5d865d2d5d16b953e0b130ba4202efb1821bc75c0a158007ac0eefaaf9e"
+    },
+    {
+      "path": "08_部署与环境/03_scripts/graph_comparison_fixture.py",
+      "sha256": "9945f911bf6c38dd534a1d68d03d3337f5fa19cb0fb3786c2840b1ab4e01fafb"
+    },
+    {
+      "path": "08_部署与环境/03_scripts/graph_generation.py",
+      "sha256": "fa598dc85f669f487bc62ffa1e9b5406d29c87c9bb834fb95dbd4b94916d735a"
+    },
+    {
+      "path": "08_部署与环境/03_scripts/verify-graph-comparison.py",
+      "sha256": "07030342822ad9d3410a26e2d51e43c15610de9f50d4fc77634b5fa5efa8080f"
+    },
+    {
+      "path": "08_部署与环境/03_scripts/verify-graph-generation.py",
+      "sha256": "7f0143003113a19dc1019c62f14eb6f6b3f6ce40718b8f35bbdc19fdd3767823"
+    },
+    {
+      "path": "08_部署与环境/03_scripts/local_quality_runtime.py",
+      "sha256": "36b2c81b6044328db3c8a4848512b8a12e23dc5560a9b94a0b4ce8899084200d"
+    },
+    {
+      "path": "08_部署与环境/03_scripts/test_graph_comparison.py",
+      "sha256": "830cf534c7edba6b5f6afa0bf6ee8b23b20dfdf593a8f7e008ee066ee29fb77e"
+    },
+    {
+      "path": "08_部署与环境/03_scripts/test_graph_generation.py",
+      "sha256": "ba316600e8d763e7b946174e05c0b76fa90a41cf9e3cc8c908bcee5eba9f749b"
+    },
+    {
+      "path": "08_部署与环境/03_scripts/test_graph_fixture.py",
+      "sha256": "24213e6f39b828a361384f306640557993d23188c513c534abfccc31634eb65d"
+    },
+    {
+      "path": ".github/workflows/verify.yml",
+      "sha256": "7001465af0261dd11e81618232df458ba55c2700f9f53e83f3e9a87746c6c878"
+    },
+    {
+      "path": "07_测试与质量/04_AI评估集/experience-g5-v1/manifest.json",
+      "sha256": "7183090e9963f9ff216e1272818f0d5a4ada350beb6b3e5ae77f1800a4ac8a3c"
+    },
+    {
+      "path": "07_测试与质量/04_AI评估集/experience-g5-v1/cases.json",
+      "sha256": "a4abc71addd2dfc4271befeec8333ceeb90239c7c14b5ef850b5c6a6d80c3cfe"
+    },
+    {
+      "path": "01_项目说明/20261027_G5对照验收与真实生成_结果及复跑指南.md",
+      "sha256": "36844456bf6dc5a5cbcded3bb6f3c05f2d8477728c02b3cb1490dadcf94cc056"
+    }
+  ],
+  "remote_ci_status_at_report_creation": "NOT_RUN",
+  "remote_ci_tracking": "https://github.com/hashishdhdj/smartticket_AI/actions/workflows/verify.yml?query=branch%3Acodex%2Fquality-closure",
+  "limitations": [
+    "Synthetic development data, not independent blind testing",
+    "B is evaluation-only and reuses A seeds",
+    "Native source budgets differ; controlled generation has equal outer limits",
+    "At-returned-limit retrieval/literal retention is not answer accuracy",
+    "Paid batch is single-turn representation comparison, not three complete Agent variants",
+    "36 human review entries remain pending; original 148-row ledger unchanged",
+    "No universal graph advantage, real administrator-load reduction, production long-stability or new business-write authority claim"
+  ],
+  "earlier_ci_attempt": {
+    "status": "FAIL",
+    "reason": "Fixture used random embedding port/model, rejected by unchanged local-only Java publication fence. Fixed fixture to local11434 with BGE wire alias in a fresh private DB; actual algorithm explicitly marked non-BGE.",
+    "sha256": "a7ef6a9669db1f270f5cbe5e45818d4a16a0bba30ce917f92146f9f0946c2f0e"
+  }
+}

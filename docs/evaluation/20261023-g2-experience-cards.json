@@ -1,0 +1,516 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "date": "2026-10-23T01:56:44.137529+00:00",
+  "stage": "G2",
+  "source_base_commit": "b26093b6bb2162257111a8cc068e73f92bf042a1",
+  "feature_work_uncommitted": true,
+  "remote_ci_for_this_feature": "NOT_RUN",
+  "vendor_calls": 0,
+  "chat_enabled": false,
+  "embedding": "local Ollama bge-m3:latest; local call count not separately measured",
+  "build": {
+    "status": "PASS",
+    "date": "2026-10-23T01:52:19.422307+00:00",
+    "vendor_calls": 0,
+    "jar_sha256": "a778001c32a3096d8ba6f017c5254e8ac497a4668227f87e25c9b9bec78e8044",
+    "source_manifest_sha256": "a71736da438151f00db5a7ac69ec9d132396d26c69656772a016c6935290a3d5",
+    "profiles": {
+      "unit": {
+        "tests": 271,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "integration": {
+        "tests": 218,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "java_major": 17,
+    "local_build_record_not_signed_attestation": true
+  },
+  "source_files_checked": 194,
+  "private_config_in_jar": false,
+  "added_java_tests": [
+    {
+      "class": "com.smartticket.experience.ExperienceCardCodecTest",
+      "totals": {
+        "tests": 11,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "cases": [
+        "harmlessSetOrderingAndOuterWhitespaceNormalizeToSameHash",
+        "unknownSupportAndFactScopeCannotBeClaimedAsVerified",
+        "emptyAndWhitespaceConditionsFailRatherThanBroadenScope",
+        "rendererKeepsFailuresAndHypothesesExplicitlySeparate",
+        "negationChangesHash",
+        "stepOrderIsSemanticallySignificant",
+        "innerWhitespaceAndPunctuationArePreserved",
+        "numericLimitsAndVersionsAreNotDiscarded",
+        "lexicalMatchIsOnlyAHintAndStillSeesChangedCondition",
+        "absentPaymentIntegrationKeepsScopeAndCannotClaimReferencedSuccessfulRefund",
+        "overlongRenderedEvidenceIsRejectedWithoutTruncation"
+      ]
+    },
+    {
+      "class": "com.smartticket.experience.ExperienceCardIntegrationTest",
+      "totals": {
+        "tests": 22,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "cases": [
+        "reviewSeesBindingCommittedAfterItsInitialCandidateRead",
+        "changedConditionGetsNewCardAndOnlyAdminSeesLexicalHint",
+        "submitterOtherHandlerAndForgedFieldsRejectedAtHttpBoundary",
+        "bindingRequiresAdminAndSameTicketCandidate",
+        "foreignTicketEvidenceAndUndeclaredReferencesAreRejected",
+        "outboxFailureRollsBackCandidateStructureVersionAndReviewAudit",
+        "disabledCardsAndReassignedTicketCannotExposeStoredProvenance",
+        "realStaffPrivateRecordCannotBeSharedAsSyntheticKnowledge",
+        "failureFeedbackAfterPreparationBlocksApproval",
+        "unverifiedCardStaysDraftAndCannotPublish",
+        "missingCurrentStructureVersionFailsClosed",
+        "structuredRevisionRequiresRetractionPreservesHistoryAndCannotResurrectOldVersion",
+        "correctionRequiresExplicitFailureRecordAndKeepsSnapshot",
+        "failedAttemptCannotBePositiveEvidence",
+        "indexedApprovedCardIsReusableUntilRetracted",
+        "concurrentCrossTicketSubmissionsDeduplicateInDatabase",
+        "requestReplayIsStableAfterTicketVersionChangesAndConflictDoesNotOverwrite",
+        "approvalRejectsTextStructureDriftEvenWhenCreationFeatureDisabled",
+        "approvalBindsStructureTextAndOutboxToOneRevision",
+        "exactContentDeduplicatesAcrossTicketsButProvenanceStaysSeparate",
+        "realHttpCreatesCardAndKeepsTicketUnresolvedAndSourceTraceable",
+        "newFailureFeedbackHidesPublishedSourceWithoutWaitingForPgDeletion"
+      ]
+    }
+  ],
+  "python_regression": {
+    "tests": 62,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "log_sha256": "3e22c49ee3c7a241fd6a526ec33e01e5d9074ef6a11f2a3175c949ea48185b38"
+  },
+  "http_import": {
+    "status": "PASS",
+    "date": "2026-10-23T01:54:06.041753+00:00",
+    "stage": "G2",
+    "jar_sha256": "a778001c32a3096d8ba6f017c5254e8ac497a4668227f87e25c9b9bec78e8044",
+    "seed_sha256": "d703824c44637c8d8e7900806fb4ab37baa579121b649cbfb004630258752a00",
+    "vendor_calls": 0,
+    "embedding_calls": null,
+    "chat_enabled": false,
+    "embedding": "local Ollama bge-m3:latest",
+    "scope": "Real capture, optional normalized cards and reviewed text retrieval; no graph, training or answer-quality claim",
+    "synthetic_business_feedback_is_runtime_success_evidence": false,
+    "cases": [
+      {
+        "id": "EXP01",
+        "ticket_id": 3974,
+        "staff_id": 2109730797,
+        "interaction_ids": [
+          343,
+          344
+        ],
+        "feedback_ids": [
+          79
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": "be92c94b-99c6-4ba8-882e-031e30eb8b49"
+      },
+      {
+        "id": "EXP02",
+        "ticket_id": 3975,
+        "staff_id": 2127567057,
+        "interaction_ids": [
+          345,
+          346
+        ],
+        "feedback_ids": [
+          80
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP03",
+        "ticket_id": 3976,
+        "staff_id": 2106168249,
+        "interaction_ids": [
+          347,
+          348
+        ],
+        "feedback_ids": [
+          81
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP04",
+        "ticket_id": 3977,
+        "staff_id": 2109730797,
+        "interaction_ids": [
+          349,
+          350
+        ],
+        "feedback_ids": [
+          82
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP05",
+        "ticket_id": 3978,
+        "staff_id": 2127567057,
+        "interaction_ids": [
+          351,
+          352
+        ],
+        "feedback_ids": [
+          83
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP06",
+        "ticket_id": 3979,
+        "staff_id": 2106168249,
+        "interaction_ids": [
+          353,
+          354
+        ],
+        "feedback_ids": [
+          84
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP07",
+        "ticket_id": 3980,
+        "staff_id": 2109730797,
+        "interaction_ids": [
+          355,
+          356
+        ],
+        "feedback_ids": [
+          85
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP08",
+        "ticket_id": 3981,
+        "staff_id": 2127567057,
+        "interaction_ids": [
+          357,
+          358
+        ],
+        "feedback_ids": [
+          86
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP09",
+        "ticket_id": 3982,
+        "staff_id": 2106168249,
+        "interaction_ids": [
+          359,
+          360
+        ],
+        "feedback_ids": [
+          87
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP10",
+        "ticket_id": 3983,
+        "staff_id": 2109730797,
+        "interaction_ids": [
+          361,
+          362
+        ],
+        "feedback_ids": [
+          88
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP11",
+        "ticket_id": 3984,
+        "staff_id": 2127567057,
+        "interaction_ids": [
+          363,
+          364,
+          365
+        ],
+        "feedback_ids": [
+          89,
+          90
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP12",
+        "ticket_id": 3985,
+        "staff_id": 2106168249,
+        "interaction_ids": [
+          366,
+          367
+        ],
+        "feedback_ids": [
+          91
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": "23f6d7d9-c9d1-4581-a67d-737f394843e8"
+      }
+    ],
+    "staff_identity_mapping": {
+      "demo_handler_1": 2109730797,
+      "demo_handler_2": 2127567057,
+      "demo_handler_3": 2106168249
+    },
+    "actor_ids": [
+      2108384300,
+      2109730797,
+      2131504218,
+      2127567057,
+      2106168249
+    ],
+    "published_text_source": "resolved-ticket/be92c94b-99c6-4ba8-882e-031e30eb8b49/v1.md",
+    "real_database_counts_before_cleanup": {
+      "tickets": 12,
+      "interactions": 25,
+      "feedback": 13,
+      "resolutions": 2,
+      "cards": 12,
+      "submissions": 13,
+      "structure_versions": 6
+    },
+    "cards": [
+      {
+        "id": "EXP01",
+        "card_id": "2057dcf0-ed9e-4d05-8827-30d17143e11f",
+        "card_hash": "9d8ffb42e1625cabadab05c9a5514b583423ef495e092f962d57fd2ae6ea0d36",
+        "submission_id": "95a85f25-7ceb-4ab4-9561-643578f4b193",
+        "exact_duplicate": false,
+        "reusable_knowledge": null,
+        "support_status": "REFERENCED_DEMO"
+      },
+      {
+        "id": "EXP02",
+        "card_id": "a8d93831-4fd6-46f8-87d1-b1e5b98d7256",
+        "card_hash": "b6f87d8a7d0657e4be307f7d04bcbfc1fa92d267df1b883cb9cfddaac2001c30",
+        "submission_id": "c6708e6c-1c19-4c5b-803c-6a31286470a8",
+        "exact_duplicate": false,
+        "reusable_knowledge": null,
+        "support_status": "REFERENCED_DEMO"
+      },
+      {
+        "id": "EXP03",
+        "card_id": "e6431b43-a0e7-4809-9a5f-30d1f41ecd57",
+        "card_hash": "316cf2fbc7cd008bdf590a40e5bbc6bcadd623c9013279ad18c33114a8ce0d16",
+        "submission_id": "d3d0ab30-e876-4548-9c5b-6eb674ef3663",
+        "exact_duplicate": false,
+        "reusable_knowledge": null,
+        "support_status": "REFERENCED_DEMO"
+      },
+      {
+        "id": "EXP04",
+        "card_id": "f869d133-e23a-41b4-8ef4-83786a2da7bd",
+        "card_hash": "ffa1a60dfdc9ddebfc2b9ba8c128ea183c95b08fcd5c7eadce885eebbae4b4a8",
+        "submission_id": "ff8eb875-a009-4d79-9acc-715c169bfad2",
+        "exact_duplicate": false,
+        "reusable_knowledge": null,
+        "support_status": "REFERENCED_DEMO"
+      },
+      {
+        "id": "EXP05",
+        "card_id": "751c5654-2945-4ead-99ac-65d596a3531a",
+        "card_hash": "1daa2364509332f94ef48ce83e38c29a4fe6d02f101b83f58df879de2e22fc5b",
+        "submission_id": "cc8c9dad-c6ed-4694-8b90-cb4ce4741a40",
+        "exact_duplicate": false,
+        "reusable_knowledge": null,
+        "support_status": "REFERENCED_DEMO"
+      },
+      {
+        "id": "EXP06",
+        "card_id": "f2d870e4-6ea7-4df0-92f3-63b58319b1ee",
+        "card_hash": "412e2dea1d847ec14da5cb101dd8f3e49555b46b522da4f552a83e96be6ec39a",
+        "submission_id": "595230af-a368-464a-85a7-c919a164c767",
+        "exact_duplicate": false,
+        "reusable_knowledge": null,
+        "support_status": "REFERENCED_DEMO"
+      },
+      {
+        "id": "EXP07",
+        "card_id": "af46f317-56f4-4959-9ef1-d9890d6dc6d7",
+        "card_hash": "a5f2a47de3ed31e18b09625144e88a1e63cbbdceb12f1c47286340a95c0b0d61",
+        "submission_id": "4b936314-0070-4212-a4b7-6ebd9b148434",
+        "exact_duplicate": false,
+        "reusable_knowledge": null,
+        "support_status": "REFERENCED_DEMO"
+      },
+      {
+        "id": "EXP08",
+        "card_id": "a4ed2419-a70a-4c72-8389-39c8f5d1120f",
+        "card_hash": "7e83f5268a99d3e46ddd47fc796aa7092bd8a9299470d0b030045acebf285fe2",
+        "submission_id": "aa396995-002f-4545-a27d-99b045606693",
+        "exact_duplicate": false,
+        "reusable_knowledge": null,
+        "support_status": "REFERENCED_DEMO"
+      },
+      {
+        "id": "EXP09",
+        "card_id": "2057dcf0-ed9e-4d05-8827-30d17143e11f",
+        "card_hash": "9d8ffb42e1625cabadab05c9a5514b583423ef495e092f962d57fd2ae6ea0d36",
+        "submission_id": "89255db4-5159-4fa8-8429-24482201f76e",
+        "exact_duplicate": true,
+        "reusable_knowledge": {
+          "candidateId": "be92c94b-99c6-4ba8-882e-031e30eb8b49",
+          "revision": 1,
+          "sourceFile": "resolved-ticket/be92c94b-99c6-4ba8-882e-031e30eb8b49/v1.md"
+        },
+        "support_status": "REFERENCED_DEMO"
+      },
+      {
+        "id": "EXP10",
+        "card_id": "e7931a9f-cf0a-4898-9211-845cfce91737",
+        "card_hash": "3befd9e286abb75da67712576a19ac193a573105745cf3d4a2c530f0a52a2d79",
+        "submission_id": "148463f3-bed3-4913-b506-764eea1cc784",
+        "exact_duplicate": false,
+        "reusable_knowledge": null,
+        "support_status": "REFERENCED_DEMO"
+      },
+      {
+        "id": "EXP11",
+        "card_id": "03b66ba8-6660-435f-ad6d-3e0c130334d9",
+        "card_hash": "c8ddfb8852e282a7494227b18e290ab91868e67d5c9481a76969f5113fe48f36",
+        "submission_id": "bb45315c-5ad1-44ad-b5a2-e625ffbd25a1",
+        "exact_duplicate": false,
+        "reusable_knowledge": null,
+        "support_status": "REFERENCED_DEMO"
+      },
+      {
+        "id": "EXP12",
+        "card_id": "a5738335-7c8c-4c01-af96-35816be141d7",
+        "card_hash": "9018ff53ec753b5a101f93608c7946aa9ad2d0f01b15f65a82d598cab7680a60",
+        "submission_id": "85c09677-793d-446c-8bd6-75887ad61b5d",
+        "exact_duplicate": false,
+        "reusable_knowledge": null,
+        "support_status": "UNVERIFIED"
+      }
+    ],
+    "unique_base_cards": 11,
+    "revised_cards": 1,
+    "revision_history": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "graph_built": false,
+    "agent_graph_tool_implemented": false,
+    "support_status_origin": "AUTHORED_DEVELOPMENT_FIXTURE_LABEL_NOT_MODEL_OR_RUNTIME_FACT_VERIFICATION",
+    "own_orphan_cards_remaining": 0,
+    "own_records_cleaned": true,
+    "frozen_input_unchanged": true,
+    "checks": [
+      "real HTTP and MySQL persistence",
+      "trusted staff identity and ticket version",
+      "three isolated staff mappings",
+      "idempotent interaction and feedback retries",
+      "wrong attempt -> correction -> linked feedback",
+      "submitter and other handler denied",
+      "capture/preparation alone does not change ticket state or publish knowledge",
+      "own fixture cleanup verified",
+      "12 base cases -> 11 canonical cards; independent provenance retained",
+      "exact duplicate reuses approved indexed source; changed condition stays separate",
+      "UNVERIFIED payment question cannot approve or create INDEX job",
+      "explicit synthetic resolve -> bound structure -> approval -> local BGE -> HTTP text retrieval",
+      "retract and revise -> revision 4 source visible; revision 1 absent; history retained",
+      "no owned orphan canonical cards after scoped cleanup"
+    ]
+  },
+  "initial_http_scope_failure": {
+    "reason": "Frozen EXP12 has a third fact scope missing from the first schema; schema expanded, input unchanged, forced UNVERIFIED",
+    "failed_record_sha256": "e8baec11ec20ba42664087247d063748e3e9ca098030dab14ede83cba0c5c000"
+  },
+  "file_fingerprints": [
+    {
+      "path": "06_项目源代码/sql/07_experience_cards.sql",
+      "sha256": "b02d09744438b6866dd9ebccd8f5e976899c308fb080feb83078e5014675670b"
+    },
+    {
+      "path": "08_部署与环境/03_scripts/local_quality_runtime.py",
+      "sha256": "f1635e3e53937624bf81535e63ebca49d998c55b487071bbbd9da9b2539955d7"
+    },
+    {
+      "path": "08_部署与环境/03_scripts/verify-staff-experience.py",
+      "sha256": "9d5a0f246f092fbfef7a36b6e20e97e083534f5b836f166dc74d6637626383cc"
+    },
+    {
+      "path": "docs/api/experience-cards.md",
+      "sha256": "2b59cf1b6c7814d4151beee9d95a758b4cc20ed2b222e9d7e9fee124dfddb0a9"
+    },
+    {
+      "path": "docs/evaluation/current-runtime-baseline.json",
+      "sha256": "d78f90d8a1d45f921fe10350b2e86940f93b0d507e4e23e41e3882dd93652c6c"
+    },
+    {
+      "path": "07_测试与质量/07_经验图谱合成演示数据/staff_experience_seed.json",
+      "sha256": "d703824c44637c8d8e7900806fb4ab37baa579121b649cbfb004630258752a00"
+    }
+  ],
+  "experience_cards_default_enabled": false,
+  "development_database_migrated": false,
+  "graph_built": false,
+  "agent_graph_tool_implemented": false,
+  "model_training_performed": false,
+  "automatic_free_text_fact_extraction": false,
+  "semantic_answer_quality_tested": false,
+  "support_labels_are_authored_fixture_labels": true,
+  "author_or_expert_quality_review_performed": false
+}

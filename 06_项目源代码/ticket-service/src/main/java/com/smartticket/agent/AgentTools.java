@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.*;
 
 import com.smartticket.rag.KnowledgeSearchService;
 import com.smartticket.service.TicketService;
+import com.smartticket.experience.graph.ExperienceGraphSearchService;
 
 import org.springframework.ai.tool.*;
 import org.springframework.ai.tool.definition.ToolDefinition;
@@ -25,13 +26,21 @@ public class AgentTools {
     private final KnowledgeSearchService knowledge;
     private final AssignmentActions actions;
     private final ObjectMapper json;
+    private final ExperienceGraphSearchService graph;
 
     public AgentTools(
             TicketService t, KnowledgeSearchService k, AssignmentActions a, ObjectMapper j) {
+        this(t,k,a,j,null);
+    }
+
+    @org.springframework.beans.factory.annotation.Autowired
+    public AgentTools(TicketService t, KnowledgeSearchService k, AssignmentActions a, ObjectMapper j,
+            ExperienceGraphSearchService graph) {
         tickets = t;
         knowledge = k;
         actions = a;
         json = j;
+        this.graph = graph;
     }
 
     public List<ToolCallback> definitions() {
@@ -42,6 +51,9 @@ public class AgentTools {
                         "查询有权访问的工单详情；必须先得到真实结果才能报告状态",
                         schema("ticketId", "integer")));
         tools.add(def("searchKnowledge", "用问题关键词检索知识；仅含工单编号的通用查询会经权限校验后用标题补全，返回实际查询；没有依据转人工", schema("query", "string")));
+        if (graph != null && graph.enabled()) tools.add(def("searchExperienceGraph",
+                "只读检索已审核合成经验及最多2跳关系；返回适用条件、顺序步骤、禁止条件、失败反例和来源。优先用于一线排障经验；普通FAQ可用searchKnowledge，无需都调用。不能修改工单或授予权限。",
+                schema("query", "string")));
         tools.add(def("getTicketLogs", "查询有权访问的工单最近操作记录", schema("ticketId", "integer")));
         if (ActorContext.require().admin())
             tools.add(
@@ -88,7 +100,7 @@ public class AgentTools {
         Set<String> required =
                 switch (name) {
                     case "getTicketDetail", "getTicketLogs" -> Set.of("ticketId");
-                    case "searchKnowledge" -> Set.of("query");
+                    case "searchKnowledge", "searchExperienceGraph" -> Set.of("query");
                     case "prepareAssignTicket" -> Set.of("ticketId", "assigneeId");
                     default -> throw new ApiFailure(400, 40000, "未注册工具");
                 };
@@ -119,11 +131,19 @@ public class AgentTools {
             }
             case "prepareAssignTicket" ->
                     actions.prepare(id(args, "ticketId"), id(args, "assigneeId"), runId);
-            case "searchKnowledge" -> {
+            case "searchKnowledge", "searchExperienceGraph" -> {
                 if (!args.get("query").isTextual()) throw new ApiFailure(400, 40000, "query必须是文本");
                 String q = args.get("query").textValue();
                 if (q.isBlank() || q.length() > 1000) throw new ApiFailure(400, 40000, "检索文本长度无效");
+                if ("searchExperienceGraph".equals(name) && (graph == null || !graph.enabled()))
+                    throw new ApiFailure(404,40400,"图谱检索未启用");
                 String effective = knowledgeQuery(q);
+                if ("searchExperienceGraph".equals(name)) {
+                    Map<String,Object> result = new LinkedHashMap<>(graph.search(effective));
+                    result.put("requestedQuery",q); result.put("effectiveQuery",effective);
+                    result.put("queryOrigin",effective.equals(q)?"MODEL_QUERY":"AUTHORIZED_TICKET_TITLE");
+                    yield result;
+                }
                 var result = knowledge.search(effective);
                 yield Map.of(
                         "requestedQuery", q,
@@ -157,6 +177,10 @@ public class AgentTools {
             }
             default -> throw new ApiFailure(400, 40000, "未注册工具");
         };
+    }
+
+    public boolean graphSourceCurrent(String sourceId,String hash) {
+        return graph != null && graph.current(sourceId,hash);
     }
 
     private String knowledgeQuery(String requested) {

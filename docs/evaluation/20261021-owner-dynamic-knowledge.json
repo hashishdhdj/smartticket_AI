@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-21T03:43:12.597997+00:00",
+  "status": "PASS",
+  "jar_sha256": "5c5f602bccd1b4ff57da797baaca4f9bdcb42e050dcb7cbebb9217349fec64e4",
+  "vendor_calls": 0,
+  "embedding": "local Ollama bge-m3:latest",
+  "chat_enabled": false,
+  "checks": [
+    "real HTTP resolve -> committed snapshot/outbox -> RabbitMQ -> DRAFT",
+    "unreviewed source hidden; handler review forbidden",
+    "admin review -> RabbitMQ -> local BGE-M3 -> 1024-dimensional PG -> HTTP RAG source",
+    "chat disabled; no generated answer fabricated",
+    "retraction hidden from new retrieval; PG chunks deleted; revision-2 tombstone/audit retained"
+  ],
+  "vector_score": 0.7376399099159671,
+  "own_records_cleaned": true
+}

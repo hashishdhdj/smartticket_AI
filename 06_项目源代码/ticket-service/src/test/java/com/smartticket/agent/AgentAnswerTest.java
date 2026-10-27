@@ -5,6 +5,12 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AgentAnswerTest {
+    @org.junit.jupiter.api.Test void graphCitationAlwaysRendersSyntheticScopeWithoutChangingSource() throws Exception {
+        var answer=AgentAnswer.parse("{\"answer\":\"先核实原手机号能接收短信，再验证身份\",\"needHuman\":false,\"sourceIds\":[\"demo#0\"]}",java.util.Set.of("demo#0"),true);
+        String rendered=answer.render(java.util.Set.of("demo#0"));
+        org.junit.jupiter.api.Assertions.assertTrue(rendered.contains("合成演示"));org.junit.jupiter.api.Assertions.assertTrue(rendered.contains("效果未独立验证"));
+        org.junit.jupiter.api.Assertions.assertTrue(rendered.endsWith("来源：demo#0"));
+    }
     private final Set<String> available = Set.of("faq/pay#0");
     @Test void acceptsValidGroundedAnswer() throws Exception {
         var value = AgentAnswer.parse("{\"answer\":\"核对流水\",\"needHuman\":false,\"sourceIds\":[\"faq/pay#0\"]}", available, true);

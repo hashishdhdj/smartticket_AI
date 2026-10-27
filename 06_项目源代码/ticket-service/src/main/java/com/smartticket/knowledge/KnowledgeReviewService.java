@@ -35,10 +35,13 @@ public class KnowledgeReviewService {
     }
 
     private KnowledgeWorkflowRepository.Candidate expected(String value,Long revision) {
+        // Lock ticket before candidate. READ_COMMITTED also sees bindings committed while waiting.
+        var initial=repo.candidate(id(value),false);
+        var ticket=tickets.selectOne(com.baomidou.mybatisplus.core.toolkit.Wrappers.<com.smartticket.entity.Ticket>lambdaQuery()
+                .eq(com.smartticket.entity.Ticket::getId,initial.ticketId()).last("FOR UPDATE"));
         var candidate=repo.candidate(id(value),true);
         if(revision==null||revision<0) throw new ApiFailure(400,40000,"需要非负expectedRevision");
         if(candidate.revision()!=revision) throw ApiFailure.conflict();
-        var ticket=tickets.selectById(candidate.ticketId());
         if(ticket==null) throw new ApiFailure(404,10003,"工单不存在或已删除");
         return candidate;
     }
@@ -62,7 +65,7 @@ public class KnowledgeReviewService {
         return repo.ticketResolutions(ticketId);
     }
 
-    @Transactional(rollbackFor=Exception.class)
+    @Transactional(rollbackFor=Exception.class,isolation=org.springframework.transaction.annotation.Isolation.READ_COMMITTED)
     public KnowledgeWorkflowRepository.Candidate approve(String candidate,Long revision,String question,String answer,
                                                          String scope,Boolean redactionConfirmed) {
         admin();var old=expected(candidate,revision);
@@ -78,21 +81,21 @@ public class KnowledgeReviewService {
         return text.strip();
     }
 
-    @Transactional(rollbackFor=Exception.class)
+    @Transactional(rollbackFor=Exception.class,isolation=org.springframework.transaction.annotation.Isolation.READ_COMMITTED)
     public KnowledgeWorkflowRepository.Candidate reject(String candidate,Long revision) {
         admin();var old=expected(candidate,revision);
         if(!"DRAFT".equals(old.state())) throw ApiFailure.conflict();
         return repo.review(old,"REJECTED",old.question(),old.answer(),ActorContext.require().id());
     }
 
-    @Transactional(rollbackFor=Exception.class)
+    @Transactional(rollbackFor=Exception.class,isolation=org.springframework.transaction.annotation.Isolation.READ_COMMITTED)
     public KnowledgeWorkflowRepository.Candidate retract(String candidate,Long revision) {
         admin();var old=expected(candidate,revision);
         if(!"APPROVED".equals(old.state())) throw ApiFailure.conflict();
         return repo.review(old,"RETRACTED",old.question(),old.answer(),ActorContext.require().id());
     }
 
-    @Transactional(rollbackFor=Exception.class)
+    @Transactional(rollbackFor=Exception.class,isolation=org.springframework.transaction.annotation.Isolation.READ_COMMITTED)
     public void retry(String jobId,Long revision) {
         admin();String key=id(jobId);
         var job=repo.jobRow(key,false);

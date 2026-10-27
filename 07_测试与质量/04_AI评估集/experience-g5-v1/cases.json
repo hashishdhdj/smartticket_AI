@@ -1,0 +1,118 @@
+[
+  {
+    "id": "G501",
+    "query": "原注册手机号还能收到短信，演示账号忘记密码时应该怎么重置？",
+    "expected_experience": [
+      "EXP01"
+    ],
+    "should_abstain": false,
+    "label_review": "PENDING",
+    "origin": "AI_AUTHORED_DEVELOPMENT_REGRESSION_NOT_BLIND"
+  },
+  {
+    "id": "G502",
+    "query": "忘记演示账号口令而且旧手机卡已停用，还能用原号码收验证码重置吗？",
+    "expected_experience": [
+      "EXP10"
+    ],
+    "should_abstain": false,
+    "label_review": "PENDING",
+    "origin": "AI_AUTHORED_DEVELOPMENT_REGRESSION_NOT_BLIND"
+  },
+  {
+    "id": "G503",
+    "query": "原绑定手机号停用了，要换绑定号码，资料建议怎么核验？",
+    "expected_experience": [
+      "EXP02"
+    ],
+    "should_abstain": false,
+    "label_review": "PENDING",
+    "origin": "AI_AUTHORED_DEVELOPMENT_REGRESSION_NOT_BLIND"
+  },
+  {
+    "id": "G504",
+    "query": "工单PUT只想改标题且保留描述，需要提交哪些字段以及版本？",
+    "expected_experience": [
+      "EXP03"
+    ],
+    "should_abstain": false,
+    "label_review": "PENDING",
+    "origin": "AI_AUTHORED_DEVELOPMENT_REGRESSION_NOT_BLIND"
+  },
+  {
+    "id": "G505",
+    "query": "拿旧expectedVersion改工单遇到409，应怎样避免覆盖别人更新？",
+    "expected_experience": [
+      "EXP04"
+    ],
+    "should_abstain": false,
+    "label_review": "PENDING",
+    "origin": "AI_AUTHORED_DEVELOPMENT_REGRESSION_NOT_BLIND"
+  },
+  {
+    "id": "G506",
+    "query": "Outbox已经SENT但没有AI建议，能算分析成功吗，该去哪里查？",
+    "expected_experience": [
+      "EXP05"
+    ],
+    "should_abstain": false,
+    "label_review": "PENDING",
+    "origin": "AI_AUTHORED_DEVELOPMENT_REGRESSION_NOT_BLIND"
+  },
+  {
+    "id": "G507",
+    "query": "知识候选已APPROVED却查不到，indexedRevision还没追上revision时怎么排查？",
+    "expected_experience": [
+      "EXP06"
+    ],
+    "should_abstain": false,
+    "label_review": "PENDING",
+    "origin": "AI_AUTHORED_DEVELOPMENT_REGRESSION_NOT_BLIND"
+  },
+  {
+    "id": "G508",
+    "query": "知识被撤回但PG还残留切片，新检索能用吗，后台谁负责清理？",
+    "expected_experience": [
+      "EXP07"
+    ],
+    "should_abstain": false,
+    "label_review": "PENDING",
+    "origin": "AI_AUTHORED_DEVELOPMENT_REGRESSION_NOT_BLIND"
+  },
+  {
+    "id": "G509",
+    "query": "提交人有有效Key，换成别人的工单ID查询时后端应该如何处理？",
+    "expected_experience": [
+      "EXP08"
+    ],
+    "should_abstain": false,
+    "label_review": "PENDING",
+    "origin": "AI_AUTHORED_DEVELOPMENT_REGRESSION_NOT_BLIND"
+  },
+  {
+    "id": "G510",
+    "query": "一线员工先说PUT只传标题一定保留描述，现在发现不对，应怎样纠正和保存反例？",
+    "expected_experience": [
+      "EXP11"
+    ],
+    "should_abstain": false,
+    "label_review": "PENDING",
+    "origin": "AI_AUTHORED_DEVELOPMENT_REGRESSION_NOT_BLIND"
+  },
+  {
+    "id": "G511",
+    "query": "你能依据现有资料保证这笔退款今天下午三点到账吗？",
+    "expected_experience": [],
+    "should_abstain": true,
+    "label_review": "PENDING",
+    "origin": "AI_AUTHORED_DEVELOPMENT_REGRESSION_NOT_BLIND"
+  },
+  {
+    "id": "G512",
+    "query": "遇到登录故障是否能跳过验证码直接改密码，并保证赔偿500元？",
+    "expected_experience": [],
+    "should_abstain": true,
+    "label_review": "PENDING",
+    "origin": "AI_AUTHORED_DEVELOPMENT_REGRESSION_NOT_BLIND"
+  }
+]

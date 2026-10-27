@@ -1,0 +1,343 @@
+{
+  "status": "PASS",
+  "date": "2026-10-23T01:16:41.805886+00:00",
+  "stage": "G1",
+  "implementation_scope": "STAFF_CAPTURE_AND_FEEDBACK_ONLY",
+  "source_base_commit": "b26093b6bb2162257111a8cc068e73f92bf042a1",
+  "uncommitted_feature_work": true,
+  "remote_ci_for_this_feature": "NOT_RUN",
+  "vendor_calls": 0,
+  "embedding_calls": 0,
+  "build": {
+    "status": "PASS",
+    "date": "2026-10-23T01:14:23.710302+00:00",
+    "vendor_calls": 0,
+    "jar_sha256": "621db9d9e2c994e3cc5fb1bd35d29acbd98ba09d3a15093ba59db1fb1ce76a8d",
+    "source_manifest_sha256": "facdb89f6b3a5bec5b4ca272b45c9db57129417dc3b415eb92a73685c61da02b",
+    "profiles": {
+      "unit": {
+        "tests": 260,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "integration": {
+        "tests": 196,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "java_major": 17,
+    "local_build_record_not_signed_attestation": true
+  },
+  "added_integration_tests": {
+    "tests": 25,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      "crossTicketFeedbackAndCorrectionAreRejected",
+      "staffEnteredFeedbackRemainsReportedObservation",
+      "validFeedbackPersistsTrustedProvenanceAndIsIdempotent",
+      "disabledCollectionReturns404AndPreservesRows",
+      "staleVersionDoesNotWrite",
+      "realHttpWritesTrustedActorAndSnapshotWithoutChangingBusinessOrPublishing",
+      "cursorPaginationIsBoundedAndDoesNotRepeat",
+      "correctionPreservesWrongAttemptAndLinksFeedback",
+      "correctionMustReferToActualCorrectionOfSameOriginalAndOrigin",
+      "forgedIdentityUnknownFieldsAndMalformedInputFailAtHttpBoundary",
+      "invalidCorrectionCombinationsDoNotWrite",
+      "otherHandlerCannotReadOrWrite",
+      "deletingOwnedFixtureCascadesCorrectionsAndFeedbackOnlyForThatTicket",
+      "syntheticRecordCannotClaimActualBusinessObservation",
+      "unauthenticatedRequestRejected",
+      "legacyUnauthenticatedModeStillCannotBypassTrustedActor",
+      "deletedTicketIsInvisible",
+      "noPublicEditOrDeleteRouteForAppendOnlyEvidence",
+      "adminCanContributeAndReadWithoutBecomingAssignee",
+      "duplicateKeyWithDifferentContentConflictsWithoutOverwrite",
+      "reassignmentRevokesReadAndEvenIdempotentReplay",
+      "duplicateRequestReturnsSameRecordIncludingAfterTicketChanges",
+      "invalidUuidWhitespaceAndOversizedInputRejected",
+      "submitterCannotReadInternalRecordsEvenOwnTicket",
+      "concurrentDuplicateRequestsProduceExactlyOneRow"
+    ]
+  },
+  "python_regression": {
+    "tests": 62,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "evidence_log_sha256": "050cce5d4458576c5c05c9102bf42ecd2414622753d62c9fa63ad8a22b95f3e9"
+  },
+  "http_import": {
+    "status": "PASS",
+    "date": "2026-10-23T01:14:47.727216+00:00",
+    "stage": "G1",
+    "jar_sha256": "621db9d9e2c994e3cc5fb1bd35d29acbd98ba09d3a15093ba59db1fb1ce76a8d",
+    "seed_sha256": "d703824c44637c8d8e7900806fb4ab37baa579121b649cbfb004630258752a00",
+    "vendor_calls": 0,
+    "embedding_calls": 0,
+    "chat_enabled": false,
+    "scope": "Real capture/storage/authorization only; no graph, training or answer-quality claim",
+    "synthetic_business_feedback_is_runtime_success_evidence": false,
+    "cases": [
+      {
+        "id": "EXP01",
+        "ticket_id": 3265,
+        "staff_id": 2129197993,
+        "interaction_ids": [
+          51,
+          52
+        ],
+        "feedback_ids": [
+          9
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP02",
+        "ticket_id": 3266,
+        "staff_id": 2103045761,
+        "interaction_ids": [
+          53,
+          54
+        ],
+        "feedback_ids": [
+          10
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP03",
+        "ticket_id": 3267,
+        "staff_id": 2115688645,
+        "interaction_ids": [
+          55,
+          56
+        ],
+        "feedback_ids": [
+          11
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP04",
+        "ticket_id": 3268,
+        "staff_id": 2129197993,
+        "interaction_ids": [
+          57,
+          58
+        ],
+        "feedback_ids": [
+          12
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP05",
+        "ticket_id": 3269,
+        "staff_id": 2103045761,
+        "interaction_ids": [
+          59,
+          60
+        ],
+        "feedback_ids": [
+          13
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP06",
+        "ticket_id": 3270,
+        "staff_id": 2115688645,
+        "interaction_ids": [
+          61,
+          62
+        ],
+        "feedback_ids": [
+          14
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP07",
+        "ticket_id": 3271,
+        "staff_id": 2129197993,
+        "interaction_ids": [
+          63,
+          64
+        ],
+        "feedback_ids": [
+          15
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP08",
+        "ticket_id": 3272,
+        "staff_id": 2103045761,
+        "interaction_ids": [
+          65,
+          66
+        ],
+        "feedback_ids": [
+          16
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP09",
+        "ticket_id": 3273,
+        "staff_id": 2115688645,
+        "interaction_ids": [
+          67,
+          68
+        ],
+        "feedback_ids": [
+          17
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP10",
+        "ticket_id": 3274,
+        "staff_id": 2129197993,
+        "interaction_ids": [
+          69,
+          70
+        ],
+        "feedback_ids": [
+          18
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP11",
+        "ticket_id": 3275,
+        "staff_id": 2103045761,
+        "interaction_ids": [
+          71,
+          72,
+          73
+        ],
+        "feedback_ids": [
+          19,
+          20
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP12",
+        "ticket_id": 3276,
+        "staff_id": 2115688645,
+        "interaction_ids": [
+          74,
+          75
+        ],
+        "feedback_ids": [
+          21
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      }
+    ],
+    "staff_identity_mapping": {
+      "demo_handler_1": 2129197993,
+      "demo_handler_2": 2103045761,
+      "demo_handler_3": 2115688645
+    },
+    "actor_ids": [
+      2137708728,
+      2129197993,
+      2107581306,
+      2103045761,
+      2115688645
+    ],
+    "real_database_counts_before_cleanup": {
+      "tickets": 12,
+      "interactions": 25,
+      "feedback": 13,
+      "resolutions": 0
+    },
+    "own_records_cleaned": true,
+    "frozen_input_unchanged": true,
+    "checks": [
+      "real HTTP and MySQL persistence",
+      "trusted staff identity and ticket version",
+      "three isolated staff mappings",
+      "idempotent interaction and feedback retries",
+      "wrong attempt -> correction -> linked feedback",
+      "submitter and other handler denied",
+      "no ticket state change or knowledge publication",
+      "own fixture cleanup verified"
+    ]
+  },
+  "file_fingerprints": [
+    {
+      "path": "06_项目源代码/sql/06_staff_experience.sql",
+      "sha256": "a49f5b772fe5f210d5833c2768940d85fe925d608d39c10ce72ac42dd176d808"
+    },
+    {
+      "path": "08_部署与环境/03_scripts/local_quality_runtime.py",
+      "sha256": "e5fd365090ad90f786ade10bb92fd97c1b1c017252c19391a59fd7c87dc3d24f"
+    },
+    {
+      "path": "08_部署与环境/03_scripts/verify-staff-experience.py",
+      "sha256": "9b09ede7e51f89b868f18d7cacf3505e29376b5b82aa641084ac10c3b7dec1bf"
+    },
+    {
+      "path": "docs/api/staff-experience.md",
+      "sha256": "4f30437cd7edc5e82b6bc05d59743a0f8e572e241129b58a3682fe8c266b72e4"
+    },
+    {
+      "path": "docs/evaluation/current-runtime-baseline.json",
+      "sha256": "020a16c7eabde02233a9fbcae3e70baced3afc019c310e2004d12361d4d0873f"
+    },
+    {
+      "path": "07_测试与质量/07_经验图谱合成演示数据/staff_experience_seed.json",
+      "sha256": "d703824c44637c8d8e7900806fb4ab37baa579121b649cbfb004630258752a00"
+    }
+  ],
+  "default_feature_enabled": false,
+  "development_database_migrated": false,
+  "graph_built": false,
+  "agent_graph_tool_implemented": false,
+  "business_outcomes_independently_verified": false
+}

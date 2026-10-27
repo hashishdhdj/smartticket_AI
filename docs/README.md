@@ -9,6 +9,11 @@
 | 接口、角色与确认操作 | [角色矩阵](../07_测试与质量/02_接口测试/阶段四_角色矩阵与接口说明.md) |
 | HTTP 状态与统一错误 | [当前错误契约](api/error-contract.md) |
 | 解决经验审核、发布、撤回与故障重放 | [动态知识操作指南](api/dynamic-knowledge.md) |
+| 员工处理记录、结果反馈与纠正（G1） | [内部记录接口与演示](api/staff-experience.md) |
+| 经验卡、精确去重、审核版本与修订（G2） | [经验卡接口与演示](api/experience-cards.md) |
+| 真实图谱、图文事务、共享证据撤回与补建（G3） | [图谱接口与演示](api/experience-graph.md) |
+| Agent图谱检索、条件、引用与最终版本校验（G4） | [只读图谱工具](api/experience-graph-search.md) |
+| A/B/C对照、真实生成与待人工复核（G5） | [对照结果与复跑](../01_项目说明/20261027_G5对照验收与真实生成_结果及复跑指南.md) |
 | 自动测试与效果证据 | [验收导航](evaluation/README.md) |
 | 逐题复核、检索指标与本人演示 | [R06 操作指南](evaluation/quality-review-guide.md) |
 | 当前0.55门槛、模型判断与本地验证 | [召回优先策略](evaluation/20261020-rag-recall-first.md) |

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "created_on": "2026-10-27",
+  "frozen_before_first_run": true,
+  "independent_blind_test": false,
+  "label_review": "PENDING",
+  "cases_sha256": "a4abc71addd2dfc4271befeec8333ceeb90239c7c14b5ef850b5c6a6d80c3cfe",
+  "case_count": 12,
+  "positive_count": 10,
+  "negative_count": 2,
+  "prompt_sha256": "ac0441313ad217a2ee99d17d645b4f11d79a24d3d1f617d6289054b5ea980ab0",
+  "source_hashes": {
+    "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md": "51c95e9d49adcabf2857fc32d867e8a803c1aa7ca79699de32fe7009e605c7fb",
+    "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/04-工单流程与通用问题.md": "fd5b224d26537a0de153eda924d61ee4cde8758f1594a737afe3261cbaa8b31c",
+    "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/05-项目权限与AI处理.md": "fd021c5c2b630820100f849972e4b44daf0f0aa8fe65751507f51bad91c65447",
+    "07_测试与质量/02_接口测试/阶段四_角色矩阵与接口说明.md": "5450cd9a1bbc7fd4569b6b97f51e100fd52d6f6d92ca186a04cc9e860c439d08",
+    "07_测试与质量/07_经验图谱合成演示数据/staff_experience_seed.json": "d703824c44637c8d8e7900806fb4ab37baa579121b649cbfb004630258752a00",
+    "docs/api/dynamic-knowledge.md": "bc91032322c4a60b4de3cf74a5077a239250f71f932cf4cff43abca89ba68c90",
+    "docs/architecture/dynamic-knowledge.md": "b141b5a955a182eeede3c12fcd55d043ba44a714f973664784b005d2ce54f8cf",
+    "docs/evaluation/20261020-rag-generation-result.json": "0adbe65a6f2703fa6e8b52bdf0e0a7295833c62f3c565e32296da0caaab5390b"
+  },
+  "arms": {
+    "A": "Native searchKnowledge model-visible text context",
+    "B": "Evaluation-only immutable G2 card adapter using A dynamic seeds; no B Agent tool",
+    "C": "Native searchExperienceGraph model-visible context"
+  },
+  "native_limits_differ": {
+    "A_sources": 3,
+    "B_sources": 2,
+    "C_sources": 2,
+    "A_excerpt_bytes": 2200,
+    "C_source_bytes": 6500
+  },
+  "generation_study": {
+    "same_prompt": true,
+    "same_source_budget_utf8": 6500,
+    "same_source_limit": 2,
+    "max_tokens": 512,
+    "temperature": 0,
+    "real_model_requests_prepared": 36,
+    "sent": false
+  },
+  "limits": "Synthetic development evidence retention; source selection, budgets and B adapter differ. Cannot attribute changes solely to graph reasoning; no semantic quality grades yet."
+}

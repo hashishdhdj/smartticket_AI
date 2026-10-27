@@ -6,8 +6,13 @@ import java.util.*;
 /** Strict final-message contract; tool completion alone does not establish semantic success. */
 public record AgentAnswer(String answer, boolean needHuman, List<String> sourceIds) {
     public String render() {
+        return render(Set.of());
+    }
+    public String render(Set<String> graphSources) {
         if (sourceIds.isEmpty()) return answer;
-        String footer = "\n来源：" + String.join("、", sourceIds);
+        String footer = (sourceIds.stream().anyMatch(graphSources::contains)
+                ? "\n经验范围：已审核合成演示资料；模拟平台规则不代表本项目已实现功能。适用前提仍需核实，业务效果未独立验证。" : "")
+                + "\n来源：" + String.join("、", sourceIds);
         int room = Math.max(0, 4000 - footer.length());
         return answer.substring(0, Math.min(answer.length(), room)) + footer;
     }

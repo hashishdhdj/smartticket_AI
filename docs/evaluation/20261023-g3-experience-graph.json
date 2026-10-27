@@ -1,0 +1,1821 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "date": "2026-10-23T02:54:43.895171+00:00",
+  "stage": "G3",
+  "source_base_commit": "b26093b6bb2162257111a8cc068e73f92bf042a1",
+  "feature_work_uncommitted": true,
+  "remote_ci_for_this_feature": "NOT_RUN",
+  "vendor_calls": 0,
+  "chat_enabled": false,
+  "embedding": "local Ollama bge-m3:latest; local count not separately measured",
+  "build": {
+    "status": "PASS",
+    "date": "2026-10-23T02:47:16.506368+00:00",
+    "vendor_calls": 0,
+    "jar_sha256": "ec1267416979029f6cde479d83fe9f00dddd8c14f147c76cd700fe6599a52900",
+    "source_manifest_sha256": "fe494447b7ef8f0fff70bfd81613dd578b7c7feba2f9f1deb8f4e6bd73b4af31",
+    "profiles": {
+      "unit": {
+        "tests": 283,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "integration": {
+        "tests": 240,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "java_major": 17,
+    "local_build_record_not_signed_attestation": true
+  },
+  "source_files_checked": 203,
+  "private_config_in_jar": false,
+  "added_java_tests": [
+    {
+      "class": "com.smartticket.experience.graph.ExperienceGraphCompilerTest",
+      "totals": {
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "cases": [
+        "unverifiedCardDoesNotBecomePublishedGraph",
+        "eachRelationHasFieldPositionScopeAndReferences",
+        "tamperedCardHashOrRenderedTextCannotBuildGraph",
+        "hypothesesAreNotConfirmedCauses",
+        "deterministicCompilationHasStableTypedIdentities",
+        "stepOrderChangesGraphHash",
+        "noFailureIsTurnedIntoAnActionStep",
+        "graphBoundIsSmallerThanStoreEvidenceLimit",
+        "repeatedStepsKeepSeparateOccurrenceEvidenceAndOrder",
+        "outcomeNeverFabricatesCustomerSuccess",
+        "sameCardDifferentContributorsShareConceptsButNotPublicationIdentity",
+        "negationAndVersionAreDistinctConditionNodes"
+      ]
+    },
+    {
+      "class": "com.smartticket.experience.graph.ExperienceGraphIntegrationTest",
+      "totals": {
+        "tests": 22,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "cases": [
+        "noGraphExistsBeforeApprovalAndIndexing",
+        "mysqlReceiptFailureRecoversPgCommitWithoutEmbeddingAgain",
+        "graphWriteFailureRollsBackPgTextCatalogAndConceptsTogether",
+        "realPgStoresTypedNodesRelationsEvidenceAndMatchingMysqlReceipt",
+        "deletedTicketAndWrongVersionCannotExposeOrRebuild",
+        "graphWriteOutsidePgTransactionIsRejected",
+        "revisionReplacementKeepsOldReceiptButOnlyNewGraphEvidence",
+        "graphBackfillForPreviouslyTextOnlyExperienceUsesSameRevision",
+        "wrongIdentityCannotInspectOrRebuildEvenTheirOwnTicket",
+        "newFailureFeedbackSuppressesGraphBeforePgCleanup",
+        "tamperedNodeIsNotReturnedAsReadyGraph",
+        "changedConditionAndScopeNeverInheritAnotherCardEvidence",
+        "duplicateDeliveryDoesNotAccumulateRelationsOrReceipts",
+        "retractionImmediatelyHidesStillPresentPgGraph",
+        "ordinaryLegacyKnowledgeCannotHaveInventedGraph",
+        "parallelDuplicateRebuildRequestsQueueOneReplay",
+        "eachPgClaimKeepsExactCardTextVersionAndReferences",
+        "sharedRelationKeepsOtherSourceWhenOneCandidateIsRetracted",
+        "graphOffPreservesTextRetrievalAndRetractionStillCleansGraph",
+        "alreadyCompleteRebuildIsIdempotentAndAuditedReplayOnlyOnce",
+        "missingGraphRowsRepairUsingExistingVectorWithoutModelCall",
+        "tombstoneRejectsLateIndexAndGraphOnlyRepair"
+      ]
+    }
+  ],
+  "python_regression": {
+    "tests": 62,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "log_sha256": "5e3bc25cf542577ad5ac8fe52f12a13cc5c8be5e1349ef1fbb6525992a5e49aa"
+  },
+  "http_graph_lifecycle": {
+    "status": "PASS",
+    "date": "2026-10-23T02:51:06.799472+00:00",
+    "stage": "G3",
+    "jar_sha256": "ec1267416979029f6cde479d83fe9f00dddd8c14f147c76cd700fe6599a52900",
+    "seed_sha256": "d703824c44637c8d8e7900806fb4ab37baa579121b649cbfb004630258752a00",
+    "vendor_calls": 0,
+    "embedding_calls": null,
+    "chat_enabled": false,
+    "embedding": "local Ollama bge-m3:latest",
+    "scope": "Real structured cards and versioned PG graph lifecycle; no Agent graph tool, training or answer-quality claim",
+    "synthetic_business_feedback_is_runtime_success_evidence": false,
+    "cases": [
+      {
+        "id": "EXP01",
+        "ticket_id": 4278,
+        "staff_id": 2133978717,
+        "interaction_ids": [
+          519,
+          520
+        ],
+        "feedback_ids": [
+          116
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": true,
+        "candidate_id": "6bbaf58f-f247-4b27-8b95-8fa87091a830"
+      },
+      {
+        "id": "EXP02",
+        "ticket_id": 4279,
+        "staff_id": 2113100065,
+        "interaction_ids": [
+          521,
+          522
+        ],
+        "feedback_ids": [
+          117
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP03",
+        "ticket_id": 4280,
+        "staff_id": 2110139433,
+        "interaction_ids": [
+          523,
+          524
+        ],
+        "feedback_ids": [
+          118
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP04",
+        "ticket_id": 4281,
+        "staff_id": 2133978717,
+        "interaction_ids": [
+          525,
+          526
+        ],
+        "feedback_ids": [
+          119
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP05",
+        "ticket_id": 4282,
+        "staff_id": 2113100065,
+        "interaction_ids": [
+          527,
+          528
+        ],
+        "feedback_ids": [
+          120
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP06",
+        "ticket_id": 4283,
+        "staff_id": 2110139433,
+        "interaction_ids": [
+          529,
+          530
+        ],
+        "feedback_ids": [
+          121
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP07",
+        "ticket_id": 4284,
+        "staff_id": 2133978717,
+        "interaction_ids": [
+          531,
+          532
+        ],
+        "feedback_ids": [
+          122
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP08",
+        "ticket_id": 4285,
+        "staff_id": 2113100065,
+        "interaction_ids": [
+          533,
+          534
+        ],
+        "feedback_ids": [
+          123
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP09",
+        "ticket_id": 4286,
+        "staff_id": 2110139433,
+        "interaction_ids": [
+          535,
+          536
+        ],
+        "feedback_ids": [
+          124
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": true,
+        "candidate_id": "8786694e-d7ab-49c5-9eba-3ca5d146d11f"
+      },
+      {
+        "id": "EXP10",
+        "ticket_id": 4287,
+        "staff_id": 2133978717,
+        "interaction_ids": [
+          537,
+          538
+        ],
+        "feedback_ids": [
+          125
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP11",
+        "ticket_id": 4288,
+        "staff_id": 2113100065,
+        "interaction_ids": [
+          539,
+          540,
+          541
+        ],
+        "feedback_ids": [
+          126,
+          127
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": null
+      },
+      {
+        "id": "EXP12",
+        "ticket_id": 4289,
+        "staff_id": 2110139433,
+        "interaction_ids": [
+          542,
+          543
+        ],
+        "feedback_ids": [
+          128
+        ],
+        "capture_verified": true,
+        "business_outcome": "SYNTHETIC_NOT_INDEPENDENTLY_VERIFIED",
+        "graph_built": false,
+        "candidate_id": "cd0260b5-268c-472f-902d-c71046c87f93"
+      }
+    ],
+    "staff_identity_mapping": {
+      "demo_handler_1": 2133978717,
+      "demo_handler_2": 2113100065,
+      "demo_handler_3": 2110139433
+    },
+    "actor_ids": [
+      2133070808,
+      2133978717,
+      2105835254,
+      2113100065,
+      2110139433
+    ],
+    "published_text_source": "resolved-ticket/6bbaf58f-f247-4b27-8b95-8fa87091a830/v1.md",
+    "real_database_counts_before_cleanup": {
+      "tickets": 12,
+      "interactions": 25,
+      "feedback": 13,
+      "resolutions": 3,
+      "cards": 12,
+      "submissions": 13,
+      "structure_versions": 8
+    },
+    "cards": [
+      {
+        "id": "EXP01",
+        "card_id": "911f9c83-75c4-4b3d-ad4c-a241d21df00a",
+        "card_hash": "9d8ffb42e1625cabadab05c9a5514b583423ef495e092f962d57fd2ae6ea0d36",
+        "submission_id": "e633fe94-f4a2-461f-95c0-b244e3ea1bca",
+        "exact_duplicate": false,
+        "reusable_knowledge": null,
+        "support_status": "REFERENCED_DEMO"
+      },
+      {
+        "id": "EXP02",
+        "card_id": "ef3b48b1-113d-4af6-bc00-4882558eec3c",
+        "card_hash": "b6f87d8a7d0657e4be307f7d04bcbfc1fa92d267df1b883cb9cfddaac2001c30",
+        "submission_id": "9f395f5b-d6a4-4b6d-a4aa-388101704337",
+        "exact_duplicate": false,
+        "reusable_knowledge": null,
+        "support_status": "REFERENCED_DEMO"
+      },
+      {
+        "id": "EXP03",
+        "card_id": "4b8f7333-41f7-43ad-87c4-8426eb1a6cc8",
+        "card_hash": "316cf2fbc7cd008bdf590a40e5bbc6bcadd623c9013279ad18c33114a8ce0d16",
+        "submission_id": "87ce091d-fa5d-4fc7-a50f-6eb7caf8e093",
+        "exact_duplicate": false,
+        "reusable_knowledge": null,
+        "support_status": "REFERENCED_DEMO"
+      },
+      {
+        "id": "EXP04",
+        "card_id": "68763649-b984-4c5f-93c7-be30fc98b68d",
+        "card_hash": "ffa1a60dfdc9ddebfc2b9ba8c128ea183c95b08fcd5c7eadce885eebbae4b4a8",
+        "submission_id": "4d0cc039-7ef2-4083-98fb-c89d8850595f",
+        "exact_duplicate": false,
+        "reusable_knowledge": null,
+        "support_status": "REFERENCED_DEMO"
+      },
+      {
+        "id": "EXP05",
+        "card_id": "c47967c5-a7bb-4076-a8b9-f12545ad18ed",
+        "card_hash": "1daa2364509332f94ef48ce83e38c29a4fe6d02f101b83f58df879de2e22fc5b",
+        "submission_id": "613e33ea-c1d5-464a-b702-c97b3c466912",
+        "exact_duplicate": false,
+        "reusable_knowledge": null,
+        "support_status": "REFERENCED_DEMO"
+      },
+      {
+        "id": "EXP06",
+        "card_id": "8f355f1e-0767-4911-8699-e412f77d1b5d",
+        "card_hash": "412e2dea1d847ec14da5cb101dd8f3e49555b46b522da4f552a83e96be6ec39a",
+        "submission_id": "8ab61923-c92d-4bed-9421-1122ab46f173",
+        "exact_duplicate": false,
+        "reusable_knowledge": null,
+        "support_status": "REFERENCED_DEMO"
+      },
+      {
+        "id": "EXP07",
+        "card_id": "eb7fc363-1f64-4638-835a-33451c6279d0",
+        "card_hash": "a5f2a47de3ed31e18b09625144e88a1e63cbbdceb12f1c47286340a95c0b0d61",
+        "submission_id": "107a4d1c-51a3-4434-8706-b976fbdd2e0c",
+        "exact_duplicate": false,
+        "reusable_knowledge": null,
+        "support_status": "REFERENCED_DEMO"
+      },
+      {
+        "id": "EXP08",
+        "card_id": "3866a6d4-7f60-4449-a4c0-2fe7251038b7",
+        "card_hash": "7e83f5268a99d3e46ddd47fc796aa7092bd8a9299470d0b030045acebf285fe2",
+        "submission_id": "a7e82931-1956-49b4-9297-2e3665d0b376",
+        "exact_duplicate": false,
+        "reusable_knowledge": null,
+        "support_status": "REFERENCED_DEMO"
+      },
+      {
+        "id": "EXP09",
+        "card_id": "911f9c83-75c4-4b3d-ad4c-a241d21df00a",
+        "card_hash": "9d8ffb42e1625cabadab05c9a5514b583423ef495e092f962d57fd2ae6ea0d36",
+        "submission_id": "f01764ef-1c8d-436d-bffc-799ab5871a4a",
+        "exact_duplicate": true,
+        "reusable_knowledge": {
+          "candidateId": "6bbaf58f-f247-4b27-8b95-8fa87091a830",
+          "revision": 1,
+          "sourceFile": "resolved-ticket/6bbaf58f-f247-4b27-8b95-8fa87091a830/v1.md"
+        },
+        "support_status": "REFERENCED_DEMO"
+      },
+      {
+        "id": "EXP10",
+        "card_id": "73ac5d83-3e6e-4221-ad80-26a0f02e5cdf",
+        "card_hash": "3befd9e286abb75da67712576a19ac193a573105745cf3d4a2c530f0a52a2d79",
+        "submission_id": "7d7a8ba0-0605-40f8-8adf-e5f8afb544e6",
+        "exact_duplicate": false,
+        "reusable_knowledge": null,
+        "support_status": "REFERENCED_DEMO"
+      },
+      {
+        "id": "EXP11",
+        "card_id": "bbe7f07e-b1f2-4dea-bcde-6b88000f7ef4",
+        "card_hash": "c8ddfb8852e282a7494227b18e290ab91868e67d5c9481a76969f5113fe48f36",
+        "submission_id": "aa0ddca7-4fba-4fd2-a59a-508f6c0115fe",
+        "exact_duplicate": false,
+        "reusable_knowledge": null,
+        "support_status": "REFERENCED_DEMO"
+      },
+      {
+        "id": "EXP12",
+        "card_id": "2db0efe9-9e65-4acf-aa5b-fb103167d46b",
+        "card_hash": "9018ff53ec753b5a101f93608c7946aa9ad2d0f01b15f65a82d598cab7680a60",
+        "submission_id": "fbed10f7-22f0-4863-b1f0-2b669e42b8f1",
+        "exact_duplicate": false,
+        "reusable_knowledge": null,
+        "support_status": "UNVERIFIED"
+      }
+    ],
+    "unique_base_cards": 11,
+    "revised_cards": 1,
+    "revision_history": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "graph_built": true,
+    "agent_graph_tool_implemented": false,
+    "support_status_origin": "AUTHORED_DEVELOPMENT_FIXTURE_LABEL_NOT_MODEL_OR_RUNTIME_FACT_VERIFICATION",
+    "graph_snapshots": {
+      "initial": {
+        "status": "READY",
+        "publication": {
+          "candidateId": "6bbaf58f-f247-4b27-8b95-8fa87091a830",
+          "revision": 1,
+          "sourceFile": "resolved-ticket/6bbaf58f-f247-4b27-8b95-8fa87091a830/v1.md",
+          "state": "ACTIVE",
+          "cardId": "911f9c83-75c4-4b3d-ad4c-a241d21df00a",
+          "submissionId": "e633fe94-f4a2-461f-95c0-b244e3ea1bca",
+          "cardHash": "9d8ffb42e1625cabadab05c9a5514b583423ef495e092f962d57fd2ae6ea0d36",
+          "textHash": "ac0247c7dc12680a44d545318485b18bcbae066fdce1efd3088af5ef805b65e2",
+          "graphHash": "f4ecf950eaa4f547dfef19de7c751a5d83c8d18ad1dfc56e856a4c4631fc88a8",
+          "compilerVersion": "experience-graph-v1",
+          "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+          "evidenceCount": 10
+        },
+        "candidateId": "6bbaf58f-f247-4b27-8b95-8fa87091a830",
+        "sourceFile": "resolved-ticket/6bbaf58f-f247-4b27-8b95-8fa87091a830/v1.md",
+        "revision": 1,
+        "edges": [
+          {
+            "id": "02e1fe79b3d4d1b4a69b0ab7d4b2418440e8a8fd22468e531191d550d1d23ba4",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "ADDRESSED_BY",
+            "to": "4aee9db46c22574b6c9b680e3fbc8e95d9311f968ee7855db05b94426254effd"
+          },
+          {
+            "id": "10d04a3869115c7b1b7d9edea188248c195864d64c2e10428c53d9bb416f9cf3",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "REQUIRES",
+            "to": "ce73409b142b8473a936b6abeae129fd38aa3fca693387508ae81a00852b0810"
+          },
+          {
+            "id": "1239c11b5e2e4eafc2b60d448c65b8bbaff8792586955d1dc20a850b165d0d00",
+            "from": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1",
+            "relation": "NEXT_STEP",
+            "to": "6773e1507d06a91fcf0d0b5f487981d4497222bf720d8573f171f7a97f66d511"
+          },
+          {
+            "id": "205b1b633170711a19a1f2c35a4c23a8bab589680e2eade9b390bca9b176e7d4",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "ADDRESSED_BY",
+            "to": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1"
+          },
+          {
+            "id": "2e32ce21c68bfe7a98287f40860061a4e576c4f1a330496617a02b2ef5178caf",
+            "from": "4aee9db46c22574b6c9b680e3fbc8e95d9311f968ee7855db05b94426254effd",
+            "relation": "NEXT_STEP",
+            "to": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1"
+          },
+          {
+            "id": "6a8d5657e8bcbacbb38fafb0b33d2dd07a18e84b032a9ada5480a4bb72ffd12f",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "CONTRAINDICATED",
+            "to": "f14d9d8c56e19ff76ca0324bd81b6f1150797f687690b919825f0d8c47e3df42"
+          },
+          {
+            "id": "7fa6365d36e9f73cf98062911fe96e409265bdacbf5096cc94844b073e2d53a2",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "HAS_SYMPTOM",
+            "to": "17f526bb132ffcf5ff8c26a26d8423d9c04dd1f14a70645b9526679e0a7fac61"
+          },
+          {
+            "id": "e6f08144f53751d2020eddaabe19dcbe9822140df3c5a8df909880264b401e7d",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "ADDRESSED_BY",
+            "to": "6773e1507d06a91fcf0d0b5f487981d4497222bf720d8573f171f7a97f66d511"
+          },
+          {
+            "id": "f7f75672e3c85cfe51c0e9aa72fac0c1460ef26e91b2467e8ecb92b418a6d731",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "REQUIRES",
+            "to": "ff4824ebf98e5ab77353bf65770d9b2cd0a6fe1b314c6b0eaef3a56f6475b88e"
+          },
+          {
+            "id": "fb2c87de8f2f9e7e4b57d00b3d60474411bf201c802e54968512de77eb9d65ff",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "HAS_OUTCOME",
+            "to": "ac9f3020ef9b7269fb9c73618609c54d2ba802d88622a8869a4d67c9acfaaee5"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "17f526bb132ffcf5ff8c26a26d8423d9c04dd1f14a70645b9526679e0a7fac61",
+            "kind": "SYMPTOM",
+            "key": "忘记登录密码",
+            "label": "忘记登录密码"
+          },
+          {
+            "id": "4aee9db46c22574b6c9b680e3fbc8e95d9311f968ee7855db05b94426254effd",
+            "kind": "STEP",
+            "key": "在演示登录页选择忘记密码",
+            "label": "在演示登录页选择忘记密码"
+          },
+          {
+            "id": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "kind": "PROBLEM",
+            "key": "演示账号忘记密码",
+            "label": "演示账号忘记密码"
+          },
+          {
+            "id": "6773e1507d06a91fcf0d0b5f487981d4497222bf720d8573f171f7a97f66d511",
+            "kind": "STEP",
+            "key": "避免重复最近3次密码；重置后其他设备需重新登录",
+            "label": "避免重复最近3次密码；重置后其他设备需重新登录"
+          },
+          {
+            "id": "ac9f3020ef9b7269fb9c73618609c54d2ba802d88622a8869a4d67c9acfaaee5",
+            "kind": "OUTCOME",
+            "key": "业务效果待核实（非独立验证）",
+            "label": "业务效果待核实（非独立验证）"
+          },
+          {
+            "id": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1",
+            "kind": "STEP",
+            "key": "通过注册手机号验证码验证后设置8至20位字母与数字组合密码",
+            "label": "通过注册手机号验证码验证后设置8至20位字母与数字组合密码"
+          },
+          {
+            "id": "ce73409b142b8473a936b6abeae129fd38aa3fca693387508ae81a00852b0810",
+            "kind": "CONDITION",
+            "key": "原注册手机号仍可接收短信",
+            "label": "原注册手机号仍可接收短信"
+          },
+          {
+            "id": "f14d9d8c56e19ff76ca0324bd81b6f1150797f687690b919825f0d8c47e3df42",
+            "kind": "CONDITION",
+            "key": "原手机号停用时不得继续推荐自助短信重置",
+            "label": "原手机号停用时不得继续推荐自助短信重置"
+          },
+          {
+            "id": "ff4824ebf98e5ab77353bf65770d9b2cd0a6fe1b314c6b0eaef3a56f6475b88e",
+            "kind": "CONDITION",
+            "key": "仅限模拟客服平台规则",
+            "label": "仅限模拟客服平台规则"
+          }
+        ],
+        "receiptHistory": [
+          {
+            "revision": 1,
+            "compilerVersion": "experience-graph-v1",
+            "cardHash": "9d8ffb42e1625cabadab05c9a5514b583423ef495e092f962d57fd2ae6ea0d36",
+            "textHash": "ac0247c7dc12680a44d545318485b18bcbae066fdce1efd3088af5ef805b65e2",
+            "graphHash": "f4ecf950eaa4f547dfef19de7c751a5d83c8d18ad1dfc56e856a4c4631fc88a8",
+            "nodeCount": 9,
+            "edgeCount": 10,
+            "evidenceCount": 10
+          }
+        ],
+        "evidence": [
+          {
+            "edgeId": "02e1fe79b3d4d1b4a69b0ab7d4b2418440e8a8fd22468e531191d550d1d23ba4",
+            "key": "steps/0",
+            "details": {
+              "field": "steps",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "10d04a3869115c7b1b7d9edea188248c195864d64c2e10428c53d9bb416f9cf3",
+            "key": "conditions/1",
+            "details": {
+              "field": "conditions",
+              "ordinal": 1,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "1239c11b5e2e4eafc2b60d448c65b8bbaff8792586955d1dc20a850b165d0d00",
+            "key": "stepOrder/1",
+            "details": {
+              "field": "stepOrder",
+              "ordinal": 1,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "205b1b633170711a19a1f2c35a4c23a8bab589680e2eade9b390bca9b176e7d4",
+            "key": "steps/1",
+            "details": {
+              "field": "steps",
+              "ordinal": 1,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "2e32ce21c68bfe7a98287f40860061a4e576c4f1a330496617a02b2ef5178caf",
+            "key": "stepOrder/0",
+            "details": {
+              "field": "stepOrder",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "6a8d5657e8bcbacbb38fafb0b33d2dd07a18e84b032a9ada5480a4bb72ffd12f",
+            "key": "contraindications/0",
+            "details": {
+              "field": "contraindications",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "7fa6365d36e9f73cf98062911fe96e409265bdacbf5096cc94844b073e2d53a2",
+            "key": "symptoms/0",
+            "details": {
+              "field": "symptoms",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "e6f08144f53751d2020eddaabe19dcbe9822140df3c5a8df909880264b401e7d",
+            "key": "steps/2",
+            "details": {
+              "field": "steps",
+              "ordinal": 2,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "f7f75672e3c85cfe51c0e9aa72fac0c1460ef26e91b2467e8ecb92b418a6d731",
+            "key": "conditions/0",
+            "details": {
+              "field": "conditions",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "fb2c87de8f2f9e7e4b57d00b3d60474411bf201c802e54968512de77eb9d65ff",
+            "key": "outcome/0",
+            "details": {
+              "field": "outcome",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "secondary": {
+        "status": "READY",
+        "publication": {
+          "candidateId": "8786694e-d7ab-49c5-9eba-3ca5d146d11f",
+          "revision": 1,
+          "sourceFile": "resolved-ticket/8786694e-d7ab-49c5-9eba-3ca5d146d11f/v1.md",
+          "state": "ACTIVE",
+          "cardId": "911f9c83-75c4-4b3d-ad4c-a241d21df00a",
+          "submissionId": "f01764ef-1c8d-436d-bffc-799ab5871a4a",
+          "cardHash": "9d8ffb42e1625cabadab05c9a5514b583423ef495e092f962d57fd2ae6ea0d36",
+          "textHash": "ac0247c7dc12680a44d545318485b18bcbae066fdce1efd3088af5ef805b65e2",
+          "graphHash": "f4ecf950eaa4f547dfef19de7c751a5d83c8d18ad1dfc56e856a4c4631fc88a8",
+          "compilerVersion": "experience-graph-v1",
+          "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+          "evidenceCount": 10
+        },
+        "candidateId": "8786694e-d7ab-49c5-9eba-3ca5d146d11f",
+        "sourceFile": "resolved-ticket/8786694e-d7ab-49c5-9eba-3ca5d146d11f/v1.md",
+        "revision": 1,
+        "edges": [
+          {
+            "id": "02e1fe79b3d4d1b4a69b0ab7d4b2418440e8a8fd22468e531191d550d1d23ba4",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "ADDRESSED_BY",
+            "to": "4aee9db46c22574b6c9b680e3fbc8e95d9311f968ee7855db05b94426254effd"
+          },
+          {
+            "id": "10d04a3869115c7b1b7d9edea188248c195864d64c2e10428c53d9bb416f9cf3",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "REQUIRES",
+            "to": "ce73409b142b8473a936b6abeae129fd38aa3fca693387508ae81a00852b0810"
+          },
+          {
+            "id": "1239c11b5e2e4eafc2b60d448c65b8bbaff8792586955d1dc20a850b165d0d00",
+            "from": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1",
+            "relation": "NEXT_STEP",
+            "to": "6773e1507d06a91fcf0d0b5f487981d4497222bf720d8573f171f7a97f66d511"
+          },
+          {
+            "id": "205b1b633170711a19a1f2c35a4c23a8bab589680e2eade9b390bca9b176e7d4",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "ADDRESSED_BY",
+            "to": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1"
+          },
+          {
+            "id": "2e32ce21c68bfe7a98287f40860061a4e576c4f1a330496617a02b2ef5178caf",
+            "from": "4aee9db46c22574b6c9b680e3fbc8e95d9311f968ee7855db05b94426254effd",
+            "relation": "NEXT_STEP",
+            "to": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1"
+          },
+          {
+            "id": "6a8d5657e8bcbacbb38fafb0b33d2dd07a18e84b032a9ada5480a4bb72ffd12f",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "CONTRAINDICATED",
+            "to": "f14d9d8c56e19ff76ca0324bd81b6f1150797f687690b919825f0d8c47e3df42"
+          },
+          {
+            "id": "7fa6365d36e9f73cf98062911fe96e409265bdacbf5096cc94844b073e2d53a2",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "HAS_SYMPTOM",
+            "to": "17f526bb132ffcf5ff8c26a26d8423d9c04dd1f14a70645b9526679e0a7fac61"
+          },
+          {
+            "id": "e6f08144f53751d2020eddaabe19dcbe9822140df3c5a8df909880264b401e7d",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "ADDRESSED_BY",
+            "to": "6773e1507d06a91fcf0d0b5f487981d4497222bf720d8573f171f7a97f66d511"
+          },
+          {
+            "id": "f7f75672e3c85cfe51c0e9aa72fac0c1460ef26e91b2467e8ecb92b418a6d731",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "REQUIRES",
+            "to": "ff4824ebf98e5ab77353bf65770d9b2cd0a6fe1b314c6b0eaef3a56f6475b88e"
+          },
+          {
+            "id": "fb2c87de8f2f9e7e4b57d00b3d60474411bf201c802e54968512de77eb9d65ff",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "HAS_OUTCOME",
+            "to": "ac9f3020ef9b7269fb9c73618609c54d2ba802d88622a8869a4d67c9acfaaee5"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "17f526bb132ffcf5ff8c26a26d8423d9c04dd1f14a70645b9526679e0a7fac61",
+            "kind": "SYMPTOM",
+            "key": "忘记登录密码",
+            "label": "忘记登录密码"
+          },
+          {
+            "id": "4aee9db46c22574b6c9b680e3fbc8e95d9311f968ee7855db05b94426254effd",
+            "kind": "STEP",
+            "key": "在演示登录页选择忘记密码",
+            "label": "在演示登录页选择忘记密码"
+          },
+          {
+            "id": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "kind": "PROBLEM",
+            "key": "演示账号忘记密码",
+            "label": "演示账号忘记密码"
+          },
+          {
+            "id": "6773e1507d06a91fcf0d0b5f487981d4497222bf720d8573f171f7a97f66d511",
+            "kind": "STEP",
+            "key": "避免重复最近3次密码；重置后其他设备需重新登录",
+            "label": "避免重复最近3次密码；重置后其他设备需重新登录"
+          },
+          {
+            "id": "ac9f3020ef9b7269fb9c73618609c54d2ba802d88622a8869a4d67c9acfaaee5",
+            "kind": "OUTCOME",
+            "key": "业务效果待核实（非独立验证）",
+            "label": "业务效果待核实（非独立验证）"
+          },
+          {
+            "id": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1",
+            "kind": "STEP",
+            "key": "通过注册手机号验证码验证后设置8至20位字母与数字组合密码",
+            "label": "通过注册手机号验证码验证后设置8至20位字母与数字组合密码"
+          },
+          {
+            "id": "ce73409b142b8473a936b6abeae129fd38aa3fca693387508ae81a00852b0810",
+            "kind": "CONDITION",
+            "key": "原注册手机号仍可接收短信",
+            "label": "原注册手机号仍可接收短信"
+          },
+          {
+            "id": "f14d9d8c56e19ff76ca0324bd81b6f1150797f687690b919825f0d8c47e3df42",
+            "kind": "CONDITION",
+            "key": "原手机号停用时不得继续推荐自助短信重置",
+            "label": "原手机号停用时不得继续推荐自助短信重置"
+          },
+          {
+            "id": "ff4824ebf98e5ab77353bf65770d9b2cd0a6fe1b314c6b0eaef3a56f6475b88e",
+            "kind": "CONDITION",
+            "key": "仅限模拟客服平台规则",
+            "label": "仅限模拟客服平台规则"
+          }
+        ],
+        "receiptHistory": [
+          {
+            "revision": 1,
+            "compilerVersion": "experience-graph-v1",
+            "cardHash": "9d8ffb42e1625cabadab05c9a5514b583423ef495e092f962d57fd2ae6ea0d36",
+            "textHash": "ac0247c7dc12680a44d545318485b18bcbae066fdce1efd3088af5ef805b65e2",
+            "graphHash": "f4ecf950eaa4f547dfef19de7c751a5d83c8d18ad1dfc56e856a4c4631fc88a8",
+            "nodeCount": 9,
+            "edgeCount": 10,
+            "evidenceCount": 10
+          }
+        ],
+        "evidence": [
+          {
+            "edgeId": "02e1fe79b3d4d1b4a69b0ab7d4b2418440e8a8fd22468e531191d550d1d23ba4",
+            "key": "steps/0",
+            "details": {
+              "field": "steps",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "10d04a3869115c7b1b7d9edea188248c195864d64c2e10428c53d9bb416f9cf3",
+            "key": "conditions/1",
+            "details": {
+              "field": "conditions",
+              "ordinal": 1,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "1239c11b5e2e4eafc2b60d448c65b8bbaff8792586955d1dc20a850b165d0d00",
+            "key": "stepOrder/1",
+            "details": {
+              "field": "stepOrder",
+              "ordinal": 1,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "205b1b633170711a19a1f2c35a4c23a8bab589680e2eade9b390bca9b176e7d4",
+            "key": "steps/1",
+            "details": {
+              "field": "steps",
+              "ordinal": 1,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "2e32ce21c68bfe7a98287f40860061a4e576c4f1a330496617a02b2ef5178caf",
+            "key": "stepOrder/0",
+            "details": {
+              "field": "stepOrder",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "6a8d5657e8bcbacbb38fafb0b33d2dd07a18e84b032a9ada5480a4bb72ffd12f",
+            "key": "contraindications/0",
+            "details": {
+              "field": "contraindications",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "7fa6365d36e9f73cf98062911fe96e409265bdacbf5096cc94844b073e2d53a2",
+            "key": "symptoms/0",
+            "details": {
+              "field": "symptoms",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "e6f08144f53751d2020eddaabe19dcbe9822140df3c5a8df909880264b401e7d",
+            "key": "steps/2",
+            "details": {
+              "field": "steps",
+              "ordinal": 2,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "f7f75672e3c85cfe51c0e9aa72fac0c1460ef26e91b2467e8ecb92b418a6d731",
+            "key": "conditions/0",
+            "details": {
+              "field": "conditions",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "fb2c87de8f2f9e7e4b57d00b3d60474411bf201c802e54968512de77eb9d65ff",
+            "key": "outcome/0",
+            "details": {
+              "field": "outcome",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "secondary_after_first_retraction": {
+        "status": "READY",
+        "publication": {
+          "candidateId": "8786694e-d7ab-49c5-9eba-3ca5d146d11f",
+          "revision": 1,
+          "sourceFile": "resolved-ticket/8786694e-d7ab-49c5-9eba-3ca5d146d11f/v1.md",
+          "state": "ACTIVE",
+          "cardId": "911f9c83-75c4-4b3d-ad4c-a241d21df00a",
+          "submissionId": "f01764ef-1c8d-436d-bffc-799ab5871a4a",
+          "cardHash": "9d8ffb42e1625cabadab05c9a5514b583423ef495e092f962d57fd2ae6ea0d36",
+          "textHash": "ac0247c7dc12680a44d545318485b18bcbae066fdce1efd3088af5ef805b65e2",
+          "graphHash": "f4ecf950eaa4f547dfef19de7c751a5d83c8d18ad1dfc56e856a4c4631fc88a8",
+          "compilerVersion": "experience-graph-v1",
+          "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+          "evidenceCount": 10
+        },
+        "candidateId": "8786694e-d7ab-49c5-9eba-3ca5d146d11f",
+        "sourceFile": "resolved-ticket/8786694e-d7ab-49c5-9eba-3ca5d146d11f/v1.md",
+        "revision": 1,
+        "edges": [
+          {
+            "id": "02e1fe79b3d4d1b4a69b0ab7d4b2418440e8a8fd22468e531191d550d1d23ba4",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "ADDRESSED_BY",
+            "to": "4aee9db46c22574b6c9b680e3fbc8e95d9311f968ee7855db05b94426254effd"
+          },
+          {
+            "id": "10d04a3869115c7b1b7d9edea188248c195864d64c2e10428c53d9bb416f9cf3",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "REQUIRES",
+            "to": "ce73409b142b8473a936b6abeae129fd38aa3fca693387508ae81a00852b0810"
+          },
+          {
+            "id": "1239c11b5e2e4eafc2b60d448c65b8bbaff8792586955d1dc20a850b165d0d00",
+            "from": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1",
+            "relation": "NEXT_STEP",
+            "to": "6773e1507d06a91fcf0d0b5f487981d4497222bf720d8573f171f7a97f66d511"
+          },
+          {
+            "id": "205b1b633170711a19a1f2c35a4c23a8bab589680e2eade9b390bca9b176e7d4",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "ADDRESSED_BY",
+            "to": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1"
+          },
+          {
+            "id": "2e32ce21c68bfe7a98287f40860061a4e576c4f1a330496617a02b2ef5178caf",
+            "from": "4aee9db46c22574b6c9b680e3fbc8e95d9311f968ee7855db05b94426254effd",
+            "relation": "NEXT_STEP",
+            "to": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1"
+          },
+          {
+            "id": "6a8d5657e8bcbacbb38fafb0b33d2dd07a18e84b032a9ada5480a4bb72ffd12f",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "CONTRAINDICATED",
+            "to": "f14d9d8c56e19ff76ca0324bd81b6f1150797f687690b919825f0d8c47e3df42"
+          },
+          {
+            "id": "7fa6365d36e9f73cf98062911fe96e409265bdacbf5096cc94844b073e2d53a2",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "HAS_SYMPTOM",
+            "to": "17f526bb132ffcf5ff8c26a26d8423d9c04dd1f14a70645b9526679e0a7fac61"
+          },
+          {
+            "id": "e6f08144f53751d2020eddaabe19dcbe9822140df3c5a8df909880264b401e7d",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "ADDRESSED_BY",
+            "to": "6773e1507d06a91fcf0d0b5f487981d4497222bf720d8573f171f7a97f66d511"
+          },
+          {
+            "id": "f7f75672e3c85cfe51c0e9aa72fac0c1460ef26e91b2467e8ecb92b418a6d731",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "REQUIRES",
+            "to": "ff4824ebf98e5ab77353bf65770d9b2cd0a6fe1b314c6b0eaef3a56f6475b88e"
+          },
+          {
+            "id": "fb2c87de8f2f9e7e4b57d00b3d60474411bf201c802e54968512de77eb9d65ff",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "HAS_OUTCOME",
+            "to": "ac9f3020ef9b7269fb9c73618609c54d2ba802d88622a8869a4d67c9acfaaee5"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "17f526bb132ffcf5ff8c26a26d8423d9c04dd1f14a70645b9526679e0a7fac61",
+            "kind": "SYMPTOM",
+            "key": "忘记登录密码",
+            "label": "忘记登录密码"
+          },
+          {
+            "id": "4aee9db46c22574b6c9b680e3fbc8e95d9311f968ee7855db05b94426254effd",
+            "kind": "STEP",
+            "key": "在演示登录页选择忘记密码",
+            "label": "在演示登录页选择忘记密码"
+          },
+          {
+            "id": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "kind": "PROBLEM",
+            "key": "演示账号忘记密码",
+            "label": "演示账号忘记密码"
+          },
+          {
+            "id": "6773e1507d06a91fcf0d0b5f487981d4497222bf720d8573f171f7a97f66d511",
+            "kind": "STEP",
+            "key": "避免重复最近3次密码；重置后其他设备需重新登录",
+            "label": "避免重复最近3次密码；重置后其他设备需重新登录"
+          },
+          {
+            "id": "ac9f3020ef9b7269fb9c73618609c54d2ba802d88622a8869a4d67c9acfaaee5",
+            "kind": "OUTCOME",
+            "key": "业务效果待核实（非独立验证）",
+            "label": "业务效果待核实（非独立验证）"
+          },
+          {
+            "id": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1",
+            "kind": "STEP",
+            "key": "通过注册手机号验证码验证后设置8至20位字母与数字组合密码",
+            "label": "通过注册手机号验证码验证后设置8至20位字母与数字组合密码"
+          },
+          {
+            "id": "ce73409b142b8473a936b6abeae129fd38aa3fca693387508ae81a00852b0810",
+            "kind": "CONDITION",
+            "key": "原注册手机号仍可接收短信",
+            "label": "原注册手机号仍可接收短信"
+          },
+          {
+            "id": "f14d9d8c56e19ff76ca0324bd81b6f1150797f687690b919825f0d8c47e3df42",
+            "kind": "CONDITION",
+            "key": "原手机号停用时不得继续推荐自助短信重置",
+            "label": "原手机号停用时不得继续推荐自助短信重置"
+          },
+          {
+            "id": "ff4824ebf98e5ab77353bf65770d9b2cd0a6fe1b314c6b0eaef3a56f6475b88e",
+            "kind": "CONDITION",
+            "key": "仅限模拟客服平台规则",
+            "label": "仅限模拟客服平台规则"
+          }
+        ],
+        "receiptHistory": [
+          {
+            "revision": 1,
+            "compilerVersion": "experience-graph-v1",
+            "cardHash": "9d8ffb42e1625cabadab05c9a5514b583423ef495e092f962d57fd2ae6ea0d36",
+            "textHash": "ac0247c7dc12680a44d545318485b18bcbae066fdce1efd3088af5ef805b65e2",
+            "graphHash": "f4ecf950eaa4f547dfef19de7c751a5d83c8d18ad1dfc56e856a4c4631fc88a8",
+            "nodeCount": 9,
+            "edgeCount": 10,
+            "evidenceCount": 10
+          }
+        ],
+        "evidence": [
+          {
+            "edgeId": "02e1fe79b3d4d1b4a69b0ab7d4b2418440e8a8fd22468e531191d550d1d23ba4",
+            "key": "steps/0",
+            "details": {
+              "field": "steps",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "10d04a3869115c7b1b7d9edea188248c195864d64c2e10428c53d9bb416f9cf3",
+            "key": "conditions/1",
+            "details": {
+              "field": "conditions",
+              "ordinal": 1,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "1239c11b5e2e4eafc2b60d448c65b8bbaff8792586955d1dc20a850b165d0d00",
+            "key": "stepOrder/1",
+            "details": {
+              "field": "stepOrder",
+              "ordinal": 1,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "205b1b633170711a19a1f2c35a4c23a8bab589680e2eade9b390bca9b176e7d4",
+            "key": "steps/1",
+            "details": {
+              "field": "steps",
+              "ordinal": 1,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "2e32ce21c68bfe7a98287f40860061a4e576c4f1a330496617a02b2ef5178caf",
+            "key": "stepOrder/0",
+            "details": {
+              "field": "stepOrder",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "6a8d5657e8bcbacbb38fafb0b33d2dd07a18e84b032a9ada5480a4bb72ffd12f",
+            "key": "contraindications/0",
+            "details": {
+              "field": "contraindications",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "7fa6365d36e9f73cf98062911fe96e409265bdacbf5096cc94844b073e2d53a2",
+            "key": "symptoms/0",
+            "details": {
+              "field": "symptoms",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "e6f08144f53751d2020eddaabe19dcbe9822140df3c5a8df909880264b401e7d",
+            "key": "steps/2",
+            "details": {
+              "field": "steps",
+              "ordinal": 2,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "f7f75672e3c85cfe51c0e9aa72fac0c1460ef26e91b2467e8ecb92b418a6d731",
+            "key": "conditions/0",
+            "details": {
+              "field": "conditions",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "fb2c87de8f2f9e7e4b57d00b3d60474411bf201c802e54968512de77eb9d65ff",
+            "key": "outcome/0",
+            "details": {
+              "field": "outcome",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "revised": {
+        "status": "READY",
+        "publication": {
+          "candidateId": "6bbaf58f-f247-4b27-8b95-8fa87091a830",
+          "revision": 4,
+          "sourceFile": "resolved-ticket/6bbaf58f-f247-4b27-8b95-8fa87091a830/v4.md",
+          "state": "ACTIVE",
+          "cardId": "92b21b90-7959-4c02-9c44-e52f59746974",
+          "submissionId": "36e02bf6-f7b3-4bad-8da2-09bb7a5c9a5c",
+          "cardHash": "a9b47b3eece15661e434491e73284331048e498747e3799f1c60486b8ad890ab",
+          "textHash": "cb51d378f22df8c80711ed9c16b3083beaa71133b4b77ae5ba0f0601a859a1e8",
+          "graphHash": "b983da41e516130c6f299fbc07e1dd34ab5140279530df6377c3d146558cf582",
+          "compilerVersion": "experience-graph-v1",
+          "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+          "evidenceCount": 11
+        },
+        "candidateId": "6bbaf58f-f247-4b27-8b95-8fa87091a830",
+        "sourceFile": "resolved-ticket/6bbaf58f-f247-4b27-8b95-8fa87091a830/v4.md",
+        "revision": 4,
+        "edges": [
+          {
+            "id": "02e1fe79b3d4d1b4a69b0ab7d4b2418440e8a8fd22468e531191d550d1d23ba4",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "ADDRESSED_BY",
+            "to": "4aee9db46c22574b6c9b680e3fbc8e95d9311f968ee7855db05b94426254effd"
+          },
+          {
+            "id": "10d04a3869115c7b1b7d9edea188248c195864d64c2e10428c53d9bb416f9cf3",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "REQUIRES",
+            "to": "ce73409b142b8473a936b6abeae129fd38aa3fca693387508ae81a00852b0810"
+          },
+          {
+            "id": "1239c11b5e2e4eafc2b60d448c65b8bbaff8792586955d1dc20a850b165d0d00",
+            "from": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1",
+            "relation": "NEXT_STEP",
+            "to": "6773e1507d06a91fcf0d0b5f487981d4497222bf720d8573f171f7a97f66d511"
+          },
+          {
+            "id": "205b1b633170711a19a1f2c35a4c23a8bab589680e2eade9b390bca9b176e7d4",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "ADDRESSED_BY",
+            "to": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1"
+          },
+          {
+            "id": "2e32ce21c68bfe7a98287f40860061a4e576c4f1a330496617a02b2ef5178caf",
+            "from": "4aee9db46c22574b6c9b680e3fbc8e95d9311f968ee7855db05b94426254effd",
+            "relation": "NEXT_STEP",
+            "to": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1"
+          },
+          {
+            "id": "6a8d5657e8bcbacbb38fafb0b33d2dd07a18e84b032a9ada5480a4bb72ffd12f",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "CONTRAINDICATED",
+            "to": "f14d9d8c56e19ff76ca0324bd81b6f1150797f687690b919825f0d8c47e3df42"
+          },
+          {
+            "id": "7fa6365d36e9f73cf98062911fe96e409265bdacbf5096cc94844b073e2d53a2",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "HAS_SYMPTOM",
+            "to": "17f526bb132ffcf5ff8c26a26d8423d9c04dd1f14a70645b9526679e0a7fac61"
+          },
+          {
+            "id": "ca59f14b6e00910fab62b07f34e46c40d4f30b3ff4b6f705f9d3a78ef2b57418",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "REQUIRES",
+            "to": "8a66eab089515f205e963e410d6a2c46f11063638bfb18774150024abc7cbf3c"
+          },
+          {
+            "id": "e6f08144f53751d2020eddaabe19dcbe9822140df3c5a8df909880264b401e7d",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "ADDRESSED_BY",
+            "to": "6773e1507d06a91fcf0d0b5f487981d4497222bf720d8573f171f7a97f66d511"
+          },
+          {
+            "id": "f7f75672e3c85cfe51c0e9aa72fac0c1460ef26e91b2467e8ecb92b418a6d731",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "REQUIRES",
+            "to": "ff4824ebf98e5ab77353bf65770d9b2cd0a6fe1b314c6b0eaef3a56f6475b88e"
+          },
+          {
+            "id": "fb2c87de8f2f9e7e4b57d00b3d60474411bf201c802e54968512de77eb9d65ff",
+            "from": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "relation": "HAS_OUTCOME",
+            "to": "ac9f3020ef9b7269fb9c73618609c54d2ba802d88622a8869a4d67c9acfaaee5"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "17f526bb132ffcf5ff8c26a26d8423d9c04dd1f14a70645b9526679e0a7fac61",
+            "kind": "SYMPTOM",
+            "key": "忘记登录密码",
+            "label": "忘记登录密码"
+          },
+          {
+            "id": "4aee9db46c22574b6c9b680e3fbc8e95d9311f968ee7855db05b94426254effd",
+            "kind": "STEP",
+            "key": "在演示登录页选择忘记密码",
+            "label": "在演示登录页选择忘记密码"
+          },
+          {
+            "id": "62308e306b011477d4f8c84dfc0491dfd47edd4ef6ec717662c029f3458011c5",
+            "kind": "PROBLEM",
+            "key": "演示账号忘记密码",
+            "label": "演示账号忘记密码"
+          },
+          {
+            "id": "6773e1507d06a91fcf0d0b5f487981d4497222bf720d8573f171f7a97f66d511",
+            "kind": "STEP",
+            "key": "避免重复最近3次密码；重置后其他设备需重新登录",
+            "label": "避免重复最近3次密码；重置后其他设备需重新登录"
+          },
+          {
+            "id": "8a66eab089515f205e963e410d6a2c46f11063638bfb18774150024abc7cbf3c",
+            "kind": "CONDITION",
+            "key": "新增修订演示：操作前再次确认适用范围",
+            "label": "新增修订演示：操作前再次确认适用范围"
+          },
+          {
+            "id": "ac9f3020ef9b7269fb9c73618609c54d2ba802d88622a8869a4d67c9acfaaee5",
+            "kind": "OUTCOME",
+            "key": "业务效果待核实（非独立验证）",
+            "label": "业务效果待核实（非独立验证）"
+          },
+          {
+            "id": "afc0c3821f37068cc9b6f7f1962eda94fdbdb493c1a7d2a8b1ef57cb4f8f70e1",
+            "kind": "STEP",
+            "key": "通过注册手机号验证码验证后设置8至20位字母与数字组合密码",
+            "label": "通过注册手机号验证码验证后设置8至20位字母与数字组合密码"
+          },
+          {
+            "id": "ce73409b142b8473a936b6abeae129fd38aa3fca693387508ae81a00852b0810",
+            "kind": "CONDITION",
+            "key": "原注册手机号仍可接收短信",
+            "label": "原注册手机号仍可接收短信"
+          },
+          {
+            "id": "f14d9d8c56e19ff76ca0324bd81b6f1150797f687690b919825f0d8c47e3df42",
+            "kind": "CONDITION",
+            "key": "原手机号停用时不得继续推荐自助短信重置",
+            "label": "原手机号停用时不得继续推荐自助短信重置"
+          },
+          {
+            "id": "ff4824ebf98e5ab77353bf65770d9b2cd0a6fe1b314c6b0eaef3a56f6475b88e",
+            "kind": "CONDITION",
+            "key": "仅限模拟客服平台规则",
+            "label": "仅限模拟客服平台规则"
+          }
+        ],
+        "receiptHistory": [
+          {
+            "revision": 1,
+            "compilerVersion": "experience-graph-v1",
+            "cardHash": "9d8ffb42e1625cabadab05c9a5514b583423ef495e092f962d57fd2ae6ea0d36",
+            "textHash": "ac0247c7dc12680a44d545318485b18bcbae066fdce1efd3088af5ef805b65e2",
+            "graphHash": "f4ecf950eaa4f547dfef19de7c751a5d83c8d18ad1dfc56e856a4c4631fc88a8",
+            "nodeCount": 9,
+            "edgeCount": 10,
+            "evidenceCount": 10
+          },
+          {
+            "revision": 4,
+            "compilerVersion": "experience-graph-v1",
+            "cardHash": "a9b47b3eece15661e434491e73284331048e498747e3799f1c60486b8ad890ab",
+            "textHash": "cb51d378f22df8c80711ed9c16b3083beaa71133b4b77ae5ba0f0601a859a1e8",
+            "graphHash": "b983da41e516130c6f299fbc07e1dd34ab5140279530df6377c3d146558cf582",
+            "nodeCount": 10,
+            "edgeCount": 11,
+            "evidenceCount": 11
+          }
+        ],
+        "evidence": [
+          {
+            "edgeId": "02e1fe79b3d4d1b4a69b0ab7d4b2418440e8a8fd22468e531191d550d1d23ba4",
+            "key": "steps/0",
+            "details": {
+              "field": "steps",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "10d04a3869115c7b1b7d9edea188248c195864d64c2e10428c53d9bb416f9cf3",
+            "key": "conditions/1",
+            "details": {
+              "field": "conditions",
+              "ordinal": 1,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "1239c11b5e2e4eafc2b60d448c65b8bbaff8792586955d1dc20a850b165d0d00",
+            "key": "stepOrder/1",
+            "details": {
+              "field": "stepOrder",
+              "ordinal": 1,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "205b1b633170711a19a1f2c35a4c23a8bab589680e2eade9b390bca9b176e7d4",
+            "key": "steps/1",
+            "details": {
+              "field": "steps",
+              "ordinal": 1,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "2e32ce21c68bfe7a98287f40860061a4e576c4f1a330496617a02b2ef5178caf",
+            "key": "stepOrder/0",
+            "details": {
+              "field": "stepOrder",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "6a8d5657e8bcbacbb38fafb0b33d2dd07a18e84b032a9ada5480a4bb72ffd12f",
+            "key": "contraindications/0",
+            "details": {
+              "field": "contraindications",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "7fa6365d36e9f73cf98062911fe96e409265bdacbf5096cc94844b073e2d53a2",
+            "key": "symptoms/0",
+            "details": {
+              "field": "symptoms",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "ca59f14b6e00910fab62b07f34e46c40d4f30b3ff4b6f705f9d3a78ef2b57418",
+            "key": "conditions/2",
+            "details": {
+              "field": "conditions",
+              "ordinal": 2,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "e6f08144f53751d2020eddaabe19dcbe9822140df3c5a8df909880264b401e7d",
+            "key": "steps/2",
+            "details": {
+              "field": "steps",
+              "ordinal": 2,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "f7f75672e3c85cfe51c0e9aa72fac0c1460ef26e91b2467e8ecb92b418a6d731",
+            "key": "conditions/0",
+            "details": {
+              "field": "conditions",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          },
+          {
+            "edgeId": "fb2c87de8f2f9e7e4b57d00b3d60474411bf201c802e54968512de77eb9d65ff",
+            "key": "outcome/0",
+            "details": {
+              "field": "outcome",
+              "ordinal": 0,
+              "factScope": "SIMULATED_PLATFORM_RULE_NOT_IMPLEMENTED_FEATURE",
+              "supportStatus": "REFERENCED_DEMO",
+              "references": [
+                {
+                  "path": "06_项目源代码/ticket-service/src/main/resources/knowledge/faq/01-账户问题.md",
+                  "title": "如何重置登录密码"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "graph_database_counts": {
+      "active_publications": 2,
+      "evidence": 21,
+      "mysql_receipts": 3,
+      "shared_supports_before": 2,
+      "shared_supports_after_retract": 1
+    },
+    "own_orphan_cards_remaining": 0,
+    "own_graph_publications_and_evidence_cleaned": true,
+    "own_orphan_graph_vocabulary_remaining": 0,
+    "own_records_cleaned": true,
+    "frozen_input_unchanged": true,
+    "checks": [
+      "real HTTP and MySQL persistence",
+      "trusted staff identity and ticket version",
+      "three isolated staff mappings",
+      "idempotent interaction and feedback retries",
+      "wrong attempt -> correction -> linked feedback",
+      "submitter and other handler denied",
+      "capture/preparation alone does not change ticket state or publish knowledge",
+      "own fixture cleanup verified",
+      "12 base cases -> 11 canonical cards; independent provenance retained",
+      "exact duplicate reuses approved indexed source; changed condition stays separate",
+      "UNVERIFIED payment question cannot approve or create INDEX job",
+      "explicit synthetic resolve -> bound structure -> approval -> local BGE -> HTTP text retrieval",
+      "retract and revise -> revision 4 source visible; revision 1 absent; history retained",
+      "no owned orphan canonical cards after scoped cleanup",
+      "real PG typed nodes/relations/evidence and MySQL graph receipts",
+      "two sources support one relation; retracting one keeps the other",
+      "current graph revision/text/card/compiler/receipt hashes agree",
+      "admin-only inspection; no Agent graph tool installed"
+    ]
+  },
+  "initial_targeted_test_fix": {
+    "reason": "Existing replay only allows FAILED; dedicated graph backfill validates current approved/indexed revision and retains the original replay guard",
+    "initial_log_sha256": "3ead080a53d48ac9c010e65ccd0ddbe742ef98a582329f7203b9fc6b2d6596d5"
+  },
+  "file_fingerprints": [
+    {
+      "path": "06_项目源代码/sql/08_experience_graph_receipt.sql",
+      "sha256": "eca6c2373939d6e3b2ec23a508fcfda499f93948c8d4013e8896a66c319e6728"
+    },
+    {
+      "path": "06_项目源代码/sql-vector/03_experience_graph.sql",
+      "sha256": "ef7cdaee0ea453e47ab16ba224d9a02fe2bc23b650557b33fa2bee4c6f17d6d5"
+    },
+    {
+      "path": "08_部署与环境/03_scripts/local_quality_runtime.py",
+      "sha256": "e0cd1e5a19627d080d5874e821d9021a9b749214ba5b43e8f141b4b768f387ab"
+    },
+    {
+      "path": "08_部署与环境/03_scripts/verify-staff-experience.py",
+      "sha256": "f0396431adefdf1febfc8266a68a309dd1d8481e84117d50941158ac043097eb"
+    },
+    {
+      "path": "docs/api/experience-graph.md",
+      "sha256": "32df2ce2e17e6906c3b33713a02d719332eb2f38219a0eedeb29a86397f949f6"
+    },
+    {
+      "path": "docs/evaluation/current-runtime-baseline.json",
+      "sha256": "887388258bc5b6fad40c6ec884e6af6572378eb1bffa4b19e9a7f4b1ab79c958"
+    },
+    {
+      "path": "07_测试与质量/07_经验图谱合成演示数据/staff_experience_seed.json",
+      "sha256": "d703824c44637c8d8e7900806fb4ab37baa579121b649cbfb004630258752a00"
+    }
+  ],
+  "graph_index_default_enabled": false,
+  "development_database_migrated": false,
+  "graph_built": true,
+  "agent_graph_tool_implemented": false,
+  "model_training_performed": false,
+  "semantic_answer_quality_tested": false,
+  "support_labels_are_authored_fixture_labels": true,
+  "author_or_expert_quality_review_performed": false
+}

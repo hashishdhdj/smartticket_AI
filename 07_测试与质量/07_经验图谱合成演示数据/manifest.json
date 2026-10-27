@@ -1,0 +1,27 @@
+{
+  "created_on": "2026-10-22",
+  "scope": "SYNTHETIC_INPUT_SCHEMA_AND_LABEL_CHECK_ONLY",
+  "file": "staff_experience_seed.json",
+  "sha256": "d703824c44637c8d8e7900806fb4ab37baa579121b649cbfb004630258752a00",
+  "records": 12,
+  "logical_staff_refs": 3,
+  "unique_normalized_cards": 11,
+  "expected_exact_duplicate_pair": [
+    "EXP01",
+    "EXP09"
+  ],
+  "conditional_counterexample_pair": [
+    "EXP01",
+    "EXP10"
+  ],
+  "correction_pair": [
+    "EXP03",
+    "EXP11"
+  ],
+  "unverified_negative_case": "EXP12",
+  "runtime_imported": false,
+  "actual_graph_built": false,
+  "agent_graph_tool_implemented": false,
+  "vendor_model_calls": 0,
+  "contains_real_customer_records": false
+}
