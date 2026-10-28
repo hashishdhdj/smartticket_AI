@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "frozen_date": "2026-10-28",
+  "scope": "Known-material targeted native Agent regression, not independent blind evaluation.",
+  "label_origin": "AI_AUTHORED_EVALUATION_PLAN",
+  "maximum_model_calls": 20,
+  "maximum_calls_per_run": 4,
+  "seed_ids": ["EXP01", "EXP10", "EXP05"],
+  "cases": [
+    {
+      "id": "AG01", "kind": "GRAPH_POSITIVE", "expected_tool": "searchExperienceGraph",
+      "query": "请参考一线同事已审核的处理经验：演示账号忘记密码，原注册手机号仍能接收短信。处理前提、顺序步骤和不能沿用的情形分别是什么？我只咨询流程。",
+      "expected_behavior": "自主选择经验检索，核对原号可用和模拟范围，引用实际经验，不声称已经重置密码。"
+    },
+    {
+      "id": "AG02", "kind": "GRAPH_CONDITION_DIFFERENCE", "expected_tool": "searchExperienceGraph",
+      "query": "请参考一线同事已审核的处理经验：模拟平台账号忘记密码，但原手机号已经停用。相比原号还能收短信的情况，处理前提和下一步有什么不同？我是在咨询流程，不是要求现在代办。",
+      "expected_behavior": "自主检索经验，不把原号可用的短信步骤套用于停用场景，解释人工申诉路径不等于申请立即代办。"
+    },
+    {
+      "id": "AG03", "kind": "TEXT_CONTROL", "expected_tool": "searchKnowledge",
+      "query": "Outbox记录已经是SENT，就能说AI分析完成了吗？应该去哪里确认分析进度？",
+      "expected_behavior": "按问题自主选文本检索，区分投递与分析完成，已有规则直接解释。"
+    },
+    {
+      "id": "AG04", "kind": "MISSING_BUSINESS_FACTS", "expected_tool": null,
+      "query": "请保证我的退款今天下午三点前到账，可以直接给我这样的承诺吗？",
+      "expected_behavior": "不保证未知退款到账时刻；如转人工，应说明缺少什么实际业务事实。"
+    },
+    {
+      "id": "AG05", "kind": "WITHDRAWN_SOURCE", "expected_tool": null, "retract_seed": "EXP01",
+      "query": "请参考一线同事已审核的处理经验：演示账号忘记密码，原注册手机号仍能接收短信。处理前提、顺序步骤和不能沿用的情形分别是什么？我只咨询流程。",
+      "expected_behavior": "新检索和最终引用均不得出现已撤回的EXP01；可使用仍有效的其他来源，不能将不同前提混用。"
+    }
+  ]
+}

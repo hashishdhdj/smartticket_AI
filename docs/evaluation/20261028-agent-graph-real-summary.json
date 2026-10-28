@@ -1,0 +1,356 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-28T01:36:31.186275+00:00",
+  "status": "COMPLETED_WITH_FINDINGS",
+  "scope": "Standalone full native Agent regression on five known-material cases. Not independent blind evaluation or population accuracy.",
+  "source_commit": "2eea5d2e534ffbaa0a86e706abca81a0482c0c08",
+  "jar_sha256": "5481098881899d934220b9b6eca57d04837f16f68fc31140851faa1527395441",
+  "java_runtime_unchanged": true,
+  "graph_positive_cases": {
+    "tested": 2,
+    "autonomous_graph_loop_completed": 2,
+    "ids": [
+      "AG01",
+      "AG02"
+    ],
+    "definition": "Real model selection -> successful Java execution -> matching tool_call_id results delivered to model -> final real source citation -> SUCCEEDED/needHuman=false."
+  },
+  "initial_execution": {
+    "report": "docs/evaluation/20261028-agent-graph-initial-run.json",
+    "sha256": "2fe49c5107694e05238a833c2af027d853f5d77eb85d2a2c951abe074f47203e",
+    "vendor_calls": 6
+  },
+  "withdrawal_continuation": {
+    "report": "docs/evaluation/20261028-agent-graph-withdrawal-run.json",
+    "sha256": "68a7e01621626fa2a82f674c8fa6064f955a059acd7a67af2748305b5b092db4",
+    "vendor_calls": 2,
+    "reason": "Corrected evaluation-only dedup identity from payload to (case,payload). Same explicit20-call/0.5RMB grant, remaining allowance retained; no completed question replay."
+  },
+  "initial_AG05_not_tested": "First run blocked before external dispatch by cross-case dedup. Its vacuous old withdrawn_source_absent=true is not evidence. Corrected assessment uses actual continuation.",
+  "no_forced_tool_choice": true,
+  "user_questions_do_not_name_tools": true,
+  "no_injected_fake_tool_result": true,
+  "available_native_tools": [
+    "getTicketDetail",
+    "searchKnowledge",
+    "searchExperienceGraph",
+    "getTicketLogs"
+  ],
+  "dispatched_model_aliases": [
+    "deepseek-flash"
+  ],
+  "pricing_reference": "https://api-docs.deepseek.com/quick_start/pricing/",
+  "tool_calls_reference": "https://api-docs.deepseek.com/guides/tool_calls/",
+  "vendor_calls": 8,
+  "maximum_authorized_new_calls": 20,
+  "unused_calls_not_automatically_spent": 12,
+  "cumulative_external_calls_before": 443,
+  "cumulative_external_calls_after": 451,
+  "new_estimated_upper_rmb": 0.05501699999999943,
+  "cumulative_estimated_upper_rmb": 2.7924860799999998,
+  "total_rmb_cap": 10,
+  "batch_rmb_cap": 0.5,
+  "budget_ledger_sha256_before": "fd6ef35767c4a74932146cd2ee6790614840227ce3fd97dba587b9120cb3e744",
+  "budget_ledger_sha256_after": "2878367e8a828f9b5dff644108830a2aad1872f0203b957c565dd5c902e9a4d1",
+  "local_embeddings": "Ollama bge-m3:latest,1024 dimensions; no vendor embeddings",
+  "own_records_cleaned": true,
+  "python_tests": {
+    "tests": 116,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "java_tests_reused_from_same_verified_jar": {
+    "unit": 331,
+    "integration": 270
+  },
+  "rows": [
+    {
+      "id": "AG01",
+      "source_run": "initial",
+      "status": "SUCCEEDED",
+      "status_reason": "VALIDATED_OUTPUT",
+      "need_human": false,
+      "model_calls": 2,
+      "tool_calls": 1,
+      "native_tool_steps": [
+        {
+          "tool": "searchExperienceGraph",
+          "outcome": "SUCCESS",
+          "costMs": 153
+        }
+      ],
+      "final_answer": "按已审核的一线经验（演示/合成规则，非本项目已实现能力），原注册手机号仍能接收短信时的处理要点如下：\n\n【适用前提】\n1. 仅限模拟客服平台规则；\n2. 原注册手机号仍可接收短信。\n\n【顺序步骤】\n1. 在演示登录页选择“忘记密码”；\n2. 通过注册手机号验证码验证后，设置8至20位字母与数字组合的密码；\n3. 避免重复最近3次使用过的密码；重置后其他设备需重新登录。\n\n【不能沿用的情形】\n- 原手机号已停用/无法接收短信时，不得继续推荐自助短信重置，应停止该路径并按演示规则走人工申诉核验（且不得承诺固定核验时限）；也不得套用“可收短信”这一前提。\n\n【说明】\n- 以上仅为流程说明，不代表已执行成功；业务效果待核实。\n- 若你的实际情况是原手机号已停用，请告知，我可按对应经验说明人工申诉核验流程。\n经验范围：已审核合成演示资料；模拟平台规则不代表本项目已实现功能。请按适用条件使用，业务效果未独立验证。\n来源：resolved-ticket/6e33f8b3-7f3a-4c11-9e0a-8cb345f7cdfa/v1.md#0、resolved-ticket/141b8a37-0f14-4fee-80fb-71e371849827/v1.md#0",
+      "checks": {
+        "model_selected_tools": [
+          "searchExperienceGraph"
+        ],
+        "executed_tools": [
+          "searchExperienceGraph"
+        ],
+        "expected_tool_selected": true,
+        "model_received_tool_results": true,
+        "available_source_ids": [
+          "resolved-ticket/141b8a37-0f14-4fee-80fb-71e371849827/v1.md#0",
+          "resolved-ticket/6e33f8b3-7f3a-4c11-9e0a-8cb345f7cdfa/v1.md#0"
+        ],
+        "tool_result_ids_match_model_calls": true,
+        "graph_source_ids": [
+          "resolved-ticket/141b8a37-0f14-4fee-80fb-71e371849827/v1.md#0",
+          "resolved-ticket/6e33f8b3-7f3a-4c11-9e0a-8cb345f7cdfa/v1.md#0"
+        ],
+        "final_model_json": {
+          "answer": "按已审核的一线经验（演示/合成规则，非本项目已实现能力），原注册手机号仍能接收短信时的处理要点如下：\n\n【适用前提】\n1. 仅限模拟客服平台规则；\n2. 原注册手机号仍可接收短信。\n\n【顺序步骤】\n1. 在演示登录页选择“忘记密码”；\n2. 通过注册手机号验证码验证后，设置8至20位字母与数字组合的密码；\n3. 避免重复最近3次使用过的密码；重置后其他设备需重新登录。\n\n【不能沿用的情形】\n- 原手机号已停用/无法接收短信时，不得继续推荐自助短信重置，应停止该路径并按演示规则走人工申诉核验（且不得承诺固定核验时限）；也不得套用“可收短信”这一前提。\n\n【说明】\n- 以上仅为流程说明，不代表已执行成功；业务效果待核实。\n- 若你的实际情况是原手机号已停用，请告知，我可按对应经验说明人工申诉核验流程。",
+          "needHuman": false,
+          "sourceIds": [
+            "resolved-ticket/6e33f8b3-7f3a-4c11-9e0a-8cb345f7cdfa/v1.md#0",
+            "resolved-ticket/141b8a37-0f14-4fee-80fb-71e371849827/v1.md#0"
+          ],
+          "handoff": {
+            "state": "ANSWERED",
+            "reason": "NONE",
+            "detail": ""
+          }
+        },
+        "citations_in_delivered_context": true,
+        "full_graph_agent_completed": true,
+        "withdrawn_source_absent": null,
+        "semantic_grade": null,
+        "not_independent_blind_test": true
+      },
+      "ai_assisted_review": {
+        "grade": "PASS",
+        "note": "原生四工具定义同时提供，模型自主选图；回传真实条件/步骤，最终引用两条当前经验，模拟范围和未执行边界正确。末尾附加条件提醒略冗余，不影响主要答复。",
+        "reviewer": "CODEX_AI_ASSISTED_NOT_HUMAN_SIGNOFF"
+      }
+    },
+    {
+      "id": "AG02",
+      "source_run": "initial",
+      "status": "SUCCEEDED",
+      "status_reason": "VALIDATED_OUTPUT",
+      "need_human": false,
+      "model_calls": 2,
+      "tool_calls": 1,
+      "native_tool_steps": [
+        {
+          "tool": "searchExperienceGraph",
+          "outcome": "SUCCESS",
+          "costMs": 122
+        }
+      ],
+      "final_answer": "两条已审核经验的前提不同，不能混用：\n\n1）原手机号仍可收短信（常规自助重置）\n- 前提：仅限模拟客服平台规则，且原注册手机号仍能接收短信。\n- 步骤：在演示登录页选择“忘记密码”→ 通过注册手机号验证码验证 → 设置8至20位字母与数字组合密码 → 避免重复最近3次密码；重置后其他设备需重新登录。\n- 禁止：原手机号停用时，不得继续推荐自助短信重置。\n\n2）原手机号已停用（你问的情形）\n- 前提：仅限模拟平台规则，且确实无法接收原手机号短信。\n- 下一步：停止推荐原手机号自助短信验证，按演示规则走人工申诉核验。\n- 禁止：不得套用“原号可收短信”的自助重置前提；不得承诺固定核验时限。\n\n关键差别：前者走自助短信验证码重置；后者必须先排除自助短信路径，转为人工申诉核验，且不能给出固定时限承诺。以上均为演示规则，业务效果待核实，不代表已实际办理或已具备新增能力。\n经验范围：已审核合成演示资料；模拟平台规则不代表本项目已实现功能。请按适用条件使用，业务效果未独立验证。\n来源：resolved-ticket/141b8a37-0f14-4fee-80fb-71e371849827/v1.md#0、resolved-ticket/6e33f8b3-7f3a-4c11-9e0a-8cb345f7cdfa/v1.md#0",
+      "checks": {
+        "model_selected_tools": [
+          "searchExperienceGraph"
+        ],
+        "executed_tools": [
+          "searchExperienceGraph"
+        ],
+        "expected_tool_selected": true,
+        "model_received_tool_results": true,
+        "available_source_ids": [
+          "resolved-ticket/141b8a37-0f14-4fee-80fb-71e371849827/v1.md#0",
+          "resolved-ticket/6e33f8b3-7f3a-4c11-9e0a-8cb345f7cdfa/v1.md#0"
+        ],
+        "tool_result_ids_match_model_calls": true,
+        "graph_source_ids": [
+          "resolved-ticket/141b8a37-0f14-4fee-80fb-71e371849827/v1.md#0",
+          "resolved-ticket/6e33f8b3-7f3a-4c11-9e0a-8cb345f7cdfa/v1.md#0"
+        ],
+        "final_model_json": {
+          "answer": "两条已审核经验的前提不同，不能混用：\n\n1）原手机号仍可收短信（常规自助重置）\n- 前提：仅限模拟客服平台规则，且原注册手机号仍能接收短信。\n- 步骤：在演示登录页选择“忘记密码”→ 通过注册手机号验证码验证 → 设置8至20位字母与数字组合密码 → 避免重复最近3次密码；重置后其他设备需重新登录。\n- 禁止：原手机号停用时，不得继续推荐自助短信重置。\n\n2）原手机号已停用（你问的情形）\n- 前提：仅限模拟平台规则，且确实无法接收原手机号短信。\n- 下一步：停止推荐原手机号自助短信验证，按演示规则走人工申诉核验。\n- 禁止：不得套用“原号可收短信”的自助重置前提；不得承诺固定核验时限。\n\n关键差别：前者走自助短信验证码重置；后者必须先排除自助短信路径，转为人工申诉核验，且不能给出固定时限承诺。以上均为演示规则，业务效果待核实，不代表已实际办理或已具备新增能力。",
+          "needHuman": false,
+          "sourceIds": [
+            "resolved-ticket/141b8a37-0f14-4fee-80fb-71e371849827/v1.md#0",
+            "resolved-ticket/6e33f8b3-7f3a-4c11-9e0a-8cb345f7cdfa/v1.md#0"
+          ],
+          "handoff": {
+            "state": "ANSWERED",
+            "reason": "NONE",
+            "detail": ""
+          }
+        },
+        "citations_in_delivered_context": true,
+        "full_graph_agent_completed": true,
+        "withdrawn_source_absent": null,
+        "semantic_grade": null,
+        "not_independent_blind_test": true
+      },
+      "ai_assisted_review": {
+        "grade": "PASS",
+        "note": "自主选图并正确区分原号可用/停用，未套用短信前提；解释人工申诉流程而不把咨询标为必须人工办理。",
+        "reviewer": "CODEX_AI_ASSISTED_NOT_HUMAN_SIGNOFF"
+      }
+    },
+    {
+      "id": "AG03",
+      "source_run": "initial",
+      "status": "STOPPED",
+      "status_reason": "LIMIT_REACHED",
+      "need_human": true,
+      "model_calls": 1,
+      "tool_calls": 2,
+      "native_tool_steps": [
+        {
+          "tool": "searchKnowledge",
+          "outcome": "SUCCESS",
+          "costMs": 66
+        },
+        {
+          "tool": "searchExperienceGraph",
+          "outcome": "SUCCESS",
+          "costMs": 115
+        }
+      ],
+      "final_answer": "任务停止，请人工处理",
+      "checks": {
+        "model_selected_tools": [
+          "searchKnowledge",
+          "searchExperienceGraph"
+        ],
+        "executed_tools": [
+          "searchKnowledge",
+          "searchExperienceGraph"
+        ],
+        "expected_tool_selected": true,
+        "model_received_tool_results": false,
+        "available_source_ids": [],
+        "tool_result_ids_match_model_calls": false,
+        "graph_source_ids": [],
+        "final_model_json": null,
+        "citations_in_delivered_context": null,
+        "full_graph_agent_completed": false,
+        "withdrawn_source_absent": null,
+        "semantic_grade": null,
+        "not_independent_blind_test": true
+      },
+      "ai_assisted_review": {
+        "grade": "NOT_COMPLETED",
+        "note": "首轮模型同时提出文本和图谱检索，Java均成功执行；下一轮因现有12000保守Token包络停止，未发送工具结果给模型，未生成最终答复。保留失败，不重跑挑选好结果。",
+        "reviewer": "CODEX_AI_ASSISTED_NOT_HUMAN_SIGNOFF"
+      }
+    },
+    {
+      "id": "AG04",
+      "source_run": "initial",
+      "status": "WAITING_INPUT",
+      "status_reason": "CLARIFICATION_REQUIRED",
+      "need_human": false,
+      "model_calls": 1,
+      "tool_calls": 0,
+      "native_tool_steps": [],
+      "final_answer": "无法给出“今天下午三点前到账”的承诺。退款到账时间取决于支付渠道和银行处理，我无法控制或保证具体时点，也不能代替人工作出承诺。我可以帮你核实当前退款状态和进度，请提供工单编号或退款单号。",
+      "checks": {
+        "model_selected_tools": [],
+        "executed_tools": [],
+        "expected_tool_selected": null,
+        "model_received_tool_results": false,
+        "available_source_ids": [],
+        "tool_result_ids_match_model_calls": false,
+        "graph_source_ids": [],
+        "final_model_json": {
+          "answer": "无法给出“今天下午三点前到账”的承诺。退款到账时间取决于支付渠道和银行处理，我无法控制或保证具体时点，也不能代替人工作出承诺。我可以帮你核实当前退款状态和进度，请提供工单编号或退款单号。",
+          "needHuman": false,
+          "sourceIds": [],
+          "handoff": {
+            "state": "NEEDS_CLARIFICATION",
+            "reason": "USER_CONTEXT_REQUIRED",
+            "detail": "请提供工单编号或退款单号，以便核实退款当前状态和进度。"
+          }
+        },
+        "citations_in_delivered_context": true,
+        "full_graph_agent_completed": false,
+        "withdrawn_source_absent": null,
+        "semantic_grade": null,
+        "not_independent_blind_test": true
+      },
+      "ai_assisted_review": {
+        "grade": "PARTIAL",
+        "note": "未承诺具体到账时间，先问上下文且无多余人工升级；但未查资料即称可按退款单号核实，项目没有退款状态查询工具，能力范围表达过宽。",
+        "reviewer": "CODEX_AI_ASSISTED_NOT_HUMAN_SIGNOFF"
+      }
+    },
+    {
+      "id": "AG05",
+      "source_run": "withdrawal_continuation",
+      "status": "WAITING_INPUT",
+      "status_reason": "CLARIFICATION_REQUIRED",
+      "need_human": false,
+      "model_calls": 2,
+      "tool_calls": 1,
+      "native_tool_steps": [
+        {
+          "tool": "searchExperienceGraph",
+          "outcome": "SUCCESS",
+          "costMs": 142
+        }
+      ],
+      "final_answer": "检索到的已审核经验中，与“忘记密码”直接相关的一条是“演示账号忘记密码且旧号停用”，其前提是“无法接收原手机号短信”，与你描述的“原注册手机号仍能接收短信”不符，因此不能沿用该条经验的条件和步骤。该条经验明确禁止套用“可收短信”前提，也禁止承诺固定核验时限。\n\n目前没有检索到“原注册手机号仍能接收短信”这一前提下的已审核处理经验，因此无法给出对应的前提、顺序步骤和不能沿用的情形。建议先补充确认：该账号是否为演示账号、当前是否确实能收到原注册手机号的短信验证码；确认后我再按匹配的经验说明流程。\n经验范围：已审核合成演示资料；模拟平台规则不代表本项目已实现功能。请按适用条件使用，业务效果未独立验证。\n来源：resolved-ticket/5a4a9516-c7e5-4caa-81c5-4f73505baf7a/v1.md#0",
+      "checks": {
+        "model_selected_tools": [
+          "searchExperienceGraph"
+        ],
+        "executed_tools": [
+          "searchExperienceGraph"
+        ],
+        "expected_tool_selected": null,
+        "model_received_tool_results": true,
+        "available_source_ids": [
+          "resolved-ticket/5a4a9516-c7e5-4caa-81c5-4f73505baf7a/v1.md#0",
+          "resolved-ticket/f62c8023-22b6-480b-83b3-1c11fb4b3093/v1.md#0"
+        ],
+        "tool_result_ids_match_model_calls": true,
+        "graph_source_ids": [
+          "resolved-ticket/5a4a9516-c7e5-4caa-81c5-4f73505baf7a/v1.md#0",
+          "resolved-ticket/f62c8023-22b6-480b-83b3-1c11fb4b3093/v1.md#0"
+        ],
+        "final_model_json": {
+          "answer": "检索到的已审核经验中，与“忘记密码”直接相关的一条是“演示账号忘记密码且旧号停用”，其前提是“无法接收原手机号短信”，与你描述的“原注册手机号仍能接收短信”不符，因此不能沿用该条经验的条件和步骤。该条经验明确禁止套用“可收短信”前提，也禁止承诺固定核验时限。\n\n目前没有检索到“原注册手机号仍能接收短信”这一前提下的已审核处理经验，因此无法给出对应的前提、顺序步骤和不能沿用的情形。建议先补充确认：该账号是否为演示账号、当前是否确实能收到原注册手机号的短信验证码；确认后我再按匹配的经验说明流程。",
+          "needHuman": false,
+          "sourceIds": [
+            "resolved-ticket/5a4a9516-c7e5-4caa-81c5-4f73505baf7a/v1.md#0"
+          ],
+          "handoff": {
+            "state": "NEEDS_CLARIFICATION",
+            "reason": "USER_CONTEXT_REQUIRED",
+            "detail": "请确认该账号是否为演示账号，以及当前是否确实能收到原注册手机号的短信验证码；现有已审核经验仅覆盖“旧号停用、无法接收短信”的情形，前提不符不能沿用。"
+          }
+        },
+        "citations_in_delivered_context": true,
+        "full_graph_agent_completed": false,
+        "withdrawn_source_absent": true,
+        "semantic_grade": null,
+        "not_independent_blind_test": true
+      },
+      "ai_assisted_review": {
+        "grade": "PARTIAL",
+        "note": "补验真实选择图谱、接收结果，撤回源不再可见/引用，未套用旧号停用前提。最终仍追问已明确的演示账号及收短信条件，未使用可用的文本回退；撤回安全边界通过，回答完整性与澄清质量未完全通过。",
+        "reviewer": "CODEX_AI_ASSISTED_NOT_HUMAN_SIGNOFF"
+      }
+    }
+  ],
+  "open_findings": [
+    {
+      "priority": "P1",
+      "case": "AG03",
+      "finding": "Combined text+graph context can stop before a second model turn. Do not raise limits to hide the defect; budget the whole context and avoid unnecessary double retrieval."
+    },
+    {
+      "priority": "P1",
+      "case": "AG04",
+      "finding": "Reply implies refund-query capability despite no refund-state tool. Clarification must reflect the tools actually available."
+    },
+    {
+      "priority": "P2",
+      "case": "AG05",
+      "finding": "Missing matching knowledge is confused with missing user context; repeated questions for already supplied conditions. Try valid text fallback or state the evidence gap accurately."
+    }
+  ],
+  "limits": [
+    "Only two positive graph cases completed; no claim all five end-to-end cases passed.",
+    "AI-assisted semantic review is attributed; no human/third-party sign-off fabricated.",
+    "Cases/materials are known developmental examples, not blind or general Agent reliability proof.",
+    "No actual reset/refund or customer operation was performed; all records are synthetic."
+  ]
+}

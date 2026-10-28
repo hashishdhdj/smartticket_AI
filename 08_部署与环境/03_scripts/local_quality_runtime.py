@@ -22,7 +22,7 @@ TEMP = ROOT / '.tmp'
 class LocalQualityRuntime(AbstractContextManager):
     def __init__(self, java, jar, port=18083, threshold=None, chat_gateway=None, extra_submitters=0,
                  staff_experience=False, extra_handlers=0, experience_cards=False, experience_graph=False,
-                 offline_graph_fixture=None, offline_embedding_fixture=None):
+                 offline_graph_fixture=None, offline_embedding_fixture=None, real_agent_evaluation=False):
         self.java, self.jar, self.port = str(java), Path(jar), port
         if threshold is not None and not 0 < threshold < 1:
             raise ValueError('Threshold must be between zero and one')
@@ -30,7 +30,18 @@ class LocalQualityRuntime(AbstractContextManager):
         if chat_gateway is not None and not chat_gateway[0].startswith('http://127.0.0.1:'):
             raise ValueError('Evaluation chat must use a local metered gateway')
         self.chat_gateway = chat_gateway
-        if type(staff_experience) is not bool or (staff_experience and chat_gateway is not None):
+        if type(real_agent_evaluation) is not bool:
+            raise ValueError('Real Agent evaluation must be explicit')
+        if real_agent_evaluation:
+            from urllib.parse import urlsplit
+            parsed = urlsplit(chat_gateway[0]) if chat_gateway else None
+            if (not (staff_experience and experience_cards and experience_graph) or not parsed
+                    or parsed.scheme != 'http' or parsed.hostname != '127.0.0.1' or not parsed.port
+                    or parsed.path != '/chat' or parsed.username or parsed.password or parsed.query or parsed.fragment
+                    or not chat_gateway[1] or offline_graph_fixture or offline_embedding_fixture):
+                raise ValueError('Real Agent graph evaluation requires an isolated loopback metered gateway and real local embeddings')
+        self.real_agent_evaluation = real_agent_evaluation
+        if type(staff_experience) is not bool or (staff_experience and chat_gateway is not None and not real_agent_evaluation):
             raise ValueError('Staff collection smoke uses no chat gateway')
         self.staff_experience = staff_experience
         if type(experience_cards) is not bool or (experience_cards and not staff_experience):
@@ -158,7 +169,7 @@ class LocalQualityRuntime(AbstractContextManager):
                 'smartticket.experience.enabled': 'true' if self.staff_experience else 'false',
                 'smartticket.experience.cards-enabled': 'true' if self.experience_cards else 'false',
                 'smartticket.experience.graph-index-enabled': 'true' if self.experience_graph else 'false',
-                'smartticket.experience.graph-search-enabled': 'true' if self.offline_graph_fixture else 'false',
+                'smartticket.experience.graph-search-enabled': 'true' if self.offline_graph_fixture or self.real_agent_evaluation else 'false',
                 'smartticket.knowledge.scheduler-delay-ms': 1000,
                 'smartticket.vector.index-on-startup': 'false' if self.staff_experience else 'true',
                 'smartticket.vector.embedding.base-url': 'http://127.0.0.1:11434',

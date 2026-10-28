@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-28T01:25:18.239564+00:00",
+  "status": "PASS_ZERO_VENDOR_PREFLIGHT",
+  "plan_sha256": "3c023fdedced2c66cd693c2b67fc39d6cbfd9c1c8a25d9195786793d45dd6b05",
+  "jar_sha256": "5481098881899d934220b9b6eca57d04837f16f68fc31140851faa1527395441",
+  "implementation_hashes": {
+    "verify-real-agent-graph.py": "8ab0eba54714569b1ff391bbf96edcb5b6688b0ed7e90cd3a181a1309d7e9d55",
+    "agent_graph_evaluation.py": "8fc3416733d88ef9a8bff45533128b6b98d67f1c773798b3d5f75dce63b7f2c1",
+    "local_quality_runtime.py": "ba85e42920cb50faa94ab8f516483c51689ddd202a69c2b2bd6397f94719ed70",
+    "verify-graph-comparison.py": "418fa85838a0ac7e2600d60fc9f156cf22b416d980f1cd19380dd0c1203511fb",
+    "phase4_eval_runtime.py": "cb2d17d1e04689ca0d04c34e1299e9ebe77b324af11f0c59eb4a8e4ddc4afc0e",
+    "frozen_staff_seed_sha256": "d703824c44637c8d8e7900806fb4ab37baa579121b649cbfb004630258752a00"
+  },
+  "budget_before": {
+    "path": "D:\\SmartTicket-AI\\.tmp\\phase4-budget-ledger.json",
+    "sha256": "fd6ef35767c4a74932146cd2ee6790614840227ce3fd97dba587b9120cb3e744",
+    "records": 606,
+    "external_calls": 443,
+    "estimated_upper_rmb": 2.7374690800000003,
+    "authorized_rmb": 10
+  },
+  "budget_after": {
+    "path": "D:\\SmartTicket-AI\\.tmp\\phase4-budget-ledger.json",
+    "sha256": "fd6ef35767c4a74932146cd2ee6790614840227ce3fd97dba587b9120cb3e744",
+    "records": 606,
+    "external_calls": 443,
+    "estimated_upper_rmb": 2.7374690800000003,
+    "authorized_rmb": 10
+  },
+  "vendor_calls": 0,
+  "own_records_cleaned": true,
+  "mode": "OFFLINE_PROTOCOL_PREFLIGHT_NOT_REAL_MODEL",
+  "python_tests": {
+    "tests": 112,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "native_requests_validated": 10,
+  "review_sha256": "a04a8565e1a474736e77e9e09cf4fa9eb2ef80fcdd0169a3c5142e2d53206f4b",
+  "cases": [
+    {
+      "id": "AG01",
+      "status": "SUCCEEDED",
+      "protocol_requests": 2,
+      "semantic_quality_tested": false
+    },
+    {
+      "id": "AG02",
+      "status": "SUCCEEDED",
+      "protocol_requests": 2,
+      "semantic_quality_tested": false
+    },
+    {
+      "id": "AG03",
+      "status": "SUCCEEDED",
+      "protocol_requests": 2,
+      "semantic_quality_tested": false
+    },
+    {
+      "id": "AG04",
+      "status": "SUCCEEDED",
+      "protocol_requests": 2,
+      "semantic_quality_tested": false
+    },
+    {
+      "id": "AG05",
+      "status": "SUCCEEDED",
+      "protocol_requests": 2,
+      "semantic_quality_tested": false
+    }
+  ]
+}
