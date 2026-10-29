@@ -43,6 +43,30 @@ class AgentToolsTest {
     }
     @AfterEach void clear() { ActorContext.clear(); }
 
+    @Test void receptionNeverAdvertisesStaffToolsEvenForAdministrator() {
+        ActorContext.set(new ActorContext.Actor(900,"ADMIN"));
+        var names=tools.receptionDefinitions().stream().map(t->t.getToolDefinition().name()).toList();
+        assertTrue(names.contains("getTicketDetail"));assertTrue(names.contains("searchKnowledge"));
+        assertFalse(names.contains("prepareAssignTicket"));assertFalse(names.contains("getTicketLogs"));
+    }
+    @Test void receptionRejectsOtherTicketBeforeServiceAccess() {
+        assertThrows(ApiFailure.class,()->tools.executeReception("getTicketDetail","{\"ticketId\":456}","run",123));
+        verifyNoInteractions(tickets);
+    }
+    @Test void receptionRejectsOtherTicketTitleEnrichment() {
+        assertThrows(ApiFailure.class,()->tools.executeReception("searchKnowledge","{\"query\":\"工单456处理建议\"}","run",123));
+        verifyNoInteractions(tickets);verify(knowledge,never()).search(anyString());
+    }
+    @Test void receptionRejectsUnadvertisedStaffToolAtExecutionBoundary() {
+        assertThrows(ApiFailure.class,()->tools.executeReception("prepareAssignTicket","{\"ticketId\":123,\"assigneeId\":200}","run",123));
+        assertThrows(ApiFailure.class,()->tools.executeReception("getTicketLogs","{\"ticketId\":123}","run",123));
+        verifyNoInteractions(tickets);
+    }
+    @Test void receptionRetainsRegularParameterContract() {
+        assertThrows(ApiFailure.class,()->tools.executeReception("searchKnowledge","{\"query\":\"密码\",\"operatorId\":900}","run",123));
+        verify(knowledge,never()).search(anyString());
+    }
+
     private Map<?, ?> search(String q) throws Exception {
         return (Map<?, ?>) tools.execute("searchKnowledge", json.writeValueAsString(Map.of("query", q)), "run-test");
     }

@@ -103,6 +103,15 @@ public class AgentService {
     }
 
     public Run run(String text) {
+        return run(text,null);
+    }
+
+    public Run runReception(String text,long ticketId) {
+        if(ticketId<=0)throw new IllegalArgumentException("Invalid reception ticket");
+        return run(text,ticketId);
+    }
+
+    private Run run(String text,Long receptionTicket) {
         var actor = ActorContext.require();
         if (text == null || text.isBlank() || text.length() > 2000)
             throw new ApiFailure(400, 40000, "请求文本长度必须为1到2000");
@@ -124,6 +133,11 @@ public class AgentService {
                 + "用户明确要求实际办理且必须人工操作才用HUMAN_ACTION_REQUIRED/HUMAN_OPERATION_REQUIRED。"
                 + "这两种needHuman=true，detail必须写具体缺什么或需办什么，不能只写演示、未验证或泛泛转人工。"
                 + "只给建议不等于执行成功；所有权限、引用和版本限制继续有效。handoff字段为必须输出的第四个字段。"));
+        if(receptionTicket!=null)history.add(new SystemMessage(
+                "当前是客户工单自动接待，只可查询当前工单ID="+receptionTicket+"及共享知识，不能查员工日志或准备指派。"
+                +"请先用工具取得事实或知识依据，再回答；不要仅因是演示而转人工。缺客户信息先追问。"
+                +"没有退款、账户变更、短信发送等执行工具，不能声称能代查真实退款或办理这些业务。"
+                +"只提供答复，不发送外部消息、不修改工单；后端保存答复后等待客户确认，不能自行宣布解决。"));
         history.add(new UserMessage(text));
         List<Step> steps = new ArrayList<>();
         List<Object> evidence = new ArrayList<>();
@@ -149,7 +163,8 @@ public class AgentService {
                                 + config.getMaxOutputTokens();
                 if ((long) tokens + reserve > config.getMaxRunTokens()) break;
                 budget.reserve(actor.id(), reserve);
-                var definitions = repairOnly ? List.<org.springframework.ai.tool.ToolCallback>of() : tools.definitions();
+                var definitions = repairOnly ? List.<org.springframework.ai.tool.ToolCallback>of()
+                        : receptionTicket==null?tools.definitions():tools.receptionDefinitions();
                 var copy = List.copyOf(history);
                 calls++;
                 var response =
@@ -180,6 +195,10 @@ public class AgentService {
                                 }
                             }
                             incomplete = incomplete || finalAnswer.needHuman();
+                            if(receptionTicket!=null && finalAnswer.handoff().state()==HandoffDecision.State.ANSWERED
+                                    && steps.isEmpty()) {
+                                incomplete=true; finalAnswer=null; statusReason="RECEPTION_EVIDENCE_REQUIRED";
+                            }
                         } catch (HandoffDecision.Rejected invalid) {
                             if(!toolFailure && !handoffRepairUsed && calls<config.getMaxModelCalls() && System.nanoTime()<deadline) {
                                 handoffRepairUsed=true; repairOnly=true;
@@ -254,7 +273,8 @@ public class AgentService {
                     try {
                         result =
                                 bounded(
-                                        () -> tools.execute(call.name(), call.arguments(), id),
+                                        () -> receptionTicket==null?tools.execute(call.name(), call.arguments(), id)
+                                                : tools.executeReception(call.name(),call.arguments(),id,receptionTicket),
                                         deadline,
                                         actor);
                         if ("prepareAssignTicket".equals(call.name())) proposal = true;

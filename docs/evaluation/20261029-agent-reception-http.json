@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-29T09:11:55.800536+00:00",
+  "status": "PASS",
+  "vendor_calls": 0,
+  "model": "deterministic loopback protocol fixture, NOT DeepSeek quality evaluation",
+  "fixture_chat_requests": 8,
+  "jar_sha256": "4eacb2a40d4150704a84dcc46dedbd930ae80e905b0f972f669251cd576e88a4",
+  "checks": [
+    "HTTP create -> durable queue -> scheduler -> real Agent/tool protocol -> customer confirmation",
+    "clarification -> persisted customer response -> next Agent turn; no administrator approval",
+    "human handoff with trace/context -> real assignment -> automatic continuation rejected"
+  ],
+  "own_records_cleaned": true
+}

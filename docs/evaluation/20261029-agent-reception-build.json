@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "date": "2026-10-29T09:08:49.201656+00:00",
+  "vendor_calls": 0,
+  "jar_sha256": "4eacb2a40d4150704a84dcc46dedbd930ae80e905b0f972f669251cd576e88a4",
+  "source_manifest_sha256": "74364f9d04dda3209f94e4b78adf4b63cfcec78d2d9121caf2cc7579335b052f",
+  "profiles": {
+    "unit": {
+      "tests": 336,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "integration": {
+      "tests": 300,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "java_major": 17,
+  "local_build_record_not_signed_attestation": true
+}

@@ -1,0 +1,9 @@
+# Apply sql/09_agent_reception.sql before activating this profile.
+# Automatic calls require a configured provider and deployment budget, just like /api/agent/runs.
+smartticket:
+  reception:
+    enabled: true
+    async-enabled: true
+    scheduler-delay-ms: 2000
+    max-attempts: 3
+    max-turns: 6

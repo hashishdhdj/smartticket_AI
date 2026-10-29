@@ -64,6 +64,28 @@ public class AgentTools {
         return tools;
     }
 
+    /** Automatic customer reception has no staff log or assignment capability, even for an admin creator. */
+    public List<ToolCallback> receptionDefinitions() {
+        return definitions().stream().filter(t -> Set.of("getTicketDetail","searchKnowledge","searchExperienceGraph")
+                .contains(t.getToolDefinition().name())).toList();
+    }
+
+    public Object executeReception(String name,String arguments,String runId,long ticketId) throws Exception {
+        if(!Set.of("getTicketDetail","searchKnowledge","searchExperienceGraph").contains(name))throw ApiFailure.forbidden();
+        if(arguments==null || arguments.length()>4000)throw new ApiFailure(400,40000,"工具参数过长");
+        JsonNode args=json.readTree(arguments);
+        if(args==null || !args.isObject())throw new ApiFailure(400,40000,"工具参数必须是对象");
+        if("getTicketDetail".equals(name) && id(args,"ticketId")!=ticketId)throw ApiFailure.forbidden();
+        if(args.has("query") && args.get("query").isTextual()) {
+            var match=TICKET_ONLY_QUERY.matcher(args.get("query").textValue().strip());
+            if(match.matches()) {
+                String id=match.group(1)!=null?match.group(1):match.group(2);
+                if(!id.equals(Long.toString(ticketId)))throw ApiFailure.forbidden();
+            }
+        }
+        return execute(name,arguments,runId);
+    }
+
     private String schema(String field, String type) {
         return "{\"type\":\"object\",\"properties\":{\""
                 + field

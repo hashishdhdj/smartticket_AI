@@ -67,7 +67,8 @@ class ExperienceGraphIntegrationTest {
     private JdbcTemplate pg(){return (JdbcTemplate)ReflectionTestUtils.getField(vectors,"jdbcTemplate");}
     private static float[] vector(){float[] v=new float[1024];Arrays.fill(v,1f/32f);return v;}
     @BeforeEach void setup(){
-        config.setGraphIndexEnabled(true);condition="合成适用条件-"+UUID.randomUUID();
+        // Keep unique fixture text from accidentally resembling an 11-digit customer phone number.
+        config.setGraphIndexEnabled(true);condition="合成适用条件-"+UUID.randomUUID().toString().replaceAll("([0-9])","x$1x");
         when(embeddings.modelName()).thenReturn("bge-m3:latest");when(embeddings.isAvailable()).thenReturn(true);
         when(embeddings.embed(anyList())).thenAnswer(call->{assertFalse(org.springframework.transaction.support.TransactionSynchronizationManager.isActualTransactionActive());
             return EmbeddingResult.ok(List.of(vector()),1,"bge-m3:latest");});

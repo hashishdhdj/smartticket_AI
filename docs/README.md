@@ -8,6 +8,7 @@
 | 模块职责与技术取舍 | [架构导航](architecture/README.md) |
 | 接口、角色与确认操作 | [角色矩阵](../07_测试与质量/02_接口测试/阶段四_角色矩阵与接口说明.md) |
 | HTTP 状态与统一错误 | [当前错误契约](api/error-contract.md) |
+| 新工单自动Agent接待、追问、客户确认与人工接管 | [Agent优先接待](api/agent-reception.md) |
 | 解决经验审核、发布、撤回与故障重放 | [动态知识操作指南](api/dynamic-knowledge.md) |
 | 员工处理记录、结果反馈与纠正（G1） | [内部记录接口与演示](api/staff-experience.md) |
 | 经验卡、精确去重、审核版本与修订（G2） | [经验卡接口与演示](api/experience-cards.md) |

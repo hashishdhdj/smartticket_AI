@@ -228,6 +228,7 @@
                         <include>**/TicketMapperTest.java</include>
                         <include>**/AgentOpenAiProtocolTest.java</include>
                         <include>**/ReliableBackendIntegrationTest.java</include>
+                        <include>**/ReceptionIntegrationTest.java</include>
                         <include>**/KnowledgeWorkflowIntegrationTest.java</include>
                         <include>**/ExperienceIntegrationTest.java</include>
                         <include>**/ExperienceCardIntegrationTest.java</include>

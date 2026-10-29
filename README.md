@@ -2,6 +2,8 @@
 
 用于 Java 后端与 Agent 实习面试的模块化单体：工单业务、可靠异步 AI 分析、本地 RAG 和受限工具调用。
 
+**新工单 Agent 优先接待（2026-10-29）：** 新增自动排队、追问续跑、客户确认解决、人工待办与接管围栏；只读 Agent 不代客户确认、不自行执行退款等业务。先迁移 `09_agent_reception.sql`，启动时加 `-AgentReception`，详见[接待流程与接口](docs/api/agent-reception.md)。未启用接待 profile 时保留原创建与异步分类流程；下方历史评测不代表新接待流程已做真实模型质量复验。
+
 [当前分支GitHub CI](https://github.com/hashishdhdj/smartticket_AI/actions/workflows/verify.yml?query=branch%3Acodex%2Fquality-closure) · [本轮发布前核验](docs/evaluation/20261020-github-delivery.md)
 
 **快速导航：** [后端源码](06_项目源代码/ticket-service/src/main/java/com/smartticket) · [启动与配置](06_项目源代码/ticket-service/README.md) · [架构与设计](docs/architecture/README.md) · [接口与角色](07_测试与质量/02_接口测试/阶段四_角色矩阵与接口说明.md) · [测试与效果边界](docs/evaluation/README.md)

@@ -93,6 +93,7 @@ public class TicketServiceImpl implements TicketService {
 
     @Autowired(required=false) private CacheInvalidationRepository cacheInvalidations;
     @Autowired(required=false) private com.smartticket.knowledge.ResolutionRecorder resolutionRecorder;
+    @Autowired(required=false) private com.smartticket.reception.ReceptionRepository reception;
 
     private final TicketMapper ticketMapper;
 
@@ -132,7 +133,8 @@ public class TicketServiceImpl implements TicketService {
         writeLog(ticket.getId(), ticket.getCreatorId(), ACTION_CREATE,
                 null, ticket.getStatus(), "创建工单");
 
-        if(analysisTasks!=null && runtimeConfig.isRecordTasks())analysisTasks.createTask(ticket,0,null);
+        if(reception!=null && reception.enabled())reception.enroll(ticket);
+        else if(analysisTasks!=null && runtimeConfig.isRecordTasks())analysisTasks.createTask(ticket,0,null);
 
         // 回读一次再返回：MyBatis-Plus 的 insert 只回填主键，
         // 不会回填由数据库默认值生成的 created_at / updated_at，
@@ -219,6 +221,7 @@ public class TicketServiceImpl implements TicketService {
                 .set(Ticket::getTags, dto.getTags());
         requireUpdated(ticketMapper.update(null, updateWrapper));
         writeLog(id,operator(dto.getOperatorId()),"UPDATE",ticket.getStatus(),ticket.getStatus(),"更新工单字段");
+        if(reception!=null)reception.ticketChanged(id,"UPDATE");
 
         evictDetailCache(id);
 
@@ -270,6 +273,7 @@ public class TicketServiceImpl implements TicketService {
         writeLog(id, operator(dto.getOperatorId()), ACTION_ASSIGN,
                 currentStatus.name(), targetStatus.name(),
                 defaultRemark(dto.getRemark(), transfer ? "转派处理人" : "指派处理人"));
+        if(reception!=null)reception.ticketChanged(id,"ASSIGN");
 
         evictDetailCache(id);
 
@@ -293,6 +297,7 @@ public class TicketServiceImpl implements TicketService {
         writeLog(id, operator(dto.getOperatorId()), ACTION_CLOSE,
                 currentStatus.name(), TicketStatus.CLOSED.name(),
                 defaultRemark(dto.getRemark(), "关闭工单"));
+        if(reception!=null)reception.ticketChanged(id,"CLOSE");
 
         evictDetailCache(id);
 
@@ -316,6 +321,7 @@ public class TicketServiceImpl implements TicketService {
         writeLog(id, operator(dto.getOperatorId()), ACTION_RESOLVE,
                 currentStatus.name(), TicketStatus.RESOLVED.name(),
                 defaultRemark(dto.getRemark(), "处理完毕，已解决"));
+        if(reception!=null)reception.ticketChanged(id,"RESOLVE");
 
         if (dto.getSolution() != null) {
             if (resolutionRecorder == null) throw new IllegalStateException("Resolution workflow not assembled");

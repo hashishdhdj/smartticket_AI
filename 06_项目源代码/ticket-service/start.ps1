@@ -1,4 +1,4 @@
-﻿param([ValidateSet('offline-demo','local-rag','real-model')][string]$Mode='offline-demo', [ValidateRange(1,65535)][int]$Port=8080, [ValidateRange(1,600)][int]$HealthTimeoutSeconds=120, [switch]$Offline, [switch]$CheckOnly, [ValidateSet('configured','siliconflow','ollama')][string]$EmbeddingProvider='configured', [switch]$ReindexKnowledge)
+﻿param([ValidateSet('offline-demo','local-rag','real-model')][string]$Mode='offline-demo', [ValidateRange(1,65535)][int]$Port=8080, [ValidateRange(1,600)][int]$HealthTimeoutSeconds=120, [switch]$Offline, [switch]$CheckOnly, [ValidateSet('configured','siliconflow','ollama')][string]$EmbeddingProvider='configured', [switch]$ReindexKnowledge, [switch]$AgentReception)
 $ErrorActionPreference='Stop'
 if($Mode -eq 'local-rag' -and $EmbeddingProvider -ne 'ollama'){throw 'local-rag mode requires -EmbeddingProvider ollama.'}
 if($ReindexKnowledge -and $Mode -eq 'offline-demo'){throw 'Indexing requires local-rag or real-model mode.'}
@@ -38,7 +38,10 @@ if($EmbeddingProvider -eq 'ollama' -and $Mode -ne 'offline-demo'){
 $ticketArgs=@("-Dspring-boot.run.jvmArguments=-Djava.io.tmpdir=$ticketTemp -Djdk.net.unixdomain.tmpdir=$ticketTemp")
 if($Offline){$ticketArgs+='-o'}
 $ticketApplicationArgs="--server.port=$Port --smartticket.vector.index-on-startup=$($ReindexKnowledge.IsPresent.ToString().ToLowerInvariant())"
-if($EmbeddingProvider -in @('siliconflow','ollama')){$ticketApplicationArgs+=" --spring.profiles.active=local,$EmbeddingProvider"}
+$ticketProfiles=@('local')
+if($EmbeddingProvider -in @('siliconflow','ollama')){$ticketProfiles+=$EmbeddingProvider}
+if($AgentReception){$ticketProfiles+='reception';Write-Host 'Agent-first reception enabled for new tickets. Apply sql/09_agent_reception.sql first; answers await customer confirmation.'}
+if($ticketProfiles.Count -gt 1){$ticketApplicationArgs+=" --spring.profiles.active=$($ticketProfiles -join ',')"}
 if($Mode -eq 'offline-demo'){$ticketApplicationArgs+=' --smartticket.ai.enabled=false --spring.ai.openai.api-key=not-configured --smartticket.vector.embedding.api-key=not-configured'}
 elseif($Mode -eq 'local-rag'){
     $ticketApplicationArgs+=' --smartticket.ai.enabled=false --spring.ai.openai.api-key=not-configured --smartticket.phase3.async-enabled=false'

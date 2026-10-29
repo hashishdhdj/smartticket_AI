@@ -51,6 +51,7 @@ jobs:
           cache-dependency-path: '06_项目源代码/ticket-service/pom.xml'
       - run: python3 '08_部署与环境/03_scripts/prepare-phase4.py'
       - run: python3 '08_部署与环境/03_scripts/build-quality-artifact.py'
+      - run: python3 '08_部署与环境/03_scripts/verify-agent-reception.py' --java "$JAVA_HOME/bin/java"
       # Real HTTP + MySQL/PG/RabbitMQ. Dialogue and embeddings are local protocol
       # fixtures here: no model downloads, paid endpoints or claimed BGE accuracy.
       - run: python3 '08_部署与环境/03_scripts/verify-graph-comparison.py' --offline-embedding --java "$JAVA_HOME/bin/java"
@@ -68,6 +69,13 @@ jobs:
         with:
           name: integration-reports
           path: '06_项目源代码/ticket-service/target/surefire-reports/'
+          retention-days: 7
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: agent-reception-offline-smoke
+          path: .tmp/reception-http-smoke.json
+          include-hidden-files: true
           retention-days: 7
       - uses: actions/upload-artifact@v7
         with:

@@ -22,11 +22,15 @@ TEMP = ROOT / '.tmp'
 class LocalQualityRuntime(AbstractContextManager):
     def __init__(self, java, jar, port=18083, threshold=None, chat_gateway=None, extra_submitters=0,
                  staff_experience=False, extra_handlers=0, experience_cards=False, experience_graph=False,
-                 offline_graph_fixture=None, offline_embedding_fixture=None, real_agent_evaluation=False):
+                 offline_graph_fixture=None, offline_embedding_fixture=None, real_agent_evaluation=False,
+                 agent_reception=False):
         self.java, self.jar, self.port = str(java), Path(jar), port
         if threshold is not None and not 0 < threshold < 1:
             raise ValueError('Threshold must be between zero and one')
         self.threshold = threshold
+        if type(agent_reception) is not bool:
+            raise ValueError('Agent reception must be explicit')
+        self.agent_reception = agent_reception
         if chat_gateway is not None and not chat_gateway[0].startswith('http://127.0.0.1:'):
             raise ValueError('Evaluation chat must use a local metered gateway')
         self.chat_gateway = chat_gateway
@@ -41,7 +45,7 @@ class LocalQualityRuntime(AbstractContextManager):
                     or not chat_gateway[1] or offline_graph_fixture or offline_embedding_fixture):
                 raise ValueError('Real Agent graph evaluation requires an isolated loopback metered gateway and real local embeddings')
         self.real_agent_evaluation = real_agent_evaluation
-        if type(staff_experience) is not bool or (staff_experience and chat_gateway is not None and not real_agent_evaluation):
+        if type(staff_experience) is not bool or (staff_experience and chat_gateway is not None and not (real_agent_evaluation or agent_reception)):
             raise ValueError('Staff collection smoke uses no chat gateway')
         self.staff_experience = staff_experience
         if type(experience_cards) is not bool or (experience_cards and not staff_experience):
@@ -164,6 +168,8 @@ class LocalQualityRuntime(AbstractContextManager):
                 'spring.ai.openai.api-key': 'not-configured', 'spring.ai.openai.base-url': 'http://127.0.0.1:9',
                 'smartticket.ai.enabled': 'false', 'smartticket.phase3.security-enabled': 'true',
                 'smartticket.phase3.record-tasks': 'false', 'smartticket.phase3.async-enabled': 'false',
+                'smartticket.reception.enabled': 'true' if self.agent_reception else 'false',
+                'smartticket.reception.scheduler-delay-ms': 200,
                 'smartticket.knowledge.enabled': 'true',
                 'smartticket.knowledge.async-enabled': 'false' if self.staff_experience and not self.experience_cards else 'true',
                 'smartticket.experience.enabled': 'true' if self.staff_experience else 'false',
@@ -264,6 +270,9 @@ class LocalQualityRuntime(AbstractContextManager):
                         self.graph_nodes_touched.update((row['from_node'], row['to_node']))
                 self.sql('pgvector', f"DELETE FROM knowledge_chunk WHERE source_file LIKE 'resolved-ticket/{value}/%';"
                          f"DELETE FROM knowledge_publication WHERE candidate_id='{value}';")
+            if self.agent_reception:
+                self.sql('mysql', f'DELETE FROM ticket_reception_message WHERE ticket_id IN (SELECT id FROM ticket WHERE creator_id IN ({actors}));'
+                    f'DELETE FROM ticket_reception WHERE ticket_id IN (SELECT id FROM ticket WHERE creator_id IN ({actors}));')
             self.sql('mysql', f'DELETE FROM cache_invalidation WHERE ticket_id IN (SELECT id FROM ticket WHERE creator_id IN ({actors}));'
                 f'DELETE FROM outbox_event WHERE task_id IN (SELECT task_id FROM ai_analysis_task WHERE ticket_id IN (SELECT id FROM ticket WHERE creator_id IN ({actors})));'
                 f'DELETE FROM ai_analysis_result WHERE task_id IN (SELECT task_id FROM ai_analysis_task WHERE ticket_id IN (SELECT id FROM ticket WHERE creator_id IN ({actors})));'
